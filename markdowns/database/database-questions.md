@@ -10,107 +10,107 @@
 
 ## Table of Contents
 
-1. [How do you optimize a slow SQL query that involves multiple joins and large tables?](#q1-how-do-you-optimize-a-slow-sql-query-that-involves-multiple-joins-and-large-tables) <span class="intermediate">Intermediate</span>
-2. [How do you handle database migrations for a high-traffic application with zero downtime?](#q2-how-do-you-handle-database-migrations-for-a-high-traffic-application-with-zero-downtime) <span class="intermediate">Intermediate</span>
-3. [How do you prevent SQL Injection vulnerabilities in a raw SQL query?](#q3-how-do-you-prevent-sql-injection-vulnerabilities-in-a-raw-sql-query) <span class="intermediate">Intermediate</span>
-4. [How do you design a schema for a 'Many-to-Many' relationship?](#q4-how-do-you-design-a-schema-for-a-many-to-many-relationship) <span class="intermediate">Intermediate</span>
-5. [How do you choose between embedding documents and referencing them in MongoDB?](#q5-how-do-you-choose-between-embedding-documents-and-referencing-them-in-mongodb) <span class="intermediate">Intermediate</span>
-6. [How do you resolve the N+1 query problem?](#q6-how-do-you-resolve-the-n1-query-problem) <span class="intermediate">Intermediate</span>
-7. [How do you use Window Functions to find the top 3 salaries per department?](#q7-how-do-you-use-window-functions-to-find-the-top-3-salaries-per-department) <span class="intermediate">Intermediate</span>
-8. [How do you implement optimistic locking to handle concurrent updates?](#q8-how-do-you-implement-optimistic-locking-to-handle-concurrent-updates) <span class="intermediate">Intermediate</span>
-9. [How do you ensure data consistency across microservices (Distributed Transaction)?](#q9-how-do-you-ensure-data-consistency-across-microservices-distributed-transaction) <span class="intermediate">Intermediate</span>
-10. [How do you use a Redis cache to implement the 'Cache-Aside' pattern?](#q10-how-do-you-use-a-redis-cache-to-implement-the-cache-aside-pattern) <span class="intermediate">Intermediate</span>
-11. [How do you structure a composite index to optimize a query with equality and range filters?](#q11-how-do-you-structure-a-composite-index-to-optimize-a-query-with-equality-and-range-filters) <span class="intermediate">Intermediate</span>
-12. [How do you handle 'Soft Deletes' to preserve data history?](#q12-how-do-you-handle-soft-deletes-to-preserve-data-history) <span class="intermediate">Intermediate</span>
-13. [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#q13-how-do-you-optimize-database-writes-for-a-high-ingestion-system-eg-logs) <span class="intermediate">Intermediate</span>
-14. [How do you use Common Table Expressions (CTEs) to simplify complex logic?](#q14-how-do-you-use-common-table-expressions-ctes-to-simplify-complex-logic) <span class="intermediate">Intermediate</span>
-15. [How do you maintain ACID properties in a database transaction?](#q15-how-do-you-maintain-acid-properties-in-a-database-transaction) <span class="intermediate">Intermediate</span>
-16. [How do you create a Materialized View and refresh it concurrently?](#q16-how-do-you-create-a-materialized-view-and-refresh-it-concurrently) <span class="intermediate">Intermediate</span>
-17. [How do you implement an audit log using Database Triggers?](#q17-how-do-you-implement-an-audit-log-using-database-triggers) <span class="advanced">Advanced</span>
-18. [How do you query JSONB data efficiently in PostgreSQL?](#q18-how-do-you-query-jsonb-data-efficiently-in-postgresql) <span class="intermediate">Intermediate</span>
-19. [How do you perform an Upsert (Insert or Update) in SQL?](#q19-how-do-you-perform-an-upsert-insert-or-update-in-sql) <span class="beginner">Beginner</span>
-20. [How do you use Recursive CTEs to query hierarchical data?](#q20-how-do-you-use-recursive-ctes-to-query-hierarchical-data) <span class="advanced">Advanced</span>
-21. [How do you use Window Functions to calculate running totals?](#q21-how-do-you-use-window-functions-to-calculate-running-totals) <span class="intermediate">Intermediate</span>
-22. [How do you analyze query performance using EXPLAIN ANALYZE?](#q22-how-do-you-analyze-query-performance-using-explain-analyze) <span class="intermediate">Intermediate</span>
-23. [How do you choose between UUID and Integer for Primary Keys?](#q23-how-do-you-choose-between-uuid-and-integer-for-primary-keys) <span class="intermediate">Intermediate</span>
-24. [How do you prevent Deadlocks in database transactions?](#q24-how-do-you-prevent-deadlocks-in-database-transactions) <span class="advanced">Advanced</span>
-25. [How do you use Full-Text Search in PostgreSQL without ElasticSearch?](#q25-how-do-you-use-full-text-search-in-postgresql-without-elasticsearch) <span class="advanced">Advanced</span>
-26. [How do you handle transaction isolation levels?](#q26-how-do-you-handle-transaction-isolation-levels) <span class="advanced">Advanced</span>
-27. [How do you partition a large table by date?](#q27-how-do-you-partition-a-large-table-by-date) <span class="advanced">Advanced</span>
-28. [How do you implement Database Sharding and when should you use it?](#q28-how-do-you-implement-database-sharding-and-when-should-you-use-it) <span class="advanced">Advanced</span>
-29. [How do you prevent Phantom Reads in a transaction?](#q29-how-do-you-prevent-phantom-reads-in-a-transaction) <span class="advanced">Advanced</span>
-30. [How do you optimize a query using a Covering Index?](#q30-how-do-you-optimize-a-query-using-a-covering-index) <span class="intermediate">Intermediate</span>
-31. [How do you handle 'Dirty Reads' and which isolation level prevents them?](#q31-how-do-you-handle-dirty-reads-and-which-isolation-level-prevents-them) <span class="intermediate">Intermediate</span>
-32. [How do you implement connection pooling in a Node.js application?](#q32-how-do-you-implement-connection-pooling-in-a-nodejs-application) <span class="intermediate">Intermediate</span>
-33. [How do you model a tree structure (Hierarchy) in a Relational Database?](#q33-how-do-you-model-a-tree-structure-hierarchy-in-a-relational-database) <span class="advanced">Advanced</span>
-34. [How do you use JSON columns in PostgreSQL vs MySQL?](#q34-how-do-you-use-json-columns-in-postgresql-vs-mysql) <span class="intermediate">Intermediate</span>
-35. [How do you implement Row-Level Security (RLS)?](#q35-how-do-you-implement-row-level-security-rls) <span class="advanced">Advanced</span>
-36. [How do you use a Materialized View for reporting?](#q36-how-do-you-use-a-materialized-view-for-reporting) <span class="intermediate">Intermediate</span>
-37. [How do you generate unique IDs in a distributed system (Snowflake ID)?](#q37-how-do-you-generate-unique-ids-in-a-distributed-system-snowflake-id) <span class="advanced">Advanced</span>
-38. [How do you use Foreign Data Wrappers (FDW) in PostgreSQL?](#q38-how-do-you-use-foreign-data-wrappers-fdw-in-postgresql) <span class="advanced">Advanced</span>
-39. [How do you optimize a `LIKE` query with wildcards at the beginning?](#q39-how-do-you-optimize-a-like-query-with-wildcards-at-the-beginning) <span class="intermediate">Intermediate</span>
-40. [How do you use the `CASE` statement for conditional logic in SQL?](#q40-how-do-you-use-the-case-statement-for-conditional-logic-in-sql) <span class="beginner">Beginner</span>
-41. [How do you implement Database Replication (Master-Slave)?](#q41-how-do-you-implement-database-replication-master-slave) <span class="advanced">Advanced</span>
-42. [How do you perform a Batch Insert efficiently?](#q42-how-do-you-perform-a-batch-insert-efficiently) <span class="intermediate">Intermediate</span>
-43. [How do you use `GROUPING SETS` for multi-level aggregation?](#q43-how-do-you-use-grouping-sets-for-multi-level-aggregation) <span class="advanced">Advanced</span>
-44. [How do you store and query time-series data efficiently?](#q44-how-do-you-store-and-query-time-series-data-efficiently) <span class="intermediate">Intermediate</span>
-45. [How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?](#q45-how-do-you-handle-nosql-data-modeling-in-dynamodb-single-table-design) <span class="advanced">Advanced</span>
-46. [How do you identify and remove duplicate rows from a table?](#q46-how-do-you-identify-and-remove-duplicate-rows-from-a-table) <span class="intermediate">Intermediate</span>
-47. [What is ACID?](#q47-what-is-acid) <span class="beginner">Beginner</span>
-48. [What is Indexing?](#q48-what-is-indexing) <span class="beginner">Beginner</span>
-49. [Types of Indexes?](#q49-types-of-indexes) <span class="intermediate">Intermediate</span>
-50. [What is Normalization?](#q50-what-is-normalization) <span class="intermediate">Intermediate</span>
-51. [What is Denormalization?](#q51-what-is-denormalization) <span class="intermediate">Intermediate</span>
-52. [Inner Join vs Outer Join?](#q52-inner-join-vs-outer-join) <span class="beginner">Beginner</span>
-53. [What is a View?](#q53-what-is-a-view) <span class="beginner">Beginner</span>
-54. [What is a Stored Procedure?](#q54-what-is-a-stored-procedure) <span class="intermediate">Intermediate</span>
-55. [What is a Trigger?](#q55-what-is-a-trigger) <span class="intermediate">Intermediate</span>
-56. [SQL vs NoSQL?](#q56-sql-vs-nosql) <span class="beginner">Beginner</span>
-57. [What is Sharding?](#q57-what-is-sharding) <span class="advanced">Advanced</span>
-58. [What is Replication?](#q58-what-is-replication) <span class="intermediate">Intermediate</span>
-59. [What is CAP Theorem?](#q59-what-is-cap-theorem) <span class="intermediate">Intermediate</span>
-60. [What is eventual consistency?](#q60-what-is-eventual-consistency) <span class="intermediate">Intermediate</span>
-61. [What is a Transaction?](#q61-what-is-a-transaction) <span class="beginner">Beginner</span>
-62. [Isolation Levels?](#q62-isolation-levels) <span class="advanced">Advanced</span>
-63. [What is Deadlock?](#q63-what-is-deadlock) <span class="intermediate">Intermediate</span>
-64. [Optimistic vs Pessimistic Locking?](#q64-optimistic-vs-pessimistic-locking) <span class="advanced">Advanced</span>
-65. [What is Connection Pooling?](#q65-what-is-connection-pooling) <span class="intermediate">Intermediate</span>
-66. [What is an ORM?](#q66-what-is-an-orm) <span class="beginner">Beginner</span>
-67. [N+1 Problem in DB?](#q67-n1-problem-in-db) <span class="intermediate">Intermediate</span>
-68. [What is MongoDB?](#q68-what-is-mongodb) <span class="beginner">Beginner</span>
-69. [What is Redis?](#q69-what-is-redis) <span class="beginner">Beginner</span>
-70. [What is Cassandra?](#q70-what-is-cassandra) <span class="advanced">Advanced</span>
-71. [What is a Primary Key?](#q71-what-is-a-primary-key) <span class="beginner">Beginner</span>
-72. [What is a Foreign Key?](#q72-what-is-a-foreign-key) <span class="beginner">Beginner</span>
-73. [What is Database Migration?](#q73-what-is-database-migration) <span class="intermediate">Intermediate</span>
-74. [How to optimize a slow query?](#q74-how-to-optimize-a-slow-query) <span class="intermediate">Intermediate</span>
-75. [What is SQL Injection?](#q75-what-is-sql-injection) <span class="beginner">Beginner</span>
-76. [What is a Cursor?](#q76-what-is-a-cursor) <span class="intermediate">Intermediate</span>
-77. [What is ETL?](#q77-what-is-etl) <span class="intermediate">Intermediate</span>
-78. [OLTP vs OLAP?](#q78-oltp-vs-olap) <span class="advanced">Advanced</span>
-79. [What is a Time Series DB?](#q79-what-is-a-time-series-db) <span class="intermediate">Intermediate</span>
-80. [What is Graph DB?](#q80-what-is-graph-db) <span class="intermediate">Intermediate</span>
-81. [What is Partitioning?](#q81-what-is-partitioning) <span class="advanced">Advanced</span>
-82. [What is MVCC?](#q82-what-is-mvcc) <span class="advanced">Advanced</span>
-83. [What is Write-Ahead Logging (WAL)?](#q83-what-is-write-ahead-logging-wal) <span class="advanced">Advanced</span>
-84. [What is a Materialized View?](#q84-what-is-a-materialized-view) <span class="intermediate">Intermediate</span>
-85. [What is Soft Delete?](#q85-what-is-soft-delete) <span class="beginner">Beginner</span>
-86. [What is Database Mirroring?](#q86-what-is-database-mirroring) <span class="advanced">Advanced</span>
-87. [Row-oriented vs Column-oriented storage?](#q87-row-oriented-vs-column-oriented-storage) <span class="advanced">Advanced</span>
-88. [What is a Composite Key?](#q88-what-is-a-composite-key) <span class="intermediate">Intermediate</span>
-89. [What is a Surrogate Key?](#q89-what-is-a-surrogate-key) <span class="intermediate">Intermediate</span>
-90. [What is Referential Integrity?](#q90-what-is-referential-integrity) <span class="beginner">Beginner</span>
-91. [What is a Bloom Filter in DB?](#q91-what-is-a-bloom-filter-in-db) <span class="advanced">Advanced</span>
-92. [What is Two-Phase Commit (2PC)?](#q92-what-is-two-phase-commit-2pc) <span class="advanced">Advanced</span>
-93. [What is CDC (Change Data Capture)?](#q93-what-is-cdc-change-data-capture) <span class="advanced">Advanced</span>
-94. [What is Vacuuming?](#q94-what-is-vacuuming) <span class="intermediate">Intermediate</span>
-95. [What is a Clustered Index?](#q95-what-is-a-clustered-index) <span class="advanced">Advanced</span>
-96. [What is a Non-Clustered Index?](#q96-what-is-a-non-clustered-index) <span class="advanced">Advanced</span>
-97. [What is Database Sharding vs Partitioning?](#q97-what-is-database-sharding-vs-partitioning) <span class="advanced">Advanced</span>
-98. [What is a Spatial Index?](#q98-what-is-a-spatial-index) <span class="intermediate">Intermediate</span>
-99. [What is Full-Text Search?](#q99-what-is-full-text-search) <span class="intermediate">Intermediate</span>
-100. [What is B-Tree?](#q100-what-is-b-tree) <span class="advanced">Advanced</span>
-101. [What is Hash Index?](#q101-what-is-hash-index) <span class="advanced">Advanced</span>
+1. [How do you optimize a slow SQL query that involves multiple joins and large tables?](#q1) <span class="intermediate">Intermediate</span>
+2. [How do you handle database migrations for a high-traffic application with zero downtime?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do you prevent SQL Injection vulnerabilities in a raw SQL query?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you design a schema for a 'Many-to-Many' relationship?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you choose between embedding documents and referencing them in MongoDB?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you resolve the N+1 query problem?](#q6) <span class="intermediate">Intermediate</span>
+7. [How do you use Window Functions to find the top 3 salaries per department?](#q7) <span class="intermediate">Intermediate</span>
+8. [How do you implement optimistic locking to handle concurrent updates?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you ensure data consistency across microservices (Distributed Transaction)?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you use a Redis cache to implement the 'Cache-Aside' pattern?](#q10) <span class="intermediate">Intermediate</span>
+11. [How do you structure a composite index to optimize a query with equality and range filters?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you handle 'Soft Deletes' to preserve data history?](#q12) <span class="intermediate">Intermediate</span>
+13. [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you use Common Table Expressions (CTEs) to simplify complex logic?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you maintain ACID properties in a database transaction?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you create a Materialized View and refresh it concurrently?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you implement an audit log using Database Triggers?](#q17) <span class="advanced">Advanced</span>
+18. [How do you query JSONB data efficiently in PostgreSQL?](#q18) <span class="intermediate">Intermediate</span>
+19. [How do you perform an Upsert (Insert or Update) in SQL?](#q19) <span class="beginner">Beginner</span>
+20. [How do you use Recursive CTEs to query hierarchical data?](#q20) <span class="advanced">Advanced</span>
+21. [How do you use Window Functions to calculate running totals?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you analyze query performance using EXPLAIN ANALYZE?](#q22) <span class="intermediate">Intermediate</span>
+23. [How do you choose between UUID and Integer for Primary Keys?](#q23) <span class="intermediate">Intermediate</span>
+24. [How do you prevent Deadlocks in database transactions?](#q24) <span class="advanced">Advanced</span>
+25. [How do you use Full-Text Search in PostgreSQL without ElasticSearch?](#q25) <span class="advanced">Advanced</span>
+26. [How do you handle transaction isolation levels?](#q26) <span class="advanced">Advanced</span>
+27. [How do you partition a large table by date?](#q27) <span class="advanced">Advanced</span>
+28. [How do you implement Database Sharding and when should you use it?](#q28) <span class="advanced">Advanced</span>
+29. [How do you prevent Phantom Reads in a transaction?](#q29) <span class="advanced">Advanced</span>
+30. [How do you optimize a query using a Covering Index?](#q30) <span class="intermediate">Intermediate</span>
+31. [How do you handle 'Dirty Reads' and which isolation level prevents them?](#q31) <span class="intermediate">Intermediate</span>
+32. [How do you implement connection pooling in a Node.js application?](#q32) <span class="intermediate">Intermediate</span>
+33. [How do you model a tree structure (Hierarchy) in a Relational Database?](#q33) <span class="advanced">Advanced</span>
+34. [How do you use JSON columns in PostgreSQL vs MySQL?](#q34) <span class="intermediate">Intermediate</span>
+35. [How do you implement Row-Level Security (RLS)?](#q35) <span class="advanced">Advanced</span>
+36. [How do you use a Materialized View for reporting?](#q36) <span class="intermediate">Intermediate</span>
+37. [How do you generate unique IDs in a distributed system (Snowflake ID)?](#q37) <span class="advanced">Advanced</span>
+38. [How do you use Foreign Data Wrappers (FDW) in PostgreSQL?](#q38) <span class="advanced">Advanced</span>
+39. [How do you optimize a `LIKE` query with wildcards at the beginning?](#q39) <span class="intermediate">Intermediate</span>
+40. [How do you use the `CASE` statement for conditional logic in SQL?](#q40) <span class="beginner">Beginner</span>
+41. [How do you implement Database Replication (Master-Slave)?](#q41) <span class="advanced">Advanced</span>
+42. [How do you perform a Batch Insert efficiently?](#q42) <span class="intermediate">Intermediate</span>
+43. [How do you use `GROUPING SETS` for multi-level aggregation?](#q43) <span class="advanced">Advanced</span>
+44. [How do you store and query time-series data efficiently?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?](#q45) <span class="advanced">Advanced</span>
+46. [How do you identify and remove duplicate rows from a table?](#q46) <span class="intermediate">Intermediate</span>
+47. [What is ACID?](#q47) <span class="beginner">Beginner</span>
+48. [What is Indexing?](#q48) <span class="beginner">Beginner</span>
+49. [Types of Indexes?](#q49) <span class="intermediate">Intermediate</span>
+50. [What is Normalization?](#q50) <span class="intermediate">Intermediate</span>
+51. [What is Denormalization?](#q51) <span class="intermediate">Intermediate</span>
+52. [Inner Join vs Outer Join?](#q52) <span class="beginner">Beginner</span>
+53. [What is a View?](#q53) <span class="beginner">Beginner</span>
+54. [What is a Stored Procedure?](#q54) <span class="intermediate">Intermediate</span>
+55. [What is a Trigger?](#q55) <span class="intermediate">Intermediate</span>
+56. [SQL vs NoSQL?](#q56) <span class="beginner">Beginner</span>
+57. [What is Sharding?](#q57) <span class="advanced">Advanced</span>
+58. [What is Replication?](#q58) <span class="intermediate">Intermediate</span>
+59. [What is CAP Theorem?](#q59) <span class="intermediate">Intermediate</span>
+60. [What is eventual consistency?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is a Transaction?](#q61) <span class="beginner">Beginner</span>
+62. [Isolation Levels?](#q62) <span class="advanced">Advanced</span>
+63. [What is Deadlock?](#q63) <span class="intermediate">Intermediate</span>
+64. [Optimistic vs Pessimistic Locking?](#q64) <span class="advanced">Advanced</span>
+65. [What is Connection Pooling?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is an ORM?](#q66) <span class="beginner">Beginner</span>
+67. [N+1 Problem in DB?](#q67) <span class="intermediate">Intermediate</span>
+68. [What is MongoDB?](#q68) <span class="beginner">Beginner</span>
+69. [What is Redis?](#q69) <span class="beginner">Beginner</span>
+70. [What is Cassandra?](#q70) <span class="advanced">Advanced</span>
+71. [What is a Primary Key?](#q71) <span class="beginner">Beginner</span>
+72. [What is a Foreign Key?](#q72) <span class="beginner">Beginner</span>
+73. [What is Database Migration?](#q73) <span class="intermediate">Intermediate</span>
+74. [How to optimize a slow query?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is SQL Injection?](#q75) <span class="beginner">Beginner</span>
+76. [What is a Cursor?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is ETL?](#q77) <span class="intermediate">Intermediate</span>
+78. [OLTP vs OLAP?](#q78) <span class="advanced">Advanced</span>
+79. [What is a Time Series DB?](#q79) <span class="intermediate">Intermediate</span>
+80. [What is Graph DB?](#q80) <span class="intermediate">Intermediate</span>
+81. [What is Partitioning?](#q81) <span class="advanced">Advanced</span>
+82. [What is MVCC?](#q82) <span class="advanced">Advanced</span>
+83. [What is Write-Ahead Logging (WAL)?](#q83) <span class="advanced">Advanced</span>
+84. [What is a Materialized View?](#q84) <span class="intermediate">Intermediate</span>
+85. [What is Soft Delete?](#q85) <span class="beginner">Beginner</span>
+86. [What is Database Mirroring?](#q86) <span class="advanced">Advanced</span>
+87. [Row-oriented vs Column-oriented storage?](#q87) <span class="advanced">Advanced</span>
+88. [What is a Composite Key?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is a Surrogate Key?](#q89) <span class="intermediate">Intermediate</span>
+90. [What is Referential Integrity?](#q90) <span class="beginner">Beginner</span>
+91. [What is a Bloom Filter in DB?](#q91) <span class="advanced">Advanced</span>
+92. [What is Two-Phase Commit (2PC)?](#q92) <span class="advanced">Advanced</span>
+93. [What is CDC (Change Data Capture)?](#q93) <span class="advanced">Advanced</span>
+94. [What is Vacuuming?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is a Clustered Index?](#q95) <span class="advanced">Advanced</span>
+96. [What is a Non-Clustered Index?](#q96) <span class="advanced">Advanced</span>
+97. [What is Database Sharding vs Partitioning?](#q97) <span class="advanced">Advanced</span>
+98. [What is a Spatial Index?](#q98) <span class="intermediate">Intermediate</span>
+99. [What is Full-Text Search?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is B-Tree?](#q100) <span class="advanced">Advanced</span>
+101. [What is Hash Index?](#q101) <span class="advanced">Advanced</span>
 
 ---
 
@@ -119,14 +119,15 @@
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 1. **Analyze Execution Plan:** Use `EXPLAIN ANALYZE` to identify bottlenecks (sequential scans, high cost loops).
 2. **Indexing:** Ensure foreign keys and columns used in `WHERE`, `JOIN`, and `ORDER BY` clauses are indexed.
 3. **Selectivity:** Filter data as early as possible to reduce the working set.
 4. **Avoid `SELECT *`:** Fetch only necessary columns to reduce I/O.
 5. **Join Type:** Check if the optimizer is choosing the right join type (Nested Loop vs Hash Join vs Merge Join).
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Bad Query
 SELECT * FROM orders o
@@ -145,8 +146,6 @@ INNER JOIN products p ON o.product_id = p.id
 WHERE o.created_at > '2023-01-01';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -154,7 +153,8 @@ WHERE o.created_at > '2023-01-01';
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Schema changes must be backward-compatible.
 1. **Add Column:** Add new column as nullable (or with default). Code ignores it.
 2. **Dual Write:** Deploy code that writes to both old and new columns/tables.
@@ -162,7 +162,7 @@ Schema changes must be backward-compatible.
 4. **Switch Read:** Deploy code that reads from the new source.
 5. **Cleanup:** Remove the old column/table after verifying everything works.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Step 1: Add column safely
 ALTER TABLE users ADD COLUMN full_name VARCHAR(255);
@@ -177,8 +177,6 @@ WHERE full_name IS NULL LIMIT 1000;
 -- ALTER TABLE users DROP COLUMN first_name;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
@@ -186,13 +184,14 @@ WHERE full_name IS NULL LIMIT 1000;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Never concatenate user input directly into SQL strings.
 1. **Parameterized Queries (Prepared Statements):** The database treats input as data, not executable code.
 2. **Input Validation:** Validate data type and format before reaching the DB.
 3. **Principle of Least Privilege:** DB user should only have necessary permissions.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 // VULNERABLE
 const query = `SELECT * FROM users WHERE email = '${userInput}'`;
@@ -204,8 +203,6 @@ const values = [userInput];
 db.query(query, values);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
@@ -213,13 +210,14 @@ db.query(query, values);
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use a **Junction Table** (or Join Table/Associative Entity).
 1. Create two main tables (e.g., `Students`, `Courses`).
 2. Create a third table (e.g., `Enrollments`) containing foreign keys to both main tables.
 3. Add a composite primary key (student_id, course_id) to prevent duplicates.
 
-**Code Example:**
+**Code Example**:
 ```sql
 CREATE TABLE students (
     id SERIAL PRIMARY KEY,
@@ -239,8 +237,6 @@ CREATE TABLE enrollments (
 );
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -248,7 +244,8 @@ CREATE TABLE enrollments (
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 *   **Embedding:**
     *   **Use when:** Data is "contained" (1-to-few), accessed together, and rarely changes independently.
     *   **Pros:** Single read operation (fast).
@@ -258,7 +255,7 @@ CREATE TABLE enrollments (
     *   **Pros:** Smaller documents, no duplication.
     *   **Cons:** Multiple queries or `$lookup` (slower).
 
-**Code Example:**
+**Code Example**:
 ```json
 // Embedding (User has few addresses)
 {
@@ -278,8 +275,6 @@ CREATE TABLE enrollments (
 { "_id": 501, "book_id": 101, "text": "Great book!", "user_id": 1 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -287,12 +282,13 @@ CREATE TABLE enrollments (
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The N+1 problem happens when you fetch a parent list (1 query) and then execute a query for each child (N queries).
 1. **Eager Loading:** Fetch all related data in the initial query using JOINs or `IN` clauses.
 2. **Batching:** Collect IDs and fetch all related records in one go (DataLoader pattern).
 
-**Code Example:**
+**Code Example**:
 ```javascript
 // BAD (N+1)
 const posts = await Post.findAll(); // 1 query
@@ -306,8 +302,6 @@ const posts = await Post.findAll({ include: 'comments' });
 // SELECT * FROM comments WHERE post_id IN (1, 2, 3...);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
@@ -315,13 +309,14 @@ const posts = await Post.findAll({ include: 'comments' });
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Window functions perform calculations across a set of table rows that are somehow related to the current row.
 1. Use `DENSE_RANK()` or `ROW_NUMBER()` to assign a rank to each row within a partition.
 2. Partition by `department_id` and Order by `salary DESC`.
 3. Filter the result in an outer query.
 
-**Code Example:**
+**Code Example**:
 ```sql
 WITH RankedSalaries AS (
     SELECT 
@@ -337,8 +332,6 @@ WITH RankedSalaries AS (
 SELECT * FROM RankedSalaries WHERE rank <= 3;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -346,14 +339,15 @@ SELECT * FROM RankedSalaries WHERE rank <= 3;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Optimistic locking assumes conflicts are rare. It doesn't lock rows during read.
 1. Add a `version` column (int or timestamp) to the table.
 2. When reading, fetch the current `version`.
 3. When updating, add `WHERE version = read_version` and increment the version.
 4. If `affected_rows` is 0, the data was modified by someone else; retry or error.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- 1. Read
 SELECT id, name, version FROM products WHERE id = 1; 
@@ -369,8 +363,6 @@ WHERE id = 1 AND version = 5;
 -- If row count = 0 -> Conflict detected (throw StaleObjectException)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -378,14 +370,15 @@ WHERE id = 1 AND version = 5;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Traditional ACID transactions don't span services.
 1. **Saga Pattern:** A sequence of local transactions. If one fails, execute compensating transactions to undo changes.
     *   **Choreography:** Events trigger next steps.
     *   **Orchestration:** Central coordinator directs steps.
 2. **Two-Phase Commit (2PC):** (Less common due to blocking) Prepare and Commit phases.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Two-Phase Commit (Conceptual)
 -- Phase 1: Prepare
@@ -398,8 +391,6 @@ COMMIT PREPARED 'txn_id';
 ROLLBACK PREPARED 'txn_id';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -407,14 +398,15 @@ ROLLBACK PREPARED 'txn_id';
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The application is responsible for reading/writing from cache.
 1. **Read:** App checks cache.
     *   If hit: Return data.
     *   If miss: Read from DB, write to cache, return data.
 2. **Write:** App writes to DB, then invalidates (deletes) or updates the cache key.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 async function getUser(id) {
   const cacheKey = `user:${id}`;
@@ -435,8 +427,6 @@ async function getUser(id) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
@@ -444,13 +434,14 @@ async function getUser(id) {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Order of columns in a composite index matters.
 Rule: **Equality (=) columns first, then Range (>, <, BETWEEN) columns.**
 1. If you have `WHERE category_id = 5 AND price > 100`, the index should be `(category_id, price)`.
 2. If you index `(price, category_id)`, the database has to check all prices > 100 and then filter by category, which is less efficient.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Query
 SELECT * FROM products WHERE status = 'active' AND created_at > '2023-01-01';
@@ -463,8 +454,6 @@ CREATE INDEX idx_status_created ON products (status, created_at);
 -- then scans the 'created_at' range sequentially.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -472,14 +461,15 @@ CREATE INDEX idx_status_created ON products (status, created_at);
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Instead of `DELETE FROM table`, mark the row as deleted.
 1. Add a `deleted_at` (timestamp) or `is_deleted` (boolean) column.
 2. Default it to NULL (active).
 3. **Delete:** Update `deleted_at` to current timestamp.
 4. **Read:** Always filter `WHERE deleted_at IS NULL`.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Table
 ALTER TABLE users ADD COLUMN deleted_at TIMESTAMP NULL;
@@ -494,8 +484,6 @@ SELECT * FROM users WHERE deleted_at IS NULL;
 UPDATE users SET deleted_at = NULL WHERE id = 1;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -503,13 +491,14 @@ UPDATE users SET deleted_at = NULL WHERE id = 1;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 1. **Batch Inserts:** Insert multiple rows in a single transaction/query (`INSERT INTO ... VALUES (...), (...), (...)`).
 2. **Remove Indexes:** Disable non-essential indexes during bulk load; rebuild later.
 3. **Partitioning:** Write to a specific partition (e.g., current day) to keep index size manageable.
 4. **Async Processing:** Write to a queue (Kafka) first, then consume and write to DB in batches.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Faster than 3 separate INSERT statements
 INSERT INTO logs (level, message, timestamp) VALUES 
@@ -518,8 +507,6 @@ INSERT INTO logs (level, message, timestamp) VALUES
 ('WARN', 'High latency', NOW());
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
@@ -527,12 +514,13 @@ INSERT INTO logs (level, message, timestamp) VALUES
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 CTEs (`WITH` clause) allow you to define temporary result sets for use within a SELECT, INSERT, UPDATE, or DELETE statement.
 1. Improves readability over nested subqueries.
 2. Allows recursive queries (e.g., hierarchical data).
 
-**Code Example:**
+**Code Example**:
 ```sql
 WITH RegionalSales AS (
     SELECT region, SUM(amount) as total_sales
@@ -549,8 +537,6 @@ FROM orders
 WHERE region IN (SELECT region FROM TopRegions);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -558,13 +544,14 @@ WHERE region IN (SELECT region FROM TopRegions);
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 1. **Atomicity:** Use `BEGIN TRANSACTION` and `COMMIT` / `ROLLBACK`. All or nothing.
 2. **Consistency:** Constraints (Foreign Keys, Checks) ensure DB rules are valid.
 3. **Isolation:** Set appropriate isolation level (`READ COMMITTED`, `SERIALIZABLE`) to handle concurrency.
 4. **Durability:** WAL (Write-Ahead Logging) ensures data survives crashes.
 
-**Code Example:**
+**Code Example**:
 ```sql
 BEGIN;
 
@@ -579,8 +566,6 @@ UPDATE accounts SET balance = balance + 100 WHERE id = 2;
 COMMIT;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
@@ -588,10 +573,11 @@ COMMIT;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Materialized views store the result of a query physically. Use `REFRESH MATERIALIZED VIEW CONCURRENTLY` to update data without locking the view for reads.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Create
 CREATE MATERIALIZED VIEW sales_summary AS
@@ -606,8 +592,6 @@ CREATE UNIQUE INDEX idx_sales_summary_id ON sales_summary(product_id);
 REFRESH MATERIALIZED VIEW CONCURRENTLY sales_summary;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -615,10 +599,11 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY sales_summary;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Create a trigger function that inserts old/new values into an audit table whenever an UPDATE or DELETE occurs on the main table.
 
-**Code Example:**
+**Code Example**:
 ```json
 CREATE FUNCTION log_changes() RETURNS TRIGGER AS $$
 BEGIN
@@ -633,8 +618,6 @@ AFTER UPDATE OR DELETE ON users
 FOR EACH ROW EXECUTE FUNCTION log_changes();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -642,10 +625,11 @@ FOR EACH ROW EXECUTE FUNCTION log_changes();
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `->>` operator to access fields as text. Create a GIN index on the JSONB column to speed up containment queries (`@>`).
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Query
 SELECT * FROM users WHERE data->>'role' = 'admin';
@@ -657,8 +641,6 @@ CREATE INDEX idx_users_data ON users USING GIN (data);
 SELECT * FROM users WHERE data @> '{"role": "admin"}';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -666,10 +648,11 @@ SELECT * FROM users WHERE data @> '{"role": "admin"}';
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `INSERT ... ON CONFLICT` (Postgres) or `INSERT ... ON DUPLICATE KEY UPDATE` (MySQL) to handle unique constraint violations gracefully.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- PostgreSQL
 INSERT INTO users (id, name, email)
@@ -678,8 +661,6 @@ ON CONFLICT (id)
 DO UPDATE SET email = EXCLUDED.email, name = EXCLUDED.name;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
@@ -687,10 +668,11 @@ DO UPDATE SET email = EXCLUDED.email, name = EXCLUDED.name;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use a `WITH RECURSIVE` CTE. Define a base case (e.g., root nodes) and a recursive step (joining back to the CTE) to traverse trees like organizational charts or category trees.
 
-**Code Example:**
+**Code Example**:
 ```sql
 WITH RECURSIVE employee_tree AS (
   -- Base Case: Top level managers
@@ -707,8 +689,6 @@ WITH RECURSIVE employee_tree AS (
 SELECT * FROM employee_tree;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -716,10 +696,11 @@ SELECT * FROM employee_tree;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `SUM(column) OVER (ORDER BY ...)` to calculate a running total (cumulative sum) row by row.
 
-**Code Example:**
+**Code Example**:
 ```sql
 SELECT 
   date,
@@ -728,8 +709,6 @@ SELECT
 FROM sales;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
@@ -737,18 +716,17 @@ FROM sales;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Prepend `EXPLAIN ANALYZE` to your query to see the execution plan and actual runtimes. Look for 'Seq Scan' on large tables (bad) vs 'Index Scan' (good).
 
-**Code Example:**
+**Code Example**:
 ```sql
 EXPLAIN ANALYZE 
 SELECT * FROM orders 
 WHERE customer_id = 12345 
 AND order_date > '2023-01-01';
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -757,10 +735,11 @@ AND order_date > '2023-01-01';
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Integers are smaller (4/8 bytes) and faster for indexing. UUIDs (16 bytes) are globally unique, allowing decentralized ID generation (good for sharding/microservices) but fragment indexes.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Integer (Auto Increment)
 id SERIAL PRIMARY KEY
@@ -769,8 +748,6 @@ id SERIAL PRIMARY KEY
 id UUID PRIMARY KEY DEFAULT gen_random_uuid()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -778,10 +755,11 @@ id UUID PRIMARY KEY DEFAULT gen_random_uuid()
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Ensure all transactions acquire locks on resources in the same order. Keep transactions short. Use `FOR UPDATE` to lock rows explicitly if needed.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Transaction A: Lock User 1 then User 2
 BEGIN;
@@ -792,8 +770,6 @@ COMMIT;
 -- Transaction B MUST also Lock User 1 then User 2 (NOT User 2 then User 1)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
@@ -801,10 +777,11 @@ COMMIT;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `tsvector` to store lexemes and `tsquery` to search. Create a GIN index on the `tsvector` column for performance.
 
-**Code Example:**
+**Code Example**:
 ```sql
 -- Search
 SELECT title 
@@ -815,8 +792,6 @@ WHERE to_tsvector('english', title || ' ' || body) @@ to_tsquery('english', 'dat
 CREATE INDEX idx_fts ON articles USING GIN (to_tsvector('english', title || ' ' || body));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -824,10 +799,11 @@ CREATE INDEX idx_fts ON articles USING GIN (to_tsvector('english', title || ' ' 
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Set the isolation level to balance consistency vs concurrency. `READ COMMITTED` is default. `SERIALIZABLE` prevents all anomalies but causes high contention.
 
-**Code Example:**
+**Code Example**:
 ```sql
 BEGIN;
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
@@ -836,8 +812,6 @@ SELECT * FROM account WHERE id = 1;
 COMMIT;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
@@ -845,10 +819,11 @@ COMMIT;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use declarative partitioning. Create a parent table and attach partitions for specific date ranges. This improves query performance for range queries and data management (dropping old partitions).
 
-**Code Example:**
+**Code Example**:
 ```sql
 CREATE TABLE logs (
     id SERIAL,
@@ -859,34 +834,16 @@ CREATE TABLE logs_2023_01 PARTITION OF logs
     FOR VALUES FROM ('2023-01-01') TO ('2023-02-01');
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-
 
 <a id="q28"></a>
 ### Q28: How do you implement Database Sharding and when should you use it?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Sharding splits a large dataset across multiple database instances (shards) to improve scalability. Use it when vertical scaling (upgrading hardware) is no longer sufficient.
-
-**Code Example:**
--- Concept: Sharding by User ID (Application Level)
--- Shard 1 (Users 1-1000000)
-SELECT * FROM users_shard_1 WHERE user_id = 500;
-
--- Shard 2 (Users 1000001-2000000)
-SELECT * FROM users_shard_2 WHERE user_id = 1500500;
-
--- Routing Logic in Application (Pseudocode)
-function getShard(userId) {
-    if (userId <= 1000000) return connectionShard1;
-    return connectionShard2;
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -895,20 +852,9 @@ function getShard(userId) {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Phantom reads occur when a transaction reads a set of rows that match a search condition, but another transaction inserts/deletes rows that match that condition. Prevent this by using the `SERIALIZABLE` isolation level or `REPEATABLE READ` with range locks (Next-Key Locking in MySQL).
-
-**Code Example:**
--- MySQL/InnoDB Example
-SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
-START TRANSACTION;
-
--- Next-Key Lock prevents insertion into the range
-SELECT * FROM orders WHERE amount > 1000 FOR UPDATE;
-
--- COMMIT;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -917,21 +863,9 @@ SELECT * FROM orders WHERE amount > 1000 FOR UPDATE;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 A covering index includes all the columns retrieved by the query, allowing the database to fetch data solely from the index structure without accessing the table heap (Index Only Scan).
-
-**Code Example:**
--- Query
-SELECT first_name, last_name FROM users WHERE age > 25;
-
--- Create Covering Index (Composite Index)
--- Includes columns in WHERE clause and SELECT clause
-CREATE INDEX idx_users_age_names ON users(age) INCLUDE (first_name, last_name);
-
--- 'INCLUDE' is PostgreSQL syntax. In MySQL, simply add columns to the key:
--- CREATE INDEX idx_users_age_names ON users(age, first_name, last_name);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -940,21 +874,9 @@ CREATE INDEX idx_users_age_names ON users(age) INCLUDE (first_name, last_name);
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Dirty reads happen when a transaction reads uncommitted data from another transaction. The `READ COMMITTED` isolation level prevents this.
-
-**Code Example:**
--- Transaction A
-START TRANSACTION;
-UPDATE accounts SET balance = balance - 100 WHERE id = 1;
--- (Not committed yet)
-
--- Transaction B (READ COMMITTED)
-SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
-SELECT balance FROM accounts WHERE id = 1; 
--- Will read the OLD balance, ignoring uncommitted changes from A.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -963,29 +885,9 @@ SELECT balance FROM accounts WHERE id = 1;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Connection pooling reuses active database connections instead of creating a new one for every request, reducing latency and overhead.
-
-**Code Example:**
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: 'dbuser',
-  host: 'database.server.com',
-  database: 'mydb',
-  password: 'secretpassword',
-  port: 5432,
-  max: 20, // Maximum number of clients in the pool
-  idleTimeoutMillis: 30000
-});
-
-// Usage
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res);
-  // Connection is automatically returned to the pool
-});
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -994,30 +896,9 @@ pool.query('SELECT NOW()', (err, res) => {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Common patterns include Adjacency List (parent_id), Path Enumeration (path string), Nested Sets (lft/rgt), and Closure Table (separate table for all paths).
-
-**Code Example:**
--- Adjacency List (Simple, good for single-level fetch)
-CREATE TABLE categories (
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    parent_id INT REFERENCES categories(id)
-);
-
--- Recursive Query (Common Table Expression) to fetch full tree
-WITH RECURSIVE category_path (id, name, path) AS (
-  SELECT id, name, CAST(name AS CHAR(200))
-    FROM categories
-    WHERE parent_id IS NULL
-  UNION ALL
-  SELECT c.id, c.name, CONCAT(cp.path, ' > ', c.name)
-    FROM category_path cp JOIN categories c
-      ON cp.id = c.parent_id
-)
-SELECT * FROM category_path;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1026,31 +907,9 @@ SELECT * FROM category_path;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 PostgreSQL uses `JSONB` for binary storage and indexing. MySQL uses the `JSON` data type.
-
-**Code Example:**
--- PostgreSQL
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    data JSONB
-);
--- Query JSONB
-SELECT * FROM products WHERE data->>'category' = 'Electronics';
--- Create Index on JSON path
-CREATE INDEX idx_category ON products ((data->>'category'));
-
--- MySQL
-CREATE TABLE products (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    data JSON
-);
--- Query JSON
-SELECT * FROM products WHERE JSON_EXTRACT(data, '$.category') = 'Electronics';
--- Or shorthand
-SELECT * FROM products WHERE data->'$.category' = 'Electronics';
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1059,25 +918,9 @@ SELECT * FROM products WHERE data->'$.category' = 'Electronics';
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 RLS restricts access to rows based on the user executing the query. It allows multiple tenants to share the same table securely.
-
-**Code Example:**
--- PostgreSQL Example
-ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
-
--- Create Policy
-CREATE POLICY user_orders_policy ON orders
-    FOR SELECT
-    USING (user_id = current_setting('app.current_user_id')::integer);
-
--- Usage in App
-BEGIN;
-SET LOCAL app.current_user_id = '42';
-SELECT * FROM orders; -- Only returns orders for user 42
-COMMIT;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1086,25 +929,9 @@ COMMIT;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Materialized Views store the result of a query physically. They are faster for heavy aggregations but need to be refreshed.
-
-**Code Example:**
--- Create Materialized View
-CREATE MATERIALIZED VIEW monthly_sales AS
-SELECT 
-    date_trunc('month', order_date) as month,
-    SUM(amount) as total_sales
-FROM orders
-GROUP BY 1;
-
--- Create Index for faster access
-CREATE INDEX idx_monthly_sales ON monthly_sales(month);
-
--- Refresh Data (e.g., nightly via Cron)
-REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_sales;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1113,30 +940,9 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_sales;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Auto-increment keys don't scale in distributed DBs. Use UUIDs (random, larger) or Snowflake IDs (time-sortable, 64-bit integer composed of timestamp + machine ID + sequence).
-
-**Code Example:**
--- Twitter Snowflake ID Structure (64 bits)
--- | 1 bit sign | 41 bits timestamp | 10 bits machine ID | 12 bits sequence |
-
--- Implementation Logic (Pseudocode)
-class Snowflake {
-    nextId() {
-        timestamp = currentTimestamp();
-        if (timestamp < lastTimestamp) throw Error("Clock moved backwards");
-        if (timestamp == lastTimestamp) {
-            sequence = (sequence + 1) & 4095;
-            if (sequence == 0) timestamp = waitForNextMillis(lastTimestamp);
-        } else {
-            sequence = 0;
-        }
-        lastTimestamp = timestamp;
-        return ((timestamp - epoch) << 22) | (machineId << 12) | sequence;
-    }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1145,32 +951,9 @@ class Snowflake {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 FDW allows you to access data in external data sources (another SQL DB, CSV, MongoDB) as if they were local tables.
-
-**Code Example:**
--- Install extension
-CREATE EXTENSION postgres_fdw;
-
--- Create Server object
-CREATE SERVER remote_pg_db
-    FOREIGN DATA WRAPPER postgres_fdw
-    OPTIONS (host 'remote-host', dbname 'remote_db', port '5432');
-
--- Create User Mapping
-CREATE USER MAPPING FOR local_user
-    SERVER remote_pg_db
-    OPTIONS (user 'remote_user', password 'secret');
-
--- Import Schema or Create Foreign Table
-IMPORT FOREIGN SCHEMA public 
-    FROM SERVER remote_pg_db 
-    INTO local_schema;
-    
--- Query like a local table
-SELECT * FROM local_schema.remote_table;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1179,22 +962,9 @@ SELECT * FROM local_schema.remote_table;
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Standard B-Tree indexes don't support leading wildcards (`%term`). Use Trigram Indexes (`pg_trgm` in Postgres) or Full-Text Search.
-
-**Code Example:**
--- Query
-SELECT * FROM users WHERE name LIKE '%smith%'; -- Slow (Seq Scan)
-
--- Optimization (PostgreSQL)
-CREATE EXTENSION pg_trgm;
-
-CREATE INDEX idx_users_name_trgm ON users USING GIN (name gin_trgm_ops);
-
--- Now the index can be used
-EXPLAIN SELECT * FROM users WHERE name LIKE '%smith%';
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1203,22 +973,9 @@ EXPLAIN SELECT * FROM users WHERE name LIKE '%smith%';
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `CASE` statement acts like an if-else block within a query.
-
-**Code Example:**
-SELECT 
-    id,
-    name,
-    salary,
-    CASE
-        WHEN salary < 30000 THEN 'Junior'
-        WHEN salary BETWEEN 30000 AND 70000 THEN 'Mid'
-        ELSE 'Senior'
-    END AS level
-FROM employees;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1227,26 +984,9 @@ FROM employees;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Replication copies data from a Master (Write) node to Slave (Read) nodes. It improves read scalability and availability.
-
-**Code Example:**
--- PostgreSQL Streaming Replication Setup (simplified)
-
--- 1. On Master (postgresql.conf)
-wal_level = replica
-max_wal_senders = 3
-
--- 2. Allow replication user (pg_hba.conf)
-host replication replicator 192.168.1.0/24 md5
-
--- 3. On Slave
-pg_basebackup -h master_host -D /var/lib/postgresql/data -U replicator -P -R
-
--- 4. Start Slave
--- Application logic: Write to Master, Read from Slave.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1255,24 +995,9 @@ pg_basebackup -h master_host -D /var/lib/postgresql/data -U replicator -P -R
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Avoid single-row inserts. Use multi-row `VALUES` syntax or `COPY` command (Postgres) / `LOAD DATA INFILE` (MySQL).
-
-**Code Example:**
--- Bad (Multiple Round Trips)
-INSERT INTO logs (msg) VALUES ('Error 1');
-INSERT INTO logs (msg) VALUES ('Error 2');
-
--- Good (Single Transaction, Multi-row)
-INSERT INTO logs (msg) VALUES 
-    ('Error 1'), 
-    ('Error 2'), 
-    ('Error 3');
-
--- Best (PostgreSQL COPY for massive data)
-COPY logs (msg) FROM '/path/to/file.csv' DELIMITER ',' CSV;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1281,22 +1006,9 @@ COPY logs (msg) FROM '/path/to/file.csv' DELIMITER ',' CSV;
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `GROUPING SETS`, `ROLLUP`, and `CUBE` allow generating multiple levels of subtotals in a single query.
-
-**Code Example:**
-SELECT 
-    region,
-    department,
-    SUM(sales) 
-FROM sales_data
-GROUP BY GROUPING SETS (
-    (region, department), -- Sales per Region & Dept
-    (region),             -- Total per Region
-    ()                    -- Grand Total
-);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1305,21 +1017,9 @@ GROUP BY GROUPING SETS (
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use specialized extensions (TimescaleDB) or Partitioning by time. Avoid updating old data. Use proper indexing (BRIN index for ordered time data).
-
-**Code Example:**
--- Using PostgreSQL Partitioning for Time Series
-CREATE TABLE sensor_data (
-    time TIMESTAMP NOT NULL,
-    device_id INT,
-    value FLOAT
-) PARTITION BY RANGE (time);
-
--- BRIN Index (Block Range Index) is tiny and fast for time-ordered data
-CREATE INDEX idx_sensor_time ON sensor_data USING BRIN(time);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1328,26 +1028,9 @@ CREATE INDEX idx_sensor_time ON sensor_data USING BRIN(time);
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 In DynamoDB, use a Single Table with generic PK/SK (Partition Key/Sort Key) to support multiple access patterns via Overloaded Indexes.
-
-**Code Example:**
-// Table: MyTable (PK, SK)
-
-// Entity: User
-// PK: USER#123, SK: METADATA
-
-// Entity: Order
-// PK: USER#123, SK: ORDER#999
-
-// Query: Get User and all their Orders
-KeyConditionExpression: "PK = :pk",
-ExpressionAttributeValues: {
-    ":pk": "USER#123"
-}
-// Efficiently fetches heterogeneous items in one request.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1356,30 +1039,9 @@ ExpressionAttributeValues: {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use a CTE or self-join to identify duplicates based on specific columns, keeping only the one with the lowest/highest ID.
-
-**Code Example:**
--- Using CTE and Window Function
-WITH Duplicates AS (
-    SELECT 
-        id,
-        ROW_NUMBER() OVER (
-            PARTITION BY email 
-            ORDER BY id ASC
-        ) AS row_num
-    FROM users
-)
-DELETE FROM users
-WHERE id IN (
-    SELECT id FROM Duplicates WHERE row_num > 1
-);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-
 
 ---
 
@@ -1396,8 +1058,6 @@ ACID stands for Atomicity, Consistency, Isolation, and Durability. It is a set o
 BEGIN; ... COMMIT;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
@@ -1413,8 +1073,6 @@ Indexing is a data structure technique used to quickly locate and access the dat
 CREATE INDEX idx_name ON users(name);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
@@ -1423,13 +1081,19 @@ CREATE INDEX idx_name ON users(name);
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // B-Tree is default
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// B-Tree is default
+```
 
 ---
 
@@ -1446,8 +1110,6 @@ Normalization is the process of organizing data in a database. This includes cre
 // 1NF, 2NF, 3NF
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
@@ -1462,8 +1124,6 @@ Denormalization is a database optimization technique in which we add redundant d
 ```javascript
 // Storing count in parent table
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1480,8 +1140,6 @@ An Inner Join returns records that have matching values in both tables. An Outer
 SELECT * FROM A JOIN B ON A.id = B.id
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -1490,7 +1148,6 @@ SELECT * FROM A JOIN B ON A.id = B.id
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 CREATE VIEW active_users AS ...
@@ -1500,13 +1157,19 @@ CREATE VIEW active_users AS ...
 
 ---
 
+**Code Example**:
+```javascript
+CREATE VIEW active_users AS ...
+```
+
+---
+
 <a id="q54"></a>
 ### Q54: What is a Stored Procedure?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 CREATE PROCEDURE ...
@@ -1516,19 +1179,32 @@ CREATE PROCEDURE ...
 
 ---
 
+**Code Example**:
+```javascript
+CREATE PROCEDURE ...
+```
+
+---
+
 <a id="q55"></a>
 ### Q55: What is a Trigger?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 CREATE TRIGGER ... BEFORE INSERT ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+CREATE TRIGGER ... BEFORE INSERT ...
+```
 
 ---
 
@@ -1545,8 +1221,6 @@ SQL databases are relational, table-based databases, whereas NoSQL databases are
 // MySQL vs MongoDB
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -1562,8 +1236,6 @@ Sharding is a method of splitting and storing a single logical dataset in multip
 // Shard by UserID
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -1572,13 +1244,19 @@ Sharding is a method of splitting and storing a single logical dataset in multip
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Master-Slave
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Master-Slave
+```
 
 ---
 
@@ -1595,8 +1273,6 @@ The CAP Theorem states that a distributed computer system can only provide two o
 // Choose 2
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
@@ -1605,13 +1281,19 @@ The CAP Theorem states that a distributed computer system can only provide two o
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // DNS, NoSQL
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// DNS, NoSQL
+```
 
 ---
 
@@ -1628,8 +1310,6 @@ A transaction is a single unit of work. If a transaction is successful, all of t
 START TRANSACTION
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
@@ -1645,8 +1325,6 @@ Transaction isolation levels control the degree of locking and row versioning us
 SET TRANSACTION ISOLATION LEVEL ...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
@@ -1655,13 +1333,19 @@ SET TRANSACTION ISOLATION LEVEL ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // A waits for B, B waits for A
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// A waits for B, B waits for A
+```
 
 ---
 
@@ -1678,8 +1362,6 @@ Optimistic Locking assumes that multiple transactions can complete without affec
 // SELECT ... FOR UPDATE
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
@@ -1688,7 +1370,6 @@ Optimistic Locking assumes that multiple transactions can complete without affec
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Improves performance
@@ -1698,19 +1379,32 @@ Optimistic Locking assumes that multiple transactions can complete without affec
 
 ---
 
+**Code Example**:
+```javascript
+// Improves performance
+```
+
+---
+
 <a id="q66"></a>
 ### Q66: What is an ORM?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Hibernate, TypeORM
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Hibernate, TypeORM
+```
 
 ---
 
@@ -1727,8 +1421,6 @@ The N+1 problem occurs when an application makes one query to retrieve a parent 
 // Use JOIN or batching
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
@@ -1737,13 +1429,19 @@ The N+1 problem occurs when an application makes one query to retrieve a parent 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 db.users.find()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+db.users.find()
+```
 
 ---
 
@@ -1760,8 +1458,6 @@ Redis is an open source (BSD licensed), in-memory data structure store, used as 
 SET key value
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
@@ -1770,7 +1466,6 @@ SET key value
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // High write throughput
@@ -1780,13 +1475,19 @@ SET key value
 
 ---
 
+**Code Example**:
+```javascript
+// High write throughput
+```
+
+---
+
 <a id="q71"></a>
 ### Q71: What is a Primary Key?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 id INT PRIMARY KEY
@@ -1796,19 +1497,32 @@ id INT PRIMARY KEY
 
 ---
 
+**Code Example**:
+```javascript
+id INT PRIMARY KEY
+```
+
+---
+
 <a id="q72"></a>
 ### Q72: What is a Foreign Key?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 user_id INT REFERENCES users(id)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+user_id INT REFERENCES users(id)
+```
 
 ---
 
@@ -1825,8 +1539,6 @@ Database migration is the management of incremental, reversible changes and vers
 // Flyway, Liquibase
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
@@ -1835,13 +1547,19 @@ Database migration is the management of incremental, reversible changes and vers
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 EXPLAIN SELECT ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+EXPLAIN SELECT ...
+```
 
 ---
 
@@ -1858,8 +1576,6 @@ SQL injection is a code injection technique that might destroy your database. It
 // Use Prepared Statements
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q76"></a>
@@ -1868,7 +1584,6 @@ SQL injection is a code injection technique that might destroy your database. It
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 FETCH NEXT FROM cursor
@@ -1878,19 +1593,32 @@ FETCH NEXT FROM cursor
 
 ---
 
+**Code Example**:
+```javascript
+FETCH NEXT FROM cursor
+```
+
+---
+
 <a id="q77"></a>
 ### Q77: What is ETL?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Data Warehousing
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Data Warehousing
+```
 
 ---
 
@@ -1907,8 +1635,6 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 // Postgres vs Snowflake
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1917,7 +1643,6 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // InfluxDB
@@ -1927,13 +1652,19 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 
 ---
 
+**Code Example**:
+```javascript
+// InfluxDB
+```
+
+---
+
 <a id="q80"></a>
 ### Q80: What is Graph DB?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Neo4j
@@ -1943,19 +1674,32 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 
 ---
 
+**Code Example**:
+```javascript
+// Neo4j
+```
+
+---
+
 <a id="q81"></a>
 ### Q81: What is Partitioning?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // By Range, List, Hash
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// By Range, List, Hash
+```
 
 ---
 
@@ -1972,8 +1716,6 @@ Multiversion concurrency control (MVCC) is a concurrency control method used by 
 // Readers don't block writers
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
@@ -1982,7 +1724,6 @@ Multiversion concurrency control (MVCC) is a concurrency control method used by 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Durability
@@ -1992,13 +1733,19 @@ Multiversion concurrency control (MVCC) is a concurrency control method used by 
 
 ---
 
+**Code Example**:
+```javascript
+// Durability
+```
+
+---
+
 <a id="q84"></a>
 ### Q84: What is a Materialized View?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 REFRESH MATERIALIZED VIEW
@@ -2008,13 +1755,19 @@ REFRESH MATERIALIZED VIEW
 
 ---
 
+**Code Example**:
+```javascript
+REFRESH MATERIALIZED VIEW
+```
+
+---
+
 <a id="q85"></a>
 ### Q85: What is Soft Delete?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 UPDATE users SET deleted_at = NOW()
@@ -2024,19 +1777,32 @@ UPDATE users SET deleted_at = NOW()
 
 ---
 
+**Code Example**:
+```javascript
+UPDATE users SET deleted_at = NOW()
+```
+
+---
+
 <a id="q86"></a>
 ### Q86: What is Database Mirroring?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Failover
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Failover
+```
 
 ---
 
@@ -2053,8 +1819,6 @@ Row-oriented databases store data row by row. This is great for transaction proc
 // Parquet files
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
@@ -2063,7 +1827,6 @@ Row-oriented databases store data row by row. This is great for transaction proc
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 PRIMARY KEY (a, b)
@@ -2073,13 +1836,19 @@ PRIMARY KEY (a, b)
 
 ---
 
+**Code Example**:
+```javascript
+PRIMARY KEY (a, b)
+```
+
+---
+
 <a id="q89"></a>
 ### Q89: What is a Surrogate Key?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // vs Natural Key
@@ -2089,13 +1858,19 @@ PRIMARY KEY (a, b)
 
 ---
 
+**Code Example**:
+```javascript
+// vs Natural Key
+```
+
+---
+
 <a id="q90"></a>
 ### Q90: What is Referential Integrity?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Foreign keys constraints
@@ -2105,13 +1880,19 @@ PRIMARY KEY (a, b)
 
 ---
 
+**Code Example**:
+```javascript
+// Foreign keys constraints
+```
+
+---
+
 <a id="q91"></a>
 ### Q91: What is a Bloom Filter in DB?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Avoid disk lookups
@@ -2121,19 +1902,32 @@ PRIMARY KEY (a, b)
 
 ---
 
+**Code Example**:
+```javascript
+// Avoid disk lookups
+```
+
+---
+
 <a id="q92"></a>
 ### Q92: What is Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Prepare -> Commit
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Prepare -> Commit
+```
 
 ---
 
@@ -2150,8 +1944,6 @@ Change Data Capture (CDC) is a set of software design patterns used to determine
 // Debezium
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
@@ -2160,7 +1952,6 @@ Change Data Capture (CDC) is a set of software design patterns used to determine
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 VACUUM FULL
@@ -2170,13 +1961,19 @@ VACUUM FULL
 
 ---
 
+**Code Example**:
+```javascript
+VACUUM FULL
+```
+
+---
+
 <a id="q95"></a>
 ### Q95: What is a Clustered Index?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Only one per table
@@ -2186,19 +1983,32 @@ VACUUM FULL
 
 ---
 
+**Code Example**:
+```javascript
+// Only one per table
+```
+
+---
+
 <a id="q96"></a>
 ### Q96: What is a Non-Clustered Index?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Multiple allowed
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Multiple allowed
+```
 
 ---
 
@@ -2215,8 +2025,6 @@ Sharding: across servers. Partitioning: within one server.
 // Scaling strategies
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
@@ -2225,7 +2033,6 @@ Sharding: across servers. Partitioning: within one server.
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // R-Tree, Quad-Tree
@@ -2235,13 +2042,19 @@ Sharding: across servers. Partitioning: within one server.
 
 ---
 
+**Code Example**:
+```javascript
+// R-Tree, Quad-Tree
+```
+
+---
+
 <a id="q99"></a>
 ### Q99: What is Full-Text Search?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Elasticsearch, tsvector
@@ -2251,13 +2064,19 @@ Sharding: across servers. Partitioning: within one server.
 
 ---
 
+**Code Example**:
+```javascript
+// Elasticsearch, tsvector
+```
+
+---
+
 <a id="q100"></a>
 ### Q100: What is B-Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Default index
@@ -2267,16 +2086,29 @@ Sharding: across servers. Partitioning: within one server.
 
 ---
 
+**Code Example**:
+```javascript
+// Default index
+```
+
+---
+
 <a id="q101"></a>
 ### Q101: What is Hash Index?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Good for equality checks
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+**Code Example**:
+```javascript
+// Good for equality checks
+```
+
+---

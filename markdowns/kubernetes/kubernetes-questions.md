@@ -10,106 +10,106 @@
 
 ## Table of Contents
 
-1. [What is a Pod?](#q1-what-is-a-pod) <span class="beginner">Beginner</span>
-2. [What is a Deployment?](#q2-what-is-a-deployment) <span class="beginner">Beginner</span>
-3. [What is a Service?](#q3-what-is-a-service) <span class="beginner">Beginner</span>
-4. [ClusterIP vs NodePort vs LoadBalancer?](#q4-clusterip-vs-nodeport-vs-loadbalancer) <span class="intermediate">Intermediate</span>
-5. [What is a Namespace?](#q5-what-is-a-namespace) <span class="beginner">Beginner</span>
-6. [What is Ingress?](#q6-what-is-ingress) <span class="intermediate">Intermediate</span>
-7. [What is a ConfigMap?](#q7-what-is-a-configmap) <span class="beginner">Beginner</span>
-8. [What is a Secret?](#q8-what-is-a-secret) <span class="beginner">Beginner</span>
-9. [What is a StatefulSet?](#q9-what-is-a-statefulset) <span class="advanced">Advanced</span>
-10. [What is a DaemonSet?](#q10-what-is-a-daemonset) <span class="intermediate">Intermediate</span>
-11. [What is a Job vs CronJob?](#q11-what-is-a-job-vs-cronjob) <span class="intermediate">Intermediate</span>
-12. [What is HPA (Horizontal Pod Autoscaler)?](#q12-what-is-hpa-horizontal-pod-autoscaler) <span class="intermediate">Intermediate</span>
-13. [What is VPA (Vertical Pod Autoscaler)?](#q13-what-is-vpa-vertical-pod-autoscaler) <span class="advanced">Advanced</span>
-14. [What are Liveness and Readiness Probes?](#q14-what-are-liveness-and-readiness-probes) <span class="intermediate">Intermediate</span>
-15. [What is a Sidecar Pattern?](#q15-what-is-a-sidecar-pattern) <span class="intermediate">Intermediate</span>
-16. [What is an Init Container?](#q16-what-is-an-init-container) <span class="intermediate">Intermediate</span>
-17. [What is a Taint and Toleration?](#q17-what-is-a-taint-and-toleration) <span class="advanced">Advanced</span>
-18. [What is Node Affinity?](#q18-what-is-node-affinity) <span class="advanced">Advanced</span>
-19. [What is a Persistent Volume (PV)?](#q19-what-is-a-persistent-volume-pv) <span class="intermediate">Intermediate</span>
-20. [What is a Persistent Volume Claim (PVC)?](#q20-what-is-a-persistent-volume-claim-pvc) <span class="intermediate">Intermediate</span>
-21. [What is StorageClass?](#q21-what-is-storageclass) <span class="intermediate">Intermediate</span>
-22. [How do you perform a Rolling Update?](#q22-how-do-you-perform-a-rolling-update) <span class="beginner">Beginner</span>
-23. [What is a Canary Deployment?](#q23-what-is-a-canary-deployment) <span class="advanced">Advanced</span>
-24. [What is a Blue/Green Deployment?](#q24-what-is-a-blue-green-deployment) <span class="advanced">Advanced</span>
-25. [What is Helm?](#q25-what-is-helm) <span class="beginner">Beginner</span>
-26. [What is `kubectl`?](#q26-what-is-kubectl) <span class="beginner">Beginner</span>
-27. [How do you debug a CrashLoopBackOff?](#q27-how-do-you-debug-a-crashloopbackoff) <span class="beginner">Beginner</span>
-28. [What is etcd?](#q28-what-is-etcd) <span class="advanced">Advanced</span>
-29. [What is Kubelet?](#q29-what-is-kubelet) <span class="advanced">Advanced</span>
-30. [What is Kube-Proxy?](#q30-what-is-kube-proxy) <span class="advanced">Advanced</span>
-31. [What is the Control Plane?](#q31-what-is-the-control-plane) <span class="intermediate">Intermediate</span>
-32. [What is RBAC?](#q32-what-is-rbac) <span class="intermediate">Intermediate</span>
-33. [What is a ServiceAccount?](#q33-what-is-a-serviceaccount) <span class="intermediate">Intermediate</span>
-34. [What is a NetworkPolicy?](#q34-what-is-a-networkpolicy) <span class="advanced">Advanced</span>
-35. [What is a Resource Quota?](#q35-what-is-a-resource-quota) <span class="intermediate">Intermediate</span>
-36. [What is a LimitRange?](#q36-what-is-a-limitrange) <span class="intermediate">Intermediate</span>
-37. [What is Headless Service?](#q37-what-is-headless-service) <span class="advanced">Advanced</span>
-38. [What is Pod Disruption Budget (PDB)?](#q38-what-is-pod-disruption-budget-pdb) <span class="advanced">Advanced</span>
-39. [What is a Custom Resource Definition (CRD)?](#q39-what-is-a-custom-resource-definition-crd) <span class="advanced">Advanced</span>
-40. [What is an Operator?](#q40-what-is-an-operator) <span class="advanced">Advanced</span>
-41. [What is the difference between Request and Limit?](#q41-what-is-the-difference-between-request-and-limit) <span class="beginner">Beginner</span>
-42. [How do you drain a node?](#q42-how-do-you-drain-a-node) <span class="intermediate">Intermediate</span>
-43. [What is Cordoning?](#q43-what-is-cordoning) <span class="intermediate">Intermediate</span>
-44. [What is a Static Pod?](#q44-what-is-a-static-pod) <span class="advanced">Advanced</span>
-45. [What is Container Runtime Interface (CRI)?](#q45-what-is-container-runtime-interface-cri) <span class="advanced">Advanced</span>
-46. [What is CNI (Container Network Interface)?](#q46-what-is-cni-container-network-interface) <span class="advanced">Advanced</span>
-47. [What is CSI (Container Storage Interface)?](#q47-what-is-csi-container-storage-interface) <span class="advanced">Advanced</span>
-48. [How do you force delete a pod?](#q48-how-do-you-force-delete-a-pod) <span class="intermediate">Intermediate</span>
-49. [What is `kubectl apply` vs `create`?](#q49-what-is-kubectl-apply-vs-create) <span class="beginner">Beginner</span>
-50. [How do you port forward?](#q50-how-do-you-port-forward) <span class="beginner">Beginner</span>
-51. [What is a Context?](#q51-what-is-a-context) <span class="beginner">Beginner</span>
-52. [How do you list all resources?](#q52-how-do-you-list-all-resources) <span class="intermediate">Intermediate</span>
-53. [What is a finalizer?](#q53-what-is-a-finalizer) <span class="advanced">Advanced</span>
-54. [What is Garbage Collection in K8s?](#q54-what-is-garbage-collection-in-k8s) <span class="advanced">Advanced</span>
-55. [What is OOMKilled?](#q55-what-is-oomkilled) <span class="intermediate">Intermediate</span>
-56. [What is ImagePullBackOff?](#q56-what-is-imagepullbackoff) <span class="beginner">Beginner</span>
-57. [How do you auto-scale cluster nodes?](#q57-how-do-you-auto-scale-cluster-nodes) <span class="advanced">Advanced</span>
-58. [What is Service Mesh (Istio/Linkerd)?](#q58-what-is-service-mesh-istio-linkerd) <span class="advanced">Advanced</span>
-59. [How do you secure K8s dashboard?](#q59-how-do-you-secure-k8s-dashboard) <span class="intermediate">Intermediate</span>
-60. [What is GitOps?](#q60-what-is-gitops) <span class="intermediate">Intermediate</span>
-61. [How do you backup etcd?](#q61-how-do-you-backup-etcd) <span class="advanced">Advanced</span>
-62. [What is a PriorityClass?](#q62-what-is-a-priorityclass) <span class="advanced">Advanced</span>
-63. [What is Pod Security Admission?](#q63-what-is-pod-security-admission) <span class="advanced">Advanced</span>
-64. [How do you mount a single file?](#q64-how-do-you-mount-a-single-file) <span class="intermediate">Intermediate</span>
-65. [What is Ephemeral Storage?](#q65-what-is-ephemeral-storage) <span class="intermediate">Intermediate</span>
-66. [How do you troubleshoot DNS?](#q66-how-do-you-troubleshoot-dns) <span class="intermediate">Intermediate</span>
-67. [What is `kubectl top`?](#q67-what-is-kubectl-top) <span class="beginner">Beginner</span>
-68. [What is Metrics Server?](#q68-what-is-metrics-server) <span class="intermediate">Intermediate</span>
-69. [How do you copy files to/from pod?](#q69-how-do-you-copy-files-to-from-pod) <span class="beginner">Beginner</span>
-70. [What is `kubectl exec`?](#q70-what-is-kubectl-exec) <span class="beginner">Beginner</span>
-71. [What is Downward API?](#q71-what-is-downward-api) <span class="advanced">Advanced</span>
-72. [What is Topology Spread Constraints?](#q72-what-is-topology-spread-constraints) <span class="advanced">Advanced</span>
-73. [What is Pod Affinity?](#q73-what-is-pod-affinity) <span class="advanced">Advanced</span>
-74. [What is Pod Anti-Affinity?](#q74-what-is-pod-anti-affinity) <span class="advanced">Advanced</span>
-75. [How do you handle secret encryption?](#q75-how-do-you-handle-secret-encryption) <span class="advanced">Advanced</span>
-76. [What is a certificate signing request (CSR)?](#q76-what-is-a-certificate-signing-request-csr) <span class="advanced">Advanced</span>
-77. [How do you renew certs?](#q77-how-do-you-renew-certs) <span class="advanced">Advanced</span>
-78. [What is kubeadm?](#q78-what-is-kubeadm) <span class="intermediate">Intermediate</span>
-79. [What is Minikube?](#q79-what-is-minikube) <span class="beginner">Beginner</span>
-80. [What is Kind?](#q80-what-is-kind) <span class="beginner">Beginner</span>
-81. [What is k3s?](#q81-what-is-k3s) <span class="beginner">Beginner</span>
-82. [How do you manage multiple clusters?](#q82-how-do-you-manage-multiple-clusters) <span class="intermediate">Intermediate</span>
-83. [What is Federation v2 (KubeFed)?](#q83-what-is-federation-v2-kubefed) <span class="advanced">Advanced</span>
-84. [How do you debug networking?](#q84-how-do-you-debug-networking) <span class="advanced">Advanced</span>
-85. [What is a Lease?](#q85-what-is-a-lease) <span class="advanced">Advanced</span>
-86. [How do you limit jobs history?](#q86-how-do-you-limit-jobs-history) <span class="intermediate">Intermediate</span>
-87. [What is PreStop hook?](#q87-what-is-prestop-hook) <span class="intermediate">Intermediate</span>
-88. [What is PostStart hook?](#q88-what-is-poststart-hook) <span class="intermediate">Intermediate</span>
-89. [How do you set environment variables?](#q89-how-do-you-set-environment-variables) <span class="beginner">Beginner</span>
-90. [What is `command` vs `args`?](#q90-what-is-command-vs-args) <span class="intermediate">Intermediate</span>
-91. [How do you restart a deployment?](#q91-how-do-you-restart-a-deployment) <span class="beginner">Beginner</span>
-92. [How do you undo a deployment?](#q92-how-do-you-undo-a-deployment) <span class="beginner">Beginner</span>
-93. [What is `kubectl explain`?](#q93-what-is-kubectl-explain) <span class="beginner">Beginner</span>
-94. [How do you dry-run?](#q94-how-do-you-dry-run) <span class="beginner">Beginner</span>
-95. [What is a Manifest?](#q95-what-is-a-manifest) <span class="beginner">Beginner</span>
-96. [How do you validate yaml?](#q96-how-do-you-validate-yaml) <span class="intermediate">Intermediate</span>
-97. [What is OPA (Open Policy Agent)?](#q97-what-is-opa-open-policy-agent) <span class="advanced">Advanced</span>
-98. [How do you monitor logs?](#q98-how-do-you-monitor-logs) <span class="beginner">Beginner</span>
-99. [What is Prometheus?](#q99-what-is-prometheus) <span class="intermediate">Intermediate</span>
-100. [What is Grafana?](#q100-what-is-grafana) <span class="intermediate">Intermediate</span>
+1. [What is a Pod?](#q1) <span class="beginner">Beginner</span>
+2. [What is a Deployment?](#q2) <span class="beginner">Beginner</span>
+3. [What is a Service?](#q3) <span class="beginner">Beginner</span>
+4. [ClusterIP vs NodePort vs LoadBalancer?](#q4) <span class="intermediate">Intermediate</span>
+5. [What is a Namespace?](#q5) <span class="beginner">Beginner</span>
+6. [What is Ingress?](#q6) <span class="intermediate">Intermediate</span>
+7. [What is a ConfigMap?](#q7) <span class="beginner">Beginner</span>
+8. [What is a Secret?](#q8) <span class="beginner">Beginner</span>
+9. [What is a StatefulSet?](#q9) <span class="advanced">Advanced</span>
+10. [What is a DaemonSet?](#q10) <span class="intermediate">Intermediate</span>
+11. [What is a Job vs CronJob?](#q11) <span class="intermediate">Intermediate</span>
+12. [What is HPA (Horizontal Pod Autoscaler)?](#q12) <span class="intermediate">Intermediate</span>
+13. [What is VPA (Vertical Pod Autoscaler)?](#q13) <span class="advanced">Advanced</span>
+14. [What are Liveness and Readiness Probes?](#q14) <span class="intermediate">Intermediate</span>
+15. [What is a Sidecar Pattern?](#q15) <span class="intermediate">Intermediate</span>
+16. [What is an Init Container?](#q16) <span class="intermediate">Intermediate</span>
+17. [What is a Taint and Toleration?](#q17) <span class="advanced">Advanced</span>
+18. [What is Node Affinity?](#q18) <span class="advanced">Advanced</span>
+19. [What is a Persistent Volume (PV)?](#q19) <span class="intermediate">Intermediate</span>
+20. [What is a Persistent Volume Claim (PVC)?](#q20) <span class="intermediate">Intermediate</span>
+21. [What is StorageClass?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you perform a Rolling Update?](#q22) <span class="beginner">Beginner</span>
+23. [What is a Canary Deployment?](#q23) <span class="advanced">Advanced</span>
+24. [What is a Blue/Green Deployment?](#q24) <span class="advanced">Advanced</span>
+25. [What is Helm?](#q25) <span class="beginner">Beginner</span>
+26. [What is `kubectl`?](#q26) <span class="beginner">Beginner</span>
+27. [How do you debug a CrashLoopBackOff?](#q27) <span class="beginner">Beginner</span>
+28. [What is etcd?](#q28) <span class="advanced">Advanced</span>
+29. [What is Kubelet?](#q29) <span class="advanced">Advanced</span>
+30. [What is Kube-Proxy?](#q30) <span class="advanced">Advanced</span>
+31. [What is the Control Plane?](#q31) <span class="intermediate">Intermediate</span>
+32. [What is RBAC?](#q32) <span class="intermediate">Intermediate</span>
+33. [What is a ServiceAccount?](#q33) <span class="intermediate">Intermediate</span>
+34. [What is a NetworkPolicy?](#q34) <span class="advanced">Advanced</span>
+35. [What is a Resource Quota?](#q35) <span class="intermediate">Intermediate</span>
+36. [What is a LimitRange?](#q36) <span class="intermediate">Intermediate</span>
+37. [What is Headless Service?](#q37) <span class="advanced">Advanced</span>
+38. [What is Pod Disruption Budget (PDB)?](#q38) <span class="advanced">Advanced</span>
+39. [What is a Custom Resource Definition (CRD)?](#q39) <span class="advanced">Advanced</span>
+40. [What is an Operator?](#q40) <span class="advanced">Advanced</span>
+41. [What is the difference between Request and Limit?](#q41) <span class="beginner">Beginner</span>
+42. [How do you drain a node?](#q42) <span class="intermediate">Intermediate</span>
+43. [What is Cordoning?](#q43) <span class="intermediate">Intermediate</span>
+44. [What is a Static Pod?](#q44) <span class="advanced">Advanced</span>
+45. [What is Container Runtime Interface (CRI)?](#q45) <span class="advanced">Advanced</span>
+46. [What is CNI (Container Network Interface)?](#q46) <span class="advanced">Advanced</span>
+47. [What is CSI (Container Storage Interface)?](#q47) <span class="advanced">Advanced</span>
+48. [How do you force delete a pod?](#q48) <span class="intermediate">Intermediate</span>
+49. [What is `kubectl apply` vs `create`?](#q49) <span class="beginner">Beginner</span>
+50. [How do you port forward?](#q50) <span class="beginner">Beginner</span>
+51. [What is a Context?](#q51) <span class="beginner">Beginner</span>
+52. [How do you list all resources?](#q52) <span class="intermediate">Intermediate</span>
+53. [What is a finalizer?](#q53) <span class="advanced">Advanced</span>
+54. [What is Garbage Collection in K8s?](#q54) <span class="advanced">Advanced</span>
+55. [What is OOMKilled?](#q55) <span class="intermediate">Intermediate</span>
+56. [What is ImagePullBackOff?](#q56) <span class="beginner">Beginner</span>
+57. [How do you auto-scale cluster nodes?](#q57) <span class="advanced">Advanced</span>
+58. [What is Service Mesh (Istio/Linkerd)?](#q58) <span class="advanced">Advanced</span>
+59. [How do you secure K8s dashboard?](#q59) <span class="intermediate">Intermediate</span>
+60. [What is GitOps?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you backup etcd?](#q61) <span class="advanced">Advanced</span>
+62. [What is a PriorityClass?](#q62) <span class="advanced">Advanced</span>
+63. [What is Pod Security Admission?](#q63) <span class="advanced">Advanced</span>
+64. [How do you mount a single file?](#q64) <span class="intermediate">Intermediate</span>
+65. [What is Ephemeral Storage?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you troubleshoot DNS?](#q66) <span class="intermediate">Intermediate</span>
+67. [What is `kubectl top`?](#q67) <span class="beginner">Beginner</span>
+68. [What is Metrics Server?](#q68) <span class="intermediate">Intermediate</span>
+69. [How do you copy files to/from pod?](#q69) <span class="beginner">Beginner</span>
+70. [What is `kubectl exec`?](#q70) <span class="beginner">Beginner</span>
+71. [What is Downward API?](#q71) <span class="advanced">Advanced</span>
+72. [What is Topology Spread Constraints?](#q72) <span class="advanced">Advanced</span>
+73. [What is Pod Affinity?](#q73) <span class="advanced">Advanced</span>
+74. [What is Pod Anti-Affinity?](#q74) <span class="advanced">Advanced</span>
+75. [How do you handle secret encryption?](#q75) <span class="advanced">Advanced</span>
+76. [What is a certificate signing request (CSR)?](#q76) <span class="advanced">Advanced</span>
+77. [How do you renew certs?](#q77) <span class="advanced">Advanced</span>
+78. [What is kubeadm?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is Minikube?](#q79) <span class="beginner">Beginner</span>
+80. [What is Kind?](#q80) <span class="beginner">Beginner</span>
+81. [What is k3s?](#q81) <span class="beginner">Beginner</span>
+82. [How do you manage multiple clusters?](#q82) <span class="intermediate">Intermediate</span>
+83. [What is Federation v2 (KubeFed)?](#q83) <span class="advanced">Advanced</span>
+84. [How do you debug networking?](#q84) <span class="advanced">Advanced</span>
+85. [What is a Lease?](#q85) <span class="advanced">Advanced</span>
+86. [How do you limit jobs history?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is PreStop hook?](#q87) <span class="intermediate">Intermediate</span>
+88. [What is PostStart hook?](#q88) <span class="intermediate">Intermediate</span>
+89. [How do you set environment variables?](#q89) <span class="beginner">Beginner</span>
+90. [What is `command` vs `args`?](#q90) <span class="intermediate">Intermediate</span>
+91. [How do you restart a deployment?](#q91) <span class="beginner">Beginner</span>
+92. [How do you undo a deployment?](#q92) <span class="beginner">Beginner</span>
+93. [What is `kubectl explain`?](#q93) <span class="beginner">Beginner</span>
+94. [How do you dry-run?](#q94) <span class="beginner">Beginner</span>
+95. [What is a Manifest?](#q95) <span class="beginner">Beginner</span>
+96. [How do you validate yaml?](#q96) <span class="intermediate">Intermediate</span>
+97. [What is OPA (Open Policy Agent)?](#q97) <span class="advanced">Advanced</span>
+98. [How do you monitor logs?](#q98) <span class="beginner">Beginner</span>
+99. [What is Prometheus?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is Grafana?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -129,8 +129,6 @@ metadata:
   name: myapp
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -148,8 +146,6 @@ spec:
   replicas: 3
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
@@ -166,8 +162,6 @@ kind: Service
 spec:
   type: ClusterIP
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -189,8 +183,6 @@ ports:
   - nodePort: 30007
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -206,8 +198,6 @@ Namespaces provide a mechanism for isolating groups of resources within a single
 metadata:
   namespace: dev
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -227,8 +217,6 @@ spec:
   - host: my.app
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
@@ -245,8 +233,6 @@ kind: ConfigMap
 data:
   db_host: localhost
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -266,8 +252,6 @@ data:
   pass: YWRtaW4=
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -284,8 +268,6 @@ kind: StatefulSet
 serviceName: mysql
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -300,8 +282,6 @@ A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are a
 ```yaml
 kind: DaemonSet
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -320,8 +300,6 @@ kind: CronJob
 schedule: "*/1 * * * *"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -339,8 +317,6 @@ minReplicas: 1
 maxReplicas: 10
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -355,8 +331,6 @@ VPA automatically adjusts CPU and memory requests for individual Pods based on h
 ```yaml
 kind: VerticalPodAutoscaler
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -376,8 +350,6 @@ livenessProbe:
     path: /health
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -394,8 +366,6 @@ containers:
 - name: main
 - name: sidecar
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -414,8 +384,6 @@ initContainers:
   command: ['sh', '-c', '...']
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -433,8 +401,6 @@ tolerations:
   operator: "Exists"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -451,8 +417,6 @@ affinity:
   nodeAffinity: ...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -467,8 +431,6 @@ A Persistent Volume is a cluster-wide storage resource provisioned by an adminis
 ```yaml
 kind: PersistentVolume
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -488,8 +450,6 @@ resources:
     storage: 1Gi
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -505,8 +465,6 @@ StorageClass defines categories of storage (e.g., fast SSD, standard HDD) and en
 kind: StorageClass
 provisioner: aws-ebs
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -524,8 +482,6 @@ strategy:
   type: RollingUpdate
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
@@ -540,8 +496,6 @@ A canary deployment gradually routes a small percentage of traffic to the new ve
 ```yaml
 // Use Istio or Ingress annotations
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -558,8 +512,6 @@ Blue/Green deployments maintain two identical environments (blue = current, gree
 // Switch Service selector
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
@@ -575,8 +527,6 @@ Helm is the package manager for Kubernetes, templating and managing application 
 helm install my-app ./chart
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -591,8 +541,6 @@ helm install my-app ./chart
 ```yaml
 kubectl get pods
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -610,8 +558,6 @@ kubectl logs pod-name
 kubectl describe pod pod-name
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
@@ -626,8 +572,6 @@ etcd is a distributed key-value store that serves as the single source of truth 
 ```yaml
 // Backing store for K8s
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -644,8 +588,6 @@ The Kubelet is the agent that runs on every worker node, responsible for ensurin
 // Manages pods on node
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
@@ -661,8 +603,6 @@ Kube-Proxy runs on every node and maintains network rules that enable Service ab
 // Handles service routing
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
@@ -677,8 +617,6 @@ The control plane is the brain of the cluster, consisting of four components: th
 ```yaml
 // Brain of the cluster
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -697,8 +635,6 @@ rules:
 - resources: ["pods"]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -713,8 +649,6 @@ A ServiceAccount provides an identity for Pods to authenticate with the Kubernet
 ```yaml
 serviceAccountName: my-sa
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -733,8 +667,6 @@ spec:
   podSelector: ...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -749,8 +681,6 @@ ResourceQuota limits aggregate resource consumption per namespace, capping the t
 ```yaml
 kind: ResourceQuota
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -767,8 +697,6 @@ LimitRange sets default, minimum, and maximum resource constraints for individua
 kind: LimitRange
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
@@ -783,8 +711,6 @@ A Headless Service sets `clusterIP: None`, which means no load-balanced proxy is
 ```yaml
 clusterIP: None
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -802,8 +728,6 @@ kind: PodDisruptionBudget
 minAvailable: 1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
@@ -819,8 +743,6 @@ A CRD extends the Kubernetes API with custom resource types beyond built-in obje
 kind: CustomResourceDefinition
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
@@ -835,8 +757,6 @@ An Operator combines a CRD (custom resource definition) with a custom controller
 ```yaml
 // Automates complex apps
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -855,8 +775,6 @@ resources:
   limits: { cpu: 200m }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
@@ -871,8 +789,6 @@ resources:
 ```yaml
 kubectl drain node-1
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -889,8 +805,6 @@ Cordoning marks a node as unschedulable, preventing the Kubernetes scheduler fro
 kubectl cordon node-1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
@@ -905,8 +819,6 @@ Static Pods are managed directly by the Kubelet using manifest files from a dire
 ```yaml
 // /etc/kubernetes/manifests
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -923,8 +835,6 @@ The Container Runtime Interface (CRI) is a plugin interface that lets Kubernetes
 // Docker shim
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
@@ -939,8 +849,6 @@ CNI is the plugin specification that handles Pod networking -- assigning IP addr
 ```yaml
 // Pod networking
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -957,8 +865,6 @@ CSI is a standardized interface that allows Kubernetes to use any storage vendor
 // EBS, NFS drivers
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
@@ -973,8 +879,6 @@ Force deletion bypasses the graceful shutdown process and immediately removes a 
 ```yaml
 kubectl delete pod x --grace-period=0 --force
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -991,8 +895,6 @@ kubectl delete pod x --grace-period=0 --force
 kubectl apply -f file.yaml
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -1007,8 +909,6 @@ kubectl apply -f file.yaml
 ```yaml
 kubectl port-forward pod-x 8080:80
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1025,8 +925,6 @@ A context in `kubectl` defines a tuple of cluster (API server URL), user (authen
 kubectl config use-context prod
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q52"></a>
@@ -1041,8 +939,6 @@ kubectl config use-context prod
 ```yaml
 kubectl get all --all-namespaces
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1060,8 +956,6 @@ finalizers:
 - kubernetes.io/pvc-protection
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
@@ -1076,8 +970,6 @@ Kubernetes garbage collection automatically cleans up dependent resources when a
 ```yaml
 // OwnerReferences
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1094,8 +986,6 @@ OOMKilled (exit code 137) occurs when the Linux kernel terminates a container be
 // Exit Code 137
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
@@ -1110,8 +1000,6 @@ ImagePullBackOff means the Kubelet could not pull the container image, and it wi
 ```yaml
 // Check image name
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1128,8 +1016,6 @@ The Cluster Autoscaler automatically adds nodes when Pods are pending due to ins
 // Adds/removes nodes
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -1144,8 +1030,6 @@ A service mesh injects sidecar proxies (Envoy) alongside every Pod to handle int
 ```yaml
 // Sidecar proxies
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1162,8 +1046,6 @@ The Kubernetes dashboard is a frequent attack vector if exposed publicly, so it 
 // Never expose publicly
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
@@ -1179,8 +1061,6 @@ GitOps uses Git as the single source of truth for declarative infrastructure and
 // Sync git to cluster
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
@@ -1195,8 +1075,6 @@ Since etcd holds the entire cluster state, regular backups are your disaster rec
 ```yaml
 etcdctl snapshot save backup.db
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1214,8 +1092,6 @@ kind: PriorityClass
 value: 1000000
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
@@ -1231,8 +1107,6 @@ Pod Security Admission (PSA) replaced the deprecated PodSecurityPolicies, enforc
 labels:
   pod-security.kubernetes.io/enforce: restricted
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1251,8 +1125,6 @@ volumeMounts:
   subPath: file.txt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
@@ -1269,8 +1141,6 @@ requests:
   ephemeral-storage: "2Gi"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
@@ -1285,8 +1155,6 @@ Kubernetes DNS (CoreDNS) resolves Service names to ClusterIPs, and DNS failures 
 ```yaml
 nslookup myservice
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1303,8 +1171,6 @@ nslookup myservice
 kubectl top pods
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
@@ -1319,8 +1185,6 @@ Metrics Server is a lightweight, cluster-wide aggregator of resource usage data 
 ```yaml
 // Required for HPA
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1337,8 +1201,6 @@ Metrics Server is a lightweight, cluster-wide aggregator of resource usage data 
 kubectl cp ./file pod:/path
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
@@ -1353,8 +1215,6 @@ kubectl cp ./file pod:/path
 ```yaml
 kubectl exec -it pod -- bash
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1373,8 +1233,6 @@ valueFrom:
     fieldPath: metadata.name
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
@@ -1390,8 +1248,6 @@ Topology Spread Constraints distribute Pods evenly across failure domains (zones
 topologySpreadConstraints:
 - maxSkew: 1
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1409,8 +1265,6 @@ podAffinity:
   requiredDuringScheduling...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
@@ -1427,8 +1281,6 @@ podAntiAffinity:
   requiredDuringScheduling...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
@@ -1443,8 +1295,6 @@ By default, Kubernetes Secrets are stored in etcd as base64-encoded (not encrypt
 ```yaml
 // Encrypt secrets at rest
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1461,8 +1311,6 @@ A CertificateSigningRequest (CSR) is a Kubernetes API object that allows nodes, 
 kind: CertificateSigningRequest
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
@@ -1477,8 +1325,6 @@ Kubernetes cluster certificates (API server, etcd, kubelet, etc.) expire after o
 ```yaml
 kubeadm certs renew all
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1495,8 +1341,6 @@ kubeadm is the official tool for bootstrapping Kubernetes clusters, handling the
 kubeadm init
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1511,8 +1355,6 @@ Minikube runs a single-node Kubernetes cluster locally on your machine using a V
 ```yaml
 minikube start
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1529,8 +1371,6 @@ Kind (Kubernetes IN Docker) runs Kubernetes clusters inside Docker containers, m
 kind create cluster
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
@@ -1545,8 +1385,6 @@ k3s is a lightweight, CNCF-certified Kubernetes distribution by Rancher that pac
 ```yaml
 curl ... | sh -
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1563,8 +1401,6 @@ Multi-cluster management uses kubeconfig files that contain multiple contexts, w
 KUBECONFIG=c1:c2 kubectl get pods
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
@@ -1579,8 +1415,6 @@ KubeFed (Kubernetes Federation v2) enables managing multiple Kubernetes clusters
 ```yaml
 // Sync resources
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1597,8 +1431,6 @@ Networking issues in Kubernetes span multiple layers (Pod-to-Pod, Pod-to-Service
 kubectl run debug --image=nicolaka/netshoot
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
@@ -1614,8 +1446,6 @@ A Lease is a lightweight API object used for distributed coordination and heartb
 kind: Lease
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
@@ -1630,8 +1460,6 @@ Completed Jobs and CronJobs accumulate in the cluster over time, consuming etcd 
 ```yaml
 ttlSecondsAfterFinished: 100
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1650,8 +1478,6 @@ lifecycle:
     exec: ...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
@@ -1667,8 +1493,6 @@ The PostStart hook runs immediately after a container is created, executing a co
 lifecycle:
   postStart: ...
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1687,8 +1511,6 @@ env:
   value: localhost
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
@@ -1705,8 +1527,6 @@ command: ["/bin/sh"]
 args: ["-c", "echo hi"]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
@@ -1721,8 +1541,6 @@ args: ["-c", "echo hi"]
 ```yaml
 kubectl rollout restart deploy/app
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1739,8 +1557,6 @@ kubectl rollout restart deploy/app
 kubectl rollout undo deploy/app
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
@@ -1755,8 +1571,6 @@ kubectl rollout undo deploy/app
 ```yaml
 kubectl explain pod.spec
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1773,8 +1587,6 @@ Dry-run mode (`--dry-run=client` or `--dry-run=server`) lets you validate or gen
 kubectl create deploy x --dry-run=client -o yaml
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
@@ -1789,8 +1601,6 @@ A manifest is a YAML (or JSON) file that declaratively describes the desired sta
 ```yaml
 // pod.yaml
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1807,8 +1617,6 @@ Validating Kubernetes YAML before applying catches errors early -- use `kubectl 
 kubeval pod.yaml
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
@@ -1823,8 +1631,6 @@ OPA (Open Policy Agent) is a general-purpose policy engine that, when integrated
 ```yaml
 // Enforce rules
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1841,8 +1647,6 @@ Kubernetes logs are written to stdout/stderr on each node and are ephemeral (los
 // Fluentd collects logs
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
@@ -1858,8 +1662,6 @@ Prometheus is the de facto standard monitoring system for Kubernetes, scraping t
 // Scrapes /metrics
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
@@ -1874,7 +1676,5 @@ Grafana is a visualization and dashboarding platform that connects to data sourc
 ```yaml
 // Dashboards
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---

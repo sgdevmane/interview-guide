@@ -258,8 +258,6 @@ actor Aggregator {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -306,8 +304,6 @@ func run(work: @Sendable @escaping () -> Void) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -348,8 +344,6 @@ final class Adapter: @preconcurrency OldDelegate {
     func didFinish() { print("done") }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -401,8 +395,6 @@ func loadProfile() async throws -> (User, [Post]) {
     return try await (user, posts)
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -460,8 +452,6 @@ struct PricesView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -498,8 +488,6 @@ func handle() async throws {
     print(c)
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -538,8 +526,6 @@ actor ImageCache {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -586,8 +572,6 @@ func onMainCallback(_ block: @escaping () -> Void) {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -638,8 +622,6 @@ struct LibraryView: View {
 struct Book: Identifiable { let id = UUID(); var title = "" }
 struct BookRow: View { let book: Book; var body: some View { Text(book.title) } }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -697,8 +679,6 @@ final class ScoreLabel: UILabel {
 // re-establishes tracking — mirroring what SwiftUI does per body call.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
@@ -754,8 +734,6 @@ struct Toggler: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -801,8 +779,6 @@ struct Card<Content: View>: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -857,8 +833,6 @@ struct TagsView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -906,8 +880,6 @@ struct AmountRow: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -959,8 +931,6 @@ struct RootView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -1005,8 +975,6 @@ struct MailSplitView: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1061,8 +1029,6 @@ struct RootView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -1103,8 +1069,6 @@ struct DraftForm: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1147,8 +1111,6 @@ struct StreakBadge: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
@@ -1190,8 +1152,6 @@ struct TickerList: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -1226,8 +1186,6 @@ struct AuroraBackground: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1267,8 +1225,6 @@ struct CatalogRow: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -1303,8 +1259,6 @@ struct FeedRow: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1357,8 +1311,6 @@ struct LibraryApp: App {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
@@ -1410,8 +1362,6 @@ struct LibraryApp: App {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -1448,8 +1398,6 @@ struct ShelfView: View {
 // request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
 // let books = try viewContext.fetch(request)   // + NSFetchedResultsController for UI
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1508,8 +1456,6 @@ struct SpeedView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
@@ -1550,8 +1496,6 @@ final class BeaconService {
     var signal = PassthroughSubject<String, Never>()
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1597,8 +1541,6 @@ func demo() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -1637,8 +1579,6 @@ struct CloudUploader {
 
 enum Connection { static var isUp = true }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1683,8 +1623,6 @@ registry.register(SVGRenderer())
 registry.register(PDFRenderer())
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -1724,8 +1662,6 @@ extension Sequence where Element == Double {         //PAT-style extension sugar
 let readings = [18.0, 21.5, 30.0, 25.5]
 print(readings.normalized())   // [0.0, 0.1935..., 1.0, 0.451...]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1773,8 +1709,6 @@ struct PercentageLabel {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
@@ -1817,8 +1751,6 @@ a.append(4)               // COW: `a` clones, `b` untouched
 print(b.items)            // [1, 2, 3]
 print(a.items)            // [1, 2, 3, 4]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1869,8 +1801,6 @@ func testIncrement() async {
     precondition(state.fact == "42 is the answer")
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1927,8 +1857,6 @@ struct URLSessionAPIClient: APIClient {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
@@ -1983,8 +1911,6 @@ func slugify(_ s: String) -> String {
      .joined(separator: "-")
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2045,8 +1971,6 @@ struct EventRecorder: Sendable {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
@@ -2095,8 +2019,6 @@ actor AsyncGate {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2151,8 +2073,6 @@ func loadIcon(catalog: Catalog, key: String) async -> Data? {
     await catalog.cached(key)
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2216,8 +2136,6 @@ struct HTTPClient {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
@@ -2274,8 +2192,6 @@ final class PersistenceController {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2352,8 +2268,6 @@ actor CloudSync {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
@@ -2408,8 +2322,6 @@ enum Persistence {
     static func load() -> Int { UserDefaults.standard.integer(forKey: "seconds") }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2472,8 +2384,6 @@ enum Store {
     static func currentStreak() async -> Int { 7 }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2542,8 +2452,6 @@ struct WorkoutShortcuts: AppShortcutsProvider {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -2588,8 +2496,6 @@ struct TrackRow: View {
 
 struct Track { let title: String; let artist: String; let artwork: URL? }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2639,8 +2545,6 @@ struct StatCard: View {
         .padding()
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2698,8 +2602,6 @@ struct PhotoCell: View {
     var body: some View { Image(systemName: "photo").font(.system(size: large ? 120 : 40)).frame(maxWidth: .infinity).aspectRatio(1, contentMode: .fit).background(.thinMaterial) }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2759,8 +2661,6 @@ struct NudgeDot: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2835,8 +2735,6 @@ struct RichEditorView: UIViewRepresentable {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2920,8 +2818,6 @@ final class WelcomeViewController: UIViewController {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
@@ -2979,8 +2875,6 @@ class PauseCommand: RemoteCommand {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -3034,8 +2928,6 @@ func boot(store: TokenStore) async {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -3085,8 +2977,6 @@ struct PlaybackView: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3156,8 +3046,6 @@ enum CloudSync {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
@@ -3209,8 +3097,6 @@ if let m = durationRegex.firstMatch(in: "finished in 1.2s") {
     print(Double(m.1) ?? 0)   // 1.2 — literal captures are Substrings
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3265,8 +3151,6 @@ let expr: Expression = .multiply(.number(3), .add(.variable("x"), .negate(.numbe
 print(expr.evaluate(["x": 5]))   // 9.0
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
@@ -3310,8 +3194,6 @@ func firstValidPort(_ raw: [String]) -> Int? {
 
 print(firstValidPort(["host", ":8080", ":99999"]))   // 8080
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3361,8 +3243,6 @@ for groomer in staff {
 print(compareEstimates(DogGroomer(), CatGroomer(), minutes: 60))   // 100
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q64"></a>
@@ -3403,8 +3283,6 @@ let package = Package(
 //   iPhone (arm64, 3x)  ->  assets only for 3x, arm64 slice
 //   iPad (arm64, 2x)    ->  different slice, ~30-40% smaller than universal
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3472,8 +3350,6 @@ final class EntitlementModel {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
@@ -3535,8 +3411,6 @@ struct VideoCanvas: View { var body: some View { Color.black } }
 struct ContentView: View { var body: some View { Text("Vision Studio") } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
@@ -3583,23 +3457,6 @@ platform :ios do
   end
 end
 ```
-
-```swift
-// AllTests.xctestplan (abbreviated): variants run every configuration
-// {
-//   "configurations" : [
-//     { "name" : "Unit (parallel)", "language" : "en", "region" : "US" },
-//     { "name" : "UI RTL",          "language" : "he", "region" : "IL" },
-//     { "name" : "AX large text",   "language" : "en",
-//       "systemAttachmentLifetime" : "keepAlways" }
-//   ],
-//   "targets" : [ { "target" : { "containerPath" : ":InterviewGuide" } },
-//                 { "target" : { "containerPath" : ":InterviewGuideUITests" } } ],
-//   "options" : { "testExecutionOrdering" : "random" }
-// }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3652,8 +3509,6 @@ struct PlayerView: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3709,8 +3564,6 @@ func demo() {
 //     )
 // }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3769,8 +3622,6 @@ actor Pipeline {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
@@ -3813,8 +3664,6 @@ enum Service {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -3880,8 +3729,6 @@ extension URLSession {
 struct Result: Identifiable, Codable, Sendable { let id = UUID(); let title: String }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
@@ -3942,8 +3789,6 @@ let md = try! AttributedString(
 )
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
@@ -4001,8 +3846,6 @@ struct PhotoWall: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
@@ -4056,8 +3899,6 @@ struct ReadingProgress: View {
 struct Article: Identifiable { let id = UUID(); var title = "" }
 struct ArticleRow: View { let article: Article; var body: some View { Text(article.title).padding() } }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4122,8 +3963,6 @@ struct AccountBar: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
@@ -4181,8 +4020,6 @@ func sample() async throws {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4256,8 +4093,6 @@ struct Reading: Identifiable {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -4320,8 +4155,6 @@ struct TimelineEntry: Codable {
 let decoder = JSONDecoder()
 decoder.dateDecodingStrategy = .millisecondsSince1970
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4410,8 +4243,6 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 extension Notification.Name { static let pushRoute = Notification.Name("pushRoute") }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
@@ -4475,8 +4306,6 @@ struct AuthStore {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
@@ -4532,8 +4361,6 @@ func checkTrialEligibility() async throws -> Bool {
     return try await Backend.consumeTrialToken(token)
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4603,8 +4430,6 @@ struct SyncBar: View {
 @Observable final class SyncModel { var cellularAllowed = false }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
@@ -4641,8 +4466,6 @@ actor ThumbnailStore {
     func add(_ image: UIImage, for url: URL) { thumbs[url] = image }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4704,8 +4527,6 @@ struct App {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
@@ -4759,8 +4580,6 @@ struct PreferencesView: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4823,8 +4642,6 @@ let package = Package(
 //         .environment(CheckoutModel(client: URLSessionClient()))
 // }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4893,8 +4710,6 @@ struct ReportsApp: App {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -4986,8 +4801,6 @@ struct SiteCard: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
@@ -5059,8 +4872,6 @@ actor FlowCoordinator {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
@@ -5107,8 +4918,6 @@ func priorityDemo() async {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5163,8 +4972,6 @@ struct DemoLayout: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5258,8 +5065,6 @@ struct CuisineFilterView: View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
@@ -5327,8 +5132,6 @@ struct JournalList: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5413,8 +5216,6 @@ extension View {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
@@ -5454,8 +5255,6 @@ struct CardStack: View {
     }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5509,8 +5308,6 @@ struct ProfileView: View { var body: some View { Text("Profile") } }
 enum Analytics { static func screenView(_ name: String) {} }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
@@ -5557,8 +5354,6 @@ func badge(_ count: Int) -> String {
     String(localized: "You have \(count) notifications")
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5609,8 +5404,6 @@ struct PushResult: Codable { let count: Int }
 //   log stream --predicate 'subsystem == "com.example.app" AND category == "sync"'
 //   log show --last 1h --predicate 'eventMessage CONTAINS "sync failed"'
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -5751,7 +5544,5 @@ protocol NotesAPI: Sendable {
 
 enum SyncController { static var shared: SyncEngine! }   // wired at launch with API + clock
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---

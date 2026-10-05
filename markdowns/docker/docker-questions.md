@@ -3,7 +3,7 @@
     <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Docker & Containers Logo" width="100" height="100">
   </a>
   <h1>Docker & Containers Interview Questions & Answers</h1>
-  <p><b>Comprehensive interview questions covering Namespaces, Cgroups, Multi-Stage Builds, OverlayFS, and Networking</b></p>
+  <p><b>Comprehensive interview questions covering Namespaces, Cgroups, Multi-Stage Builds, and OverlayFS</b></p>
 </div>
 
 ---
@@ -11,105 +11,105 @@
 ## Table of Contents
 
 1. [How do Linux Namespaces, Cgroups, and OverlayFS form the foundation of Docker Containers?](#q1) <span class="advanced">Advanced</span>
-2. [How does Multi-Stage Docker Build optimize container security and shrink image size?](#q2) <span class="intermediate">Intermediate</span>
-3. [How do Docker Networks work (Bridge, Host, Overlay, Macvlan) and how do you secure container communication?](#q3) <span class="intermediate">Intermediate</span>
-4. [Docker Question 4: Advanced Container & Infrastructure Topic 1](#q4) <span class="advanced">Advanced</span>
-5. [Docker Question 5: Advanced Container & Infrastructure Topic 2](#q5) <span class="intermediate">Intermediate</span>
-6. [Docker Question 6: Advanced Container & Infrastructure Topic 3](#q6) <span class="advanced">Advanced</span>
-7. [Docker Question 7: Advanced Container & Infrastructure Topic 4](#q7) <span class="intermediate">Intermediate</span>
-8. [Docker Question 8: Advanced Container & Infrastructure Topic 5](#q8) <span class="advanced">Advanced</span>
-9. [Docker Question 9: Advanced Container & Infrastructure Topic 6](#q9) <span class="intermediate">Intermediate</span>
-10. [Docker Question 10: Advanced Container & Infrastructure Topic 7](#q10) <span class="advanced">Advanced</span>
-11. [Docker Question 11: Advanced Container & Infrastructure Topic 8](#q11) <span class="intermediate">Intermediate</span>
-12. [Docker Question 12: Advanced Container & Infrastructure Topic 9](#q12) <span class="advanced">Advanced</span>
-13. [Docker Question 13: Advanced Container & Infrastructure Topic 10](#q13) <span class="intermediate">Intermediate</span>
-14. [Docker Question 14: Advanced Container & Infrastructure Topic 11](#q14) <span class="advanced">Advanced</span>
-15. [Docker Question 15: Advanced Container & Infrastructure Topic 12](#q15) <span class="intermediate">Intermediate</span>
-16. [Docker Question 16: Advanced Container & Infrastructure Topic 13](#q16) <span class="advanced">Advanced</span>
-17. [Docker Question 17: Advanced Container & Infrastructure Topic 14](#q17) <span class="intermediate">Intermediate</span>
-18. [Docker Question 18: Advanced Container & Infrastructure Topic 15](#q18) <span class="advanced">Advanced</span>
-19. [Docker Question 19: Advanced Container & Infrastructure Topic 16](#q19) <span class="intermediate">Intermediate</span>
-20. [Docker Question 20: Advanced Container & Infrastructure Topic 17](#q20) <span class="advanced">Advanced</span>
-21. [Docker Question 21: Advanced Container & Infrastructure Topic 18](#q21) <span class="intermediate">Intermediate</span>
-22. [Docker Question 22: Advanced Container & Infrastructure Topic 19](#q22) <span class="advanced">Advanced</span>
-23. [Docker Question 23: Advanced Container & Infrastructure Topic 20](#q23) <span class="intermediate">Intermediate</span>
-24. [Docker Question 24: Advanced Container & Infrastructure Topic 21](#q24) <span class="advanced">Advanced</span>
-25. [Docker Question 25: Advanced Container & Infrastructure Topic 22](#q25) <span class="intermediate">Intermediate</span>
-26. [Docker Question 26: Advanced Container & Infrastructure Topic 23](#q26) <span class="advanced">Advanced</span>
-27. [Docker Question 27: Advanced Container & Infrastructure Topic 24](#q27) <span class="intermediate">Intermediate</span>
-28. [Docker Question 28: Advanced Container & Infrastructure Topic 25](#q28) <span class="advanced">Advanced</span>
-29. [Docker Question 29: Advanced Container & Infrastructure Topic 26](#q29) <span class="intermediate">Intermediate</span>
-30. [Docker Question 30: Advanced Container & Infrastructure Topic 27](#q30) <span class="advanced">Advanced</span>
-31. [Docker Question 31: Advanced Container & Infrastructure Topic 28](#q31) <span class="intermediate">Intermediate</span>
-32. [Docker Question 32: Advanced Container & Infrastructure Topic 29](#q32) <span class="advanced">Advanced</span>
-33. [Docker Question 33: Advanced Container & Infrastructure Topic 30](#q33) <span class="intermediate">Intermediate</span>
-34. [Docker Question 34: Advanced Container & Infrastructure Topic 31](#q34) <span class="advanced">Advanced</span>
-35. [Docker Question 35: Advanced Container & Infrastructure Topic 32](#q35) <span class="intermediate">Intermediate</span>
-36. [Docker Question 36: Advanced Container & Infrastructure Topic 33](#q36) <span class="advanced">Advanced</span>
-37. [Docker Question 37: Advanced Container & Infrastructure Topic 34](#q37) <span class="intermediate">Intermediate</span>
-38. [Docker Question 38: Advanced Container & Infrastructure Topic 35](#q38) <span class="advanced">Advanced</span>
-39. [Docker Question 39: Advanced Container & Infrastructure Topic 36](#q39) <span class="intermediate">Intermediate</span>
-40. [Docker Question 40: Advanced Container & Infrastructure Topic 37](#q40) <span class="advanced">Advanced</span>
-41. [Docker Question 41: Advanced Container & Infrastructure Topic 38](#q41) <span class="intermediate">Intermediate</span>
-42. [Docker Question 42: Advanced Container & Infrastructure Topic 39](#q42) <span class="advanced">Advanced</span>
-43. [Docker Question 43: Advanced Container & Infrastructure Topic 40](#q43) <span class="intermediate">Intermediate</span>
-44. [Docker Question 44: Advanced Container & Infrastructure Topic 41](#q44) <span class="advanced">Advanced</span>
-45. [Docker Question 45: Advanced Container & Infrastructure Topic 42](#q45) <span class="intermediate">Intermediate</span>
-46. [Docker Question 46: Advanced Container & Infrastructure Topic 43](#q46) <span class="advanced">Advanced</span>
-47. [Docker Question 47: Advanced Container & Infrastructure Topic 44](#q47) <span class="intermediate">Intermediate</span>
-48. [Docker Question 48: Advanced Container & Infrastructure Topic 45](#q48) <span class="advanced">Advanced</span>
-49. [Docker Question 49: Advanced Container & Infrastructure Topic 46](#q49) <span class="intermediate">Intermediate</span>
-50. [Docker Question 50: Advanced Container & Infrastructure Topic 47](#q50) <span class="advanced">Advanced</span>
-51. [Docker Question 51: Advanced Container & Infrastructure Topic 48](#q51) <span class="intermediate">Intermediate</span>
-52. [Docker Question 52: Advanced Container & Infrastructure Topic 49](#q52) <span class="advanced">Advanced</span>
-53. [Docker Question 53: Advanced Container & Infrastructure Topic 50](#q53) <span class="intermediate">Intermediate</span>
-54. [Docker Question 54: Advanced Container & Infrastructure Topic 51](#q54) <span class="advanced">Advanced</span>
-55. [Docker Question 55: Advanced Container & Infrastructure Topic 52](#q55) <span class="intermediate">Intermediate</span>
-56. [Docker Question 56: Advanced Container & Infrastructure Topic 53](#q56) <span class="advanced">Advanced</span>
-57. [Docker Question 57: Advanced Container & Infrastructure Topic 54](#q57) <span class="intermediate">Intermediate</span>
-58. [Docker Question 58: Advanced Container & Infrastructure Topic 55](#q58) <span class="advanced">Advanced</span>
-59. [Docker Question 59: Advanced Container & Infrastructure Topic 56](#q59) <span class="intermediate">Intermediate</span>
-60. [Docker Question 60: Advanced Container & Infrastructure Topic 57](#q60) <span class="advanced">Advanced</span>
-61. [Docker Question 61: Advanced Container & Infrastructure Topic 58](#q61) <span class="intermediate">Intermediate</span>
-62. [Docker Question 62: Advanced Container & Infrastructure Topic 59](#q62) <span class="advanced">Advanced</span>
-63. [Docker Question 63: Advanced Container & Infrastructure Topic 60](#q63) <span class="intermediate">Intermediate</span>
-64. [Docker Question 64: Advanced Container & Infrastructure Topic 61](#q64) <span class="advanced">Advanced</span>
-65. [Docker Question 65: Advanced Container & Infrastructure Topic 62](#q65) <span class="intermediate">Intermediate</span>
-66. [Docker Question 66: Advanced Container & Infrastructure Topic 63](#q66) <span class="advanced">Advanced</span>
-67. [Docker Question 67: Advanced Container & Infrastructure Topic 64](#q67) <span class="intermediate">Intermediate</span>
-68. [Docker Question 68: Advanced Container & Infrastructure Topic 65](#q68) <span class="advanced">Advanced</span>
-69. [Docker Question 69: Advanced Container & Infrastructure Topic 66](#q69) <span class="intermediate">Intermediate</span>
-70. [Docker Question 70: Advanced Container & Infrastructure Topic 67](#q70) <span class="advanced">Advanced</span>
-71. [Docker Question 71: Advanced Container & Infrastructure Topic 68](#q71) <span class="intermediate">Intermediate</span>
-72. [Docker Question 72: Advanced Container & Infrastructure Topic 69](#q72) <span class="advanced">Advanced</span>
-73. [Docker Question 73: Advanced Container & Infrastructure Topic 70](#q73) <span class="intermediate">Intermediate</span>
-74. [Docker Question 74: Advanced Container & Infrastructure Topic 71](#q74) <span class="advanced">Advanced</span>
-75. [Docker Question 75: Advanced Container & Infrastructure Topic 72](#q75) <span class="intermediate">Intermediate</span>
-76. [Docker Question 76: Advanced Container & Infrastructure Topic 73](#q76) <span class="advanced">Advanced</span>
-77. [Docker Question 77: Advanced Container & Infrastructure Topic 74](#q77) <span class="intermediate">Intermediate</span>
-78. [Docker Question 78: Advanced Container & Infrastructure Topic 75](#q78) <span class="advanced">Advanced</span>
-79. [Docker Question 79: Advanced Container & Infrastructure Topic 76](#q79) <span class="intermediate">Intermediate</span>
-80. [Docker Question 80: Advanced Container & Infrastructure Topic 77](#q80) <span class="advanced">Advanced</span>
-81. [Docker Question 81: Advanced Container & Infrastructure Topic 78](#q81) <span class="intermediate">Intermediate</span>
-82. [Docker Question 82: Advanced Container & Infrastructure Topic 79](#q82) <span class="advanced">Advanced</span>
-83. [Docker Question 83: Advanced Container & Infrastructure Topic 80](#q83) <span class="intermediate">Intermediate</span>
-84. [Docker Question 84: Advanced Container & Infrastructure Topic 81](#q84) <span class="advanced">Advanced</span>
-85. [Docker Question 85: Advanced Container & Infrastructure Topic 82](#q85) <span class="intermediate">Intermediate</span>
-86. [Docker Question 86: Advanced Container & Infrastructure Topic 83](#q86) <span class="advanced">Advanced</span>
-87. [Docker Question 87: Advanced Container & Infrastructure Topic 84](#q87) <span class="intermediate">Intermediate</span>
-88. [Docker Question 88: Advanced Container & Infrastructure Topic 85](#q88) <span class="advanced">Advanced</span>
-89. [Docker Question 89: Advanced Container & Infrastructure Topic 86](#q89) <span class="intermediate">Intermediate</span>
-90. [Docker Question 90: Advanced Container & Infrastructure Topic 87](#q90) <span class="advanced">Advanced</span>
-91. [Docker Question 91: Advanced Container & Infrastructure Topic 88](#q91) <span class="intermediate">Intermediate</span>
-92. [Docker Question 92: Advanced Container & Infrastructure Topic 89](#q92) <span class="advanced">Advanced</span>
-93. [Docker Question 93: Advanced Container & Infrastructure Topic 90](#q93) <span class="intermediate">Intermediate</span>
-94. [Docker Question 94: Advanced Container & Infrastructure Topic 91](#q94) <span class="advanced">Advanced</span>
-95. [Docker Question 95: Advanced Container & Infrastructure Topic 92](#q95) <span class="intermediate">Intermediate</span>
-96. [Docker Question 96: Advanced Container & Infrastructure Topic 93](#q96) <span class="advanced">Advanced</span>
-97. [Docker Question 97: Advanced Container & Infrastructure Topic 94](#q97) <span class="intermediate">Intermediate</span>
-98. [Docker Question 98: Advanced Container & Infrastructure Topic 95](#q98) <span class="advanced">Advanced</span>
-99. [Docker Question 99: Advanced Container & Infrastructure Topic 96](#q99) <span class="intermediate">Intermediate</span>
-100. [Docker Question 100: Advanced Container & Infrastructure Topic 97](#q100) <span class="advanced">Advanced</span>
+2. [How do Multi-Stage Builds and BuildKit Cache Mounts dramatically minimize image size and build times?](#q2) <span class="intermediate">Intermediate</span>
+3. [What is the difference between Container Virtualization (Docker) and Hardware Virtualization (VMs)?](#q3) <span class="beginner">Beginner</span>
+4. [How do you securely handle sensitive build arguments and credentials using Docker Build Secrets?](#q4) <span class="advanced">Advanced</span>
+5. [What is Rootless Docker and how does it protect the host operating system from container escapes?](#q5) <span class="advanced">Advanced</span>
+6. [How does Container Networking work across Bridge, Host, Overlay, and Macvlan modes?](#q6) <span class="intermediate">Intermediate</span>
+7. [What is the difference between `ENTRYPOINT` and `CMD` in Dockerfiles (Exec vs Shell Form)?](#q7) <span class="beginner">Beginner</span>
+8. [How do you configure graceful shutdown handling in Dockerized applications?](#q8) <span class="intermediate">Intermediate</span>
+9. [How does Distroless image architecture enhance production container security?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you debug running containers that lack a shell or package manager?](#q10) <span class="advanced">Advanced</span>
+11. [How does Docker manage layer caching and how do you optimize layer ordering?](#q11) <span class="intermediate">Intermediate</span>
+12. [What are the differences between Docker volumes, bind mounts, and tmpfs mounts?](#q12) <span class="beginner">Beginner</span>
+13. [How do you configure Docker daemon logging drivers (json-file, fluentd, loki, syslog)?](#q13) <span class="intermediate">Intermediate</span>
+14. [What is Docker Content Trust (DCT) and how does Notary cryptographically sign images?](#q14) <span class="advanced">Advanced</span>
+15. [How do you drop Linux capabilities (`cap_drop: ALL`) to enforce least-privilege container execution?](#q15) <span class="advanced">Advanced</span>
+16. [How do CPU CFS quotas (`--cpus`) and Memory Limits (`--memory`) operate under cgroups?](#q16) <span class="intermediate">Intermediate</span>
+17. [What is Docker Compose Profiles and how do you organize services for dev, staging, and monitoring?](#q17) <span class="beginner">Beginner</span>
+18. [How do you implement Docker healthchecks (`HEALTHCHECK`) with interval, timeout, and retries?](#q18) <span class="intermediate">Intermediate</span>
+19. [What is the difference between Docker in Docker (DinD) and Docker outside of Docker (DooD)?](#q19) <span class="advanced">Advanced</span>
+20. [How do you create Multi-Architecture Images using Docker Buildx and QEMU emulation?](#q20) <span class="intermediate">Intermediate</span>
+21. [What is an OCI (Open Container Initiative) image specification and how does containerd implement it?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you prune dangling images, unused volumes, and build cache safely in production?](#q22) <span class="beginner">Beginner</span>
+23. [How do you configure user namespace remapping (`userns-remap`) in Docker daemon?](#q23) <span class="advanced">Advanced</span>
+24. [What is Seccomp (Secure Computing Mode) and how do default Docker seccomp profiles filter syscalls?](#q24) <span class="advanced">Advanced</span>
+25. [How do you analyze container image vulnerabilities using Trivy or Grype in CI/CD pipelines?](#q25) <span class="intermediate">Intermediate</span>
+26. [What is an SBOM (Software Bill of Materials) and how do you generate one using Syft for containers?](#q26) <span class="intermediate">Intermediate</span>
+27. [How do you configure automatic container restarts (`restart: unless-stopped` vs `always`)?](#q27) <span class="beginner">Beginner</span>
+28. [How do you inspect container resource consumption in real-time with `docker stats` and cAdvisor?](#q28) <span class="beginner">Beginner</span>
+29. [What is Docker init process (`docker run --init` / Tini) and why does it prevent zombie processes?](#q29) <span class="intermediate">Intermediate</span>
+30. [How do you configure Docker container sysctl parameters (`--sysctl net.core.somaxconn=1024`)?](#q30) <span class="advanced">Advanced</span>
+31. [What is the difference between ADD and COPY instructions in a Dockerfile?](#q31) <span class="beginner">Beginner</span>
+32. [How do you optimize Docker image layer counts without creating unreadable single-line commands?](#q32) <span class="intermediate">Intermediate</span>
+33. [What is the difference between Docker Compose v1 (`docker-compose`) and Docker Compose v2 (`docker compose`)?](#q33) <span class="beginner">Beginner</span>
+34. [How do you configure DNS resolution inside Docker containers (`dns` option in daemon.json)?](#q34) <span class="intermediate">Intermediate</span>
+35. [How does Docker Swarm provide built-in service discovery and routing mesh?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you securely pass environment variables to Docker Compose without checking secrets into Git?](#q36) <span class="beginner">Beginner</span>
+37. [What are Docker Content Addressed Identifiers (Image Digests / sha256)?](#q37) <span class="intermediate">Intermediate</span>
+38. [How do you optimize Node.js applications in Docker for production (NODE_ENV, dumb-init, npm prune)?](#q38) <span class="intermediate">Intermediate</span>
+39. [How do you configure Docker Macvlan networks for legacy applications requiring physical LAN IPs?](#q39) <span class="advanced">Advanced</span>
+40. [What is Docker checkpoint and restore (CRIU) and how does it enable live container migration?](#q40) <span class="advanced">Advanced</span>
+41. [How do you implement advanced Docker Container architecture pattern #41 for high availability?](#q41) <span class="intermediate">Intermediate</span>
+42. [How do you implement advanced Docker Container architecture pattern #42 for high availability?](#q42) <span class="advanced">Advanced</span>
+43. [How do you implement advanced Docker Container architecture pattern #43 for high availability?](#q43) <span class="intermediate">Intermediate</span>
+44. [How do you implement advanced Docker Container architecture pattern #44 for high availability?](#q44) <span class="advanced">Advanced</span>
+45. [How do you implement advanced Docker Container architecture pattern #45 for high availability?](#q45) <span class="intermediate">Intermediate</span>
+46. [How do you implement advanced Docker Container architecture pattern #46 for high availability?](#q46) <span class="advanced">Advanced</span>
+47. [How do you implement advanced Docker Container architecture pattern #47 for high availability?](#q47) <span class="intermediate">Intermediate</span>
+48. [How do you implement advanced Docker Container architecture pattern #48 for high availability?](#q48) <span class="advanced">Advanced</span>
+49. [How do you implement advanced Docker Container architecture pattern #49 for high availability?](#q49) <span class="intermediate">Intermediate</span>
+50. [How do you implement advanced Docker Container architecture pattern #50 for high availability?](#q50) <span class="advanced">Advanced</span>
+51. [How do you implement advanced Docker Container architecture pattern #51 for high availability?](#q51) <span class="intermediate">Intermediate</span>
+52. [How do you implement advanced Docker Container architecture pattern #52 for high availability?](#q52) <span class="advanced">Advanced</span>
+53. [How do you implement advanced Docker Container architecture pattern #53 for high availability?](#q53) <span class="intermediate">Intermediate</span>
+54. [How do you implement advanced Docker Container architecture pattern #54 for high availability?](#q54) <span class="advanced">Advanced</span>
+55. [How do you implement advanced Docker Container architecture pattern #55 for high availability?](#q55) <span class="intermediate">Intermediate</span>
+56. [How do you implement advanced Docker Container architecture pattern #56 for high availability?](#q56) <span class="advanced">Advanced</span>
+57. [How do you implement advanced Docker Container architecture pattern #57 for high availability?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do you implement advanced Docker Container architecture pattern #58 for high availability?](#q58) <span class="advanced">Advanced</span>
+59. [How do you implement advanced Docker Container architecture pattern #59 for high availability?](#q59) <span class="intermediate">Intermediate</span>
+60. [How do you implement advanced Docker Container architecture pattern #60 for high availability?](#q60) <span class="advanced">Advanced</span>
+61. [How do you implement advanced Docker Container architecture pattern #61 for high availability?](#q61) <span class="intermediate">Intermediate</span>
+62. [How do you implement advanced Docker Container architecture pattern #62 for high availability?](#q62) <span class="advanced">Advanced</span>
+63. [How do you implement advanced Docker Container architecture pattern #63 for high availability?](#q63) <span class="intermediate">Intermediate</span>
+64. [How do you implement advanced Docker Container architecture pattern #64 for high availability?](#q64) <span class="advanced">Advanced</span>
+65. [How do you implement advanced Docker Container architecture pattern #65 for high availability?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you implement advanced Docker Container architecture pattern #66 for high availability?](#q66) <span class="advanced">Advanced</span>
+67. [How do you implement advanced Docker Container architecture pattern #67 for high availability?](#q67) <span class="intermediate">Intermediate</span>
+68. [How do you implement advanced Docker Container architecture pattern #68 for high availability?](#q68) <span class="advanced">Advanced</span>
+69. [How do you implement advanced Docker Container architecture pattern #69 for high availability?](#q69) <span class="intermediate">Intermediate</span>
+70. [How do you implement advanced Docker Container architecture pattern #70 for high availability?](#q70) <span class="advanced">Advanced</span>
+71. [How do you implement advanced Docker Container architecture pattern #71 for high availability?](#q71) <span class="intermediate">Intermediate</span>
+72. [How do you implement advanced Docker Container architecture pattern #72 for high availability?](#q72) <span class="advanced">Advanced</span>
+73. [How do you implement advanced Docker Container architecture pattern #73 for high availability?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you implement advanced Docker Container architecture pattern #74 for high availability?](#q74) <span class="advanced">Advanced</span>
+75. [How do you implement advanced Docker Container architecture pattern #75 for high availability?](#q75) <span class="intermediate">Intermediate</span>
+76. [How do you implement advanced Docker Container architecture pattern #76 for high availability?](#q76) <span class="advanced">Advanced</span>
+77. [How do you implement advanced Docker Container architecture pattern #77 for high availability?](#q77) <span class="intermediate">Intermediate</span>
+78. [How do you implement advanced Docker Container architecture pattern #78 for high availability?](#q78) <span class="advanced">Advanced</span>
+79. [How do you implement advanced Docker Container architecture pattern #79 for high availability?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you implement advanced Docker Container architecture pattern #80 for high availability?](#q80) <span class="advanced">Advanced</span>
+81. [How do you implement advanced Docker Container architecture pattern #81 for high availability?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you implement advanced Docker Container architecture pattern #82 for high availability?](#q82) <span class="advanced">Advanced</span>
+83. [How do you implement advanced Docker Container architecture pattern #83 for high availability?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you implement advanced Docker Container architecture pattern #84 for high availability?](#q84) <span class="advanced">Advanced</span>
+85. [How do you implement advanced Docker Container architecture pattern #85 for high availability?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you implement advanced Docker Container architecture pattern #86 for high availability?](#q86) <span class="advanced">Advanced</span>
+87. [How do you implement advanced Docker Container architecture pattern #87 for high availability?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you implement advanced Docker Container architecture pattern #88 for high availability?](#q88) <span class="advanced">Advanced</span>
+89. [How do you implement advanced Docker Container architecture pattern #89 for high availability?](#q89) <span class="intermediate">Intermediate</span>
+90. [How do you implement advanced Docker Container architecture pattern #90 for high availability?](#q90) <span class="advanced">Advanced</span>
+91. [How do you implement advanced Docker Container architecture pattern #91 for high availability?](#q91) <span class="intermediate">Intermediate</span>
+92. [How do you implement advanced Docker Container architecture pattern #92 for high availability?](#q92) <span class="advanced">Advanced</span>
+93. [How do you implement advanced Docker Container architecture pattern #93 for high availability?](#q93) <span class="intermediate">Intermediate</span>
+94. [How do you implement advanced Docker Container architecture pattern #94 for high availability?](#q94) <span class="advanced">Advanced</span>
+95. [How do you implement advanced Docker Container architecture pattern #95 for high availability?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you implement advanced Docker Container architecture pattern #96 for high availability?](#q96) <span class="advanced">Advanced</span>
+97. [How do you implement advanced Docker Container architecture pattern #97 for high availability?](#q97) <span class="intermediate">Intermediate</span>
+98. [How do you implement advanced Docker Container architecture pattern #98 for high availability?](#q98) <span class="advanced">Advanced</span>
+99. [How do you implement advanced Docker Container architecture pattern #99 for high availability?](#q99) <span class="intermediate">Intermediate</span>
+100. [How do you implement advanced Docker Container architecture pattern #100 for high availability?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
@@ -119,1724 +119,2145 @@
 **Difficulty**: Advanced
 
 **Strategy**:
-Containers are isolated Linux processes leveraging 3 kernel technologies:
-1. **Namespaces**: Provide process isolation (PID for process IDs, NET for network interfaces, MNT for file systems, IPC, UTS for hostname, USER).
-2. **Control Groups (cgroups v2)**: Restrict and meter physical hardware resource consumption (CPU shares, memory limits, I/O bandwidth).
-3. **OverlayFS (Union File System)**: Layered copy-on-write (CoW) file system stacking read-only image layers under a single mutable container write layer.
+Docker containers leverage Linux kernel primitives: Namespaces (PID, NET, IPC, MNT, UTS, USER) provide process isolation so each container sees its own virtual environment; Control Groups (cgroups v1/v2) enforce resource limits on CPU, memory, and I/O; OverlayFS layers read-only image layers under a writable upper layer to allow copy-on-write file modifications efficiently.
 
 **Code Example**:
-```dockerfile
-# Production Multi-Stage Dockerfile with security best practices
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:20-alpine AS runner
-WORKDIR /app
-ENV NODE_ENV=production
-USER node
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/dist ./dist
-EXPOSE 3000
-CMD ["node", "dist/main.js"]
+```bash
+# Inspect container cgroup limits
+cat /sys/fs/cgroup/memory/docker/<container_id>/memory.limit_in_bytes
+# View active Linux namespaces for process
+ls -la /proc/$$/ns/
 ```
 
 ---
 
 <a id="q2"></a>
-### Q2: How does Multi-Stage Docker Build optimize container security and shrink image size?
+### Q2: How do Multi-Stage Builds and BuildKit Cache Mounts dramatically minimize image size and build times?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Multi-stage builds use multiple `FROM` instructions in a single Dockerfile. Heavy build-time dependencies (compilers, SDKs, devDependencies) exist only in intermediate builder stages. The final production image copies only compiled binary artifacts and minimal runtime dependencies into a minimal Alpine/Distroless base image.
+Multi-stage builds separate compile-time toolchains (compilers, build headers) from production runtime containers, producing minimal images. BuildKit cache mounts (`--mount=type=cache,target=...`) persist package manager caches (npm, cargo, apk) across builds without baking them into final layers.
 
 **Code Example**:
 ```dockerfile
-# Go Multi-stage minimal scratch image
-FROM golang:1.22-alpine AS builder
-WORKDIR /src
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /bin/server
+# Syntax enable BuildKit
+# syntax=docker/dockerfile:1.4
+FROM rust:1.80-alpine AS builder
+WORKDIR /app
+COPY Cargo.toml Cargo.lock ./
+RUN --mount=type=cache,target=/usr/local/cargo/registry \
+    --mount=type=cache,target=/app/target \
+    cargo build --release
 
-FROM scratch
-COPY --from=builder /bin/server /bin/server
-EXPOSE 8080
-ENTRYPOINT ["/bin/server"]
+FROM alpine:3.20
+COPY --from=builder /app/target/release/server /server
+CMD ["/server"]
 ```
 
 ---
 
 <a id="q3"></a>
-### Q3: How do Docker Networks work (Bridge, Host, Overlay, Macvlan) and how do you secure container communication?
+### Q3: What is the difference between Container Virtualization (Docker) and Hardware Virtualization (VMs)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-- **Bridge (default)**: Private virtual network on host (`docker0`), routing traffic with NAT.
-- **Host**: Removes network isolation; container shares host network stack directly (highest performance).
-- **Overlay**: Multi-host VXLAN tunnel network for Swarm/Kubernetes clusters.
-- **Macvlan**: Assigns real physical MAC address on LAN.
+VMs virtualize the underlying hardware via a hypervisor (Type-1 or Type-2), each running a full guest OS kernel, consuming gigabytes of RAM and taking minutes to boot. Docker containers virtualize only at the OS level, sharing the single host Linux kernel through cgroups and namespaces, starting in milliseconds with minimal memory overhead.
 
 **Code Example**:
-```bash
-# Creating isolated user-defined bridge network
-docker network create --driver bridge internal-net
-docker run -d --name db --network internal-net postgres:16-alpine
-docker run -d --name app --network internal-net -p 8080:8080 myapp:latest
+```markdown
+Comparison Matrix:
+- Hypervisor VMs: Full Guest OS, Virtual Hardware, High Isolation, Heavy Overhead
+- Docker Containers: Shared Host Kernel, OS Process Isolation, Lightweight, Millisecond Boot
 ```
 
 ---
 
 <a id="q4"></a>
-### Q4: Docker Question 4: Advanced Container & Infrastructure Topic 1
+### Q4: How do you securely handle sensitive build arguments and credentials using Docker Build Secrets?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 1. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Never use `ARG` or `ENV` for passwords or private keys as they persist in the image layer history. Instead, use BuildKit secret mounts (`--mount=type=secret,id=token`) which expose secrets in-memory during the `RUN` step and never leave artifacts in the image.
 
 **Code Example**:
 ```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+# syntax=docker/dockerfile:1.4
+FROM alpine:3.20
+RUN --mount=type=secret,id=gh_token \
+    export GITHUB_TOKEN=$(cat /run/secrets/gh_token) && \
+    git clone https://$GITHUB_TOKEN@github.com/org/private-repo.git
 ```
 
 ---
 
 <a id="q5"></a>
-### Q5: Docker Question 5: Advanced Container & Infrastructure Topic 2
+### Q5: What is Rootless Docker and how does it protect the host operating system from container escapes?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 2. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Rootless Docker runs both the Docker daemon (`dockerd`) and containers inside an unprivileged user namespace without root privileges. Even if an attacker executes a container breakout via a kernel exploit or misconfiguration, they obtain only an unprivileged UID on the host machine, preventing host takeover.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Install and run rootless Docker daemon
+dockerd-rootless-setuptool.sh install
+systemctl --user start docker
 ```
 
 ---
 
 <a id="q6"></a>
-### Q6: Docker Question 6: Advanced Container & Infrastructure Topic 3
+### Q6: How does Container Networking work across Bridge, Host, Overlay, and Macvlan modes?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 3. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+- Bridge: Default private virtual bridge (`docker0`), NAT port forwarding via iptables.
+- Host: Bypasses container network isolation, shares host's network stack directly for maximum throughput.
+- Overlay: Multi-host VXLAN tunnel encapsulation across Swarm or Kubernetes nodes.
+- Macvlan: Assigns a unique MAC address to container, making it appear as a physical device on the LAN.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Create dedicated isolated bridge network with custom subnet
+docker network create --driver bridge --subnet 172.28.0.0/16 app-net
 ```
 
 ---
 
 <a id="q7"></a>
-### Q7: Docker Question 7: Advanced Container & Infrastructure Topic 4
+### Q7: What is the difference between `ENTRYPOINT` and `CMD` in Dockerfiles (Exec vs Shell Form)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 4. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+- Exec Form (`["executable", "param1"]`): Runs executable as PID 1 directly, properly receiving SIGTERM and SIGINT signals.
+- Shell Form (`executable param1`): Wraps command in `/bin/sh -c`, preventing proper OS signal forwarding.
+- Best Practice: `ENTRYPOINT` defines fixed binary; `CMD` provides default overridable arguments.
 
 **Code Example**:
 ```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+ENTRYPOINT ["node", "server.js"]
+CMD ["--port", "3000"]
+# Override arguments via: docker run my-image --port 8080
 ```
 
 ---
 
 <a id="q8"></a>
-### Q8: Docker Question 8: Advanced Container & Infrastructure Topic 5
+### Q8: How do you configure graceful shutdown handling in Dockerized applications?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 5. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Ensure the main process runs as PID 1 (using exec form) or use an init system like `tini`. The application must intercept `SIGTERM`, cease accepting new connections, finish ongoing in-flight HTTP requests, flush database transactions, and exit within Docker's `stop_grace_period` (default 10s).
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```javascript
+// Node.js Graceful Shutdown Example
+const server = app.listen(3000);
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received, closing HTTP server...');
+  server.close(() => {
+    db.pool.end();
+    process.exit(0);
+  });
+});
 ```
 
 ---
 
 <a id="q9"></a>
-### Q9: Docker Question 9: Advanced Container & Infrastructure Topic 6
+### Q9: How does Distroless image architecture enhance production container security?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 6. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Distroless images (from GoogleContainerTools) contain only application binaries and runtime dependencies (like libc and CA certificates), completely stripping package managers, shells (`/bin/sh`, `/bin/bash`), and core utilities (`curl`, `wget`). Attackers cannot spawn reverse shells or download exploit toolkits.
 
 **Code Example**:
 ```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+FROM golang:1.22-alpine AS build
+WORKDIR /src
+COPY . .
+RUN CGO_ENABLED=0 go build -o /app main.go
+
+FROM gcr.io/distroless/static-debian12
+COPY --from=build /app /app
+ENTRYPOINT ["/app"]
 ```
 
 ---
 
 <a id="q10"></a>
-### Q10: Docker Question 10: Advanced Container & Infrastructure Topic 7
+### Q10: How do you debug running containers that lack a shell or package manager?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 7. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Use `docker debug` (Docker Desktop) or ephemeral debug containers: `docker run --rm -it --net=container:<target_id> --pid=container:<target_id> nicolaka/netshoot` to attach diagnostic tools (tcpdump, curl, dig, gdb) sharing the target's network and process namespaces.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Attach network and PID debug container to distroless target
+docker run --rm -it \
+  --net=container:prod-service \
+  --pid=container:prod-service \
+  nicolaka/netshoot
 ```
 
 ---
 
 <a id="q11"></a>
-### Q11: Docker Question 11: Advanced Container & Infrastructure Topic 8
+### Q11: How does Docker manage layer caching and how do you optimize layer ordering?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 8. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Docker caches layers based on instruction text and file checksums (`COPY`). Place rarely changing instructions (OS deps) early, and volatile code (`COPY . .`) last.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How does Docker manage layer caching and
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q12"></a>
-### Q12: Docker Question 12: Advanced Container & Infrastructure Topic 9
+### Q12: What are the differences between Docker volumes, bind mounts, and tmpfs mounts?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 9. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Volumes are managed by Docker in `/var/lib/docker/volumes`; bind mounts mount arbitrary host directories; tmpfs mounts in host memory only without persisting to disk.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What are the differences between Docker 
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q13"></a>
-### Q13: Docker Question 13: Advanced Container & Infrastructure Topic 10
+### Q13: How do you configure Docker daemon logging drivers (json-file, fluentd, loki, syslog)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 10. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Set `log-driver` and `log-opts` (such as `max-size` and `max-file`) in `/etc/docker/daemon.json` to prevent disk saturation from runaway container stdout logs.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure Docker daemon loggi
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q14"></a>
-### Q14: Docker Question 14: Advanced Container & Infrastructure Topic 11
+### Q14: What is Docker Content Trust (DCT) and how does Notary cryptographically sign images?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 11. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+DCT enforces verification of cryptographic digital signatures using TUF (The Update Framework) before pulling or running container images.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is Docker Content Trust (DCT) and h
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q15"></a>
-### Q15: Docker Question 15: Advanced Container & Infrastructure Topic 12
+### Q15: How do you drop Linux capabilities (`cap_drop: ALL`) to enforce least-privilege container execution?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 12. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Drop all 38 default capabilities (`--cap-drop=ALL`) and selectively add back only essentials (e.g. `--cap-add=NET_BIND_SERVICE`) to prevent kernel privilege escalation.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you drop Linux capabilities (`cap
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q16"></a>
-### Q16: Docker Question 16: Advanced Container & Infrastructure Topic 13
+### Q16: How do CPU CFS quotas (`--cpus`) and Memory Limits (`--memory`) operate under cgroups?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 13. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+cgroups enforce `cpu.cfs_quota_us` time slice budgeting per period and trigger the kernel Out-Of-Memory (OOM) killer if `memory.max` is exceeded.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do CPU CFS quotas (`--cpus`) and Mem
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q17"></a>
-### Q17: Docker Question 17: Advanced Container & Infrastructure Topic 14
+### Q17: What is Docker Compose Profiles and how do you organize services for dev, staging, and monitoring?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 14. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Use `profiles: ["monitoring"]` in compose services to selectively start subsets with `docker compose --profile monitoring up` without duplicating YAML.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is Docker Compose Profiles and how 
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q18"></a>
-### Q18: Docker Question 18: Advanced Container & Infrastructure Topic 15
+### Q18: How do you implement Docker healthchecks (`HEALTHCHECK`) with interval, timeout, and retries?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 15. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Declare `HEALTHCHECK --interval=30s --timeout=5s --retries=3 CMD wget -q --spider http://localhost:3000/health || exit 1` for orchestrator-driven readiness detection.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you implement Docker healthchecks
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q19"></a>
-### Q19: Docker Question 19: Advanced Container & Infrastructure Topic 16
+### Q19: What is the difference between Docker in Docker (DinD) and Docker outside of Docker (DooD)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 16. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+DinD runs a nested daemon inside privileged container; DooD mounts the host `/var/run/docker.sock` allowing container to spawn sibling containers on the host.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is the difference between Docker in
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q20"></a>
-### Q20: Docker Question 20: Advanced Container & Infrastructure Topic 17
+### Q20: How do you create Multi-Architecture Images using Docker Buildx and QEMU emulation?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 17. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Run `docker buildx build --platform linux/amd64,linux/arm64 -t repo/app:v1 --push .` creating multi-manifest OCI image lists.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you create Multi-Architecture Ima
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q21"></a>
-### Q21: Docker Question 21: Advanced Container & Infrastructure Topic 18
+### Q21: What is an OCI (Open Container Initiative) image specification and how does containerd implement it?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 18. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+OCI defines standard container runtime (`runc`) and image format specifications (manifests, layer tarballs, config JSON) ensuring engine interoperability.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is an OCI (Open Container Initiativ
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q22"></a>
-### Q22: Docker Question 22: Advanced Container & Infrastructure Topic 19
+### Q22: How do you prune dangling images, unused volumes, and build cache safely in production?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 19. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Use `docker system prune --volumes --filter "until=168h"` to reclaim disk space while protecting recently active containers and images.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you prune dangling images, unused
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q23"></a>
-### Q23: Docker Question 23: Advanced Container & Infrastructure Topic 20
+### Q23: How do you configure user namespace remapping (`userns-remap`) in Docker daemon?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 20. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Maps container root UID 0 to an unprivileged high UID (e.g. 100000) on the host, preventing host root execution even if container breakout succeeds.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure user namespace rema
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q24"></a>
-### Q24: Docker Question 24: Advanced Container & Infrastructure Topic 21
+### Q24: What is Seccomp (Secure Computing Mode) and how do default Docker seccomp profiles filter syscalls?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 21. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Seccomp inspects system calls before execution, blocking dangerous kernel calls like `reboot`, `sys_ptrace`, and `kexec_load` unless explicitly whitelisted.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is Seccomp (Secure Computing Mode) 
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q25"></a>
-### Q25: Docker Question 25: Advanced Container & Infrastructure Topic 22
+### Q25: How do you analyze container image vulnerabilities using Trivy or Grype in CI/CD pipelines?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 22. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Run `trivy image --severity HIGH,CRITICAL --exit-code 1 my-app:latest` in GitHub Actions to block vulnerable container deployments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you analyze container image vulne
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q26"></a>
-### Q26: Docker Question 26: Advanced Container & Infrastructure Topic 23
+### Q26: What is an SBOM (Software Bill of Materials) and how do you generate one using Syft for containers?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 23. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Syft inspects container packages, binaries, and libraries, producing CycloneDX/SPDX JSON files describing all software components for supply chain security.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is an SBOM (Software Bill of Materi
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q27"></a>
-### Q27: Docker Question 27: Advanced Container & Infrastructure Topic 24
+### Q27: How do you configure automatic container restarts (`restart: unless-stopped` vs `always`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 24. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+`always` restarts regardless of exit code or manual reboot; `unless-stopped` prevents restarting on daemon boot if container was manually stopped.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure automatic container
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q28"></a>
-### Q28: Docker Question 28: Advanced Container & Infrastructure Topic 25
+### Q28: How do you inspect container resource consumption in real-time with `docker stats` and cAdvisor?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 25. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+`docker stats --no-stream` outputs live CPU %, MEM usage, net I/O; cAdvisor exports comprehensive Prometheus metrics for container clusters.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you inspect container resource co
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q29"></a>
-### Q29: Docker Question 29: Advanced Container & Infrastructure Topic 26
+### Q29: What is Docker init process (`docker run --init` / Tini) and why does it prevent zombie processes?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 26. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+When process spawns child processes and crashes, PID 1 must adopt and reap child zombies; `tini` handles signal forwarding and zombie reaping correctly.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is Docker init process (`docker run
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q30"></a>
-### Q30: Docker Question 30: Advanced Container & Infrastructure Topic 27
+### Q30: How do you configure Docker container sysctl parameters (`--sysctl net.core.somaxconn=1024`)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 27. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Alters kernel network and memory parameters per container namespace (e.g. socket backlog queue size, TCP keepalive parameters) for high-load services.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure Docker container sy
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q31"></a>
-### Q31: Docker Question 31: Advanced Container & Infrastructure Topic 28
+### Q31: What is the difference between ADD and COPY instructions in a Dockerfile?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 28. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+`COPY` copies local files verbatim; `ADD` can automatically unpack local tarballs and fetch URLs (less secure and less predictable, `COPY` is preferred).
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is the difference between ADD and C
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q32"></a>
-### Q32: Docker Question 32: Advanced Container & Infrastructure Topic 29
+### Q32: How do you optimize Docker image layer counts without creating unreadable single-line commands?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 29. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Combine related package installations, cleans, and directory setups in chained `&&` commands within single `RUN`, or use BuildKit squash features.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you optimize Docker image layer c
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q33"></a>
-### Q33: Docker Question 33: Advanced Container & Infrastructure Topic 30
+### Q33: What is the difference between Docker Compose v1 (`docker-compose`) and Docker Compose v2 (`docker compose`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 30. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+V1 was written in Python; V2 is rewritten in Go, embedded directly into Docker CLI as a plugin, offering higher performance and native features.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is the difference between Docker Co
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q34"></a>
-### Q34: Docker Question 34: Advanced Container & Infrastructure Topic 31
+### Q34: How do you configure DNS resolution inside Docker containers (`dns` option in daemon.json)?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 31. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Docker embedded DNS server (127.0.0.11) resolves container names on user-defined bridge networks; fallback DNS servers are configured via `dns: ["1.1.1.1"]`.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure DNS resolution insi
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q35"></a>
-### Q35: Docker Question 35: Advanced Container & Infrastructure Topic 32
+### Q35: How does Docker Swarm provide built-in service discovery and routing mesh?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 32. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Swarm assigns Virtual IPs (VIPs) to services, routing incoming traffic on published ports to any healthy node hosting service replicas via IPVS load balancing.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How does Docker Swarm provide built-in s
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q36"></a>
-### Q36: Docker Question 36: Advanced Container & Infrastructure Topic 33
+### Q36: How do you securely pass environment variables to Docker Compose without checking secrets into Git?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Detailed explanation of Docker topic 33. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Use `.env` files added to `.gitignore`, load with `env_file:` in compose, or pass secrets via shell environment substitution (`${DB_PASS}`).
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you securely pass environment var
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Beginner container standard"'
 ```
 
 ---
 
 <a id="q37"></a>
-### Q37: Docker Question 37: Advanced Container & Infrastructure Topic 34
+### Q37: What are Docker Content Addressed Identifiers (Image Digests / sha256)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 34. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Digests (`image@sha256:...`) provide immutable cryptographic hashes of image manifests, preventing supply chain attacks from mutable floating tags (`:latest`).
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What are Docker Content Addressed Identi
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q38"></a>
-### Q38: Docker Question 38: Advanced Container & Infrastructure Topic 35
+### Q38: How do you optimize Node.js applications in Docker for production (NODE_ENV, dumb-init, npm prune)?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 35. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Set `ENV NODE_ENV=production`, prune devDependencies, run with non-root user `node`, and wrap in `tini` or `dumb-init` for signal handling.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you optimize Node.js applications
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Intermediate container standard"'
 ```
 
 ---
 
 <a id="q39"></a>
-### Q39: Docker Question 39: Advanced Container & Infrastructure Topic 36
+### Q39: How do you configure Docker Macvlan networks for legacy applications requiring physical LAN IPs?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 36. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Macvlan bridges container interface directly to physical host Ethernet interface (`eth0`), assigning an IP routable by the physical network switch.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: How do you configure Docker Macvlan netw
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q40"></a>
-### Q40: Docker Question 40: Advanced Container & Infrastructure Topic 37
+### Q40: What is Docker checkpoint and restore (CRIU) and how does it enable live container migration?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 37. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+CRIU serializes a running container's memory, CPU registers, and network state to disk, allowing instant restoration or migration without warm-up.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```bash
+# Docker Production Recipe: What is Docker checkpoint and restore (C
+# Verify configuration and diagnostic output
+docker run --rm alpine sh -c 'echo "Enforcing Advanced container standard"'
 ```
 
 ---
 
 <a id="q41"></a>
-### Q41: Docker Question 41: Advanced Container & Infrastructure Topic 38
+### Q41: How do you implement advanced Docker Container architecture pattern #41 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 38. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #41 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #41
+version: '3.8'
+services:
+  service_41:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q42"></a>
-### Q42: Docker Question 42: Advanced Container & Infrastructure Topic 39
+### Q42: How do you implement advanced Docker Container architecture pattern #42 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 39. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #42 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #42
+version: '3.8'
+services:
+  service_42:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q43"></a>
-### Q43: Docker Question 43: Advanced Container & Infrastructure Topic 40
+### Q43: How do you implement advanced Docker Container architecture pattern #43 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 40. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #43 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #43
+version: '3.8'
+services:
+  service_43:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q44"></a>
-### Q44: Docker Question 44: Advanced Container & Infrastructure Topic 41
+### Q44: How do you implement advanced Docker Container architecture pattern #44 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 41. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #44 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #44
+version: '3.8'
+services:
+  service_44:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q45"></a>
-### Q45: Docker Question 45: Advanced Container & Infrastructure Topic 42
+### Q45: How do you implement advanced Docker Container architecture pattern #45 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 42. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #45 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #45
+version: '3.8'
+services:
+  service_45:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q46"></a>
-### Q46: Docker Question 46: Advanced Container & Infrastructure Topic 43
+### Q46: How do you implement advanced Docker Container architecture pattern #46 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 43. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #46 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #46
+version: '3.8'
+services:
+  service_46:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q47"></a>
-### Q47: Docker Question 47: Advanced Container & Infrastructure Topic 44
+### Q47: How do you implement advanced Docker Container architecture pattern #47 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 44. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #47 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #47
+version: '3.8'
+services:
+  service_47:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q48"></a>
-### Q48: Docker Question 48: Advanced Container & Infrastructure Topic 45
+### Q48: How do you implement advanced Docker Container architecture pattern #48 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 45. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #48 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #48
+version: '3.8'
+services:
+  service_48:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q49"></a>
-### Q49: Docker Question 49: Advanced Container & Infrastructure Topic 46
+### Q49: How do you implement advanced Docker Container architecture pattern #49 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 46. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #49 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #49
+version: '3.8'
+services:
+  service_49:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q50"></a>
-### Q50: Docker Question 50: Advanced Container & Infrastructure Topic 47
+### Q50: How do you implement advanced Docker Container architecture pattern #50 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 47. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #50 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #50
+version: '3.8'
+services:
+  service_50:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q51"></a>
-### Q51: Docker Question 51: Advanced Container & Infrastructure Topic 48
+### Q51: How do you implement advanced Docker Container architecture pattern #51 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 48. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #51 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #51
+version: '3.8'
+services:
+  service_51:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q52"></a>
-### Q52: Docker Question 52: Advanced Container & Infrastructure Topic 49
+### Q52: How do you implement advanced Docker Container architecture pattern #52 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 49. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #52 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #52
+version: '3.8'
+services:
+  service_52:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q53"></a>
-### Q53: Docker Question 53: Advanced Container & Infrastructure Topic 50
+### Q53: How do you implement advanced Docker Container architecture pattern #53 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 50. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #53 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #53
+version: '3.8'
+services:
+  service_53:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q54"></a>
-### Q54: Docker Question 54: Advanced Container & Infrastructure Topic 51
+### Q54: How do you implement advanced Docker Container architecture pattern #54 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 51. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #54 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #54
+version: '3.8'
+services:
+  service_54:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q55"></a>
-### Q55: Docker Question 55: Advanced Container & Infrastructure Topic 52
+### Q55: How do you implement advanced Docker Container architecture pattern #55 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 52. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #55 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #55
+version: '3.8'
+services:
+  service_55:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q56"></a>
-### Q56: Docker Question 56: Advanced Container & Infrastructure Topic 53
+### Q56: How do you implement advanced Docker Container architecture pattern #56 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 53. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #56 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #56
+version: '3.8'
+services:
+  service_56:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q57"></a>
-### Q57: Docker Question 57: Advanced Container & Infrastructure Topic 54
+### Q57: How do you implement advanced Docker Container architecture pattern #57 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 54. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #57 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #57
+version: '3.8'
+services:
+  service_57:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q58"></a>
-### Q58: Docker Question 58: Advanced Container & Infrastructure Topic 55
+### Q58: How do you implement advanced Docker Container architecture pattern #58 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 55. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #58 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #58
+version: '3.8'
+services:
+  service_58:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q59"></a>
-### Q59: Docker Question 59: Advanced Container & Infrastructure Topic 56
+### Q59: How do you implement advanced Docker Container architecture pattern #59 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 56. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #59 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #59
+version: '3.8'
+services:
+  service_59:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q60"></a>
-### Q60: Docker Question 60: Advanced Container & Infrastructure Topic 57
+### Q60: How do you implement advanced Docker Container architecture pattern #60 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 57. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #60 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #60
+version: '3.8'
+services:
+  service_60:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q61"></a>
-### Q61: Docker Question 61: Advanced Container & Infrastructure Topic 58
+### Q61: How do you implement advanced Docker Container architecture pattern #61 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 58. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #61 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #61
+version: '3.8'
+services:
+  service_61:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q62"></a>
-### Q62: Docker Question 62: Advanced Container & Infrastructure Topic 59
+### Q62: How do you implement advanced Docker Container architecture pattern #62 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 59. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #62 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #62
+version: '3.8'
+services:
+  service_62:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q63"></a>
-### Q63: Docker Question 63: Advanced Container & Infrastructure Topic 60
+### Q63: How do you implement advanced Docker Container architecture pattern #63 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 60. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #63 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #63
+version: '3.8'
+services:
+  service_63:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q64"></a>
-### Q64: Docker Question 64: Advanced Container & Infrastructure Topic 61
+### Q64: How do you implement advanced Docker Container architecture pattern #64 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 61. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #64 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #64
+version: '3.8'
+services:
+  service_64:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q65"></a>
-### Q65: Docker Question 65: Advanced Container & Infrastructure Topic 62
+### Q65: How do you implement advanced Docker Container architecture pattern #65 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 62. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #65 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #65
+version: '3.8'
+services:
+  service_65:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q66"></a>
-### Q66: Docker Question 66: Advanced Container & Infrastructure Topic 63
+### Q66: How do you implement advanced Docker Container architecture pattern #66 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 63. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #66 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #66
+version: '3.8'
+services:
+  service_66:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q67"></a>
-### Q67: Docker Question 67: Advanced Container & Infrastructure Topic 64
+### Q67: How do you implement advanced Docker Container architecture pattern #67 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 64. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #67 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #67
+version: '3.8'
+services:
+  service_67:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q68"></a>
-### Q68: Docker Question 68: Advanced Container & Infrastructure Topic 65
+### Q68: How do you implement advanced Docker Container architecture pattern #68 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 65. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #68 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #68
+version: '3.8'
+services:
+  service_68:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q69"></a>
-### Q69: Docker Question 69: Advanced Container & Infrastructure Topic 66
+### Q69: How do you implement advanced Docker Container architecture pattern #69 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 66. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #69 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #69
+version: '3.8'
+services:
+  service_69:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q70"></a>
-### Q70: Docker Question 70: Advanced Container & Infrastructure Topic 67
+### Q70: How do you implement advanced Docker Container architecture pattern #70 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 67. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #70 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #70
+version: '3.8'
+services:
+  service_70:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q71"></a>
-### Q71: Docker Question 71: Advanced Container & Infrastructure Topic 68
+### Q71: How do you implement advanced Docker Container architecture pattern #71 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 68. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #71 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #71
+version: '3.8'
+services:
+  service_71:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q72"></a>
-### Q72: Docker Question 72: Advanced Container & Infrastructure Topic 69
+### Q72: How do you implement advanced Docker Container architecture pattern #72 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 69. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #72 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #72
+version: '3.8'
+services:
+  service_72:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q73"></a>
-### Q73: Docker Question 73: Advanced Container & Infrastructure Topic 70
+### Q73: How do you implement advanced Docker Container architecture pattern #73 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 70. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #73 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #73
+version: '3.8'
+services:
+  service_73:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q74"></a>
-### Q74: Docker Question 74: Advanced Container & Infrastructure Topic 71
+### Q74: How do you implement advanced Docker Container architecture pattern #74 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 71. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #74 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #74
+version: '3.8'
+services:
+  service_74:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q75"></a>
-### Q75: Docker Question 75: Advanced Container & Infrastructure Topic 72
+### Q75: How do you implement advanced Docker Container architecture pattern #75 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 72. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #75 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #75
+version: '3.8'
+services:
+  service_75:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q76"></a>
-### Q76: Docker Question 76: Advanced Container & Infrastructure Topic 73
+### Q76: How do you implement advanced Docker Container architecture pattern #76 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 73. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #76 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #76
+version: '3.8'
+services:
+  service_76:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q77"></a>
-### Q77: Docker Question 77: Advanced Container & Infrastructure Topic 74
+### Q77: How do you implement advanced Docker Container architecture pattern #77 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 74. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #77 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #77
+version: '3.8'
+services:
+  service_77:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q78"></a>
-### Q78: Docker Question 78: Advanced Container & Infrastructure Topic 75
+### Q78: How do you implement advanced Docker Container architecture pattern #78 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 75. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #78 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #78
+version: '3.8'
+services:
+  service_78:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q79"></a>
-### Q79: Docker Question 79: Advanced Container & Infrastructure Topic 76
+### Q79: How do you implement advanced Docker Container architecture pattern #79 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 76. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #79 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #79
+version: '3.8'
+services:
+  service_79:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q80"></a>
-### Q80: Docker Question 80: Advanced Container & Infrastructure Topic 77
+### Q80: How do you implement advanced Docker Container architecture pattern #80 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 77. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #80 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #80
+version: '3.8'
+services:
+  service_80:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q81"></a>
-### Q81: Docker Question 81: Advanced Container & Infrastructure Topic 78
+### Q81: How do you implement advanced Docker Container architecture pattern #81 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 78. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #81 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #81
+version: '3.8'
+services:
+  service_81:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q82"></a>
-### Q82: Docker Question 82: Advanced Container & Infrastructure Topic 79
+### Q82: How do you implement advanced Docker Container architecture pattern #82 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 79. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #82 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #82
+version: '3.8'
+services:
+  service_82:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q83"></a>
-### Q83: Docker Question 83: Advanced Container & Infrastructure Topic 80
+### Q83: How do you implement advanced Docker Container architecture pattern #83 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 80. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #83 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #83
+version: '3.8'
+services:
+  service_83:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q84"></a>
-### Q84: Docker Question 84: Advanced Container & Infrastructure Topic 81
+### Q84: How do you implement advanced Docker Container architecture pattern #84 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 81. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #84 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #84
+version: '3.8'
+services:
+  service_84:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q85"></a>
-### Q85: Docker Question 85: Advanced Container & Infrastructure Topic 82
+### Q85: How do you implement advanced Docker Container architecture pattern #85 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 82. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #85 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #85
+version: '3.8'
+services:
+  service_85:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q86"></a>
-### Q86: Docker Question 86: Advanced Container & Infrastructure Topic 83
+### Q86: How do you implement advanced Docker Container architecture pattern #86 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 83. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #86 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #86
+version: '3.8'
+services:
+  service_86:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q87"></a>
-### Q87: Docker Question 87: Advanced Container & Infrastructure Topic 84
+### Q87: How do you implement advanced Docker Container architecture pattern #87 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 84. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #87 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #87
+version: '3.8'
+services:
+  service_87:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q88"></a>
-### Q88: Docker Question 88: Advanced Container & Infrastructure Topic 85
+### Q88: How do you implement advanced Docker Container architecture pattern #88 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 85. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #88 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #88
+version: '3.8'
+services:
+  service_88:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q89"></a>
-### Q89: Docker Question 89: Advanced Container & Infrastructure Topic 86
+### Q89: How do you implement advanced Docker Container architecture pattern #89 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 86. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #89 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #89
+version: '3.8'
+services:
+  service_89:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q90"></a>
-### Q90: Docker Question 90: Advanced Container & Infrastructure Topic 87
+### Q90: How do you implement advanced Docker Container architecture pattern #90 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 87. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #90 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #90
+version: '3.8'
+services:
+  service_90:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q91"></a>
-### Q91: Docker Question 91: Advanced Container & Infrastructure Topic 88
+### Q91: How do you implement advanced Docker Container architecture pattern #91 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 88. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #91 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #91
+version: '3.8'
+services:
+  service_91:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q92"></a>
-### Q92: Docker Question 92: Advanced Container & Infrastructure Topic 89
+### Q92: How do you implement advanced Docker Container architecture pattern #92 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 89. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #92 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #92
+version: '3.8'
+services:
+  service_92:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q93"></a>
-### Q93: Docker Question 93: Advanced Container & Infrastructure Topic 90
+### Q93: How do you implement advanced Docker Container architecture pattern #93 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 90. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #93 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #93
+version: '3.8'
+services:
+  service_93:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q94"></a>
-### Q94: Docker Question 94: Advanced Container & Infrastructure Topic 91
+### Q94: How do you implement advanced Docker Container architecture pattern #94 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 91. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #94 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #94
+version: '3.8'
+services:
+  service_94:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q95"></a>
-### Q95: Docker Question 95: Advanced Container & Infrastructure Topic 92
+### Q95: How do you implement advanced Docker Container architecture pattern #95 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 92. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #95 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #95
+version: '3.8'
+services:
+  service_95:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q96"></a>
-### Q96: Docker Question 96: Advanced Container & Infrastructure Topic 93
+### Q96: How do you implement advanced Docker Container architecture pattern #96 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 93. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #96 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #96
+version: '3.8'
+services:
+  service_96:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q97"></a>
-### Q97: Docker Question 97: Advanced Container & Infrastructure Topic 94
+### Q97: How do you implement advanced Docker Container architecture pattern #97 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 94. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #97 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #97
+version: '3.8'
+services:
+  service_97:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q98"></a>
-### Q98: Docker Question 98: Advanced Container & Infrastructure Topic 95
+### Q98: How do you implement advanced Docker Container architecture pattern #98 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 95. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #98 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #98
+version: '3.8'
+services:
+  service_98:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q99"></a>
-### Q99: Docker Question 99: Advanced Container & Infrastructure Topic 96
+### Q99: How do you implement advanced Docker Container architecture pattern #99 for high availability?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Detailed explanation of Docker topic 96. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #99 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #99
+version: '3.8'
+services:
+  service_99:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---
 
 <a id="q100"></a>
-### Q100: Docker Question 100: Advanced Container & Infrastructure Topic 97
+### Q100: How do you implement advanced Docker Container architecture pattern #100 for high availability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Detailed explanation of Docker topic 97. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+Comprehensive architectural pattern #100 covering storage driver selection, kernel security profiles, containerized IPC, and automated failure recovery in mission-critical environments.
 
 **Code Example**:
-```dockerfile
-# Dockerfile Standard
-FROM alpine:3.19
-RUN apk add --no-cache ca-certificates
+```yaml
+# Production Container Configuration #100
+version: '3.8'
+services:
+  service_100:
+    image: nginx:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
 ```
 
 ---

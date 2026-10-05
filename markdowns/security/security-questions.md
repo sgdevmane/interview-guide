@@ -13,103 +13,103 @@
 1. [Explain Cross-Site Scripting (XSS: Stored, Reflected, DOM-based) and Modern Prevention Techniques?](#q1) <span class="intermediate">Intermediate</span>
 2. [How does Cross-Site Request Forgery (CSRF) work and how do SameSite Cookies and Anti-CSRF Tokens protect APIs?](#q2) <span class="intermediate">Intermediate</span>
 3. [Explain SQL Injection (SQLi) and how Parameterized Queries / Prepared Statements eliminate it?](#q3) <span class="beginner">Beginner</span>
-4. [Web Security & OWASP Top 10 Topic 4](#q4) <span class="advanced">Advanced</span>
-5. [Web Security & OWASP Top 10 Topic 5](#q5) <span class="intermediate">Intermediate</span>
-6. [Web Security & OWASP Top 10 Topic 6](#q6) <span class="advanced">Advanced</span>
-7. [Web Security & OWASP Top 10 Topic 7](#q7) <span class="intermediate">Intermediate</span>
-8. [Web Security & OWASP Top 10 Topic 8](#q8) <span class="advanced">Advanced</span>
-9. [Web Security & OWASP Top 10 Topic 9](#q9) <span class="intermediate">Intermediate</span>
-10. [Web Security & OWASP Top 10 Topic 10](#q10) <span class="advanced">Advanced</span>
-11. [Web Security & OWASP Top 10 Topic 11](#q11) <span class="intermediate">Intermediate</span>
-12. [Web Security & OWASP Top 10 Topic 12](#q12) <span class="advanced">Advanced</span>
-13. [Web Security & OWASP Top 10 Topic 13](#q13) <span class="intermediate">Intermediate</span>
-14. [Web Security & OWASP Top 10 Topic 14](#q14) <span class="advanced">Advanced</span>
-15. [Web Security & OWASP Top 10 Topic 15](#q15) <span class="intermediate">Intermediate</span>
-16. [Web Security & OWASP Top 10 Topic 16](#q16) <span class="advanced">Advanced</span>
-17. [Web Security & OWASP Top 10 Topic 17](#q17) <span class="intermediate">Intermediate</span>
-18. [Web Security & OWASP Top 10 Topic 18](#q18) <span class="advanced">Advanced</span>
-19. [Web Security & OWASP Top 10 Topic 19](#q19) <span class="intermediate">Intermediate</span>
-20. [Web Security & OWASP Top 10 Topic 20](#q20) <span class="advanced">Advanced</span>
-21. [Web Security & OWASP Top 10 Topic 21](#q21) <span class="intermediate">Intermediate</span>
-22. [Web Security & OWASP Top 10 Topic 22](#q22) <span class="advanced">Advanced</span>
-23. [Web Security & OWASP Top 10 Topic 23](#q23) <span class="intermediate">Intermediate</span>
-24. [Web Security & OWASP Top 10 Topic 24](#q24) <span class="advanced">Advanced</span>
-25. [Web Security & OWASP Top 10 Topic 25](#q25) <span class="intermediate">Intermediate</span>
-26. [Web Security & OWASP Top 10 Topic 26](#q26) <span class="advanced">Advanced</span>
-27. [Web Security & OWASP Top 10 Topic 27](#q27) <span class="intermediate">Intermediate</span>
-28. [Web Security & OWASP Top 10 Topic 28](#q28) <span class="advanced">Advanced</span>
-29. [Web Security & OWASP Top 10 Topic 29](#q29) <span class="intermediate">Intermediate</span>
-30. [Web Security & OWASP Top 10 Topic 30](#q30) <span class="advanced">Advanced</span>
-31. [Web Security & OWASP Top 10 Topic 31](#q31) <span class="intermediate">Intermediate</span>
-32. [Web Security & OWASP Top 10 Topic 32](#q32) <span class="advanced">Advanced</span>
-33. [Web Security & OWASP Top 10 Topic 33](#q33) <span class="intermediate">Intermediate</span>
-34. [Web Security & OWASP Top 10 Topic 34](#q34) <span class="advanced">Advanced</span>
-35. [Web Security & OWASP Top 10 Topic 35](#q35) <span class="intermediate">Intermediate</span>
-36. [Web Security & OWASP Top 10 Topic 36](#q36) <span class="advanced">Advanced</span>
-37. [Web Security & OWASP Top 10 Topic 37](#q37) <span class="intermediate">Intermediate</span>
-38. [Web Security & OWASP Top 10 Topic 38](#q38) <span class="advanced">Advanced</span>
-39. [Web Security & OWASP Top 10 Topic 39](#q39) <span class="intermediate">Intermediate</span>
-40. [Web Security & OWASP Top 10 Topic 40](#q40) <span class="advanced">Advanced</span>
-41. [Web Security & OWASP Top 10 Topic 41](#q41) <span class="intermediate">Intermediate</span>
-42. [Web Security & OWASP Top 10 Topic 42](#q42) <span class="advanced">Advanced</span>
-43. [Web Security & OWASP Top 10 Topic 43](#q43) <span class="intermediate">Intermediate</span>
-44. [Web Security & OWASP Top 10 Topic 44](#q44) <span class="advanced">Advanced</span>
-45. [Web Security & OWASP Top 10 Topic 45](#q45) <span class="intermediate">Intermediate</span>
-46. [Web Security & OWASP Top 10 Topic 46](#q46) <span class="advanced">Advanced</span>
-47. [Web Security & OWASP Top 10 Topic 47](#q47) <span class="intermediate">Intermediate</span>
-48. [Web Security & OWASP Top 10 Topic 48](#q48) <span class="advanced">Advanced</span>
-49. [Web Security & OWASP Top 10 Topic 49](#q49) <span class="intermediate">Intermediate</span>
-50. [Web Security & OWASP Top 10 Topic 50](#q50) <span class="advanced">Advanced</span>
-51. [Web Security & OWASP Top 10 Topic 51](#q51) <span class="intermediate">Intermediate</span>
-52. [Web Security & OWASP Top 10 Topic 52](#q52) <span class="advanced">Advanced</span>
-53. [Web Security & OWASP Top 10 Topic 53](#q53) <span class="intermediate">Intermediate</span>
-54. [Web Security & OWASP Top 10 Topic 54](#q54) <span class="advanced">Advanced</span>
-55. [Web Security & OWASP Top 10 Topic 55](#q55) <span class="intermediate">Intermediate</span>
-56. [Web Security & OWASP Top 10 Topic 56](#q56) <span class="advanced">Advanced</span>
-57. [Web Security & OWASP Top 10 Topic 57](#q57) <span class="intermediate">Intermediate</span>
-58. [Web Security & OWASP Top 10 Topic 58](#q58) <span class="advanced">Advanced</span>
-59. [Web Security & OWASP Top 10 Topic 59](#q59) <span class="intermediate">Intermediate</span>
-60. [Web Security & OWASP Top 10 Topic 60](#q60) <span class="advanced">Advanced</span>
-61. [Web Security & OWASP Top 10 Topic 61](#q61) <span class="intermediate">Intermediate</span>
-62. [Web Security & OWASP Top 10 Topic 62](#q62) <span class="advanced">Advanced</span>
-63. [Web Security & OWASP Top 10 Topic 63](#q63) <span class="intermediate">Intermediate</span>
-64. [Web Security & OWASP Top 10 Topic 64](#q64) <span class="advanced">Advanced</span>
-65. [Web Security & OWASP Top 10 Topic 65](#q65) <span class="intermediate">Intermediate</span>
-66. [Web Security & OWASP Top 10 Topic 66](#q66) <span class="advanced">Advanced</span>
-67. [Web Security & OWASP Top 10 Topic 67](#q67) <span class="intermediate">Intermediate</span>
-68. [Web Security & OWASP Top 10 Topic 68](#q68) <span class="advanced">Advanced</span>
-69. [Web Security & OWASP Top 10 Topic 69](#q69) <span class="intermediate">Intermediate</span>
-70. [Web Security & OWASP Top 10 Topic 70](#q70) <span class="advanced">Advanced</span>
-71. [Web Security & OWASP Top 10 Topic 71](#q71) <span class="intermediate">Intermediate</span>
-72. [Web Security & OWASP Top 10 Topic 72](#q72) <span class="advanced">Advanced</span>
-73. [Web Security & OWASP Top 10 Topic 73](#q73) <span class="intermediate">Intermediate</span>
-74. [Web Security & OWASP Top 10 Topic 74](#q74) <span class="advanced">Advanced</span>
-75. [Web Security & OWASP Top 10 Topic 75](#q75) <span class="intermediate">Intermediate</span>
-76. [Web Security & OWASP Top 10 Topic 76](#q76) <span class="advanced">Advanced</span>
-77. [Web Security & OWASP Top 10 Topic 77](#q77) <span class="intermediate">Intermediate</span>
-78. [Web Security & OWASP Top 10 Topic 78](#q78) <span class="advanced">Advanced</span>
-79. [Web Security & OWASP Top 10 Topic 79](#q79) <span class="intermediate">Intermediate</span>
-80. [Web Security & OWASP Top 10 Topic 80](#q80) <span class="advanced">Advanced</span>
-81. [Web Security & OWASP Top 10 Topic 81](#q81) <span class="intermediate">Intermediate</span>
-82. [Web Security & OWASP Top 10 Topic 82](#q82) <span class="advanced">Advanced</span>
-83. [Web Security & OWASP Top 10 Topic 83](#q83) <span class="intermediate">Intermediate</span>
-84. [Web Security & OWASP Top 10 Topic 84](#q84) <span class="advanced">Advanced</span>
-85. [Web Security & OWASP Top 10 Topic 85](#q85) <span class="intermediate">Intermediate</span>
-86. [Web Security & OWASP Top 10 Topic 86](#q86) <span class="advanced">Advanced</span>
-87. [Web Security & OWASP Top 10 Topic 87](#q87) <span class="intermediate">Intermediate</span>
-88. [Web Security & OWASP Top 10 Topic 88](#q88) <span class="advanced">Advanced</span>
-89. [Web Security & OWASP Top 10 Topic 89](#q89) <span class="intermediate">Intermediate</span>
-90. [Web Security & OWASP Top 10 Topic 90](#q90) <span class="advanced">Advanced</span>
-91. [Web Security & OWASP Top 10 Topic 91](#q91) <span class="intermediate">Intermediate</span>
-92. [Web Security & OWASP Top 10 Topic 92](#q92) <span class="advanced">Advanced</span>
-93. [Web Security & OWASP Top 10 Topic 93](#q93) <span class="intermediate">Intermediate</span>
-94. [Web Security & OWASP Top 10 Topic 94](#q94) <span class="advanced">Advanced</span>
-95. [Web Security & OWASP Top 10 Topic 95](#q95) <span class="intermediate">Intermediate</span>
-96. [Web Security & OWASP Top 10 Topic 96](#q96) <span class="advanced">Advanced</span>
-97. [Web Security & OWASP Top 10 Topic 97](#q97) <span class="intermediate">Intermediate</span>
-98. [Web Security & OWASP Top 10 Topic 98](#q98) <span class="advanced">Advanced</span>
-99. [Web Security & OWASP Top 10 Topic 99](#q99) <span class="intermediate">Intermediate</span>
-100. [Web Security & OWASP Top 10 Topic 100](#q100) <span class="advanced">Advanced</span>
+4. [What is the OWASP Top 10 (2021) and how do you use it engineering-wise?](#q4) <span class="beginner">Beginner</span>
+5. [What is IDOR and how do you prevent Broken Access Control?](#q5) <span class="intermediate">Intermediate</span>
+6. [What are Cryptographic Failures (OWASP A02) beyond "use HTTPS"?](#q6) <span class="intermediate">Intermediate</span>
+7. [What injection classes exist beyond SQLi (Command, LDAP, Header, SSTI)?](#q7) <span class="advanced">Advanced</span>
+8. [What does "Secure by Design" / threat modeling mean in practice?](#q8) <span class="intermediate">Intermediate</span>
+9. [What are typical Security Misconfigurations (A05) and how do you prevent them?](#q9) <span class="beginner">Beginner</span>
+10. [How do you manage Vulnerable & Outdated Components (A06)?](#q10) <span class="intermediate">Intermediate</span>
+11. [What are Identification & Authentication Failures (A07)?](#q11) <span class="intermediate">Intermediate</span>
+12. [What are Software & Data Integrity Failures (A08)?](#q12) <span class="advanced">Advanced</span>
+13. [What belongs in Security Logging & Monitoring (A09) — and what must NOT?](#q13) <span class="intermediate">Intermediate</span>
+14. [How does SSRF work and what are the layered defenses?](#q14) <span class="advanced">Advanced</span>
+15. [How does Content Security Policy stop XSS, and what does a strong policy look like?](#q15) <span class="advanced">Advanced</span>
+16. [CSP nonces vs hashes vs `strict-dynamic` — when to use each?](#q16) <span class="expert">Expert</span>
+17. [What are Trusted Types and why are they the strongest DOM-XSS defense?](#q17) <span class="expert">Expert</span>
+18. [Explain CORS mechanics: preflight, credentials, and what CORS does NOT protect?](#q18) <span class="advanced">Advanced</span>
+19. [What CORS misconfigurations lead to full account takeover?](#q19) <span class="expert">Expert</span>
+20. [What is the Same-Origin Policy; origin vs site; and what does SOP not restrict?](#q20) <span class="intermediate">Intermediate</span>
+21. [How does Clickjacking work and how do you fully prevent it?](#q21) <span class="beginner">Beginner</span>
+22. [Explain every cookie security attribute, including `__Host-`/`__Secure-` prefixes?](#q22) <span class="intermediate">Intermediate</span>
+23. [What is session fixation and the correct session lifecycle?](#q23) <span class="intermediate">Intermediate</span>
+24. [How should session expiration work (idle vs absolute, sliding windows)?](#q24) <span class="intermediate">Intermediate</span>
+25. [What is a JWT's structure, and what EXACTLY must you validate?](#q25) <span class="intermediate">Intermediate</span>
+26. [Explain JWT `alg=none` and algorithm-confusion (RS256→HS256) attacks?](#q26) <span class="expert">Expert</span>
+27. [How do JWKS and `kid` enable safe key rotation?](#q27) <span class="advanced">Advanced</span>
+28. [Sessions vs JWTs — and how do you "revoke" a stateless token?](#q28) <span class="advanced">Advanced</span>
+29. [Compare OAuth 2.0 grants — and why was Implicit deprecated?](#q29) <span class="advanced">Advanced</span>
+30. [How does PKCE protect the Authorization Code flow?](#q30) <span class="advanced">Advanced</span>
+31. [OIDC — what's in an ID token vs an access token, and why the `nonce`?](#q31) <span class="advanced">Advanced</span>
+32. [How should service-to-service authentication work (client credentials vs mTLS vs token exchange)?](#q32) <span class="expert">Expert</span>
+33. [Where should the browser store tokens (memory, localStorage, httpOnly cookie)?](#q33) <span class="intermediate">Intermediate</span>
+34. [Explain the WebAuthn/Passkey ceremony (registration + authentication)?](#q34) <span class="expert">Expert</span>
+35. [What are discoverable credentials, syncable passkeys, and attestation trade-offs?](#q35) <span class="expert">Expert</span>
+36. [How does TOTP work and what are its real-world weaknesses?](#q36) <span class="intermediate">Intermediate</span>
+37. [Why is SMS 2FA disfavored, and what is MFA push-fatigue?](#q37) <span class="beginner">Beginner</span>
+38. [How should passwords be stored — algorithm and parameters?](#q38) <span class="intermediate">Intermediate</span>
+39. [What does NIST SP 800-63B say about password policy?](#q39) <span class="intermediate">Intermediate</span>
+40. [What is credential stuffing and how do you detect/stop it?](#q40) <span class="advanced">Advanced</span>
+41. [How do you prevent username/email enumeration across login, signup, and password reset?](#q41) <span class="intermediate">Intermediate</span>
+42. [Rate limiting auth endpoints — lockout vs throttling vs progressive delays?](#q42) <span class="intermediate">Intermediate</span>
+43. [What makes a password-reset token safe?](#q43) <span class="intermediate">Intermediate</span>
+44. [What are timing attacks and when does constant-time comparison matter?](#q44) <span class="advanced">Advanced</span>
+45. [How do you prevent replay attacks in signed API requests?](#q45) <span class="advanced">Advanced</span>
+46. [HMAC vs digital signatures — properties and choice?](#q46) <span class="intermediate">Intermediate</span>
+47. [Hashing vs encryption vs encoding — the interview classic?](#q47) <span class="beginner">Beginner</span>
+48. [What is hybrid encryption and why do protocols use it?](#q48) <span class="intermediate">Intermediate</span>
+49. [Why is AES-GCM nonce reuse catastrophic, and how do you manage nonces?](#q49) <span class="expert">Expert</span>
+50. [What are KDFs — PBKDF2 vs bcrypt vs Argon2 — and why does memory-hardness matter?](#q50) <span class="advanced">Advanced</span>
+51. [Explain envelope encryption and the role of a KMS?](#q51) <span class="advanced">Advanced</span>
+52. [How do you design zero-downtime key rotation (dual-key periods)?](#q52) <span class="advanced">Advanced</span>
+53. [Why is `Math.random()` (or Python's default `random`) insecure, and what do you use instead?](#q53) <span class="beginner">Beginner</span>
+54. [What's new in TLS 1.3, and what are 0-RTT replay caveats?](#q54) <span class="advanced">Advanced</span>
+55. [How does certificate validation work, and is pinning still recommended?](#q55) <span class="advanced">Advanced</span>
+56. [What does HSTS do, what's preload, and why is it not enough alone?](#q56) <span class="beginner">Beginner</span>
+57. [What is mTLS and how does it differ from API-key/JWT auth internally?](#q57) <span class="advanced">Advanced</span>
+58. [What is Certificate Transparency and how do you monitor it?](#q58) <span class="intermediate">Intermediate</span>
+59. [What is the cloud-metadata SSRF vector and how does IMDSv2 fix it?](#q59) <span class="expert">Expert</span>
+60. [Why are open redirects dangerous, and what's the safe implementation?](#q60) <span class="intermediate">Intermediate</span>
+61. [How does path traversal work and what's the robust defense?](#q61) <span class="intermediate">Intermediate</span>
+62. [Command injection — which APIs are safe, and why is a shell ever involved?](#q62) <span class="intermediate">Intermediate</span>
+63. [What is XXE and how do you harden XML parsing?](#q63) <span class="advanced">Advanced</span>
+64. [Why is deserialization of untrusted data dangerous (Java/Python/Node)?](#q64) <span class="expert">Expert</span>
+65. [What is prototype pollution and how do you kill it?](#q65) <span class="advanced">Advanced</span>
+66. [What is DOM clobbering?](#q66) <span class="expert">Expert</span>
+67. [How do you secure `postMessage` and WebSocket channels?](#q67) <span class="advanced">Advanced</span>
+68. [What is the file-upload vulnerability checklist?](#q68) <span class="intermediate">Intermediate</span>
+69. [Why does `X-Content-Type-Options: nosniff` matter?](#q69) <span class="beginner">Beginner</span>
+70. [What is Subresource Integrity (SRI) and when is it required?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is the software supply chain attack surface, and what are the controls?](#q71) <span class="advanced">Advanced</span>
+72. [What is a dependency-confusion attack and the exact mitigations?](#q72) <span class="expert">Expert</span>
+73. [What are SBOMs and SLSA levels, concretely?](#q73) <span class="advanced">Advanced</span>
+74. [How do you keep secrets out of source and CI reliably?](#q74) <span class="intermediate">Intermediate</span>
+75. [How should API keys be issued, stored, and verified?](#q75) <span class="intermediate">Intermediate</span>
+76. [GraphQL-specific security controls?](#q76) <span class="advanced">Advanced</span>
+77. [What is mass assignment and how do ORMs make it easy?](#q77) <span class="intermediate">Intermediate</span>
+78. [Idempotency keys — why and how (Stripe-style)?](#q78) <span class="advanced">Advanced</span>
+79. [How do you verify incoming webhooks (Stripe/GitHub-style)?](#q79) <span class="intermediate">Intermediate</span>
+80. [What are TOCTOU race conditions in web apps (and beyond)?](#q80) <span class="expert">Expert</span>
+81. [HTTP request smuggling (CL.TE/TE.CL) — mechanism and defenses?](#q81) <span class="expert">Expert</span>
+82. [What was HTTP/2 Rapid Reset and what design lesson does it teach?](#q82) <span class="expert">Expert</span>
+83. [What is web cache deception/poisoning at a high level?](#q83) <span class="expert">Expert</span>
+84. [How do you architect against DDoS at L3/L4 and L7?](#q84) <span class="advanced">Advanced</span>
+85. [What can and can't a WAF do?](#q85) <span class="beginner">Beginner</span>
+86. [What are the core Zero Trust principles?](#q86) <span class="intermediate">Intermediate</span>
+87. [RBAC vs ABAC vs ReBAC — where does each fit?](#q87) <span class="advanced">Advanced</span>
+88. [Container runtime hardening checklist?](#q88) <span class="advanced">Advanced</span>
+89. [How do you log securely for audit without leaking PII?](#q89) <span class="intermediate">Intermediate</span>
+90. [GDPR engineering basics: minimization, purpose limitation, erasure?](#q90) <span class="intermediate">Intermediate</span>
+91. [How does STRIDE map to concrete controls in design review?](#q91) <span class="intermediate">Intermediate</span>
+92. [What belongs in a security code-review checklist?](#q92) <span class="beginner">Beginner</span>
+93. [SAST vs DAST vs SCA vs fuzzing — what does each catch?](#q93) <span class="intermediate">Intermediate</span>
+94. [Why is verbose error handling a vulnerability (information disclosure)?](#q94) <span class="beginner">Beginner</span>
+95. [What are COOP, CORP, and COEP (modern isolation headers)?](#q95) <span class="expert">Expert</span>
+96. [What's the complete modern security-headers checklist?](#q96) <span class="intermediate">Intermediate</span>
+97. [How do you secure a BFF (backend-for-frontend) pattern?](#q97) <span class="advanced">Advanced</span>
+98. [How do you run a coordinated vulnerability disclosure / bug bounty?](#q98) <span class="intermediate">Intermediate</span>
+99. [How do you respond to an active incident (contain, eradicate, recover)?](#q99) <span class="advanced">Advanced</span>
+100. [How do you build security into CI/CD end-to-end?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
@@ -199,8 +199,6 @@ A05 Misconfig       -> hardened Helm defaults, no debug endpoints in prod
 A10 SSRF            -> egress allowlist, IMDSv2, URL validation library
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -226,8 +224,6 @@ app.get("/api/invoices/:id", auth, async (req, res) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -249,8 +245,6 @@ function encrypt(plaintext, dataKey) {           // dataKey from KMS, 32 bytes
   return { iv: iv.toString("base64"), ciphertext: enc, tag: cipher.getAuthTag().toString("base64") };
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -274,8 +268,6 @@ execFile("convert", [file, "out.png"], (err) => {}); // args passed directly, no
 render("hello.tmpl", { name: userInput }); // data context only
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -295,8 +287,6 @@ Element: ResetToken store -> Tampering, Info Disclosure
   Control: hash tokens at rest, TTL 15min, single-use
 Abuse cases: enumeration via timing -> constant-time compare, uniform 404s
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -321,8 +311,6 @@ resources:
 # plus: disable default admin user, remove /debug routes outside staging
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -341,8 +329,6 @@ Inventory dependencies (SCA tooling), score with CVSS+exploitability context (EP
     npm audit --audit-level=high
     trivy fs --severity HIGH,CRITICAL --exit-code 1 .
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -365,8 +351,6 @@ app.post("/login", rateLimit({
 }));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -387,8 +371,6 @@ cosign verify --certificate-identity-regexp "^https://github.com/org/" \
 slsa-verifier verify-artifact app.tar.gz \
   --provenance-path provenance.intoto.jsonl --source-uri github.com/org/repo
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -414,8 +396,6 @@ def audit_login(user_id, success, ip):
         # NEVER: password, session token, raw email
     })
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -443,8 +423,6 @@ async function safeFetch(rawUrl) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -464,8 +442,6 @@ Content-Security-Policy:
   require-trusted-types-for 'script';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
@@ -482,8 +458,6 @@ Nonces (`'nonce-xyz'`) permit specific inline scripts per response — best for 
 <!-- with 'strict-dynamic', scripts this loader adds are trusted -->
 <script nonce="r4nd0m" src="/loader.js"></script>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -503,8 +477,6 @@ const policy = trustedTypes.createPolicy("sanitizer", {
 el.innerHTML = policy.createHTML(userInput);   // only sanitized values reach the sink
 el.innerHTML = userInput;                      // TypeError: TrustedHTML expected
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -527,8 +499,6 @@ app.use(cors({
   maxAge: 600,
 }));
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -554,8 +524,6 @@ app.use((req, res, next) => {
 // Fix: exact Set membership + Vary: Origin
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
@@ -573,8 +541,6 @@ https://app.a.com vs https://api.a.com -> different origin, same site (cookies!)
 SOP allows: <img src=x> request fired, response body unread
 SOP blocks: fetch(x).then(r => r.json()) cross-origin without CORS
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -594,8 +560,6 @@ app.use((req, res, next) => {
   next();
 });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -617,8 +581,6 @@ res.cookie("csrf", nonce, { secure: true, sameSite: "Strict" }); // readable by 
 // name-prefix hardening:
 res.cookie("__Host-session", token, { httpOnly: true, secure: true, path: "/" });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -649,8 +611,6 @@ app.post("/logout", (req, res) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -671,8 +631,6 @@ function sessionValid(sess) {
   return true;
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -700,8 +658,6 @@ async function verify(token) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -723,8 +679,6 @@ claims = jwt.decode(
 # BAD: jwt.decode(token, verify=False) or algorithms=None
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
@@ -745,8 +699,6 @@ function getKey(header, callback) {
   });
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -774,8 +726,6 @@ async function refresh(familyId, token) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -796,8 +746,6 @@ Client Credentials (service)
 POST /token  { grant_type: client_credentials, scope: orders:write }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
@@ -815,8 +763,6 @@ const challenge = base64url(sha256(verifier));
 // authorize?...&code_challenge=challenge&code_challenge_method=S256
 // token: grant_type=authorization_code&code=CODE&code_verifier=verifier
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -838,8 +784,6 @@ const { access_token } = await tokenExchange(params.code, verifier);
 await fetch("/api/me", { headers: { Authorization: `Bearer ${access_token}` } });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
@@ -860,8 +804,6 @@ curl -s https://idp/token -d grant_type=urn:ietf:params:oauth:grant-type:token-e
   -d subject_token=$USER_JWT -d audience=inventory
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -881,8 +823,6 @@ async function boot() {
   }).then(r => r.json()).then(r => r.access_token);
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -908,8 +848,6 @@ const cred = await navigator.credentials.create({
 // later: navigator.credentials.get({ publicKey: { challenge, allowCredentials: [ {id: cred.rawId} ] } })
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -930,8 +868,6 @@ attestation: "none",             // privacy-preserving default
 // verification server-side: verify(rpIdHash==sha256(rpId), challenge, origin, signCount monotonicity)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q36"></a>
@@ -949,8 +885,6 @@ const secret = otpauth.generateSecret();          // per-user, at provisioning
 const ok = authenticator.check(token, secret);    // validates current window
 // server: track last used timestep; reject repeats; rate limit 5/min
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -971,8 +905,6 @@ MFA factor ranking (resistance to phishing + interception):
 4. SMS (restricted: SIM swap, SS7)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
@@ -990,8 +922,6 @@ const hash = await argon2.hash(password, { type: argon2.argon2id, memoryCost: 19
 const ok = await argon2.verify(hash, password);
 if (ok && hash.startsWith("$argon2i$")) await rehash(password);   // silent upgrade
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1011,8 +941,6 @@ if (breached > 0) return reject("breached_password");
 // NO: if (!/[A-Z]/.test(password)) ...  NO: every-90-days rotation
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
@@ -1030,8 +958,6 @@ if login_failures_for_account(user.id, window="1h") > 5:
 if device_fingerprint_is_new(user.id, request.fp) and risk_score(request) > 0.7:
     send_new_device_notification(user)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1053,8 +979,6 @@ def login(email, password):
     return ok or fail(USER_NOT_FOUND)                  # single message both ways
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
@@ -1074,8 +998,6 @@ const wait = Math.min(2 ** fails, 3600);              // progressive delay
 if (fails > 10) return res.status(429).set("Retry-After", wait).end();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
@@ -1093,8 +1015,6 @@ await db.reset.create({ userId, tokenHash: sha256(token), expiresAt: in(15, "min
 // verify: lookup by hash, check usedAt==null && expiresAt>now, mark used atomically
 if (!timingSafeEqual(storedHash, sha256(provided))) return generic404();
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1116,8 +1036,6 @@ function safeEqual(a, b) {                        // length leaks are fine to fi
 // Never: storedToken === providedToken
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
@@ -1137,8 +1055,6 @@ const sig = hmacSha256(secretKey, canonical);
 // server: |now-ts|<300s, redis SET nonce NX EX 300 must succeed, then verify sig
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
@@ -1157,8 +1073,6 @@ const sig = edSign(null, Buffer.from(payload), edPrivateKey); // Ed25519
 // verify sides: hmac needs SAME secret on verifier; ed25519 needs only public key
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
@@ -1175,8 +1089,6 @@ Buffer.from("admin:pw").toString("base64");       // encoding — not security
 createHash("sha256").update(data).digest();       // hash — no key, no recovery
 createCipheriv("aes-256-gcm", key, iv);            // encryption — key required to reverse
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1197,8 +1109,6 @@ sender: dataKey = random(32)
 receiver: derive dataKey via X25519(recipientPriv, ephemeralPub), decrypt ct
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
@@ -1218,8 +1128,6 @@ const c = crypto.createCipheriv("aes-256-gcm", key, iv);
 // High-assurance: derive subkeys per message: HKDF(key, msgNo) -> fresh key+IV
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -1238,8 +1146,6 @@ const encKey = hkdfSync("sha256", master, "key-usage-enc", null, 32); // domain-
 const macKey = hkdfSync("sha256", master, "key-usage-mac", null, 32);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
@@ -1257,8 +1163,6 @@ record = aes_gcm_encrypt(dek.Plaintext, row.payload) # fast local crypto
 store(record.ciphertext, record.iv, dek.CiphertextBlob)
 # rotation: kms.re_encrypt on CiphertextBlobs or new KEK alias — data untouched
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1279,8 +1183,6 @@ def decrypt(env):
     return aes_gcm_decrypt(key, *parts[:-1])
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -1298,8 +1200,6 @@ const id = crypto.randomUUID();                                    // v4, CSPRNG
 // python: secrets.token_urlsafe(32)   go: crypto/rand.Read(b)
 // NEVER: Math.random().toString(36).slice(2)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1320,8 +1220,6 @@ ServerHello (key_share) + {EncryptedExtensions, Cert, Finished}
 Server: process only if request idempotent or double-submit-token ok
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
@@ -1341,8 +1239,6 @@ const sock = tls.connect(443, "api.example.com", { ALPNProtocols: ["h2"], reject
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
@@ -1358,8 +1254,6 @@ HSTS (`max-age`, `includeSubDomains`) instructs the browser to refuse plain HTTP
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 # serve on https only; commit domain at hstspreload.org after subdomain audit
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1381,8 +1275,6 @@ spec: { mtls: { mode: STRICT } }
 # identity: spiffe://cluster.example/ns/payments/sa/orders-svc
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -1401,8 +1293,6 @@ example.com.  CAA 0 iodef "mailto:security@example.com"
 # monitor: daily query crt.sh?q=%25.example.com -> alert on unknown issuers
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
@@ -1419,8 +1309,6 @@ TOKEN=$(curl -sX PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-met
 curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/iam/...
 aws ec2 modify-instance-metadata-options --http-tokens required --http-endpoint enabled --http-put-response-hop-limit 1
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1442,8 +1330,6 @@ function safeRedirect(next) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
@@ -1464,8 +1350,6 @@ function safeJoin(base, userInput) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
@@ -1485,8 +1369,6 @@ import shlex
 subprocess.run(["bash", "-c", f"jq . {shlex.quote(path)}"], check=True)  # last resort
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
@@ -1504,8 +1386,6 @@ parser = etree.XMLParser(resolve_entities=False, no_network=True, dtd_validation
                          load_dtd=False, huge_tree=False)
 root = etree.fromstring(xml_bytes, parser=parser)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1525,8 +1405,6 @@ obj = json.loads(payload)                 # data only
 validate(obj, schema)                     # enforce structure/types before use
 # if pickle is unavoidable (legacy), restrict via pickle restrictions + isolated process
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1549,8 +1427,6 @@ function safeMerge(target, src) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
@@ -1570,8 +1446,6 @@ Named DOM elements become global/window properties (`<img name="config">` → `w
   if (window.cfg?.isAdmin) grantAdmin();   // clobbered: form controls, not config
 </script>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1595,8 +1469,6 @@ window.addEventListener("message", (e) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
@@ -1616,8 +1488,6 @@ await minio.put("uploads", name, sanitizedBuffer, { "Content-Type": mime,
   "Content-Disposition": "attachment" });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
@@ -1633,8 +1503,6 @@ Browsers MIME-sniff responses and may execute a text/plain file as script — us
 res.setHeader("X-Content-Type-Options", "nosniff");
 res.setHeader("Content-Type", "text/plain; charset=utf-8"); // stays text, guaranteed
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1652,8 +1520,6 @@ Third-party `<script>/<link>` tags trust the CDN; a compromised or MITM'd CDN se
         integrity="sha384-<base64-sha384>"
         crossorigin="anonymous"></script>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1675,8 +1541,6 @@ Stages: source (typosquatting/malicious PRs), build (CI compromise — SolarWind
     aws-region: us-east-1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
@@ -1693,8 +1557,6 @@ Internal package names (not published publicly) are claimed by an attacker on np
 @company:registry=https://npm.pkg.github.com
 always-auth=true
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1713,8 +1575,6 @@ grype sbom:sbom.json --fail-on high
 cosign attest --predicate slsaprovenance.json --type slsaprovenance <image>
 cosign verify-attestation --type slsaprovenance <image>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1736,8 +1596,6 @@ repos:
       - id: gitleaks
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
@@ -1756,8 +1614,6 @@ def verify(presented):
     row = db.lookup_by_prefix(presented[:8])            # fast routing on prefix
     return row and hmac.compare_digest(row.digest, sha256(presented))
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1783,8 +1639,6 @@ const server = new ApolloServer({
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
@@ -1805,8 +1659,6 @@ const UpdateUserDto = z.object({
 const data = UpdateUserDto.parse(req.body);
 await db.user.update({ where: { id: req.user.id }, data });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1832,8 +1684,6 @@ async def charge(req: ChargeReq, key: str = Header(...)):
         return resp
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1853,8 +1703,6 @@ app.post("/webhooks/stripe", express.raw({ type: "application/json" }), (req, re
   res.sendStatus(200);
 });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1878,8 +1726,6 @@ INSERT INTO redemptions (user_id, promo) VALUES ($1,$2)
  ON CONFLICT DO NOTHING;    -- second concurrent request gets no row
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
@@ -1901,8 +1747,6 @@ Transfer-Encoding: chunked
 X   # front-end (CL) forwards 6 bytes; back-end (TE) reads chunked -> "X" prefixes next request
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
@@ -1920,8 +1764,6 @@ limit_req_zone $binary_remote_addr zone=rst:10m rate=100r/s;    # track resets v
 limit_conn_zone $binary_remote_addr zone=perip:10m;
 limit_conn perip 50;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1941,8 +1783,6 @@ app.get("/profile/*", (req, res) => {
 });
 // CDN rule: only cache /assets/*; everything else origin-direct
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1964,8 +1804,6 @@ location /api/ {
 location /search { limit_req zone=api burst=5; }   # expensive route = tighter budget
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
@@ -1982,8 +1820,6 @@ WAF catches:  ' OR 1=1--, <script>alert(1)</script>, /etc/passwd traversal paylo
 WAF misses:   IDOR (GET /api/invoices/1043), mass assignment, race conditions,
               SSRF via DNS-rebinding, business logic (coupon stacking)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2006,8 +1842,6 @@ allow {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
@@ -2024,8 +1858,6 @@ RBAC:  role=editor -> document:write (any document)
 ABAC:  user.dept==doc.dept && hour in 9..17 && device.managed
 ReBAC: document#editor@user (tuple check via graph, inherits group membership)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2050,8 +1882,6 @@ volumes:
   - { name: tmp, emptyDir: { medium: Memory } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
@@ -2070,8 +1900,6 @@ def audit(event):
     clean["actor_id"] = hmac_sha256(pepper, str(clean["actor_id"]))[:16]
     logger.info(json.dumps(clean, sort_keys=True))  # structured + deterministic
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2095,8 +1923,6 @@ async def erase(user_id):
     await backup_catalog.flag_erasure(user_id)    # expiry at next rotation
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
@@ -2117,8 +1943,6 @@ InfoDisclose  -> field-level encryption of PAN, no PAN in logs
 DoS           -> per-merchant token bucket, queue depth caps
 Elevation     -> separate deploy vs runtime credentials
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2142,8 +1966,6 @@ security_review:
   deps_pinned_and_scanned: true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
@@ -2159,8 +1981,6 @@ SAST reads code (taint flows, insecure APIs — early, FP-heavy), DAST attacks t
 pull_request: [gitleaks, semgrep --error, npm audit --audit-level=high]
 main nightly: [zap-baseline against staging, trivy fs, cargo fuzz --max-time 10m]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2181,8 +2001,6 @@ app.use((err, req, res, next) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
@@ -2199,8 +2017,6 @@ Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Embedder-Policy: credentialless
 Cross-Origin-Resource-Policy: same-origin
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2223,8 +2039,6 @@ helmet({
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
@@ -2245,8 +2059,6 @@ app.post("/auth/refresh", (req, res) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
@@ -2266,8 +2078,6 @@ Policy: https://example.com/.well-known/security-policy.md
 Hiring: https://example.com/careers
 Canonical: https://example.com/.well-known/security.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2291,8 +2101,6 @@ sev1_runbook:
   postmortem: 48h doc + action items with owners
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
@@ -2311,7 +2119,5 @@ stages:
   - { name: build,   run: ko build --sbom=spdx && cosign sign $(digest) }
   - { name: verify-deploy, run: cosign verify $IMAGE && kubectl apply -f k8s/ }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---

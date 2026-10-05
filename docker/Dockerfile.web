@@ -1,0 +1,18 @@
+FROM nginx:alpine
+
+# Copy production nginx configuration
+COPY docker/nginx-prod.conf /etc/nginx/conf.d/default.conf
+
+# Copy static frontend assets
+WORKDIR /usr/share/nginx/html
+COPY index.html dashboard.html login.html signup.html all_links.html ./
+COPY manifest.json sw.js service-worker.js favicon.ico ./
+COPY assets ./assets
+COPY markdowns ./markdowns
+
+EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD wget -q --spider http://localhost/health || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]

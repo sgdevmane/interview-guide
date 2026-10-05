@@ -127,8 +127,6 @@ Microfrontends extend the concepts of microservices to the frontend world. The i
 // App A + App B = Main App
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -147,8 +145,6 @@ Key benefits include:
 ```javascript
 // Team A uses React, Team B uses Vue
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -169,8 +165,6 @@ Drawbacks include:
 // Multiple React versions loaded
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
@@ -185,8 +179,6 @@ In build-time integration, microfrontends are published as packages (e.g., npm) 
 ```javascript
 import Header from '@org/header';
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -203,8 +195,6 @@ Run-time integration allows the container application to fetch microfrontends in
 const Header = await import('http://cdn/header.js');
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -219,8 +209,6 @@ Module Federation allows a JavaScript application to dynamically load code from 
 ```javascript
 new ModuleFederationPlugin({ name: 'app1', remotes: { app2: 'app2@http://...' } })
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -241,8 +229,6 @@ Microfrontends should be as decoupled as possible, but when communication is nee
 window.dispatchEvent(new CustomEvent('user-login', { detail: user }));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -258,8 +244,6 @@ Single-SPA is a javascript framework for front-end microservices. It enables you
 registerApplication('app1', () => import('app1'), location => location.pathname.startsWith('/app1'));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -274,8 +258,6 @@ Shared state should be minimized to avoid coupling. For global data like User Au
 ```javascript
 window.globalState.subscribe(user => ...)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -296,8 +278,6 @@ CSS isolation prevents styles from one MFE bleeding into another. Techniques inc
 // .header_abc123 { color: red; }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
@@ -312,8 +292,6 @@ Browser API for DOM encapsulation. Styles don't leak in or out.
 ```javascript
 element.attachShadow({ mode: 'open' });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -330,8 +308,6 @@ The Shell application typically handles the top-level routing (e.g., `/checkout`
 // Shell: /app1/* -> App1 handles /app1/dashboard
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -346,8 +322,6 @@ The Shell (or Host) is the parent application that loads the Microfrontends. It 
 ```javascript
 // Layout, Navigation, Auth
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -364,8 +338,6 @@ Each MFE bundles its own React (Run-time isolation) or upgrade all together (Coo
 // Increased bundle size
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -380,8 +352,6 @@ Assembling fragments on the server (e.g., Nginx SSI, Tailor, Podium).
 ```javascript
 <!--#include virtual="/header" -->
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -401,8 +371,6 @@ Testing strategies include:
 // Cypress/Playwright on shell
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -417,8 +385,6 @@ Toolchain for component-driven development and microfrontends.
 ```javascript
 bit export user-profile
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -435,8 +401,6 @@ Shell handles login/tokens and passes them to MFEs.
 const token = window.shell.getToken();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -451,8 +415,6 @@ Hard isolation. Oldest method. Difficult to build responsive/seamless UX.
 ```javascript
 <iframe src="https://app2.com"></iframe>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -469,8 +431,6 @@ Web Components (Custom Elements, Shadow DOM, HTML Templates) provide a framework
 <user-profile-mfe id="1"></user-profile-mfe>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -485,8 +445,6 @@ Sharing dependencies reduces bundle size by ensuring common libraries like React
 ```javascript
 shared: { react: { singleton: true } }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -503,8 +461,6 @@ Browser feature to control behavior of JS imports.
 <script type="importmap">{ "imports": { "react": "..." } }</script>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
@@ -519,8 +475,6 @@ Wrap each MFE in an Error Boundary to prevent crashing the shell.
 ```javascript
 <ErrorBoundary><MicroFrontend /></ErrorBoundary>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -537,8 +491,6 @@ Lazy loading defers fetching a microfrontend's code until it is actually needed,
 const App = React.lazy(() => import('remote/App'));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
@@ -553,8 +505,6 @@ Run shell + MFE locally, or proxy production shell to local MFE.
 ```javascript
 // npm start shell & npm start mfe1
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -571,8 +521,6 @@ Each microfrontend owns a dedicated backend service (its BFF) that aggregates an
 // Profile MFE -> Profile BFF -> Services
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
@@ -587,8 +535,6 @@ Navigation between microfrontends should go through the shell's router to ensure
 ```javascript
 history.pushState(null, null, '/app2')
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -605,8 +551,6 @@ Piral is an open-source framework for building microfrontend applications using 
 // Extensible shell
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -621,8 +565,6 @@ Luigi is an open-source microfrontend framework developed by SAP that uses a con
 ```javascript
 // Config driven
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -639,8 +581,6 @@ Performance optimization in microfrontends requires deduplicating shared depende
 // Dedupe dependencies
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
@@ -655,8 +595,6 @@ Resiliency means the shell and sibling microfrontends continue to function even 
 ```javascript
 // Header loads, but Sidebar fails gracefully
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -673,8 +611,6 @@ Shell defines base styles. MFEs should avoid global resets.
 // Use scoped CSS
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -689,8 +625,6 @@ Cross-application communication refers to how independent microfrontends exchang
 ```javascript
 const bus = new BroadcastChannel('app_bus');
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -707,8 +641,6 @@ Each microfrontend should have its own CI/CD pipeline that builds, tests, and de
 // Independent pipelines
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -723,8 +655,6 @@ A monorepo stores multiple related projects (shell and all microfrontends) in a 
 ```javascript
 // Easy code sharing
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -741,8 +671,6 @@ Monorepo: Easier coordination. Polyrepo: Strict independence.
 // Nx is popular for Monorepo MFE
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
@@ -757,8 +685,6 @@ Dependency hell occurs when multiple microfrontends require incompatible version
 ```javascript
 // React 16 vs 17 conflict
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -775,8 +701,6 @@ Semver matching in Module Federation or isolation.
 requiredVersion: '^16.8.0'
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
@@ -791,8 +715,6 @@ Angular's change detection. Can conflict if multiple Angular apps run.
 ```javascript
 // Load Zone.js only once
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -809,8 +731,6 @@ Yes, that's a key feature. Use Web Components or Single-SPA.
 // React shell, Angular widget
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
@@ -825,8 +745,6 @@ Hydration is the process of attaching JavaScript event listeners to server-rende
 ```javascript
 // Complex with multiple frameworks
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -843,8 +761,6 @@ Tailor is a layout and template composition server developed by Zuora that assem
 // Streaming layout
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
@@ -859,8 +775,6 @@ Shell tracks page views. MFEs track specific events.
 ```javascript
 shell.track('button_click')
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -877,8 +791,6 @@ A manifest file is a JSON configuration that maps each microfrontend name to its
 { "app1": "https://cdn.../main.js" }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
@@ -893,8 +805,6 @@ Publish a UI library (npm) or expose via Module Federation.
 ```javascript
 import { Button } from 'design-system'
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -911,8 +821,6 @@ Code splitting breaks a large JavaScript bundle into smaller chunks that are loa
 import()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
@@ -927,8 +835,6 @@ Static assets like fonts, images, and icons should be centralized on a CDN and r
 ```javascript
 url('https://cdn.../font.woff')
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -945,8 +851,6 @@ The Federated Modules Loader is Webpack's internal runtime that resolves, loads,
 // webpack/container/reference
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
@@ -961,8 +865,6 @@ Atomic Design is a methodology for creating design systems. It breaks interfaces
 ```javascript
 // Atoms, Molecules, Organisms
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -979,8 +881,6 @@ Route security in microfrontends requires coordination between the shell and eac
 if (!auth) redirect('/login')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
@@ -995,8 +895,6 @@ Feature toggles (or flags) let you enable or disable a microfrontend or specific
 ```javascript
 if (flags.newCheckout) ...
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1013,8 +911,6 @@ Islands Architecture, popularized by frameworks like Astro, renders most of the 
 // Less JS, faster load
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -1029,8 +925,6 @@ Islands: Optimization technique. MFEs: Organization technique.
 ```javascript
 // Can use both
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1047,8 +941,6 @@ Debugging microfrontends in production requires distributed tracing, structured 
 // Identify which MFE failed
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
@@ -1063,8 +955,6 @@ Layout thrashing occurs when JavaScript repeatedly reads and writes to the DOM i
 ```javascript
 // Use Skeletons/Placeholders
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1081,8 +971,6 @@ Skeleton screens are placeholder UI elements that mimic the shape of real conten
 <Skeleton height={50} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -1097,8 +985,6 @@ A vertical split divides the application by business domain or feature -- each m
 ```javascript
 // Preferred approach
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1115,8 +1001,6 @@ A horizontal split divides the application by technical layer -- for example, on
 // Can cause coupling
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
@@ -1131,8 +1015,6 @@ Internationalization in microfrontends requires a coordinated strategy where the
 ```javascript
 t('welcome')
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1149,8 +1031,6 @@ React's Context API provides a way to pass data through the component tree witho
 <AuthProvider>...</AuthProvider>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
@@ -1165,8 +1045,6 @@ Cookies are shared across all microfrontends running on the same domain, making 
 ```javascript
 document.cookie
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1183,8 +1061,6 @@ Cross-Origin Resource Sharing. CDN assets must allow origin.
 Access-Control-Allow-Origin: *
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
@@ -1199,8 +1075,6 @@ Content Security Policy is an HTTP header that restricts which sources the brows
 ```javascript
 script-src 'self' https://cdn...
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1217,8 +1091,6 @@ Upgrading a shared library in a microfrontend ecosystem requires a coordinated r
 // Major version bump
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
@@ -1233,8 +1105,6 @@ Web Workers run JavaScript in a background thread, keeping the main thread free 
 ```javascript
 new Worker('worker.js')
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1251,8 +1121,6 @@ Memory leaks are especially dangerous in microfrontends because when an MFE is u
 useEffect(() => cleanup, [])
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
@@ -1267,8 +1135,6 @@ In Module Federation terminology, a Remote is an application that exposes module
 ```javascript
 exposes: { './App': './src/App' }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1285,8 +1151,6 @@ A Host (also called a consumer or shell) is the application that loads and rende
 remotes: { app1: ... }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
@@ -1301,8 +1165,6 @@ Bi-directional Module Federation means an application can act as both a Host and
 ```javascript
 // Circular dependency risk
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1319,8 +1181,6 @@ When a multi-step form spans multiple microfrontends (e.g., Step 1 in MFE-A, Ste
 // Step 1 -> URL -> Step 2
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
@@ -1335,8 +1195,6 @@ A fragment in Server-Side Includes (SSI) is a self-contained piece of HTML gener
 ```javascript
 <fragment src="..." />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1353,8 +1211,6 @@ SEO in microfrontends is challenging because search engine crawlers may not exec
 // Prerendering
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
@@ -1369,8 +1225,6 @@ MFE implementation based on single-spa (popular in China).
 ```javascript
 // HTML Entry
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1387,8 +1241,6 @@ Shared if same domain. Namespacing keys recommended.
 localStorage.setItem('app1:key', ...)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
@@ -1403,8 +1255,6 @@ A runtime chunk contains Webpack's module resolution and loading logic -- the bo
 ```javascript
 optimization: { runtimeChunk: 'single' }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1421,8 +1271,6 @@ Slow networks amplify the latency of loading multiple remote microfrontend bundl
 // Offline mode
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
@@ -1437,8 +1285,6 @@ The Module Federation Dashboard (also called Medusa) is a visualization and mana
 ```javascript
 // Medusa
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1455,8 +1301,6 @@ Breaking changes in a microfrontend ecosystem can cascade across all consumers, 
 // Changelogs
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1471,8 +1315,6 @@ Loose coupling means each microfrontend knows as little as possible about the ot
 ```javascript
 // Goal of MFE
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1489,11 +1331,9 @@ High cohesion means all the code related to a single business feature (UI compon
 // Domain logic
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-<a id="q81"></a>
 
+<a id="q81"></a>
 ### Q81: What is NX?
 
 **Difficulty**: Intermediate
@@ -1506,12 +1346,9 @@ A smart build system with first-class monorepo support and powerful integrations
 nx serve my-app
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
-
 ### Q82: What is Turborepo?
 
 **Difficulty**: Intermediate
@@ -1524,12 +1361,9 @@ A high-performance build system for JavaScript/TypeScript monorepos. Caches buil
 turbo run build
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
-
 ### Q83: How do you handle CSS naming collisions?
 
 **Difficulty**: Intermediate
@@ -1542,12 +1376,9 @@ CSS Modules (scoping classes), BEM naming convention, or Shadow DOM (true isolat
 .button_hash123 { ... }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
-
 ### Q84: What is a 'Pub/Sub' pattern in MFE?
 
 **Difficulty**: Intermediate
@@ -1560,12 +1391,9 @@ Publish-Subscribe. Decoupled communication where senders (publishers) send messa
 window.dispatchEvent(new CustomEvent('order:placed'))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
-
 ### Q85: How do you handle global error handling?
 
 **Difficulty**: Advanced
@@ -1578,12 +1406,9 @@ Global 'window.onerror' handler in the Shell app, plus React Error Boundaries in
 window.onerror = function() { logError() }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
-
 ### Q86: What is 'Tree Shaking'?
 
 **Difficulty**: Intermediate
@@ -1596,12 +1421,9 @@ Removing unused code from bundles during the build process. Critical for MFE per
 import { func } from 'lib'; // Only func is bundled
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
-
 ### Q87: What is 'Vendor Chunk'?
 
 **Difficulty**: Intermediate
@@ -1614,12 +1436,9 @@ A separate bundle containing third-party libraries (React, Lodash) to improve ca
 vendors.js (cached long-term)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
-
 ### Q88: How do you mock a remote MFE locally?
 
 **Difficulty**: Advanced
@@ -1632,12 +1451,9 @@ Point the remote URL to a local dev server or a static mock file in Webpack conf
 remotes: { app1: 'http://localhost:3001/remoteEntry.js' }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
-
 ### Q89: What is 'Eager Consumption' in Module Federation?
 
 **Difficulty**: Advanced
@@ -1650,12 +1466,9 @@ Loading shared modules immediately on startup instead of async. Solves 'Shared m
 shared: { react: { eager: true } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
-
 ### Q90: What is 'Singleton' loading?
 
 **Difficulty**: Advanced
@@ -1668,12 +1481,9 @@ Ensuring a library (like React) is loaded only once, even if multiple MFEs use d
 shared: { react: { singleton: true } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
-
 ### Q91: How do you handle end-to-end (E2E) testing?
 
 **Difficulty**: Intermediate
@@ -1686,12 +1496,9 @@ Test the Shell app with all MFEs integrated using Cypress or Playwright.
 cy.visit('/'); cy.get('#cart-mfe').click();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
-
 ### Q92: What is 'Contract Testing' for MFEs?
 
 **Difficulty**: Advanced
@@ -1704,12 +1511,9 @@ Verifying that the API/Events exposed by an MFE match what the consumer expects.
 Provider: 'I emit {id: number}'. Consumer: 'I expect {id: number}'.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
-
 ### Q93: How do you handle custom fonts?
 
 **Difficulty**: Beginner
@@ -1722,12 +1526,9 @@ Load fonts in the Shell app to ensure consistency and avoid duplicate downloads.
 <link rel='stylesheet' href='fonts.css'>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
-
 ### Q94: What is 'Prefetching'?
 
 **Difficulty**: Intermediate
@@ -1740,12 +1541,9 @@ Loading resources (chunks) for other MFEs in the background before the user navi
 <link rel='prefetch' href='chunk.js'>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
-
 ### Q95: How do you handle A/B Testing?
 
 **Difficulty**: Advanced
@@ -1758,12 +1556,9 @@ The Shell app or a feature flag service decides which version of an MFE to load 
 if (user.group === 'B') load('mfe-v2') else load('mfe-v1')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
-
 ### Q96: What is 'Asset Discovery'?
 
 **Difficulty**: Advanced
@@ -1776,12 +1571,9 @@ Dynamically finding where static assets (images) are located for a remote MFE (u
 __webpack_public_path__ = scriptUrl;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
-
 ### Q97: How do you handle Analytics tracking?
 
 **Difficulty**: Intermediate
@@ -1794,12 +1586,9 @@ Centralized analytics service in Shell. MFEs send events to Shell.
 shell.track('product_viewed')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
-
 ### Q98: What is 'Failover Strategy'?
 
 **Difficulty**: Advanced
@@ -1812,12 +1601,9 @@ What to display if a remote MFE fails to load. Fallback UI or a cached version.
 try { load() } catch { return <ErrorUI /> }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
-
 ### Q99: How do you handle authentication tokens?
 
 **Difficulty**: Intermediate
@@ -1830,12 +1616,9 @@ Shell handles login and stores token (cookie/localStorage). MFEs read token or a
 const token = localStorage.getItem('token');
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
-
 ### Q100: What is 'Route-based Splitting'?
 
 **Difficulty**: Beginner
@@ -1848,12 +1631,9 @@ Loading a different MFE based on the URL path.
 /checkout -> CheckoutMFE
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q101"></a>
-
 ### Q101: How do you handle 'Flash of Unstyled Content' (FOUC)?
 
 **Difficulty**: Intermediate
@@ -1866,7 +1646,4 @@ Ensure critical CSS is loaded before JS execution or use SSR.
 Critical CSS in <head>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-

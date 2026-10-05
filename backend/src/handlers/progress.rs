@@ -22,7 +22,7 @@ pub async fn record_review(
     let mut interval_days: u32 = 1;
 
     // Calculate updated ease factor
-    ease_factor = ease_factor + (0.1 - (5.0 - q_score) * (0.08 + (5.0 - q_score) * 0.02));
+    ease_factor += 0.1 - (5.0 - q_score) * (0.08 + (5.0 - q_score) * 0.02);
     if ease_factor < 1.3 {
         ease_factor = 1.3;
     }

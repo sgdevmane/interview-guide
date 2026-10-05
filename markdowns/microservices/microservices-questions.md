@@ -115,7 +115,6 @@
 ---
 
 <a id="q1"></a>
-
 ### Q1: What is Microservices Architecture?
 
 **Difficulty**: Beginner
@@ -129,12 +128,9 @@ Monolith: [UI + Logic + DB]
 Microservices: [Service A] <-> [Service B]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
-
 ### Q2: Benefits of Microservices?
 
 **Difficulty**: Beginner
@@ -148,12 +144,9 @@ Team A -> Java -> Deploy
 Team B -> Node.js -> Deploy
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
-
 ### Q3: Drawbacks of Microservices?
 
 **Difficulty**: Beginner
@@ -166,12 +159,9 @@ Complexity (distributed system), network latency, data consistency (eventual), o
 Trace: Service A -> B -> C (Debugging is hard)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
-
 ### Q4: What is an API Gateway?
 
 **Difficulty**: Intermediate
@@ -184,12 +174,9 @@ A server that acts as an entry point for clients. Handles routing, composition, 
 Client -> API Gateway -> [Service A, Service B]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
-
 ### Q5: What is Service Discovery?
 
 **Difficulty**: Intermediate
@@ -202,12 +189,9 @@ Mechanism for services to find each other's dynamic IP addresses. Uses a Service
 Service A -> Registry (Get B's IP) -> Service B
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
-
 ### Q6: Client-side vs Server-side Discovery?
 
 **Difficulty**: Advanced
@@ -221,12 +205,9 @@ Client -> Registry -> Service (Client-side)
 Client -> Load Balancer -> Service (Server-side)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
-
 ### Q7: What is Circuit Breaker Pattern?
 
 **Difficulty**: Intermediate
@@ -239,12 +220,9 @@ Prevents cascading failures. If a service fails repeatedly, the circuit 'opens' 
 if (failures > threshold) open_circuit();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
-
 ### Q8: What is Bulkhead Pattern?
 
 **Difficulty**: Advanced
@@ -258,12 +236,9 @@ ThreadPool A (Service A)
 ThreadPool B (Service B)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
-
 ### Q9: What is Saga Pattern?
 
 **Difficulty**: Advanced
@@ -277,12 +252,9 @@ Order -> Payment -> Stock
 If Stock fails -> Refund Payment -> Cancel Order
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
-
 ### Q10: Choreography vs Orchestration?
 
 **Difficulty**: Advanced
@@ -296,12 +268,9 @@ Choreography: A emits event, B listens.
 Orchestration: Manager calls A, then B.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
-
 ### Q11: What is Event Sourcing?
 
 **Difficulty**: Advanced
@@ -315,12 +284,9 @@ Events: [Created, Deposited $10, Withdrawn $5]
 State: $5
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
-
 ### Q12: What is CQRS?
 
 **Difficulty**: Advanced
@@ -333,12 +299,9 @@ Command Query Responsibility Segregation. Separate models for Write (Command) an
 Write DB (Normalized) -> Sync -> Read DB (Denormalized)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
-
 ### Q13: How do you handle Authentication?
 
 **Difficulty**: Intermediate
@@ -351,12 +314,9 @@ Centralized Identity Provider (IdP). Use OAuth2/OIDC. Pass JWT tokens between se
 Header: Authorization: Bearer <JWT>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
-
 ### Q14: What is Distributed Tracing?
 
 **Difficulty**: Intermediate
@@ -369,12 +329,9 @@ Tracking requests across microservices. Assign a Trace ID at ingress and propaga
 X-Trace-ID: abc-123
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
-
 ### Q15: What is Centralized Logging?
 
 **Difficulty**: Intermediate
@@ -387,12 +344,9 @@ Aggregating logs from all services into one place for searching. ELK Stack (Elas
 Service -> Fluentd -> Elasticsearch -> Kibana
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
-
 ### Q16: Idempotency in Microservices?
 
 **Difficulty**: Intermediate
@@ -405,12 +359,9 @@ Ensuring replaying a request doesn't change state twice. Use Idempotency Keys.
 if (processed(key)) return saved_response;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
-
 ### Q17: Inter-service Communication Styles?
 
 **Difficulty**: Beginner
@@ -424,12 +375,9 @@ Sync: A waits for B.
 Async: A sends message, B processes later.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
-
 ### Q18: What is gRPC?
 
 **Difficulty**: Intermediate
@@ -442,12 +390,9 @@ High-performance RPC framework. Uses Protobuf (binary) and HTTP/2. Strongly type
 service Greeter { rpc SayHello (HelloRequest) returns (HelloReply) {} }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
-
 ### Q19: REST vs gRPC?
 
 **Difficulty**: Intermediate
@@ -461,12 +406,9 @@ REST: GET /users/1
 gRPC: GetUser(id=1)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
-
 ### Q20: What is a Message Broker?
 
 **Difficulty**: Beginner
@@ -479,12 +421,9 @@ Intermediary that translates messages between sender and receiver. Decouples ser
 Producer -> Broker -> Consumer
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
-
 ### Q21: Kafka vs RabbitMQ?
 
 **Difficulty**: Advanced
@@ -498,12 +437,9 @@ Kafka: Stream processing.
 RabbitMQ: Task queue.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
-
 ### Q22: What is API Composition?
 
 **Difficulty**: Intermediate
@@ -516,12 +452,9 @@ API Gateway or specific service queries multiple services and combines results.
 Composite = UserDetails + Orders + Reviews
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
-
 ### Q23: What is Database per Service?
 
 **Difficulty**: Intermediate
@@ -535,12 +468,9 @@ Service A -> DB A
 Service B -> DB B
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
-
 ### Q24: What is Shared Database Antipattern?
 
 **Difficulty**: Intermediate
@@ -553,12 +483,9 @@ Multiple services accessing the same DB. Leads to tight coupling and performance
 Service A -> DB <- Service B (Avoid)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
-
 ### Q25: How do you handle Data Consistency?
 
 **Difficulty**: Advanced
@@ -571,12 +498,9 @@ Embrace Eventual Consistency. Use Sagas for distributed transactions. 2PC is rar
 Update A -> Publish Event -> Update B
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
-
 ### Q26: What is CAP Theorem?
 
 **Difficulty**: Intermediate
@@ -590,12 +514,9 @@ CP: MongoDB (default)
 AP: Cassandra
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
-
 ### Q27: What is 12-Factor App?
 
 **Difficulty**: Intermediate
@@ -609,12 +530,9 @@ Config: ENV_VAR
 Logs: Stream to stdout
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
-
 ### Q28: How do you version APIs?
 
 **Difficulty**: Beginner
@@ -627,12 +545,9 @@ URI Versioning (/v1/users), Header Versioning (Accept: application/vnd.v1+json).
 GET /v1/resource
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
-
 ### Q29: What is Consumer Driven Contracts (CDC)?
 
 **Difficulty**: Advanced
@@ -645,12 +560,9 @@ Testing strategy where consumers define expectations (contracts). Providers veri
 Consumer defines: 'I expect {id: 1}'
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
-
 ### Q30: What is Chaos Engineering?
 
 **Difficulty**: Advanced
@@ -663,12 +575,9 @@ Testing resilience by intentionally injecting faults (killing pods, latency) in 
 Chaos Monkey: Randomly terminates instances.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
-
 ### Q31: Blue-Green Deployment?
 
 **Difficulty**: Intermediate
@@ -682,12 +591,9 @@ Router -> Blue (v1)
 Switch -> Green (v2)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
-
 ### Q32: Canary Release?
 
 **Difficulty**: Intermediate
@@ -700,12 +606,9 @@ Rollout to small % of users first. Monitor. Gradually increase traffic.
 v1: 90%, v2: 10%
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
-
 ### Q33: Strangler Fig Pattern?
 
 **Difficulty**: Advanced
@@ -718,12 +621,9 @@ Migrating monolith to microservices by gradually replacing specific functionalit
 Facade -> [New Service, Monolith]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q34"></a>
-
 ### Q34: What is BFF (Backend for Frontend)?
 
 **Difficulty**: Intermediate
@@ -737,12 +637,9 @@ Mobile BFF -> Minimal Data
 Web BFF -> Rich Data
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
-
 ### Q35: What is Sidecar Pattern?
 
 **Difficulty**: Intermediate
@@ -755,12 +652,9 @@ Deploying helper container alongside main container to handle cross-cutting conc
 Pod: [App Container] + [Envoy Proxy]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q36"></a>
-
 ### Q36: What is Service Mesh?
 
 **Difficulty**: Advanced
@@ -773,12 +667,9 @@ Infrastructure layer for handling service-to-service communication. Uses sidecar
 Istio, Linkerd
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
-
 ### Q37: How to prevent Cascading Failures?
 
 **Difficulty**: Intermediate
@@ -791,12 +682,9 @@ Circuit Breakers, Timeouts, Retries with Backoff, Bulkheads.
 Timeout: 200ms
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
-
 ### Q38: What is Rate Limiting?
 
 **Difficulty**: Beginner
@@ -809,12 +697,9 @@ Controlling the rate of traffic sent or received. Prevents DoS.
 100 req/min
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
-
 ### Q39: What is Throttling?
 
 **Difficulty**: Beginner
@@ -827,12 +712,9 @@ Intentionally slowing down a service when it's overloaded, or rejecting requests
 Queue full -> Reject
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
-
 ### Q40: Stateless vs Stateful Services?
 
 **Difficulty**: Beginner
@@ -846,12 +728,9 @@ Stateless: REST API
 Stateful: Database
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
-
 ### Q41: Testing Strategies in Microservices?
 
 **Difficulty**: Intermediate
@@ -864,12 +743,9 @@ Unit (Logic), Integration (DB/Queue), Component (Service isolation), Contract (A
 Pyramid: Unit > Integration > E2E
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
-
 ### Q42: What is Containerization (Docker)?
 
 **Difficulty**: Beginner
@@ -882,12 +758,9 @@ Packaging code and dependencies into a standard unit (Container) that runs anywh
 Dockerfile -> Image -> Container
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
-
 ### Q43: What is Orchestration (Kubernetes)?
 
 **Difficulty**: Beginner
@@ -900,12 +773,9 @@ Automating deployment, scaling, and management of containerized applications.
 K8s Scheduler -> Nodes
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
-
 ### Q44: How to secure Microservices?
 
 **Difficulty**: Intermediate
@@ -918,12 +788,9 @@ HTTPS/TLS, mTLS (Service-to-Service), OAuth2 (User Auth), API Gateway as firewal
 mTLS: Mutual Certificate Auth
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
-
 ### Q45: OAuth2 Flows?
 
 **Difficulty**: Intermediate
@@ -936,12 +803,9 @@ Authorization Code (Web), Client Credentials (M2M), Implicit (Legacy).
 App -> Auth Server -> Token -> Resource Server
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
-
 ### Q46: What is OIDC (OpenID Connect)?
 
 **Difficulty**: Intermediate
@@ -954,12 +818,9 @@ Identity layer on top of OAuth2. Provides authentication (Who are you?) via ID T
 Scope: openid profile email
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
-
 ### Q47: What is JWT (JSON Web Token)?
 
 **Difficulty**: Beginner
@@ -972,12 +833,9 @@ Compact, URL-safe token for representing claims. Stateless auth.
 Header.Payload.Signature
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
-
 ### Q48: Synchronous vs Asynchronous (Deep Dive)?
 
 **Difficulty**: Intermediate
@@ -991,12 +849,9 @@ Sync: Request/Response
 Async: Event Driven
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
-
 ### Q49: What is Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
@@ -1009,12 +864,9 @@ Distributed transaction protocol. Prepare phase (vote) + Commit phase. Blocking.
 Coordinator -> Prepare -> Commit
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
-
 ### Q50: Why avoid 2PC in Microservices?
 
 **Difficulty**: Advanced
@@ -1027,12 +879,9 @@ It blocks resources (locks), reduces availability (if coordinator dies), and inc
 Use Sagas instead.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
-
 ### Q51: What is Dead Letter Queue (DLQ)?
 
 **Difficulty**: Intermediate
@@ -1045,12 +894,9 @@ A queue where messages that cannot be processed (failed consumers) are sent for 
 Queue -> Consumer (Fail) -> DLQ
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q52"></a>
-
 ### Q52: Competing Consumers Pattern?
 
 **Difficulty**: Intermediate
@@ -1063,12 +909,9 @@ Multiple consumers reading from the same queue to process messages concurrently.
 Queue -> [Consumer A, Consumer B]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
-
 ### Q53: What is Fan-out?
 
 **Difficulty**: Intermediate
@@ -1081,12 +924,9 @@ Sending a message to an exchange that broadcasts it to all bound queues (Pub/Sub
 Exchange -> [Queue A, Queue B]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
-
 ### Q54: What is Polyglot Persistence?
 
 **Difficulty**: Intermediate
@@ -1099,12 +939,9 @@ Using different data storage technologies for different services based on needs 
 UserService (MySQL), CatalogService (Mongo)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
-
 ### Q55: What is Domain Driven Design (DDD)?
 
 **Difficulty**: Advanced
@@ -1117,12 +954,9 @@ Software design approach focusing on modelling software to match a domain. Core 
 Domain: E-Commerce -> Contexts: Order, Shipping
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
-
 ### Q56: What is a Bounded Context?
 
 **Difficulty**: Advanced
@@ -1136,12 +970,9 @@ Context: Sales (Customer = Buyer)
 Context: Support (Customer = Ticket Owner)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
-
 ### Q57: What is an Aggregate?
 
 **Difficulty**: Advanced
@@ -1154,12 +985,9 @@ A cluster of domain objects that can be treated as a single unit. Has a Root Ent
 Order (Root) + OrderItems
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
-
 ### Q58: What is Anti-Corruption Layer?
 
 **Difficulty**: Advanced
@@ -1172,12 +1000,9 @@ A layer that translates between two different domain models (e.g., Legacy Monoli
 New System <-> ACL <-> Legacy System
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
-
 ### Q59: What is Semantic Versioning?
 
 **Difficulty**: Beginner
@@ -1190,12 +1015,9 @@ Versioning scheme: Major.Minor.Patch (e.g., 1.0.2). Major = Breaking, Minor = Fe
 v1.0.0 -> v2.0.0 (Breaking Change)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
-
 ### Q60: What is Continuous Integration (CI)?
 
 **Difficulty**: Beginner
@@ -1208,12 +1030,9 @@ Practice of merging code changes frequently, followed by automated build and tes
 Git Push -> Jenkins Build -> Test
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
-
 ### Q61: What is Continuous Deployment (CD)?
 
 **Difficulty**: Beginner
@@ -1226,12 +1045,9 @@ Automated release of code to production after passing CI.
 CI Pass -> Deploy to Prod
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
-
 ### Q62: What is Infrastructure as Code (IaC)?
 
 **Difficulty**: Intermediate
@@ -1244,12 +1060,9 @@ Managing infrastructure through code/files rather than manual configuration. Too
 resource 'aws_instance' 'web' {...}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
-
 ### Q63: What is Immutable Infrastructure?
 
 **Difficulty**: Intermediate
@@ -1262,12 +1075,9 @@ Servers are never modified after deployment. If update needed, replace with new 
 Deploy v2 -> Terminate v1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q64"></a>
-
 ### Q64: What is Serverless?
 
 **Difficulty**: Intermediate
@@ -1280,12 +1090,9 @@ Cloud execution model where provider manages servers. Pay per execution. Functio
 AWS Lambda, Azure Functions
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
-
 ### Q65: Microservices vs Serverless?
 
 **Difficulty**: Intermediate
@@ -1298,12 +1105,9 @@ Microservices: Long-running processes, control over env. Serverless: Event-drive
 K8s Pod vs Lambda Function
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
-
 ### Q66: What is Cold Start?
 
 **Difficulty**: Intermediate
@@ -1316,12 +1120,9 @@ Latency experienced when a Serverless function is invoked for the first time (co
 First req: 1s. Subsequent: 50ms.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
-
 ### Q67: How to handle Distributed Locking?
 
 **Difficulty**: Advanced
@@ -1334,12 +1135,9 @@ Using a shared store (Redis/Zookeeper) to ensure only one process performs an ac
 Redis: SET resource_name my_random_value NX PX 30000
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
-
 ### Q68: What is Leader Election?
 
 **Difficulty**: Advanced
@@ -1352,12 +1150,9 @@ Process of designating a single process as the organizer/coordinator. Tools: Zoo
 Nodes vote -> Leader selected
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
-
 ### Q69: What is Sharding?
 
 **Difficulty**: Advanced
@@ -1370,12 +1165,9 @@ Partitioning data horizontally across databases to scale. Based on Shard Key.
 User ID % 4 -> Shard 1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
-
 ### Q70: What is Replication?
 
 **Difficulty**: Intermediate
@@ -1388,12 +1180,9 @@ Copying data to multiple nodes for redundancy and read scaling.
 Master (Write) -> Slaves (Read)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
-
 ### Q71: What is Auto-scaling?
 
 **Difficulty**: Beginner
@@ -1406,12 +1195,9 @@ Automatically adjusting the number of compute resources based on load (CPU/RAM).
 HPA: Target CPU 50%
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
-
 ### Q72: What is Log Aggregation?
 
 **Difficulty**: Intermediate
@@ -1424,12 +1210,9 @@ Collecting logs from all services into a central system (ELK, Splunk, Datadog).
 Log -> Agent -> Central Store
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
-
 ### Q73: Monitoring vs Observability?
 
 **Difficulty**: Advanced
@@ -1442,12 +1225,9 @@ Monitoring: 'Is the system healthy?' (Known unknowns). Observability: 'Why is it
 Metrics vs Traces/Logs
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
-
 ### Q74: What is Alerting?
 
 **Difficulty**: Beginner
@@ -1460,12 +1240,9 @@ Notifying humans when metrics cross thresholds.
 If ErrorRate > 1% -> PageDuty
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
-
 ### Q75: What is a Health Check?
 
 **Difficulty**: Beginner
@@ -1478,12 +1255,9 @@ Endpoint (/health) that reveals service status. Liveness (Restart if dead) vs Re
 GET /health -> 200 OK
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q76"></a>
-
 ### Q76: What is Graceful Shutdown?
 
 **Difficulty**: Intermediate
@@ -1496,12 +1270,9 @@ Service stops accepting new requests, finishes current ones, closes connections,
 SIGTERM -> Stop Listener -> Drain -> Exit
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
-
 ### Q77: What is Retry Pattern?
 
 **Difficulty**: Beginner
@@ -1514,12 +1285,9 @@ Automatically retrying a failed operation (transient error).
 try { call() } catch { retry() }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q78"></a>
-
 ### Q78: What is Exponential Backoff?
 
 **Difficulty**: Intermediate
@@ -1532,12 +1300,9 @@ Increasing the wait time between retries exponentially (1s, 2s, 4s, 8s) to reduc
 wait = base * 2^attempt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
-
 ### Q79: What is Jitter?
 
 **Difficulty**: Advanced
@@ -1550,12 +1315,9 @@ Adding random variation to backoff intervals to prevent Thundering Herd.
 wait = base * 2^attempt + random()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q80"></a>
-
 ### Q80: What is Load Shedding?
 
 **Difficulty**: Advanced
@@ -1568,12 +1330,9 @@ Intentionally dropping requests when system is near capacity to prevent total co
 If CPU > 90% -> Return 503
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
-
 ### Q81: What is a Reverse Proxy?
 
 **Difficulty**: Beginner
@@ -1586,12 +1345,9 @@ Server sitting in front of backend servers. Client -> Proxy -> Server. Hides bac
 Nginx, HAProxy
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
-
 ### Q82: What is a Forward Proxy?
 
 **Difficulty**: Beginner
@@ -1604,12 +1360,9 @@ Server sitting in front of clients. Client -> Proxy -> Internet. Hides client.
 VPN, Corporate Proxy
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
-
 ### Q83: What is Sticky Sessions?
 
 **Difficulty**: Intermediate
@@ -1622,12 +1375,9 @@ Routing all requests from a user to the same specific server instance.
 Load Balancer (Hash IP) -> Server A
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
-
 ### Q84: Why avoid Sticky Sessions?
 
 **Difficulty**: Intermediate
@@ -1640,12 +1390,9 @@ Causes uneven load balancing. Makes auto-scaling and failover harder.
 Use Distributed Cache (Redis) instead.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
-
 ### Q85: What is Shadow Deployment?
 
 **Difficulty**: Advanced
@@ -1658,12 +1405,9 @@ Replaying live production traffic to a new version (shadow) without returning re
 Traffic -> v1 (Live) & v2 (Shadow)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
-
 ### Q86: What is Feature Flag?
 
 **Difficulty**: Beginner
@@ -1676,12 +1420,9 @@ Toggle functionality on/off at runtime without deploying code.
 if (feature.isEnabled('dark_mode'))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
-
 ### Q87: What is GitOps?
 
 **Difficulty**: Intermediate
@@ -1694,12 +1435,9 @@ Using Git as the single source of truth for infrastructure/deployment. ArgoCD sy
 Git Commit -> ArgoCD -> K8s Apply
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
-
 ### Q88: What is Helm?
 
 **Difficulty**: Intermediate
@@ -1712,12 +1450,9 @@ Package manager for Kubernetes. Manages charts (templates).
 helm install my-app ./chart
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
-
 ### Q89: What is a Pod (K8s)?
 
 **Difficulty**: Beginner
@@ -1730,12 +1465,9 @@ Smallest deployable unit in K8s. Can contain one or more containers sharing netw
 Pod = [Container A, Container B]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
-
 ### Q90: What is a Namespace?
 
 **Difficulty**: Beginner
@@ -1748,12 +1480,9 @@ Virtual cluster inside K8s. Isolates resources between teams/envs.
 kubectl get pods -n production
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
-
 ### Q91: ConfigMaps vs Secrets?
 
 **Difficulty**: Intermediate
@@ -1766,12 +1495,9 @@ ConfigMap: Non-sensitive config (URLs). Secret: Sensitive data (passwords, keys)
 Env: DB_HOST (ConfigMap), DB_PASS (Secret)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
-
 ### Q92: What is StatefulSet?
 
 **Difficulty**: Intermediate
@@ -1784,12 +1510,9 @@ K8s controller for stateful apps (DBs). Guarantees ordering and stable network I
 web-0, web-1, web-2
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
-
 ### Q93: What is DaemonSet?
 
 **Difficulty**: Intermediate
@@ -1802,12 +1525,9 @@ Ensures a copy of a Pod runs on all (or specific) nodes. Used for logs/monitorin
 Fluentd on every node
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
-
 ### Q94: What is Ingress Controller?
 
 **Difficulty**: Intermediate
@@ -1820,12 +1540,9 @@ Manages external access to services (HTTP/HTTPS). Acts as L7 Load Balancer.
 Internet -> Ingress -> Service
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
-
 ### Q95: What is Persistent Volume (PV)?
 
 **Difficulty**: Intermediate
@@ -1838,12 +1555,9 @@ Storage resource in the cluster. PVC (Claim) requests storage from PV.
 Pod -> PVC -> PV -> EBS/Disk
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
-
 ### Q96: Service Types (ClusterIP, NodePort, LB)?
 
 **Difficulty**: Intermediate
@@ -1856,12 +1570,9 @@ ClusterIP: Internal only. NodePort: Exposes on static port on nodes. LoadBalance
 ClusterIP (Default)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
-
 ### Q97: Horizontal Pod Autoscaler (HPA)?
 
 **Difficulty**: Intermediate
@@ -1874,12 +1585,9 @@ Scales number of pods based on metrics (CPU).
 Scale 1 -> 10 pods
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
-
 ### Q98: Vertical Pod Autoscaler (VPA)?
 
 **Difficulty**: Intermediate
@@ -1892,12 +1600,9 @@ Adjusts CPU/Memory requests/limits of containers.
 Increase RAM 1GB -> 2GB
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
-
 ### Q99: Cluster Autoscaler?
 
 **Difficulty**: Intermediate
@@ -1910,12 +1615,9 @@ Adds/removes nodes from the cluster when pods cannot be scheduled.
 Add Node if Pending Pods
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
-
 ### Q100: Multi-Tenancy in Microservices?
 
 **Difficulty**: Advanced
@@ -1928,12 +1630,9 @@ Serving multiple customers (tenants) from single instance (Shared DB) or isolate
 TenantID in every query
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q101"></a>
-
 ### Q101: SOA vs Microservices?
 
 **Difficulty**: Intermediate
@@ -1946,7 +1645,4 @@ SOA: Enterprise Service Bus (ESB), smart pipes, larger services. Microservices: 
 SOA: XML/SOAP. Microservices: JSON/REST.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-

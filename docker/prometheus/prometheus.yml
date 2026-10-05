@@ -6,14 +6,13 @@ rule_files:
   - "alerts.yml"
 
 scrape_configs:
-  - job_name: 'interview-guide-app'
+  - job_name: 'interview-guide-backend'
     scrape_interval: 10s
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['app:3000']
+      - targets: ['backend-1:8080', 'backend-2:8080', 'app:8080']
         labels:
-          environment: '${NODE_ENV:-production}'
-          service: 'interview-guide'
+          service: 'interview-guide-backend'
 
   - job_name: 'prometheus'
     static_configs:

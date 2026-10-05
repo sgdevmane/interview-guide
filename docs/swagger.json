@@ -11,16 +11,16 @@
   },
   "servers": [
     {
+      "url": "http://localhost:9443/api",
+      "description": "Production Nginx Multi-Instance Cluster (Load Balanced)"
+    },
+    {
+      "url": "http://localhost:9442/api",
+      "description": "Staging Single-Container Environment"
+    },
+    {
       "url": "http://localhost:8080/api",
-      "description": "Local Rust Backend Server"
-    },
-    {
-      "url": "https://staging-interview.company.internal/api",
-      "description": "Staging Server"
-    },
-    {
-      "url": "https://interview.company.com/api",
-      "description": "Production Server"
+      "description": "Local Rust Backend (Direct Container/Binary)"
     }
   ],
   "paths": {

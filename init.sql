@@ -119,7 +119,7 @@ INSERT INTO categories (id, name, description, total_questions) VALUES
 ('docker', 'Docker & Containers', 'Namespaces, Cgroups, Multi-Stage Builds, OverlayFS', 100),
 ('aws', 'AWS Cloud Architecture', 'Serverless, Well-Architected Framework, DynamoDB, IAM', 100),
 ('performance', 'Web Performance', 'Core Web Vitals, Critical Rendering Path, GPU Compositing', 100),
-('integration', 'Integration & APIs', 'REST, GraphQL, gRPC, OAuth2 PKCE, Webhooks, API Gateways', 100),
+('integration', 'Integration & APIs', 'REST, GraphQL, gRPC, OAuth2 PKCE, Webhooks, API Gateways', 209),
 ('typescript', 'TypeScript', 'Type System, Generics, Conditional Types, tsconfig', 100),
 ('security', 'Application Security', 'XSS, CSRF, SQLi, CSP, JWT Security, Cryptography', 100),
 ('testing', 'Testing & QA', 'Unit Testing, MSW, RTL, Playwright, Mocking', 100),

@@ -159,6 +159,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // API Routes
     let api_routes = Router::new()
+        .route("/health", get(|| std::future::ready("OK")))
         .route("/categories", get(get_all_categories))
         .route("/categories/:id", get(get_category_by_id))
         .route("/categories/:category_id/questions", get(get_questions_by_category))

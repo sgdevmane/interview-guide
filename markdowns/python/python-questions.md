@@ -60,7 +60,7 @@
 48. [How do you use Single Dispatch for function overloading?](#q48) <span class="intermediate">Intermediate</span>
 49. [How do you use WeakRef to manage memory?](#q49) <span class="advanced">Advanced</span>
 50. [How do you validate data using Pydantic?](#q50) <span class="intermediate">Intermediate</span>
-51. [What is a Metaclass and when should you use it?](#q51) <span class="advanced">Expert</span>
+51. [What is a Metaclass and when should you use it?](#q51) <span class="expert">Expert</span>
 52. [How do you implement a Descriptor?](#q52) <span class="advanced">Advanced</span>
 53. [What is the difference between `__new__` and `__init__`?](#q53) <span class="advanced">Advanced</span>
 54. [How does Python's Method Resolution Order (MRO) work?](#q54) <span class="advanced">Advanced</span>
@@ -74,10 +74,10 @@
 62. [How do you use `dataclasses` post-init processing?](#q62) <span class="intermediate">Intermediate</span>
 63. [How do you preserve function metadata with decorators?](#q63) <span class="beginner">Beginner</span>
 64. [How do you split an iterable using `itertools.tee`?](#q64) <span class="advanced">Advanced</span>
-65. [How do you inspect Python bytecode?](#q65) <span class="advanced">Expert</span>
+65. [How do you inspect Python bytecode?](#q65) <span class="expert">Expert</span>
 66. [What is a `memoryview` and when should you use it?](#q66) <span class="advanced">Advanced</span>
 67. [How do you perform manual garbage collection?](#q67) <span class="advanced">Advanced</span>
-68. [How do you share memory between processes?](#q68) <span class="advanced">Expert</span>
+68. [How do you share memory between processes?](#q68) <span class="expert">Expert</span>
 69. [How do you manage file paths using `pathlib`?](#q69) <span class="beginner">Beginner</span>
 70. [How do you run concurrent tasks with `concurrent.futures`?](#q70) <span class="intermediate">Intermediate</span>
 71. [How do you create a temporary file safely?](#q71) <span class="intermediate">Intermediate</span>
@@ -87,7 +87,7 @@
 75. [How do you use `functools.partial` to freeze arguments?](#q75) <span class="intermediate">Intermediate</span>
 76. [How do you mock dependencies with `unittest.mock`?](#q76) <span class="advanced">Advanced</span>
 77. [How do you share setup code using Pytest fixtures?](#q77) <span class="intermediate">Intermediate</span>
-78. [What is Property-Based Testing?](#q78) <span class="advanced">Expert</span>
+78. [What is Property-Based Testing?](#q78) <span class="expert">Expert</span>
 79. [How do Django Signals work?](#q79) <span class="advanced">Advanced</span>
 80. [What is Middleware in Django/Flask?](#q80) <span class="intermediate">Intermediate</span>
 81. [How does Dependency Injection work in FastAPI?](#q81) <span class="advanced">Advanced</span>
@@ -103,7 +103,7 @@
 91. [How do you handle signals (like SIGINT/Ctrl+C)?](#q91) <span class="advanced">Advanced</span>
 92. [How do you issue warnings in your code?](#q92) <span class="intermediate">Intermediate</span>
 93. [How do you print the full stack trace programmatically?](#q93) <span class="intermediate">Intermediate</span>
-94. [What is the `ast` module used for?](#q94) <span class="advanced">Expert</span>
+94. [What is the `ast` module used for?](#q94) <span class="expert">Expert</span>
 95. [How do you dynamically import a module?](#q95) <span class="advanced">Advanced</span>
 96. [How do you make an instance callable?](#q96) <span class="beginner">Beginner</span>
 97. [How do you implement custom indexing (`[]`)?](#q97) <span class="intermediate">Intermediate</span>
@@ -114,16 +114,15 @@
 ---
 
 <a id="q1"></a>
-
 ### Q1: How do you optimize memory usage when processing large datasets in Python?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use **Generators** instead of Lists. Generators yield items one by one using `yield`, consuming constant memory, whereas lists load everything into memory.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # BAD: Loads all 1M items into memory
 squares_list = [x**2 for x in range(1000000)]
@@ -136,21 +135,18 @@ for val in squares_gen:
     pass
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
-
 ### Q2: How do you ensure resources (files, sockets) are properly closed even if errors occur?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use **Context Managers** (the `with` statement). It guarantees that the `__exit__` method is called, cleaning up resources regardless of exceptions.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # GOOD: File closes automatically
 with open('data.txt', 'r') as f:
@@ -158,21 +154,18 @@ with open('data.txt', 'r') as f:
     # raise Exception("Error") # File still closes
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
-
 ### Q3: How do you implement a decorator to measure the execution time of a function?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define a wrapper function inside the decorator that records start and end time, then calls the original function. Use `functools.wraps` to preserve metadata.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import time
 import functools
@@ -193,21 +186,18 @@ def slow_task():
 slow_task()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
-
 ### Q4: How do you bypass the Global Interpreter Lock (GIL) for CPU-bound tasks?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use the **multiprocessing** module instead of `threading`. Processes have their own memory space and GIL, allowing true parallelism on multi-core CPUs.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from multiprocessing import Pool
 
@@ -219,21 +209,18 @@ if __name__ == "__main__":
         results = pool.map(square, range(1000000))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
-
 ### Q5: How do you handle concurrent I/O-bound operations efficiently?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use **asyncio** for cooperative multitasking. It allows a single thread to handle many connections by suspending/resuming coroutines during I/O waits.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import asyncio
 
@@ -250,21 +237,18 @@ async def main():
 asyncio.run(main())
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
-
 ### Q6: How do you merge two dictionaries in Python 3.9+?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the **Union Operator (`|`)**. It creates a new dictionary merging both, where the second overrides the first in case of key conflicts.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 d1 = {"a": 1, "b": 2}
 d2 = {"b": 3, "c": 4}
@@ -273,21 +257,18 @@ merged = d1 | d2
 # Result: {'a': 1, 'b': 3, 'c': 4}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
-
 ### Q7: How do you create a lightweight immutable data class?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use **NamedTuple** (classic) or **dataclasses** with `frozen=True` (modern). This prevents modification after creation and uses less memory than standard dicts.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from dataclasses import dataclass
 
@@ -300,21 +281,18 @@ p = Point(10, 20)
 # p.x = 5 # Raises FrozenInstanceError
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
-
 ### Q8: How do you optimize function calls with caching (memoization)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `@functools.lru_cache`. It caches the results of function calls based on arguments, avoiding redundant computations.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from functools import lru_cache
 
@@ -326,21 +304,18 @@ def fib(n):
 print(fib(100)) # Computes instantly
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
-
 ### Q9: How do you enforce type safety in a large Python codebase?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use **Type Hints** and run a static type checker like **mypy**. This catches type errors at development time rather than runtime.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def greet(name: str) -> str:
     return f"Hello, {name}"
@@ -349,21 +324,18 @@ def greet(name: str) -> str:
 # greet(123)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
-
 ### Q10: How do you create a true deep copy of a nested object?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `copy.deepcopy()`. Standard assignment copies references, and `copy.copy()` does a shallow copy. Deep copy recursively copies all nested objects.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import copy
 
@@ -376,21 +348,18 @@ original[0][0] = 99
 # deep[0][0] is 1 (independent)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
-
 ### Q11: How do you manage project dependencies effectively?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use a virtual environment (`venv`, `pipenv`, or `poetry`) to isolate dependencies. Freeze versions in `requirements.txt` or `pyproject.toml`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # Create venv
 python -m venv .venv
@@ -401,21 +370,18 @@ pip install requests
 pip freeze > requirements.txt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
-
 ### Q12: How do you safely handle exceptions without crashing the app?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `try-except` blocks. Catch specific exceptions (e.g., `ValueError`) rather than bare `except:` to avoid hiding bugs.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 try:
     result = 10 / 0
@@ -425,21 +391,18 @@ except Exception as e:
     print(f"Unexpected error: {e}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
-
 ### Q13: How do you dynamically create classes or modify class behavior?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use **Metaclasses** or `type()`. A metaclass inherits from `type` and intercepts class creation, allowing you to modify attributes or methods automatically.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class SingletonMeta(type):
     _instances = {}
@@ -452,21 +415,18 @@ class Database(metaclass=SingletonMeta):
     pass
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
-
 ### Q14: How do you unpack a list with variable elements?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the **star operator (`*`)** in assignment (Extended Iterable Unpacking). It captures excess items into a list.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 data = [1, 2, 3, 4, 5]
 first, *middle, last = data
@@ -476,21 +436,18 @@ first, *middle, last = data
 # last: 5
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
-
 ### Q15: How do you implement an iterator class manually?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Implement `__iter__` (returns self) and `__next__`. Raise `StopIteration` when done.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Counter:
     def __init__(self, limit):
@@ -510,21 +467,18 @@ for n in Counter(3):
     print(n)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
-
 ### Q16: How do you debug code using PDB?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `import pdb; pdb.set_trace()` (or `breakpoint()` in Python 3.7+) to pause execution and enter an interactive debugger. You can inspect variables, step through code (`n`), and continue (`c`).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def divide(a, b):
     # breakpoint() # Python 3.7+
@@ -535,21 +489,18 @@ print(divide(10, 0))
 # Execution pauses here, allowing inspection of 'a' and 'b'
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
-
 ### Q17: How do you optimize Pandas operations using Vectorization?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Avoid loops (`for`, `apply`) when working with Pandas DataFrames. Use built-in vectorized operations which push the loop into C-level code for performance.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import pandas as pd
 import numpy as np
@@ -563,21 +514,18 @@ df = pd.DataFrame({'a': range(100000), 'b': range(100000)})
 df['c'] = df['a'] + df['b']
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
-
 ### Q18: How do you use Numpy Broadcasting?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Broadcasting allows Numpy to perform arithmetic operations on arrays of different shapes. The smaller array is "broadcast" across the larger array so they have compatible shapes.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import numpy as np
 
@@ -591,21 +539,18 @@ print(C)
 #  [14, 25, 36]]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
-
 ### Q19: How do you create an async API endpoint with FastAPI?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define path operation functions with `async def`. FastAPI runs these in an event loop. Use `await` for I/O bound operations.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from fastapi import FastAPI
 import asyncio
@@ -619,21 +564,18 @@ async def read_root():
     return {"message": "Hello World"}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
-
 ### Q20: How do you use ContextVars for thread-safe state management?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `contextvars` module provides storage for state that is local to a context (like an asyncio task or a thread). It's the async equivalent of `threading.local()`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import contextvars
 import asyncio
@@ -652,21 +594,18 @@ async def do_work():
 asyncio.run(process_request('123'))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
-
 ### Q21: How do you use the Walrus Operator (Assignment Expression)?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The walrus operator `:=` assigns values to variables as part of a larger expression. Useful in `while` loops and `if` conditions to avoid redundant computations.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # Without walrus
 # data = f.read(1024)
@@ -681,21 +620,18 @@ The walrus operator `:=` assigns values to variables as part of a larger express
 print("Supported in Python 3.8+")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
-
 ### Q22: How do you implement abstract base classes (ABCs)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Inherit from `abc.ABC` and decorate methods with `@abstractmethod`. This enforces that subclasses must implement these methods.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from abc import ABC, abstractmethod
 
@@ -715,21 +651,18 @@ class Circle(Shape):
 c = Circle(5) # OK
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
-
 ### Q23: How do you use Python's gc module to handle cyclic references?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Python uses reference counting, but cyclic references (A->B->A) are handled by the Garbage Collector. Use `gc.collect()` to force collection or `gc.set_debug()` to debug leaks.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import gc
 
@@ -748,21 +681,18 @@ del b
 print(gc.collect()) # Returns number of objects collected (2)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
-
 ### Q24: How do you use **slots** to optimize memory?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define `__slots__` in a class to explicitly declare data members. This prevents the creation of `__dict__` for each instance, saving memory.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Point:
     __slots__ = ['x', 'y']
@@ -775,21 +705,18 @@ p = Point(1, 2)
 # p.z = 3 # Error: 'Point' object has no attribute 'z'
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
-
 ### Q25: How do you use Itertools to chain iterables?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `itertools.chain()` allows you to iterate over multiple iterables as if they were one sequence, without creating a large combined list in memory.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import itertools
 
@@ -801,21 +728,18 @@ for item in itertools.chain(list1, list2):
 # Output: 1 2 3 4 5 6
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
-
 ### Q26: How do you use defaultdict for cleaner grouping code?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `collections.defaultdict` automatically initializes dictionary values if the key is missing. Useful for grouping or counting without checking `if key in dict`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from collections import defaultdict
 
@@ -829,21 +753,18 @@ print(dict(count))
 # {'apple': 2, 'banana': 1, 'cherry': 1}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
-
 ### Q27: How do you use unittest.mock to mock dependencies?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `Mock` or `patch` to replace real objects with mock objects during tests. This isolates the code under test.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from unittest.mock import patch, MagicMock
 
@@ -858,21 +779,18 @@ print(mock()) # 42
 #     mock_get.return_value.status_code = 200
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
-
 ### Q28: How do you use functools.partial?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `partial` creates a new function with some arguments of the original function pre-filled (frozen).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from functools import partial
 
@@ -886,21 +804,18 @@ print(square(4)) # 16
 print(cube(4))   # 64
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
-
 ### Q29: How do you use threading.Event for thread synchronization?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 An Event is a simple synchronization primitive where one thread signals an event and other threads wait for it.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import threading
 import time
@@ -920,21 +835,18 @@ print("Main signaling event")
 event.set()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
-
 ### Q30: How do you run shell commands with subprocess.run?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `subprocess.run()` (Python 3.5+) to execute shell commands. It waits for the command to complete and returns a `CompletedProcess` instance.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import subprocess
 
@@ -948,21 +860,18 @@ print(result.stdout.strip())
 # Hello from shell
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
-
 ### Q31: How do you use json.dumps with a custom encoder?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 To serialize objects that aren't JSON serializable by default (like datetime), subclass `json.JSONEncoder` and implement `default`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import json
 from datetime import datetime
@@ -977,21 +886,18 @@ data = {'time': datetime.now()}
 print(json.dumps(data, cls=DateTimeEncoder))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
-
 ### Q32: How do you use collections.Counter?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `Counter` is a dict subclass for counting hashable objects. It provides methods like `most_common()`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from collections import Counter
 
@@ -1002,21 +908,18 @@ print(c.most_common(1))
 # [(3, 3)]  (Element 3 appeared 3 times)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
-
 ### Q33: How do you use heapq for a priority queue?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `heapq` provides an implementation of the heap queue algorithm (min heap). Use `heappush` and `heappop`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import heapq
 
@@ -1029,21 +932,18 @@ print(heapq.heappop(h))
 # (1, 'fix bug')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q34"></a>
-
 ### Q34: How do you use zip to iterate over multiple lists?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `zip` aggregates elements from each of the iterables. Useful for iterating over two lists in parallel.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 names = ['Alice', 'Bob']
 ages = [25, 30]
@@ -1052,42 +952,36 @@ for name, age in zip(names, ages):
     print(f"{name} is {age}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
-
 ### Q35: How do you use enumerate?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `enumerate` adds a counter to an iterable and returns it as an enumerate object.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 items = ['a', 'b', 'c']
 for i, item in enumerate(items):
     print(f"{i}: {item}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q36"></a>
-
 ### Q36: How do you use if **name** == "**main**":?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 This block checks if the script is being run directly or imported as a module. Code inside it won't run when imported.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def main():
     print("Main function")
@@ -1096,21 +990,18 @@ if __name__ == "__main__":
     main()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
-
 ### Q37: How do you use re module for regex matching?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `re.search()` or `re.match()` to find patterns in strings. `re.findall()` finds all occurrences.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import re
 
@@ -1121,21 +1012,18 @@ if match:
     print(f"Found: {match.group()}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
-
 ### Q38: How do you use with statement (Context Managers)?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `with` statement simplifies exception handling by encapsulating common preparation and cleanup tasks (like closing files).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # Automatically closes file even if error occurs
 # with open('file.txt', 'w') as f:
@@ -1143,21 +1031,18 @@ The `with` statement simplifies exception handling by encapsulating common prepa
 print("File closed automatically")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
-
 ### Q39: How do you use Generators (yield)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Generators allow you to declare a function that behaves like an iterator. `yield` produces a value and suspends the function's execution.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def count_up_to(n):
     i = 1
@@ -1169,21 +1054,18 @@ for num in count_up_to(3):
     print(num)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
-
 ### Q40: How do you use Decorators?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Decorators modify the behavior of a function or class. They wrap another function.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def my_decorator(func):
     def wrapper():
@@ -1199,21 +1081,18 @@ def say_hello():
 say_hello()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
-
 ### Q41: How do you implement asynchronous tasks with Celery?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use **Celery** with a message broker (RabbitMQ/Redis). Define tasks with `@app.task` and call them using `.delay()`. This offloads heavy work to background workers.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from celery import Celery
 
@@ -1228,21 +1107,18 @@ result = add.delay(4, 4)
 print(f"Task ID: {result.id}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
-
 ### Q42: How do you define a One-to-Many relationship in SQLAlchemy?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `ForeignKey` on the 'Many' side and `relationship` on the 'One' side. `back_populates` synchronizes changes between the two objects.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class User(Base):
     __tablename__ = 'users'
@@ -1256,21 +1132,18 @@ class Post(Base):
     author = relationship("User", back_populates="posts")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
-
 ### Q43: How do you structure a large Flask application using Blueprints?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use **Blueprints** to organize routes into modules (e.g., auth, admin, api). Register them in the main application factory.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # auth.py
 auth_bp = Blueprint('auth', __name__)
@@ -1284,21 +1157,18 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 # Access: /auth/login
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
-
 ### Q44: How do you use Django Signals to decouple logic?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Signals allow senders to notify receivers when actions occur. Use `@receiver` with signals like `post_save` to trigger side effects (e.g., creating a profile when a user is created).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -1306,21 +1176,18 @@ def create_user_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
-
 ### Q45: How do you use Pytest Fixtures with scopes?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Fixtures provide setup/teardown code. Use `scope` ('function', 'module', 'session') to control how often the fixture runs. 'session' runs once per test suite.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 @pytest.fixture(scope="session")
 def db_connection():
@@ -1332,21 +1199,18 @@ def test_query(db_connection):
     assert db_connection.query("SELECT 1")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
-
 ### Q46: How do you implement Generics using TypeVar?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `TypeVar` to create a generic type variable. This allows functions or classes to work with multiple types while maintaining type safety.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from typing import TypeVar, List
 
@@ -1359,21 +1223,18 @@ def first_element(items: List[T]) -> T:
 # first_element(["a", "b"]) -> str
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
-
 ### Q47: How do you use Protocols for structural subtyping (Duck Typing)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `typing.Protocol`. A class satisfies a Protocol if it implements the declared methods, even if it doesn't explicitly inherit from it.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Drawable(Protocol):
     def draw(self) -> None: ...
@@ -1387,21 +1248,18 @@ def render(obj: Drawable):
 render(Circle()) # Valid
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
-
 ### Q48: How do you use Single Dispatch for function overloading?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `@functools.singledispatch`. It allows you to define a generic function and register specialized implementations based on the type of the first argument.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 @singledispatch
 def process(arg):
@@ -1416,21 +1274,18 @@ def _(arg: list):
     print(f"Processing list: {len(arg)}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
-
 ### Q49: How do you use WeakRef to manage memory?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `weakref` to create references that don't prevent the referent from being garbage collected. Useful for caches or circular references.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import weakref
 
@@ -1444,21 +1299,18 @@ del obj
 print(r()) # None (object was collected)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
-
 ### Q50: How do you validate data using Pydantic?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define a model inheriting from `BaseModel`. Pydantic parses and validates data types at runtime, raising errors for invalid data.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from pydantic import BaseModel
 
@@ -1472,20 +1324,18 @@ user = User(id="123", name="Alice", email="alice@example.com")
 print(user.id) # 123 (int)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-<a id="q51"></a>
 
+<a id="q51"></a>
 ### Q51: What is a Metaclass and when should you use it?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 A metaclass is a class of a class. It controls how classes are created. You use it to modify class creation, enforce coding standards, or automatically register classes.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Meta(type):
     def __new__(cls, name, bases, dct):
@@ -1498,21 +1348,18 @@ class MyClass(metaclass=Meta):
 print(MyClass.category) # custom
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q52"></a>
-
 ### Q52: How do you implement a Descriptor?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Descriptors are objects that define how attributes are accessed using `__get__`, `__set__`, or `__delete__`. They are the mechanism behind properties, methods, and bound fields.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class PositiveNumber:
     def __set_name__(self, owner, name):
@@ -1534,21 +1381,18 @@ acc.balance = 100 # OK
 # acc.balance = -10 # ValueError
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
-
 ### Q53: What is the difference between `__new__` and `__init__`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `__new__` is a static method responsible for _creating_ the instance (returning it). `__init__` is an instance method responsible for _initializing_ the created instance. `__new__` runs before `__init__`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Singleton:
     _instance = None
@@ -1562,21 +1406,18 @@ b = Singleton()
 print(a is b) # True
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
-
 ### Q54: How does Python's Method Resolution Order (MRO) work?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Python uses the C3 Linearization algorithm to determine the order in which base classes are searched for a method. Use `ClassName.mro()` to inspect it.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class A: pass
 class B(A): pass
@@ -1587,21 +1428,18 @@ print(D.mro())
 # [D, B, C, A, object]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
-
 ### Q55: How do you use `contextlib.contextmanager`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It's a decorator that converts a generator into a context manager, avoiding the need to write a full class with `__enter__` and `__exit__`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from contextlib import contextmanager
 
@@ -1617,21 +1455,18 @@ def open_file(path, mode):
 #     f.write('hello')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
-
 ### Q56: How do you use Structural Pattern Matching (match/case)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Introduced in Python 3.10, `match/case` allows matching data structures against patterns, unpacking them, and binding variables.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 def handle_command(command):
     match command:
@@ -1645,21 +1480,18 @@ def handle_command(command):
 handle_command(["move", 10, 20])
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
-
 ### Q57: How do you use `asyncio.TaskGroup` (Python 3.11+)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `TaskGroup` provides a safer way to manage multiple async tasks. If one task fails, others are cancelled, and exceptions are grouped.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import asyncio
 
@@ -1677,21 +1509,18 @@ async def main():
 # asyncio.run(main())
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
-
 ### Q58: How do you use `typing.TypedDict`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `TypedDict` defines a dictionary where specific keys have specific types. It provides type checking for dictionary structures.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from typing import TypedDict
 
@@ -1703,21 +1532,18 @@ user: User = {"name": "Alice", "id": 1}
 # user: User = {"name": "Alice", "id": "1"} # Type Error
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
-
 ### Q59: How do you use `typing.Annotated` for metadata?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `Annotated` allows attaching runtime metadata to types. It's often used by frameworks (like FastAPI) for dependency injection or validation.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from typing import Annotated
 
@@ -1725,21 +1551,18 @@ def process(value: Annotated[int, "Needs to be positive"]):
     print(value)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
-
 ### Q60: When should you use `collections.deque` over a list?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `deque` (double-ended queue) for efficient appends and pops from _both_ ends (O(1)). Lists are O(n) for popping from the beginning.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from collections import deque
 
@@ -1748,21 +1571,18 @@ d.appendleft(0) # O(1)
 d.popleft()     # O(1)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
-
 ### Q61: How do you use `collections.ChainMap` to merge scopes?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `ChainMap` groups multiple dicts into a single mapping. Lookups search the dicts in order. Useful for managing scopes (local, global, built-in).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from collections import ChainMap
 
@@ -1774,21 +1594,18 @@ print(settings['theme'])       # dark
 print(settings['show_errors']) # True
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
-
 ### Q62: How do you use `dataclasses` post-init processing?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `__post_init__` to validate fields or calculate derived fields after the object is initialized.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from dataclasses import dataclass
 
@@ -1805,21 +1622,18 @@ b = Box(2, 5)
 print(b.area) # 10.0
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
-
 ### Q63: How do you preserve function metadata with decorators?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `@functools.wraps(func)` inside your decorator. This copies the original function's name, docstring, and annotations to the wrapper.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from functools import wraps
 
@@ -1838,21 +1652,18 @@ def my_func():
 print(my_func.__name__) # my_func (not wrapper)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q64"></a>
-
 ### Q64: How do you split an iterable using `itertools.tee`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `tee` creates independent iterators from a single iterable. Be careful: if you consume one much faster than the other, memory usage grows.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import itertools
 
@@ -1863,21 +1674,18 @@ print(list(it1)) # [1, 2, 3]
 print(list(it2)) # [1, 2, 3]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
-
 ### Q65: How do you inspect Python bytecode?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Use the `dis` module to disassemble Python code. This helps understand how Python executes your code under the hood.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import dis
 
@@ -1888,21 +1696,18 @@ dis.dis(add)
 # Output shows LOAD_FAST, BINARY_ADD, RETURN_VALUE instructions
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
-
 ### Q66: What is a `memoryview` and when should you use it?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `memoryview` allows zero-copy access to the internal data of an object (like `bytes`). It allows manipulating large data buffers without copying.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 data = bytearray(b'hello')
 mv = memoryview(data)
@@ -1911,21 +1716,18 @@ mv[0] = 72 # 'H'
 print(data) # bytearray(b'Hello')
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
-
 ### Q67: How do you perform manual garbage collection?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Python uses reference counting + a cyclic garbage collector. Use the `gc` module to force a collection or inspect uncollectable objects.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import gc
 
@@ -1934,21 +1736,18 @@ collected = gc.collect()
 print(f"Garbage collector: collected {collected} objects.")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
-
 ### Q68: How do you share memory between processes?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Use `multiprocessing.shared_memory`. It allocates a block of memory that different processes can attach to, avoiding serialization overhead.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from multiprocessing.shared_memory import SharedMemory
 
@@ -1964,21 +1763,18 @@ shm.close()
 shm.unlink()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
-
 ### Q69: How do you manage file paths using `pathlib`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `pathlib` provides an object-oriented interface to filesystem paths, replacing most `os.path` functions. It's cleaner and cross-platform.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from pathlib import Path
 
@@ -1988,21 +1784,18 @@ print(p.suffix) # .txt
 print(p.parent) # folder/subfolder
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
-
 ### Q70: How do you run concurrent tasks with `concurrent.futures`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It provides a high-level interface for asynchronously executing callables using threads or processes. `ThreadPoolExecutor` for I/O, `ProcessPoolExecutor` for CPU.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from concurrent.futures import ThreadPoolExecutor
 
@@ -2014,21 +1807,18 @@ with ThreadPoolExecutor(max_workers=2) as executor:
     print(future.result()) # 25
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
-
 ### Q71: How do you create a temporary file safely?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `tempfile` module. `NamedTemporaryFile` or `TemporaryDirectory` creates files/dirs that are automatically deleted when closed or when the context exits.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import tempfile
 
@@ -2039,21 +1829,18 @@ with tempfile.NamedTemporaryFile(delete=True) as tmp:
 # File is gone here
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
-
 ### Q72: How do you iterate over large directories efficiently?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `os.scandir()` instead of `os.listdir()`. It returns an iterator of `DirEntry` objects containing file attribute information, avoiding additional system calls.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import os
 
@@ -2063,21 +1850,18 @@ with os.scandir('.') as it:
             print(entry.name)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
-
 ### Q73: How do you parse command-line arguments?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the `argparse` library. It handles positional args, flags, type conversion, and help messages automatically.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import argparse
 
@@ -2089,21 +1873,18 @@ if args.name:
     print(f"Hello {args.name}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
-
 ### Q74: How do you implement custom logging handlers?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Inherit from `logging.Handler` and implement the `emit` method. This allows sending logs to external services, databases, or custom formats.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import logging
 
@@ -2122,21 +1903,18 @@ logger.warning("Alert")
 print(logs) # ['Alert']
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
-
 ### Q75: How do you use `functools.partial` to freeze arguments?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `partial` creates a new function with some arguments of the original function fixed. Useful for callbacks or simplifying function signatures.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from functools import partial
 
@@ -2150,20 +1928,18 @@ print(square(5)) # 25
 print(cube(5))   # 125
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-<a id="q76"></a>
 
+<a id="q76"></a>
 ### Q76: How do you mock dependencies with `unittest.mock`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `@patch` to replace objects with `Mock` objects during tests. This isolates the code under test from external systems (APIs, DBs).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from unittest.mock import patch
 
@@ -2179,21 +1955,18 @@ def test_get_data(mock_get):
 test_get_data()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
-
 ### Q77: How do you share setup code using Pytest fixtures?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Fixtures provide a fixed baseline for tests. Use `@pytest.fixture` with scopes (function, module, session) to manage resource lifecycles.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import pytest
 
@@ -2207,21 +1980,18 @@ def test_db(db_connection):
     assert db_connection["status"] == "connected"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q78"></a>
-
 ### Q78: What is Property-Based Testing?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Instead of writing specific examples, you define properties that should hold true for a range of inputs. Libraries like `hypothesis` generate edge cases automatically.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # pip install hypothesis
 from hypothesis import given, strategies as st
@@ -2234,21 +2004,18 @@ def test_add_commutative(a, b):
     assert add(a, b) == add(b, a)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
-
 ### Q79: How do Django Signals work?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Signals allow decoupled applications to get notified when actions occur elsewhere. Common uses: post-save hooks to trigger side effects (sending emails).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # Django specific
 from django.db.models.signals import post_save
@@ -2261,21 +2028,18 @@ def create_user_profile(sender, instance, created, **kwargs):
         print(f"Profile created for {instance.username}")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q80"></a>
-
 ### Q80: What is Middleware in Django/Flask?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Middleware is a hook into the request/response processing. It's a lightweight, low-level plugin system for globally altering input or output.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # Simple function-based middleware
 def simple_middleware(get_response):
@@ -2287,21 +2051,18 @@ def simple_middleware(get_response):
     return middleware
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
-
 ### Q81: How does Dependency Injection work in FastAPI?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 FastAPI uses the `Depends` class to declare dependencies. The framework handles creating and passing these dependencies, supporting caching and sub-dependencies.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from fastapi import Depends
 
@@ -2312,21 +2073,18 @@ def read_users(db = Depends(get_db)):
     return {"db": db}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
-
 ### Q82: What is the N+1 Select Problem in ORMs?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It happens when code iterates a list of objects and performs an additional query for each object. Solve it using eager loading (`select_related` or `joinedload`).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 # SQLAlchemy example
 # Bad: Query for users, then query for address per user
@@ -2334,21 +2092,18 @@ It happens when code iterates a list of objects and performs an additional query
 # session.query(User).options(joinedload(User.address)).all()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
-
 ### Q83: How do you chain tasks in Celery?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `chain` to link tasks together so the output of one becomes the input of the next. Use `group` for parallel execution.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from celery import chain
 
@@ -2356,21 +2111,18 @@ from celery import chain
 # (4 + 4) * 8
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
-
 ### Q84: What is `pyproject.toml`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It is the new standard for defining build system requirements and project configuration in Python, replacing `setup.py` and `requirements.txt` for packaging.
 
-**Code Example:**
-
+**Code Example**:
 ```toml
 [build-system]
 requires = ["setuptools", "wheel"]
@@ -2381,21 +2133,18 @@ name = "my_package"
 version = "0.1.0"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
-
 ### Q85: How do you securely hash passwords?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Never store plain passwords. Use a library like `bcrypt` or `passlib` which handles salting and hashing using slow algorithms (Argon2, bcrypt).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import bcrypt
 
@@ -2406,21 +2155,18 @@ if bcrypt.checkpw(password, hashed):
     print("Match")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
-
 ### Q86: What is the difference between `zip` and `itertools.zip_longest`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `zip` stops when the shortest iterable is exhausted. `zip_longest` fills missing values with a `fillvalue` (default `None`) until the longest iterable is exhausted.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from itertools import zip_longest
 
@@ -2432,21 +2178,18 @@ print(list(zip_longest(a, b, fillvalue=0)))
 # [(1, 3), (2, 4), (0, 5)]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
-
 ### Q87: How do you use `functools.reduce`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `reduce` applies a rolling computation to sequential pairs of values in a list. Commonly used for cumulative operations (like product of a list).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from functools import reduce
 
@@ -2455,21 +2198,18 @@ product = reduce(lambda x, y: x * y, nums)
 print(product) # 24
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
-
 ### Q88: How do you sort objects by attribute using `operator`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `operator.attrgetter` creates a callable that fetches an attribute. It is faster and cleaner than writing a lambda for `key=`.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from operator import attrgetter
 
@@ -2482,21 +2222,18 @@ users.sort(key=attrgetter('name'))
 print(users[0].name) # Alice
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
-
 ### Q89: How do you use Enums in Python?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the `enum` module to define symbolic names bound to constant values. `IntEnum` allows comparison with integers.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 from enum import Enum, auto
 
@@ -2508,21 +2245,18 @@ print(Color.RED)
 print(Color.RED.name)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
-
 ### Q90: How do you generate cryptographically strong random numbers?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `secrets` module instead of `random`. `random` is pseudo-random and predictable; `secrets` handles secure tokens and passwords.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import secrets
 
@@ -2530,21 +2264,18 @@ token = secrets.token_hex(16)
 print(token)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
-
 ### Q91: How do you handle signals (like SIGINT/Ctrl+C)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use the `signal` module to register a handler for system signals. This allows for graceful shutdowns (closing DB connections, saving state).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import signal
 import sys
@@ -2557,21 +2288,18 @@ signal.signal(signal.SIGINT, handler)
 # While True: pass
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
-
 ### Q92: How do you issue warnings in your code?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `warnings` module to alert users about deprecated features or potential issues without raising an exception that stops execution.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import warnings
 
@@ -2581,21 +2309,18 @@ def old_func():
 old_func()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
-
 ### Q93: How do you print the full stack trace programmatically?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `traceback.print_exc()` inside an `except` block to print the full error trace to stderr.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import traceback
 
@@ -2605,21 +2330,18 @@ except ZeroDivisionError:
     traceback.print_exc()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
-
 ### Q94: What is the `ast` module used for?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 The Abstract Syntax Tree (`ast`) module allows you to inspect and modify the tree structure of Python code itself. Used by linters and code generators.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import ast
 
@@ -2628,21 +2350,18 @@ tree = ast.parse(code)
 print(type(tree.body[0])) # <class 'ast.Assign'>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
-
 ### Q95: How do you dynamically import a module?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `importlib.import_module`. This allows importing modules where the name is only known at runtime (e.g., plugins).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import importlib
 
@@ -2650,21 +2369,18 @@ math_mod = importlib.import_module("math")
 print(math_mod.sqrt(4))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
-
 ### Q96: How do you make an instance callable?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Implement the `__call__` magic method. This allows the object to be used like a function.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Multiplier:
     def __init__(self, factor):
@@ -2677,21 +2393,18 @@ double = Multiplier(2)
 print(double(5)) # 10
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
-
 ### Q97: How do you implement custom indexing (`[]`)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Implement `__getitem__` (for reading) and `__setitem__` (for writing). This allows your object to behave like a list or dictionary.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class MyList:
     def __init__(self):
@@ -2708,21 +2421,18 @@ m['a'] = 10
 print(m['a'])
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
-
 ### Q98: How do you implement a manual context manager?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Implement `__enter__` and `__exit__`. `__enter__` sets up the resource and returns it. `__exit__` cleans it up, handling any exceptions.
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class HelloContext:
     def __enter__(self):
@@ -2736,21 +2446,18 @@ with HelloContext():
     print("Inside")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
-
 ### Q99: What is the difference between `__str__` and `__repr__`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `__str__` is for a readable string representation (for users). `__repr__` is for an unambiguous representation (for developers, ideally valid Python code).
 
-**Code Example:**
-
+**Code Example**:
 ```python
 class Point:
     def __init__(self, x, y):
@@ -2767,24 +2474,21 @@ print(str(p))  # Point at 1, 2
 print(repr(p)) # Point(1, 2)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
-
 ### Q100: What is "The Zen of Python"?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It is a collection of guiding principles for writing computer programs in Python. Access it by running `import this`. Key principles: "Explicit is better than implicit", "Simple is better than complex".
 
-**Code Example:**
-
+**Code Example**:
 ```python
 import this
 # Prints the Zen of Python
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---

@@ -10,107 +10,107 @@
 
 ## Table of Contents
 
-1. [What is the Singleton Pattern and when should you use it?](#q1-what-is-the-singleton-pattern-and-when-should-you-use-it) <span class="beginner">Beginner</span>
-2. [How do you implement the Factory Method Pattern?](#q2-how-do-you-implement-the-factory-method-pattern) <span class="intermediate">Intermediate</span>
-3. [What is the difference between Factory Method and Abstract Factory?](#q3-what-is-the-difference-between-factory-method-and-abstract-factory) <span class="advanced">Advanced</span>
-4. [How does the Builder Pattern help in object construction?](#q4-how-does-the-builder-pattern-help-in-object-construction) <span class="intermediate">Intermediate</span>
-5. [What is the Prototype Pattern and how does it relate to cloning?](#q5-what-is-the-prototype-pattern-and-how-does-it-relate-to-cloning) <span class="beginner">Beginner</span>
-6. [How do you use the Adapter Pattern to make incompatible interfaces work together?](#q6-how-do-you-use-the-adapter-pattern-to-make-incompatible-interfaces-work-together) <span class="intermediate">Intermediate</span>
-7. [What is the Decorator Pattern and how does it differ from inheritance?](#q7-what-is-the-decorator-pattern-and-how-does-it-differ-from-inheritance) <span class="intermediate">Intermediate</span>
-8. [How does the Facade Pattern simplify complex systems?](#q8-how-does-the-facade-pattern-simplify-complex-systems) <span class="beginner">Beginner</span>
-9. [What is the Proxy Pattern and what are its common use cases?](#q9-what-is-the-proxy-pattern-and-what-are-its-common-use-cases) <span class="intermediate">Intermediate</span>
-10. [How do you use the Composite Pattern to represent tree structures?](#q10-how-do-you-use-the-composite-pattern-to-represent-tree-structures) <span class="advanced">Advanced</span>
-11. [What is the Bridge Pattern and how does it decouple abstraction from implementation?](#q11-what-is-the-bridge-pattern-and-how-does-it-decouple-abstraction-from-implementation) <span class="advanced">Advanced</span>
-12. [How does the Flyweight Pattern optimize memory usage?](#q12-how-does-the-flyweight-pattern-optimize-memory-usage) <span class="advanced">Advanced</span>
-13. [How do you implement the Observer Pattern (Pub/Sub)?](#q13-how-do-you-implement-the-observer-pattern-pubsub) <span class="intermediate">Intermediate</span>
-14. [What is the Strategy Pattern and how does it enable algorithm swapping?](#q14-what-is-the-strategy-pattern-and-how-does-it-enable-algorithm-swapping) <span class="intermediate">Intermediate</span>
-15. [How does the Command Pattern encapsulate requests?](#q15-how-does-the-command-pattern-encapsulate-requests) <span class="intermediate">Intermediate</span>
-16. [What is the Iterator Pattern?](#q16-what-is-the-iterator-pattern) <span class="beginner">Beginner</span>
-17. [How does the Mediator Pattern reduce coupling between components?](#q17-how-does-the-mediator-pattern-reduce-coupling-between-components) <span class="advanced">Advanced</span>
-18. [What is the Memento Pattern used for?](#q18-what-is-the-memento-pattern-used-for) <span class="advanced">Advanced</span>
-19. [How does the State Pattern allow an object to alter its behavior?](#q19-how-does-the-state-pattern-allow-an-object-to-alter-its-behavior) <span class="intermediate">Intermediate</span>
-20. [What is the Template Method Pattern?](#q20-what-is-the-template-method-pattern) <span class="beginner">Beginner</span>
-21. [How do you implement the Chain of Responsibility Pattern?](#q21-how-do-you-implement-the-chain-of-responsibility-pattern) <span class="advanced">Advanced</span>
-22. [What is the Visitor Pattern and when should you use it?](#q22-what-is-the-visitor-pattern-and-when-should-you-use-it) <span class="advanced">Advanced</span>
-23. [What is the Command Pattern?](#q23-what-is-the-command-pattern) <span class="intermediate">Intermediate</span>
-24. [What is the Interpreter Pattern?](#q24-what-is-the-interpreter-pattern) <span class="advanced">Advanced</span>
-25. [What is the Iterator Pattern?](#q25-what-is-the-iterator-pattern) <span class="beginner">Beginner</span>
-26. [What is the Mediator Pattern?](#q26-what-is-the-mediator-pattern) <span class="advanced">Advanced</span>
-27. [What is the Memento Pattern?](#q27-what-is-the-memento-pattern) <span class="advanced">Advanced</span>
-28. [What is the Observer Pattern?](#q28-what-is-the-observer-pattern) <span class="beginner">Beginner</span>
-29. [What is the State Pattern?](#q29-what-is-the-state-pattern) <span class="intermediate">Intermediate</span>
-30. [What is the Strategy Pattern?](#q30-what-is-the-strategy-pattern) <span class="intermediate">Intermediate</span>
-31. [What is the Template Method?](#q31-what-is-the-template-method) <span class="intermediate">Intermediate</span>
-32. [What is the Visitor Pattern?](#q32-what-is-the-visitor-pattern) <span class="advanced">Advanced</span>
-33. [What is the Adapter Pattern?](#q33-what-is-the-adapter-pattern) <span class="beginner">Beginner</span>
-34. [What is the Bridge Pattern?](#q34-what-is-the-bridge-pattern) <span class="advanced">Advanced</span>
-35. [What is the Composite Pattern?](#q35-what-is-the-composite-pattern) <span class="intermediate">Intermediate</span>
-36. [What is the Decorator Pattern?](#q36-what-is-the-decorator-pattern) <span class="beginner">Beginner</span>
-37. [What is the Facade Pattern?](#q37-what-is-the-facade-pattern) <span class="beginner">Beginner</span>
-38. [What is the Flyweight Pattern?](#q38-what-is-the-flyweight-pattern) <span class="advanced">Advanced</span>
-39. [What is the Proxy Pattern?](#q39-what-is-the-proxy-pattern) <span class="intermediate">Intermediate</span>
-40. [What is the Chain of Responsibility?](#q40-what-is-the-chain-of-responsibility) <span class="intermediate">Intermediate</span>
-41. [What is the Abstract Factory?](#q41-what-is-the-abstract-factory) <span class="intermediate">Intermediate</span>
-42. [What is the Builder Pattern?](#q42-what-is-the-builder-pattern) <span class="intermediate">Intermediate</span>
-43. [What is the Factory Method?](#q43-what-is-the-factory-method) <span class="beginner">Beginner</span>
-44. [What is the Prototype Pattern?](#q44-what-is-the-prototype-pattern) <span class="intermediate">Intermediate</span>
-45. [What is the Singleton Pattern?](#q45-what-is-the-singleton-pattern) <span class="beginner">Beginner</span>
-46. [What is Dependency Injection?](#q46-what-is-dependency-injection) <span class="intermediate">Intermediate</span>
-47. [What is Inversion of Control?](#q47-what-is-inversion-of-control) <span class="advanced">Advanced</span>
-48. [What is MVVM?](#q48-what-is-mvvm) <span class="intermediate">Intermediate</span>
-49. [What is MVC?](#q49-what-is-mvc) <span class="beginner">Beginner</span>
-50. [What is MVP?](#q50-what-is-mvp) <span class="intermediate">Intermediate</span>
-51. [What is the Repository Pattern?](#q51-what-is-the-repository-pattern) <span class="intermediate">Intermediate</span>
-52. [What is the Unit of Work?](#q52-what-is-the-unit-of-work) <span class="advanced">Advanced</span>
-53. [What is Active Record?](#q53-what-is-active-record) <span class="intermediate">Intermediate</span>
-54. [What is Data Mapper?](#q54-what-is-data-mapper) <span class="advanced">Advanced</span>
-55. [What is Event Sourcing?](#q55-what-is-event-sourcing) <span class="advanced">Advanced</span>
-56. [What is CQRS?](#q56-what-is-cqrs) <span class="advanced">Advanced</span>
-57. [What is the Saga Pattern?](#q57-what-is-the-saga-pattern) <span class="advanced">Advanced</span>
-58. [What is Circuit Breaker?](#q58-what-is-circuit-breaker) <span class="advanced">Advanced</span>
-59. [What is Bulkhead Pattern?](#q59-what-is-bulkhead-pattern) <span class="advanced">Advanced</span>
-60. [What is Sidecar Pattern?](#q60-what-is-sidecar-pattern) <span class="intermediate">Intermediate</span>
-61. [What is API Gateway?](#q61-what-is-api-gateway) <span class="intermediate">Intermediate</span>
-62. [What is Backends for Frontends (BFF)?](#q62-what-is-backends-for-frontends-bff) <span class="intermediate">Intermediate</span>
-63. [What is Strangler Fig?](#q63-what-is-strangler-fig) <span class="advanced">Advanced</span>
-64. [What is Retry Pattern?](#q64-what-is-retry-pattern) <span class="beginner">Beginner</span>
-65. [What is Throttling?](#q65-what-is-throttling) <span class="intermediate">Intermediate</span>
-66. [What is Debouncing?](#q66-what-is-debouncing) <span class="beginner">Beginner</span>
-67. [What is Lazy Loading?](#q67-what-is-lazy-loading) <span class="beginner">Beginner</span>
-68. [What is Eager Loading?](#q68-what-is-eager-loading) <span class="beginner">Beginner</span>
-69. [What is Object Pool?](#q69-what-is-object-pool) <span class="advanced">Advanced</span>
-70. [What is Null Object Pattern?](#q70-what-is-null-object-pattern) <span class="intermediate">Intermediate</span>
-71. [What is Service Locator?](#q71-what-is-service-locator) <span class="intermediate">Intermediate</span>
-72. [What is Module Pattern?](#q72-what-is-module-pattern) <span class="beginner">Beginner</span>
-73. [What is Revealing Module Pattern?](#q73-what-is-revealing-module-pattern) <span class="intermediate">Intermediate</span>
-74. [What is Mixin Pattern?](#q74-what-is-mixin-pattern) <span class="intermediate">Intermediate</span>
-75. [What is Interceptor Pattern?](#q75-what-is-interceptor-pattern) <span class="intermediate">Intermediate</span>
-76. [What is Filter Pattern?](#q76-what-is-filter-pattern) <span class="intermediate">Intermediate</span>
-77. [What is Publisher-Subscriber?](#q77-what-is-publisher-subscriber) <span class="beginner">Beginner</span>
-78. [What is Blackboard Pattern?](#q78-what-is-blackboard-pattern) <span class="advanced">Advanced</span>
-79. [What is Layered Architecture?](#q79-what-is-layered-architecture) <span class="beginner">Beginner</span>
-80. [What is Hexagonal Architecture?](#q80-what-is-hexagonal-architecture) <span class="advanced">Advanced</span>
-81. [What is Clean Architecture?](#q81-what-is-clean-architecture) <span class="advanced">Advanced</span>
-82. [What is Domain Driven Design (DDD)?](#q82-what-is-domain-driven-design-ddd) <span class="advanced">Advanced</span>
-83. [What is Entity Component System (ECS)?](#q83-what-is-entity-component-system-ecs) <span class="advanced">Advanced</span>
-84. [What is Flux Pattern?](#q84-what-is-flux-pattern) <span class="intermediate">Intermediate</span>
-85. [What is Redux Pattern?](#q85-what-is-redux-pattern) <span class="intermediate">Intermediate</span>
-86. [What is DAO?](#q86-what-is-dao) <span class="intermediate">Intermediate</span>
-87. [What is DTO?](#q87-what-is-dto) <span class="beginner">Beginner</span>
-88. [What is POJO?](#q88-what-is-pojo) <span class="beginner">Beginner</span>
-89. [What is Value Object?](#q89-what-is-value-object) <span class="intermediate">Intermediate</span>
-90. [What is Aggregate Root?](#q90-what-is-aggregate-root) <span class="advanced">Advanced</span>
-91. [What is Specification Pattern?](#q91-what-is-specification-pattern) <span class="advanced">Advanced</span>
-92. [What is Priority Queue?](#q92-what-is-priority-queue) <span class="intermediate">Intermediate</span>
-93. [What is LRU Cache?](#q93-what-is-lru-cache) <span class="intermediate">Intermediate</span>
-94. [What is Rate Limiter?](#q94-what-is-rate-limiter) <span class="intermediate">Intermediate</span>
-95. [What is Consistent Hashing?](#q95-what-is-consistent-hashing) <span class="advanced">Advanced</span>
-96. [What is Bloom Filter?](#q96-what-is-bloom-filter) <span class="advanced">Advanced</span>
-97. [What is CAP Theorem?](#q97-what-is-cap-theorem) <span class="intermediate">Intermediate</span>
-98. [What is SOLID?](#q98-what-is-solid) <span class="intermediate">Intermediate</span>
-99. [What is DRY?](#q99-what-is-dry) <span class="beginner">Beginner</span>
-100. [What is KISS?](#q100-what-is-kiss) <span class="beginner">Beginner</span>
-101. [What is YAGNI?](#q101-what-is-yagni) <span class="beginner">Beginner</span>
+1. [What is the Singleton Pattern and when should you use it?](#q1) <span class="beginner">Beginner</span>
+2. [How do you implement the Factory Method Pattern?](#q2) <span class="intermediate">Intermediate</span>
+3. [What is the difference between Factory Method and Abstract Factory?](#q3) <span class="advanced">Advanced</span>
+4. [How does the Builder Pattern help in object construction?](#q4) <span class="intermediate">Intermediate</span>
+5. [What is the Prototype Pattern and how does it relate to cloning?](#q5) <span class="beginner">Beginner</span>
+6. [How do you use the Adapter Pattern to make incompatible interfaces work together?](#q6) <span class="intermediate">Intermediate</span>
+7. [What is the Decorator Pattern and how does it differ from inheritance?](#q7) <span class="intermediate">Intermediate</span>
+8. [How does the Facade Pattern simplify complex systems?](#q8) <span class="beginner">Beginner</span>
+9. [What is the Proxy Pattern and what are its common use cases?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you use the Composite Pattern to represent tree structures?](#q10) <span class="advanced">Advanced</span>
+11. [What is the Bridge Pattern and how does it decouple abstraction from implementation?](#q11) <span class="advanced">Advanced</span>
+12. [How does the Flyweight Pattern optimize memory usage?](#q12) <span class="advanced">Advanced</span>
+13. [How do you implement the Observer Pattern (Pub/Sub)?](#q13) <span class="intermediate">Intermediate</span>
+14. [What is the Strategy Pattern and how does it enable algorithm swapping?](#q14) <span class="intermediate">Intermediate</span>
+15. [How does the Command Pattern encapsulate requests?](#q15) <span class="intermediate">Intermediate</span>
+16. [What is the Iterator Pattern?](#q16) <span class="beginner">Beginner</span>
+17. [How does the Mediator Pattern reduce coupling between components?](#q17) <span class="advanced">Advanced</span>
+18. [What is the Memento Pattern used for?](#q18) <span class="advanced">Advanced</span>
+19. [How does the State Pattern allow an object to alter its behavior?](#q19) <span class="intermediate">Intermediate</span>
+20. [What is the Template Method Pattern?](#q20) <span class="beginner">Beginner</span>
+21. [How do you implement the Chain of Responsibility Pattern?](#q21) <span class="advanced">Advanced</span>
+22. [What is the Visitor Pattern and when should you use it?](#q22) <span class="advanced">Advanced</span>
+23. [What is the Command Pattern?](#q23) <span class="intermediate">Intermediate</span>
+24. [What is the Interpreter Pattern?](#q24) <span class="advanced">Advanced</span>
+25. [What is the Null Object Pattern?](#q25) <span class="intermediate">Intermediate</span>
+26. [What is the Mediator Pattern?](#q26) <span class="advanced">Advanced</span>
+27. [What is the Memento Pattern?](#q27) <span class="advanced">Advanced</span>
+28. [What is the Observer Pattern?](#q28) <span class="beginner">Beginner</span>
+29. [What is the State Pattern?](#q29) <span class="intermediate">Intermediate</span>
+30. [What is the Strategy Pattern?](#q30) <span class="intermediate">Intermediate</span>
+31. [What is the Template Method?](#q31) <span class="intermediate">Intermediate</span>
+32. [What is the Visitor Pattern?](#q32) <span class="advanced">Advanced</span>
+33. [What is the Adapter Pattern?](#q33) <span class="beginner">Beginner</span>
+34. [What is the Bridge Pattern?](#q34) <span class="advanced">Advanced</span>
+35. [What is the Composite Pattern?](#q35) <span class="intermediate">Intermediate</span>
+36. [What is the Decorator Pattern?](#q36) <span class="beginner">Beginner</span>
+37. [What is the Facade Pattern?](#q37) <span class="beginner">Beginner</span>
+38. [What is the Flyweight Pattern?](#q38) <span class="advanced">Advanced</span>
+39. [What is the Proxy Pattern?](#q39) <span class="intermediate">Intermediate</span>
+40. [What is the Chain of Responsibility?](#q40) <span class="intermediate">Intermediate</span>
+41. [What is the Abstract Factory?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is the Builder Pattern?](#q42) <span class="intermediate">Intermediate</span>
+43. [What is the Factory Method?](#q43) <span class="beginner">Beginner</span>
+44. [What is the Prototype Pattern?](#q44) <span class="intermediate">Intermediate</span>
+45. [What is the Singleton Pattern?](#q45) <span class="beginner">Beginner</span>
+46. [What is Dependency Injection?](#q46) <span class="intermediate">Intermediate</span>
+47. [What is Inversion of Control?](#q47) <span class="advanced">Advanced</span>
+48. [What is MVVM?](#q48) <span class="intermediate">Intermediate</span>
+49. [What is MVC?](#q49) <span class="beginner">Beginner</span>
+50. [What is MVP?](#q50) <span class="intermediate">Intermediate</span>
+51. [What is the Repository Pattern?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is the Unit of Work?](#q52) <span class="advanced">Advanced</span>
+53. [What is Active Record?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is Data Mapper?](#q54) <span class="advanced">Advanced</span>
+55. [What is Event Sourcing?](#q55) <span class="advanced">Advanced</span>
+56. [What is CQRS?](#q56) <span class="advanced">Advanced</span>
+57. [What is the Saga Pattern?](#q57) <span class="advanced">Advanced</span>
+58. [What is Circuit Breaker?](#q58) <span class="advanced">Advanced</span>
+59. [What is Bulkhead Pattern?](#q59) <span class="advanced">Advanced</span>
+60. [What is Sidecar Pattern?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is API Gateway?](#q61) <span class="intermediate">Intermediate</span>
+62. [What is Backends for Frontends (BFF)?](#q62) <span class="intermediate">Intermediate</span>
+63. [What is Strangler Fig?](#q63) <span class="advanced">Advanced</span>
+64. [What is Retry Pattern?](#q64) <span class="beginner">Beginner</span>
+65. [What is Throttling?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is Debouncing?](#q66) <span class="beginner">Beginner</span>
+67. [What is Lazy Loading?](#q67) <span class="beginner">Beginner</span>
+68. [What is Eager Loading?](#q68) <span class="beginner">Beginner</span>
+69. [What is Object Pool?](#q69) <span class="advanced">Advanced</span>
+70. [What is Null Object Pattern?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is Service Locator?](#q71) <span class="intermediate">Intermediate</span>
+72. [What is Module Pattern?](#q72) <span class="beginner">Beginner</span>
+73. [What is Revealing Module Pattern?](#q73) <span class="intermediate">Intermediate</span>
+74. [What is Mixin Pattern?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is Interceptor Pattern?](#q75) <span class="intermediate">Intermediate</span>
+76. [What is Filter Pattern?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is Publisher-Subscriber?](#q77) <span class="beginner">Beginner</span>
+78. [What is Blackboard Pattern?](#q78) <span class="advanced">Advanced</span>
+79. [What is Layered Architecture?](#q79) <span class="beginner">Beginner</span>
+80. [What is Hexagonal Architecture?](#q80) <span class="advanced">Advanced</span>
+81. [What is Clean Architecture?](#q81) <span class="advanced">Advanced</span>
+82. [What is Domain Driven Design (DDD)?](#q82) <span class="advanced">Advanced</span>
+83. [What is Entity Component System (ECS)?](#q83) <span class="advanced">Advanced</span>
+84. [What is Flux Pattern?](#q84) <span class="intermediate">Intermediate</span>
+85. [What is Redux Pattern?](#q85) <span class="intermediate">Intermediate</span>
+86. [What is DAO?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is DTO?](#q87) <span class="beginner">Beginner</span>
+88. [What is POJO?](#q88) <span class="beginner">Beginner</span>
+89. [What is Value Object?](#q89) <span class="intermediate">Intermediate</span>
+90. [What is Aggregate Root?](#q90) <span class="advanced">Advanced</span>
+91. [What is Specification Pattern?](#q91) <span class="advanced">Advanced</span>
+92. [What is Priority Queue?](#q92) <span class="intermediate">Intermediate</span>
+93. [What is LRU Cache?](#q93) <span class="intermediate">Intermediate</span>
+94. [What is Rate Limiter?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is Consistent Hashing?](#q95) <span class="advanced">Advanced</span>
+96. [What is Bloom Filter?](#q96) <span class="advanced">Advanced</span>
+97. [What is CAP Theorem?](#q97) <span class="intermediate">Intermediate</span>
+98. [What is SOLID?](#q98) <span class="intermediate">Intermediate</span>
+99. [What is DRY?](#q99) <span class="beginner">Beginner</span>
+100. [What is KISS?](#q100) <span class="beginner">Beginner</span>
+101. [What is YAGNI?](#q101) <span class="beginner">Beginner</span>
 
 ---
 
@@ -119,10 +119,11 @@
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Ensure a class has only one instance and provide a global point of access to it. Use it for logging, database connections, or configuration settings.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Singleton {
   constructor() {
@@ -143,8 +144,6 @@ const s2 = new Singleton();
 console.log(s1 === s2); // true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -152,10 +151,11 @@ console.log(s1 === s2); // true
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define an interface for creating an object, but let subclasses decide which class to instantiate. It delegates instantiation logic to child classes.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Logistics {
   createTransport() {
@@ -181,8 +181,6 @@ class Truck {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
@@ -190,11 +188,12 @@ class Truck {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 *   **Factory Method:** Creates one object (a product). Uses inheritance.
 *   **Abstract Factory:** Creates families of related objects. Uses composition.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 // Abstract Factory Interface
 class GUIFactory {
@@ -215,8 +214,6 @@ class WinFactory extends GUIFactory {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
@@ -224,10 +221,11 @@ class WinFactory extends GUIFactory {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Separate the construction of a complex object from its representation. It allows you to construct complex objects step-by-step.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class CarBuilder {
   constructor() {
@@ -252,8 +250,6 @@ class CarBuilder {
 const car = new CarBuilder().setSeats(4).setEngine('V8').build();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -261,10 +257,11 @@ const car = new CarBuilder().setSeats(4).setEngine('V8').build();
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Create new objects by copying an existing object (the prototype). It avoids the cost of creating a new instance from scratch.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 const carPrototype = {
   wheels: 4,
@@ -280,8 +277,6 @@ const myCar = carPrototype.clone();
 myCar.color = 'red';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -289,10 +284,11 @@ myCar.color = 'red';
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Wrap an existing class with a new interface so that it becomes compatible with the client's expectations.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 // Old Interface
 class OldCalculator {
@@ -321,8 +317,6 @@ class CalcAdapter {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
@@ -330,10 +324,11 @@ class CalcAdapter {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Attach new behaviors to objects efficiently by placing these objects inside special wrapper objects. It allows dynamic behavior addition at runtime, unlike static inheritance.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Coffee {
   cost() { return 5; }
@@ -351,8 +346,6 @@ myCoffee = withMilk(myCoffee);
 console.log(myCoffee.cost()); // 7
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -360,10 +353,11 @@ console.log(myCoffee.cost()); // 7
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Provide a simplified interface to a library, a framework, or any other complex set of classes. It hides the complexity of the subsystem.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class ComputerFacade {
   constructor() {
@@ -381,8 +375,6 @@ class ComputerFacade {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -390,10 +382,11 @@ class ComputerFacade {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object (e.g., lazy loading, caching, access control).
 
-**Code Example:**
+**Code Example**:
 ```javascript
 const target = {
   message: "Hello"
@@ -412,8 +405,6 @@ const proxy = new Proxy(target, handler);
 console.log(proxy.message); // "World"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -421,10 +412,11 @@ console.log(proxy.message); // "World"
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Component {
   operation() {}
@@ -450,8 +442,6 @@ class Composite extends Component {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
@@ -459,10 +449,11 @@ class Composite extends Component {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Split a large class or a set of closely related classes into two separate hierarchies—abstraction and implementation—which can be developed independently of each other.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 // Implementation
 class Device {
@@ -490,8 +481,6 @@ class Remote {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -499,10 +488,11 @@ class Remote {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Fit more objects into the available amount of RAM by sharing common parts of state between multiple objects instead of keeping all of the data in each object.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class TreeType {
   constructor(name, color, texture) {
@@ -527,8 +517,6 @@ class TreeFactory {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -536,10 +524,11 @@ class TreeFactory {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Subject {
   constructor() {
@@ -562,8 +551,6 @@ class Observer {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
@@ -571,10 +558,11 @@ class Observer {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class PaymentContext {
   constructor(strategy) {
@@ -595,8 +583,6 @@ class PayPalStrategy {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -604,10 +590,11 @@ class PayPalStrategy {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Turn a request into a stand-alone object that contains all information about the request. This transformation lets you pass requests as a method arguments, delay or queue a request's execution, and support undoable operations.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Command {
   execute() {}
@@ -624,8 +611,6 @@ class LightOnCommand extends Command {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
@@ -633,18 +618,17 @@ class LightOnCommand extends Command {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Traverse elements of a collection without exposing its underlying representation (list, stack, tree, etc.).
 
-**Code Example:**
+**Code Example**:
 ```javascript
 const collection = [1, 2, 3];
 const iterator = collection[Symbol.iterator]();
 
 console.log(iterator.next()); // { value: 1, done: false }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -653,10 +637,11 @@ console.log(iterator.next()); // { value: 1, done: false }
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Restrict direct communications between the objects and force them to collaborate only via a mediator object.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Mediator {
   notify(sender, event) {
@@ -668,8 +653,6 @@ class Mediator {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -677,10 +660,11 @@ class Mediator {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Capture and externalize an object's internal state so that the object can be restored to this state later (e.g., undo/redo).
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Memento {
   constructor(state) {
@@ -695,8 +679,6 @@ class Originator {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -704,10 +686,11 @@ class Originator {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Let an object alter its behavior when its internal state changes. It appears as if the object changed its class.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class State {
   handle(context) {}
@@ -726,8 +709,6 @@ class Context {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
@@ -735,10 +716,11 @@ class Context {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Define the skeleton of an algorithm in the superclass but let subclasses override specific steps of the algorithm without changing its structure.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class DataMiner {
   mine() {
@@ -749,8 +731,6 @@ class DataMiner {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -758,10 +738,11 @@ class DataMiner {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Pass requests along a chain of handlers. Upon receiving a request, each handler decides either to process the request or to pass it to the next handler in the chain.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Handler {
   setNext(handler) {
@@ -778,8 +759,6 @@ class Handler {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
@@ -787,10 +766,11 @@ class Handler {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Separate algorithms from the objects on which they operate. It lets you add new operations to existing object structures without modifying them.
 
-**Code Example:**
+**Code Example**:
 ```javascript
 class Visitor {
   visitConcreteElementA(element) {}
@@ -803,9 +783,6 @@ class ConcreteElementA {
   }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 
 ---
 
@@ -822,8 +799,6 @@ The Command Pattern encapsulates a request as an object, thereby letting you par
 class Command { execute() {} }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -839,16 +814,15 @@ Defines a grammar for a language and an interpreter.
 // SQL parsing engines use this
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
 ### Q25: What is the Null Object Pattern?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
-**Category**: Behavioral Patterns  
 
-**Strategy**: Explain how substituting a do-nothing object eliminates repetitive null checks.
+**Difficulty**: Intermediate
+
+**Strategy**:
+Explain how substituting a do-nothing object eliminates repetitive null checks.
 
 The Null Object Pattern provides an object that conforms to the expected interface but has empty or default behavior, avoiding defensive `if (object != null)` checks throughout the codebase.
 
@@ -882,7 +856,6 @@ class OrderProcessor {
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 mediator.notify(sender, 'event');
@@ -892,19 +865,32 @@ mediator.notify(sender, 'event');
 
 ---
 
+**Code Example**:
+```javascript
+mediator.notify(sender, 'event');
+```
+
+---
+
 <a id="q27"></a>
 ### Q27: What is the Memento Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 const savedState = originator.save();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+const savedState = originator.save();
+```
 
 ---
 
@@ -921,8 +907,6 @@ The Observer Pattern defines a one-to-many dependency between objects so that wh
 subject.subscribe(observer);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -931,13 +915,19 @@ subject.subscribe(observer);
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 state.handle();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+state.handle();
+```
 
 ---
 
@@ -954,8 +944,6 @@ The Strategy Pattern defines a family of algorithms, encapsulates each one, and 
 context.setStrategy(new SortStrategy());
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
@@ -964,7 +952,6 @@ context.setStrategy(new SortStrategy());
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 class Base { step1(); step2(); }
@@ -974,13 +961,19 @@ class Base { step1(); step2(); }
 
 ---
 
+**Code Example**:
+```javascript
+class Base { step1(); step2(); }
+```
+
+---
+
 <a id="q32"></a>
 ### Q32: What is the Visitor Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 element.accept(visitor);
@@ -990,13 +983,19 @@ element.accept(visitor);
 
 ---
 
+**Code Example**:
+```javascript
+element.accept(visitor);
+```
+
+---
+
 <a id="q33"></a>
 ### Q33: What is the Adapter Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 class Adapter { request() { return old.specificRequest(); } }
@@ -1006,13 +1005,19 @@ class Adapter { request() { return old.specificRequest(); } }
 
 ---
 
+**Code Example**:
+```javascript
+class Adapter { request() { return old.specificRequest(); } }
+```
+
+---
+
 <a id="q34"></a>
 ### Q34: What is the Bridge Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 class Remote { constructor(device) { ... } }
@@ -1022,13 +1027,19 @@ class Remote { constructor(device) { ... } }
 
 ---
 
+**Code Example**:
+```javascript
+class Remote { constructor(device) { ... } }
+```
+
+---
+
 <a id="q35"></a>
 ### Q35: What is the Composite Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 composite.add(leaf);
@@ -1038,13 +1049,19 @@ composite.add(leaf);
 
 ---
 
+**Code Example**:
+```javascript
+composite.add(leaf);
+```
+
+---
+
 <a id="q36"></a>
 ### Q36: What is the Decorator Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 @decorator class A {}
@@ -1054,13 +1071,19 @@ composite.add(leaf);
 
 ---
 
+**Code Example**:
+```javascript
+@decorator class A {}
+```
+
+---
+
 <a id="q37"></a>
 ### Q37: What is the Facade Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 facade.startComputer();
@@ -1070,13 +1093,19 @@ facade.startComputer();
 
 ---
 
+**Code Example**:
+```javascript
+facade.startComputer();
+```
+
+---
+
 <a id="q38"></a>
 ### Q38: What is the Flyweight Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 factory.getFlyweight(key);
@@ -1086,13 +1115,19 @@ factory.getFlyweight(key);
 
 ---
 
+**Code Example**:
+```javascript
+factory.getFlyweight(key);
+```
+
+---
+
 <a id="q39"></a>
 ### Q39: What is the Proxy Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 const proxy = new Proxy(target, handler);
@@ -1102,13 +1137,19 @@ const proxy = new Proxy(target, handler);
 
 ---
 
+**Code Example**:
+```javascript
+const proxy = new Proxy(target, handler);
+```
+
+---
+
 <a id="q40"></a>
 ### Q40: What is the Chain of Responsibility?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 h1.setNext(h2); h1.handle(req);
@@ -1118,13 +1159,19 @@ h1.setNext(h2); h1.handle(req);
 
 ---
 
+**Code Example**:
+```javascript
+h1.setNext(h2); h1.handle(req);
+```
+
+---
+
 <a id="q41"></a>
 ### Q41: What is the Abstract Factory?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 factory.createButton(); factory.createCheckbox();
@@ -1134,19 +1181,32 @@ factory.createButton(); factory.createCheckbox();
 
 ---
 
+**Code Example**:
+```javascript
+factory.createButton(); factory.createCheckbox();
+```
+
+---
+
 <a id="q42"></a>
 ### Q42: What is the Builder Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 new Builder().setPartA().build();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+new Builder().setPartA().build();
+```
 
 ---
 
@@ -1163,8 +1223,6 @@ The Factory Method Pattern defines an interface for creating an object, but lets
 createAnimal() { return new Dog(); }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
@@ -1173,13 +1231,19 @@ createAnimal() { return new Dog(); }
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 obj.clone();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+obj.clone();
+```
 
 ---
 
@@ -1196,8 +1260,6 @@ The Singleton Pattern ensures a class has only one instance, and provides a glob
 if (!instance) instance = this;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
@@ -1212,8 +1274,6 @@ Dependency Injection (DI) is a technique in which an object receives other objec
 ```javascript
 constructor(service) { this.service = service; }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1230,8 +1290,6 @@ Inversion of Control (IoC) is a design principle in which the flow of control of
 // React calls your render method
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
@@ -1246,8 +1304,6 @@ Model-View-ViewModel (MVVM) is a software architectural pattern that facilitates
 ```javascript
 // Angular, Vue, Knockout
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1264,8 +1320,6 @@ Model-View-Controller (MVC) is an architectural pattern that separates an applic
 // Ruby on Rails, Spring MVC
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -1274,7 +1328,6 @@ Model-View-Controller (MVC) is an architectural pattern that separates an applic
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Android (old)
@@ -1284,13 +1337,19 @@ Model-View-Controller (MVC) is an architectural pattern that separates an applic
 
 ---
 
+**Code Example**:
+```javascript
+// Android (old)
+```
+
+---
+
 <a id="q51"></a>
 ### Q51: What is the Repository Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 repo.getUser(id);
@@ -1300,13 +1359,19 @@ repo.getUser(id);
 
 ---
 
+**Code Example**:
+```javascript
+repo.getUser(id);
+```
+
+---
+
 <a id="q52"></a>
 ### Q52: What is the Unit of Work?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 uow.commit();
@@ -1316,13 +1381,19 @@ uow.commit();
 
 ---
 
+**Code Example**:
+```javascript
+uow.commit();
+```
+
+---
+
 <a id="q53"></a>
 ### Q53: What is Active Record?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 user.save();
@@ -1332,19 +1403,32 @@ user.save();
 
 ---
 
+**Code Example**:
+```javascript
+user.save();
+```
+
+---
+
 <a id="q54"></a>
 ### Q54: What is Data Mapper?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 mapper.save(user);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+mapper.save(user);
+```
 
 ---
 
@@ -1361,8 +1445,6 @@ Event Sourcing is a pattern where the state of the application is determined by 
 events.forEach(e => state.apply(e));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
@@ -1378,8 +1460,6 @@ CQRS (Command Query Responsibility Segregation) fits well with Event Sourcing. I
 // Separate read and write models
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -1388,13 +1468,19 @@ CQRS (Command Query Responsibility Segregation) fits well with Event Sourcing. I
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Compensating actions on failure
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Compensating actions on failure
+```
 
 ---
 
@@ -1411,8 +1497,6 @@ The Circuit Breaker pattern prevents an application from repeatedly trying to ex
 if (failures > threshold) openCircuit();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
@@ -1421,7 +1505,6 @@ if (failures > threshold) openCircuit();
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Separate thread pools
@@ -1431,19 +1514,32 @@ if (failures > threshold) openCircuit();
 
 ---
 
+**Code Example**:
+```javascript
+// Separate thread pools
+```
+
+---
+
 <a id="q60"></a>
 ### Q60: What is Sidecar Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Envoy proxy in K8s
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Envoy proxy in K8s
+```
 
 ---
 
@@ -1460,8 +1556,6 @@ An API Gateway is a server that is the single entry point into the system. It en
 // Zuul, Nginx
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
@@ -1470,7 +1564,6 @@ An API Gateway is a server that is the single entry point into the system. It en
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Mobile API, Web API
@@ -1480,13 +1573,19 @@ An API Gateway is a server that is the single entry point into the system. It en
 
 ---
 
+**Code Example**:
+```javascript
+// Mobile API, Web API
+```
+
+---
+
 <a id="q63"></a>
 ### Q63: What is Strangler Fig?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Route by route migration
@@ -1496,13 +1595,19 @@ An API Gateway is a server that is the single entry point into the system. It en
 
 ---
 
+**Code Example**:
+```javascript
+// Route by route migration
+```
+
+---
+
 <a id="q64"></a>
 ### Q64: What is Retry Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 retry(fn, 3);
@@ -1512,13 +1617,19 @@ retry(fn, 3);
 
 ---
 
+**Code Example**:
+```javascript
+retry(fn, 3);
+```
+
+---
+
 <a id="q65"></a>
 ### Q65: What is Throttling?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 if (rate > limit) reject();
@@ -1528,13 +1639,19 @@ if (rate > limit) reject();
 
 ---
 
+**Code Example**:
+```javascript
+if (rate > limit) reject();
+```
+
+---
+
 <a id="q66"></a>
 ### Q66: What is Debouncing?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 setTimeout(fn, delay);
@@ -1544,13 +1661,19 @@ setTimeout(fn, delay);
 
 ---
 
+**Code Example**:
+```javascript
+setTimeout(fn, delay);
+```
+
+---
+
 <a id="q67"></a>
 ### Q67: What is Lazy Loading?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 if (needed) load();
@@ -1560,13 +1683,19 @@ if (needed) load();
 
 ---
 
+**Code Example**:
+```javascript
+if (needed) load();
+```
+
+---
+
 <a id="q68"></a>
 ### Q68: What is Eager Loading?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 loadAll();
@@ -1576,13 +1705,19 @@ loadAll();
 
 ---
 
+**Code Example**:
+```javascript
+loadAll();
+```
+
+---
+
 <a id="q69"></a>
 ### Q69: What is Object Pool?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 pool.acquire();
@@ -1592,13 +1727,19 @@ pool.acquire();
 
 ---
 
+**Code Example**:
+```javascript
+pool.acquire();
+```
+
+---
+
 <a id="q70"></a>
 ### Q70: What is Null Object Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 class NullUser { getName() { return 'Guest'; } }
@@ -1608,13 +1749,19 @@ class NullUser { getName() { return 'Guest'; } }
 
 ---
 
+**Code Example**:
+```javascript
+class NullUser { getName() { return 'Guest'; } }
+```
+
+---
+
 <a id="q71"></a>
 ### Q71: What is Service Locator?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 locator.get('Service');
@@ -1624,13 +1771,19 @@ locator.get('Service');
 
 ---
 
+**Code Example**:
+```javascript
+locator.get('Service');
+```
+
+---
+
 <a id="q72"></a>
 ### Q72: What is Module Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 return { publicMethod };
@@ -1640,13 +1793,19 @@ return { publicMethod };
 
 ---
 
+**Code Example**:
+```javascript
+return { publicMethod };
+```
+
+---
+
 <a id="q73"></a>
 ### Q73: What is Revealing Module Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 return { start: startFn };
@@ -1656,13 +1815,19 @@ return { start: startFn };
 
 ---
 
+**Code Example**:
+```javascript
+return { start: startFn };
+```
+
+---
+
 <a id="q74"></a>
 ### Q74: What is Mixin Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 Object.assign(Class.prototype, mixin);
@@ -1672,13 +1837,19 @@ Object.assign(Class.prototype, mixin);
 
 ---
 
+**Code Example**:
+```javascript
+Object.assign(Class.prototype, mixin);
+```
+
+---
+
 <a id="q75"></a>
 ### Q75: What is Interceptor Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 axios.interceptors.request.use(...)
@@ -1688,13 +1859,19 @@ axios.interceptors.request.use(...)
 
 ---
 
+**Code Example**:
+```javascript
+axios.interceptors.request.use(...)
+```
+
+---
+
 <a id="q76"></a>
 ### Q76: What is Filter Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 list.filter(criteria);
@@ -1704,13 +1881,19 @@ list.filter(criteria);
 
 ---
 
+**Code Example**:
+```javascript
+list.filter(criteria);
+```
+
+---
+
 <a id="q77"></a>
 ### Q77: What is Publisher-Subscriber?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 pub.publish(topic, msg);
@@ -1720,13 +1903,19 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+pub.publish(topic, msg);
+```
+
+---
+
 <a id="q78"></a>
 ### Q78: What is Blackboard Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Expert systems
@@ -1736,13 +1925,19 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+// Expert systems
+```
+
+---
+
 <a id="q79"></a>
 ### Q79: What is Layered Architecture?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // N-tier
@@ -1752,13 +1947,19 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+// N-tier
+```
+
+---
+
 <a id="q80"></a>
 ### Q80: What is Hexagonal Architecture?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Core logic isolated from external
@@ -1768,13 +1969,19 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+// Core logic isolated from external
+```
+
+---
+
 <a id="q81"></a>
 ### Q81: What is Clean Architecture?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Entities -> Use Cases -> Adapters
@@ -1784,13 +1991,19 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+// Entities -> Use Cases -> Adapters
+```
+
+---
+
 <a id="q82"></a>
 ### Q82: What is Domain Driven Design (DDD)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Bounded Contexts, Aggregates
@@ -1800,19 +2013,32 @@ pub.publish(topic, msg);
 
 ---
 
+**Code Example**:
+```javascript
+// Bounded Contexts, Aggregates
+```
+
+---
+
 <a id="q83"></a>
 ### Q83: What is Entity Component System (ECS)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Unity DOTS
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Unity DOTS
+```
 
 ---
 
@@ -1829,8 +2055,6 @@ Flux is an application architecture for building client-side web applications. I
 // Redux
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
@@ -1839,7 +2063,6 @@ Flux is an application architecture for building client-side web applications. I
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 reducer(state, action)
@@ -1849,13 +2072,19 @@ reducer(state, action)
 
 ---
 
+**Code Example**:
+```javascript
+reducer(state, action)
+```
+
+---
+
 <a id="q86"></a>
 ### Q86: What is DAO?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 dao.findById(1);
@@ -1865,13 +2094,19 @@ dao.findById(1);
 
 ---
 
+**Code Example**:
+```javascript
+dao.findById(1);
+```
+
+---
+
 <a id="q87"></a>
 ### Q87: What is DTO?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 class UserDTO { name; email; }
@@ -1881,13 +2116,19 @@ class UserDTO { name; email; }
 
 ---
 
+**Code Example**:
+```javascript
+class UserDTO { name; email; }
+```
+
+---
+
 <a id="q88"></a>
 ### Q88: What is POJO?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 { id: 1 }
@@ -1897,13 +2138,19 @@ class UserDTO { name; email; }
 
 ---
 
+**Code Example**:
+```javascript
+{ id: 1 }
+```
+
+---
+
 <a id="q89"></a>
 ### Q89: What is Value Object?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 new Money(10, 'USD');
@@ -1913,13 +2160,19 @@ new Money(10, 'USD');
 
 ---
 
+**Code Example**:
+```javascript
+new Money(10, 'USD');
+```
+
+---
+
 <a id="q90"></a>
 ### Q90: What is Aggregate Root?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Order controls OrderItems
@@ -1929,13 +2182,19 @@ new Money(10, 'USD');
 
 ---
 
+**Code Example**:
+```javascript
+// Order controls OrderItems
+```
+
+---
+
 <a id="q91"></a>
 ### Q91: What is Specification Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 spec.isSatisfiedBy(obj);
@@ -1945,13 +2204,19 @@ spec.isSatisfiedBy(obj);
 
 ---
 
+**Code Example**:
+```javascript
+spec.isSatisfiedBy(obj);
+```
+
+---
+
 <a id="q92"></a>
 ### Q92: What is Priority Queue?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 heap.insert(item);
@@ -1961,13 +2226,19 @@ heap.insert(item);
 
 ---
 
+**Code Example**:
+```javascript
+heap.insert(item);
+```
+
+---
+
 <a id="q93"></a>
 ### Q93: What is LRU Cache?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 cache.get(key);
@@ -1977,13 +2248,19 @@ cache.get(key);
 
 ---
 
+**Code Example**:
+```javascript
+cache.get(key);
+```
+
+---
+
 <a id="q94"></a>
 ### Q94: What is Rate Limiter?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 Token Bucket algorithm
@@ -1993,13 +2270,19 @@ Token Bucket algorithm
 
 ---
 
+**Code Example**:
+```javascript
+Token Bucket algorithm
+```
+
+---
+
 <a id="q95"></a>
 ### Q95: What is Consistent Hashing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 hash(key) % nodes
@@ -2009,13 +2292,19 @@ hash(key) % nodes
 
 ---
 
+**Code Example**:
+```javascript
+hash(key) % nodes
+```
+
+---
+
 <a id="q96"></a>
 ### Q96: What is Bloom Filter?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 mightContain(item)
@@ -2025,19 +2314,32 @@ mightContain(item)
 
 ---
 
+**Code Example**:
+```javascript
+mightContain(item)
+```
+
+---
+
 <a id="q97"></a>
 ### Q97: What is CAP Theorem?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Choose 2
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+**Code Example**:
+```javascript
+// Choose 2
+```
 
 ---
 
@@ -2054,8 +2356,6 @@ SOLID is an acronym for 5 design principles: Single Responsibility Principle (SR
 // OO Design Principles
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
@@ -2071,8 +2371,6 @@ DRY stands for 'Don't Repeat Yourself'. It is a principle of software developmen
 // Refactor duplicates
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
@@ -2081,7 +2379,6 @@ DRY stands for 'Don't Repeat Yourself'. It is a principle of software developmen
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Avoid overengineering
@@ -2091,16 +2388,29 @@ DRY stands for 'Don't Repeat Yourself'. It is a principle of software developmen
 
 ---
 
+**Code Example**:
+```javascript
+// Avoid overengineering
+```
+
+---
+
 <a id="q101"></a>
 ### Q101: What is YAGNI?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
 **Code Example**:
 ```javascript
 // Don't build for future
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+**Code Example**:
+```javascript
+// Don't build for future
+```
+
+---

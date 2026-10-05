@@ -1,19 +1,30 @@
 {
   "name": "tech-interview-guide",
-  "version": "1.0.0",
-  "description": "Premium Tech Interview Guide with 100+ Questions per Topic",
+  "version": "2.0.0",
+  "description": "High-Performance Technical Interview & Systems Knowledge Platform with 5,650+ Questions across 55 Categories",
   "scripts": {
-    "start": "http-server . -p 8080 -c-1",
-    "build": "echo 'Static site: no build required. Copying assets...' && mkdir -p dist && cp -r *.html assets markdowns dist/",
-    "deploy:docker": "docker stop tech-interview-guide-app || true && docker rm tech-interview-guide-app || true && docker build -t tech-interview-guide . && docker run -d -p 8080:80 --name tech-interview-guide-app tech-interview-guide"
+    "start": "npx -y http-server . -p 9444 -c-1",
+    "dev:backend": "cargo run --manifest-path backend/Cargo.toml",
+    "test": "cargo test --manifest-path backend/Cargo.toml",
+    "build": "mkdir -p dist && cp -r *.html assets markdowns favicon.ico manifest.json sw.js dist/",
+    "deploy:prod": "docker compose -f docker-compose.production.yml --env-file .env.production up -d --build",
+    "deploy:prod:down": "docker compose -f docker-compose.production.yml down",
+    "deploy:prod:logs": "docker compose -f docker-compose.production.yml logs -f",
+    "deploy:staging": "docker compose -f docker-compose.staging.yml --env-file .env.staging up -d --build",
+    "deploy:staging:down": "docker compose -f docker-compose.staging.yml down",
+    "deploy:staging:logs": "docker compose -f docker-compose.staging.yml logs -f",
+    "lint:check": "cargo clippy --manifest-path backend/Cargo.toml -- -D warnings"
   },
   "keywords": [
-    "interview",
-    "guide",
-    "programming",
+    "interview-guide",
+    "system-design",
+    "algorithms",
+    "devops",
+    "rust",
+    "web-performance",
     "fullstack"
   ],
-  "author": "Trae AI",
+  "author": "Antigravity",
   "license": "MIT",
   "dependencies": {
     "http-server": "^14.1.1"

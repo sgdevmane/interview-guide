@@ -217,7 +217,7 @@ class InterviewGuideApp {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
-          .register("/service-worker.js")
+          .register("./sw.js")
           .catch((error) => {
             console.log("Service Worker registration failed:", error);
           });
@@ -287,14 +287,17 @@ class InterviewGuideApp {
     }
 
     // List of known topic identifiers
-    const validTopics = [
-      "javascript", "typescript", "react", "angular", "vue", "svelte", "html", "css",
-      "tailwind-bootstrap", "material-radix-ui", "webpack-babel-vite", "nextjs",
-      "ngrx", "redux-zustand", "nodejs", "python", "java", "cpp", "golang", "rust",
-      "dotnet", "graphql", "docker", "kubernetes", "microservices", "microfrontend",
-      "aws", "database", "security", "testing", "integration", "git", "linux",
-      "algorithms", "data-structures", "system-design", "swift-swiftui", "kotlin",
-      "flutter", "react-native", "performance", "design-patterns"
+        const validTopics = [
+      "javascript", "typescript", "react", "nextjs", "angular", "vue",
+      "svelte", "html", "css", "tailwind-bootstrap", "material-radix-ui", "webpack-babel-vite",
+      "performance", "microfrontend", "ngrx", "redux-zustand", "nodejs", "python",
+      "java", "golang", "rust", "dotnet", "cpp", "graphql",
+      "database", "microservices", "integration", "security", "swift-swiftui", "kotlin",
+      "flutter", "react-native", "docker", "kubernetes", "aws", "git",
+      "linux", "algorithms", "data-structures", "system-design", "design-patterns", "testing",
+      "behavioral", "devsecops", "ai-engineering", "sre", "fintech", "embedded",
+      "web3-solidity", "compiler-design", "linux-kernel-ebpf", "distributed-storage", "cryptography-zk", "graphics-webgpu",
+      "networking-protocols"
     ];
 
     const hashLower = hash.toLowerCase();

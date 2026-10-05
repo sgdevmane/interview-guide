@@ -10,108 +10,108 @@
 
 ## Table of Contents
 
-1. [What is the lifecycle of a Svelte component?](#q1-what-is-the-lifecycle-of-a-svelte-component) <span class="beginner">Beginner</span>
-2. [How do you create a reactive declaration?](#q2-how-do-you-create-a-reactive-declaration) <span class="beginner">Beginner</span>
-3. [How do you share state between components?](#q3-how-do-you-share-state-between-components) <span class="intermediate">Intermediate</span>
-4. [How do you dispatch custom events?](#q4-how-do-you-dispatch-custom-events) <span class="intermediate">Intermediate</span>
-5. [How do you use slots?](#q5-how-do-you-use-slots) <span class="beginner">Beginner</span>
-6. [How do you optimize rendering with `keyed` each blocks?](#q6-how-do-you-optimize-rendering-with-keyed-each-blocks) <span class="intermediate">Intermediate</span>
-7. [How do you bind form inputs?](#q7-how-do-you-bind-form-inputs) <span class="beginner">Beginner</span>
-8. [How do you use Svelte actions?](#q8-how-do-you-use-svelte-actions) <span class="advanced">Advanced</span>
-9. [How do you handle transitions?](#q9-how-do-you-handle-transitions) <span class="intermediate">Intermediate</span>
-10. [What is `tick()`?](#q10-what-is-tick) <span class="advanced">Advanced</span>
-11. [Difference between Svelte and React?](#q11-difference-between-svelte-and-react) <span class="beginner">Beginner</span>
-12. [How do you use the special element `<svelte:head>`?](#q12-how-do-you-use-the-special-element-sveltehead) <span class="intermediate">Intermediate</span>
-13. [What are Derived Stores?](#q13-what-are-derived-stores) <span class="intermediate">Intermediate</span>
-14. [How do you handle context in Svelte?](#q14-how-do-you-handle-context-in-svelte) <span class="intermediate">Intermediate</span>
-15. [What is the purpose of `<svelte:component>`?](#q15-what-is-the-purpose-of-sveltecomponent) <span class="advanced">Advanced</span>
-16. [How do you loop with an index in Svelte?](#q16-how-do-you-loop-with-an-index-in-svelte) <span class="beginner">Beginner</span>
-17. [What is the `bind:this` directive?](#q17-what-is-the-bindthis-directive) <span class="intermediate">Intermediate</span>
-18. [How do you prevent event bubbling in Svelte?](#q18-how-do-you-prevent-event-bubbling-in-svelte) <span class="beginner">Beginner</span>
-19. [What is SvelteKit?](#q19-what-is-sveltekit) <span class="intermediate">Intermediate</span>
-20. [How do you use the `await` block?](#q20-how-do-you-use-the-await-block) <span class="intermediate">Intermediate</span>
-21. [What are Custom Stores?](#q21-what-are-custom-stores) <span class="advanced">Advanced</span>
-22. [How do you style components in Svelte?](#q22-how-do-you-style-components-in-svelte) <span class="beginner">Beginner</span>
-23. [How do you use the @html tag?](#q23-how-do-you-use-the-html-tag) <span class="beginner">Beginner</span>
-24. [What is the difference between on:click and on:click|once?](#q24-what-is-the-difference-between-onclick-and-onclickonce) <span class="beginner">Beginner</span>
-25. [How do you forward events in Svelte?](#q25-how-do-you-forward-events-in-svelte) <span class="intermediate">Intermediate</span>
-26. [What is the `class:` directive?](#q26-what-is-the-class-directive) <span class="beginner">Beginner</span>
-27. [How do you use `<svelte:window>`?](#q27-how-do-you-use-sveltewindow) <span class="intermediate">Intermediate</span>
-28. [What is `<svelte:body>`?](#q28-what-is-sveltebody) <span class="intermediate">Intermediate</span>
-29. [How do you use `<svelte:head>`?](#q29-how-do-you-use-sveltehead) <span class="intermediate">Intermediate</span>
-30. [What are Module Context scripts?](#q30-what-are-module-context-scripts) <span class="advanced">Advanced</span>
-31. [How do you handle fallback content in slots?](#q31-how-do-you-handle-fallback-content-in-slots) <span class="beginner">Beginner</span>
-32. [What is `$$props`?](#q32-what-is-props) <span class="advanced">Advanced</span>
-33. [What is `$$restProps`?](#q33-what-is-restprops) <span class="intermediate">Intermediate</span>
-34. [How do you debug Svelte reactivity?](#q34-how-do-you-debug-svelte-reactivity) <span class="beginner">Beginner</span>
-35. [What is the `key` block?](#q35-what-is-the-key-block) <span class="intermediate">Intermediate</span>
-36. [How do you define props in Svelte?](#q36-how-do-you-define-props-in-svelte) <span class="beginner">Beginner</span>
-37. [What is `createEventDispatcher`?](#q37-what-is-createeventdispatcher) <span class="intermediate">Intermediate</span>
-38. [How do you use the `use:action` directive?](#q38-how-do-you-use-the-useaction-directive) <span class="advanced">Advanced</span>
-39. [What is the return value of an action?](#q39-what-is-the-return-value-of-an-action) <span class="advanced">Advanced</span>
-40. [How do you bind `this` in Svelte?](#q40-how-do-you-bind-this-in-svelte) <span class="intermediate">Intermediate</span>
-41. [How do you bind component props?](#q41-how-do-you-bind-component-props) <span class="intermediate">Intermediate</span>
-42. [What is the `store` contract?](#q42-what-is-the-store-contract) <span class="advanced">Advanced</span>
-43. [How do you auto-subscribe to a store?](#q43-how-do-you-auto-subscribe-to-a-store) <span class="beginner">Beginner</span>
-44. [What is `get` from `svelte/store`?](#q44-what-is-get-from-sveltestore) <span class="intermediate">Intermediate</span>
-45. [How do you make a store read-only?](#q45-how-do-you-make-a-store-read-only) <span class="intermediate">Intermediate</span>
-46. [What is `derived` store?](#q46-what-is-derived-store) <span class="intermediate">Intermediate</span>
-47. [How do you use `style:` directive?](#q47-how-do-you-use-style-directive) <span class="beginner">Beginner</span>
-48. [What is `svelte:options`?](#q48-what-is-svelteoptions) <span class="advanced">Advanced</span>
-49. [How do you detect if code is running in browser?](#q49-how-do-you-detect-if-code-is-running-in-browser) <span class="beginner">Beginner</span>
-50. [What is Hydration?](#q50-what-is-hydration) <span class="advanced">Advanced</span>
-51. [How do you create a transition?](#q51-how-do-you-create-a-transition) <span class="advanced">Advanced</span>
-52. [What is `crossfade`?](#q52-what-is-crossfade) <span class="advanced">Advanced</span>
-53. [How do you use `animate:flip`?](#q53-how-do-you-use-animateflip) <span class="intermediate">Intermediate</span>
-54. [What is `svelte:fragment`?](#q54-what-is-sveltefragment) <span class="intermediate">Intermediate</span>
-55. [How do you lazy load a component?](#q55-how-do-you-lazy-load-a-component) <span class="advanced">Advanced</span>
-56. [What is the difference between `bind:group` and `bind:value`?](#q56-what-is-the-difference-between-bindgroup-and-bindvalue) <span class="intermediate">Intermediate</span>
-57. [How do you handle multiple classes?](#q57-how-do-you-handle-multiple-classes) <span class="beginner">Beginner</span>
-58. [What is `svelte-ignore`?](#q58-what-is-svelte-ignore) <span class="intermediate">Intermediate</span>
-59. [How do you access the component instance?](#q59-how-do-you-access-the-component-instance) <span class="advanced">Advanced</span>
-60. [What is `beforeUpdate`?](#q60-what-is-beforeupdate) <span class="intermediate">Intermediate</span>
-61. [What is `afterUpdate`?](#q61-what-is-afterupdate) <span class="intermediate">Intermediate</span>
-62. [How do you create a custom store?](#q62-how-do-you-create-a-custom-store) <span class="intermediate">Intermediate</span>
-63. [What is `spring` motion?](#q63-what-is-spring-motion) <span class="intermediate">Intermediate</span>
-64. [What is `tweened` motion?](#q64-what-is-tweened-motion) <span class="intermediate">Intermediate</span>
-65. [How do you use `svelte:self`?](#q65-how-do-you-use-svelteself) <span class="intermediate">Intermediate</span>
-66. [What is the `src/routes` folder in SvelteKit?](#q66-what-is-the-srcroutes-folder-in-sveltekit) <span class="beginner">Beginner</span>
-67. [What is a `+page.svelte` file?](#q67-what-is-a-pagesvelte-file) <span class="beginner">Beginner</span>
-68. [What is a `+page.server.js` file?](#q68-what-is-a-pageserverjs-file) <span class="intermediate">Intermediate</span>
-69. [What is a `+layout.svelte` file?](#q69-what-is-a-layoutsvelte-file) <span class="beginner">Beginner</span>
-70. [How do you handle form actions in SvelteKit?](#q70-how-do-you-handle-form-actions-in-sveltekit) <span class="intermediate">Intermediate</span>
-71. [What is `enhance` in SvelteKit forms?](#q71-what-is-enhance-in-sveltekit-forms) <span class="intermediate">Intermediate</span>
-72. [How do you use environment variables?](#q72-how-do-you-use-environment-variables) <span class="intermediate">Intermediate</span>
-73. [What is adapter in SvelteKit?](#q73-what-is-adapter-in-sveltekit) <span class="intermediate">Intermediate</span>
-74. [How do you handle errors in SvelteKit?](#q74-how-do-you-handle-errors-in-sveltekit) <span class="intermediate">Intermediate</span>
-75. [What is `hooks.server.js`?](#q75-what-is-hooksserverjs) <span class="advanced">Advanced</span>
-76. [How do you prefetch data?](#q76-how-do-you-prefetch-data) <span class="intermediate">Intermediate</span>
-77. [What is the difference between `onMount` and `load`?](#q77-what-is-the-difference-between-onmount-and-load) <span class="intermediate">Intermediate</span>
-78. [How do you use global styles?](#q78-how-do-you-use-global-styles) <span class="beginner">Beginner</span>
-79. [What is accessibility warning in Svelte?](#q79-what-is-accessibility-warning-in-svelte) <span class="beginner">Beginner</span>
-80. [How do you optimize loops?](#q80-how-do-you-optimize-loops) <span class="intermediate">Intermediate</span>
-81. [What is the purpose of `tick` in tests?](#q81-what-is-the-purpose-of-tick-in-tests) <span class="advanced">Advanced</span>
-82. [How do you test Svelte components?](#q82-how-do-you-test-svelte-components) <span class="intermediate">Intermediate</span>
-83. [What is `vite` in Svelte context?](#q83-what-is-vite-in-svelte-context) <span class="beginner">Beginner</span>
-84. [How do you deploy a Svelte app?](#q84-how-do-you-deploy-a-svelte-app) <span class="beginner">Beginner</span>
-85. [What is `svelte-check`?](#q85-what-is-svelte-check) <span class="intermediate">Intermediate</span>
-86. [How do you use TypeScript with Svelte?](#q86-how-do-you-use-typescript-with-svelte) <span class="beginner">Beginner</span>
-87. [What is `$$slots`?](#q87-what-is-slots) <span class="advanced">Advanced</span>
-88. [How do you debounce an input?](#q88-how-do-you-debounce-an-input) <span class="intermediate">Intermediate</span>
-89. [What is `await` block `catch`?](#q89-what-is-await-block-catch) <span class="beginner">Beginner</span>
-90. [How do you use `placeholder` attribute on inputs?](#q90-how-do-you-use-placeholder-attribute-on-inputs) <span class="beginner">Beginner</span>
-91. [Can you have multiple script tags?](#q91-can-you-have-multiple-script-tags) <span class="advanced">Advanced</span>
-92. [What is `immutable` option?](#q92-what-is-immutable-option) <span class="advanced">Advanced</span>
-93. [How do you access `window` safely in SSR?](#q93-how-do-you-access-window-safely-in-ssr) <span class="intermediate">Intermediate</span>
-94. [What is `svelte/motion`?](#q94-what-is-sveltemotion) <span class="intermediate">Intermediate</span>
-95. [What is `svelte/easing`?](#q95-what-is-svelteeasing) <span class="beginner">Beginner</span>
-96. [How do you pass data to layout?](#q96-how-do-you-pass-data-to-layout) <span class="intermediate">Intermediate</span>
-97. [What is `page` store in SvelteKit?](#q97-what-is-page-store-in-sveltekit) <span class="intermediate">Intermediate</span>
-98. [How do you use `navigating` store?](#q98-how-do-you-use-navigating-store) <span class="intermediate">Intermediate</span>
-99. [What is `updated` store?](#q99-what-is-updated-store) <span class="advanced">Advanced</span>
-100. [How do you handle 404s?](#q100-how-do-you-handle-404s) <span class="beginner">Beginner</span>
-101. [What is `data-sveltekit-reload`?](#q101-what-is-data-sveltekit-reload) <span class="intermediate">Intermediate</span>
-102. [How do you reset a store?](#q102-how-do-you-reset-a-store) <span class="intermediate">Intermediate</span>
+1. [What is the lifecycle of a Svelte component?](#q1) <span class="beginner">Beginner</span>
+2. [How do you create a reactive declaration?](#q2) <span class="beginner">Beginner</span>
+3. [How do you share state between components?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you dispatch custom events?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you use slots?](#q5) <span class="beginner">Beginner</span>
+6. [How do you optimize rendering with `keyed` each blocks?](#q6) <span class="intermediate">Intermediate</span>
+7. [How do you bind form inputs?](#q7) <span class="beginner">Beginner</span>
+8. [How do you use Svelte actions?](#q8) <span class="advanced">Advanced</span>
+9. [How do you handle transitions?](#q9) <span class="intermediate">Intermediate</span>
+10. [What is `tick()`?](#q10) <span class="advanced">Advanced</span>
+11. [Difference between Svelte and React?](#q11) <span class="beginner">Beginner</span>
+12. [How do you use the special element `<svelte:head>`?](#q12) <span class="intermediate">Intermediate</span>
+13. [What are Derived Stores?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you handle context in Svelte?](#q14) <span class="intermediate">Intermediate</span>
+15. [What is the purpose of `<svelte:component>`?](#q15) <span class="advanced">Advanced</span>
+16. [How do you loop with an index in Svelte?](#q16) <span class="beginner">Beginner</span>
+17. [What is the `bind:this` directive?](#q17) <span class="intermediate">Intermediate</span>
+18. [How do you prevent event bubbling in Svelte?](#q18) <span class="beginner">Beginner</span>
+19. [What is SvelteKit?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you use the `await` block?](#q20) <span class="intermediate">Intermediate</span>
+21. [What are Custom Stores?](#q21) <span class="advanced">Advanced</span>
+22. [How do you style components in Svelte?](#q22) <span class="beginner">Beginner</span>
+23. [How do you use the @html tag?](#q23) <span class="beginner">Beginner</span>
+24. [What is the difference between on:click and on:click|once?](#q24) <span class="beginner">Beginner</span>
+25. [How do you forward events in Svelte?](#q25) <span class="intermediate">Intermediate</span>
+26. [What is the `class:` directive?](#q26) <span class="beginner">Beginner</span>
+27. [How do you use `<svelte:window>`?](#q27) <span class="intermediate">Intermediate</span>
+28. [What is `<svelte:body>`?](#q28) <span class="intermediate">Intermediate</span>
+29. [How do you use `<svelte:head>`?](#q29) <span class="intermediate">Intermediate</span>
+30. [What are Module Context scripts?](#q30) <span class="advanced">Advanced</span>
+31. [How do you handle fallback content in slots?](#q31) <span class="beginner">Beginner</span>
+32. [What is `$$props`?](#q32) <span class="advanced">Advanced</span>
+33. [What is `$$restProps`?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you debug Svelte reactivity?](#q34) <span class="beginner">Beginner</span>
+35. [What is the `key` block?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you define props in Svelte?](#q36) <span class="beginner">Beginner</span>
+37. [What is `createEventDispatcher`?](#q37) <span class="intermediate">Intermediate</span>
+38. [How do you use the `use:action` directive?](#q38) <span class="advanced">Advanced</span>
+39. [What is the return value of an action?](#q39) <span class="advanced">Advanced</span>
+40. [How do you bind `this` in Svelte?](#q40) <span class="intermediate">Intermediate</span>
+41. [How do you bind component props?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is the `store` contract?](#q42) <span class="advanced">Advanced</span>
+43. [How do you auto-subscribe to a store?](#q43) <span class="beginner">Beginner</span>
+44. [What is `get` from `svelte/store`?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you make a store read-only?](#q45) <span class="intermediate">Intermediate</span>
+46. [What is `derived` store?](#q46) <span class="intermediate">Intermediate</span>
+47. [How do you use `style:` directive?](#q47) <span class="beginner">Beginner</span>
+48. [What is `svelte:options`?](#q48) <span class="advanced">Advanced</span>
+49. [How do you detect if code is running in browser?](#q49) <span class="beginner">Beginner</span>
+50. [What is Hydration?](#q50) <span class="advanced">Advanced</span>
+51. [How do you create a transition?](#q51) <span class="advanced">Advanced</span>
+52. [What is `crossfade`?](#q52) <span class="advanced">Advanced</span>
+53. [How do you use `animate:flip`?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is `svelte:fragment`?](#q54) <span class="intermediate">Intermediate</span>
+55. [How do you lazy load a component?](#q55) <span class="advanced">Advanced</span>
+56. [What is the difference between `bind:group` and `bind:value`?](#q56) <span class="intermediate">Intermediate</span>
+57. [How do you handle multiple classes?](#q57) <span class="beginner">Beginner</span>
+58. [What is `svelte-ignore`?](#q58) <span class="intermediate">Intermediate</span>
+59. [How do you access the component instance?](#q59) <span class="advanced">Advanced</span>
+60. [What is `beforeUpdate`?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is `afterUpdate`?](#q61) <span class="intermediate">Intermediate</span>
+62. [How do you create a custom store?](#q62) <span class="intermediate">Intermediate</span>
+63. [What is `spring` motion?](#q63) <span class="intermediate">Intermediate</span>
+64. [What is `tweened` motion?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you use `svelte:self`?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is the `src/routes` folder in SvelteKit?](#q66) <span class="beginner">Beginner</span>
+67. [What is a `+page.svelte` file?](#q67) <span class="beginner">Beginner</span>
+68. [What is a `+page.server.js` file?](#q68) <span class="intermediate">Intermediate</span>
+69. [What is a `+layout.svelte` file?](#q69) <span class="beginner">Beginner</span>
+70. [How do you handle form actions in SvelteKit?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is `enhance` in SvelteKit forms?](#q71) <span class="intermediate">Intermediate</span>
+72. [How do you use environment variables?](#q72) <span class="intermediate">Intermediate</span>
+73. [What is adapter in SvelteKit?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you handle errors in SvelteKit?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is `hooks.server.js`?](#q75) <span class="advanced">Advanced</span>
+76. [How do you prefetch data?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is the difference between `onMount` and `load`?](#q77) <span class="intermediate">Intermediate</span>
+78. [How do you use global styles?](#q78) <span class="beginner">Beginner</span>
+79. [What is accessibility warning in Svelte?](#q79) <span class="beginner">Beginner</span>
+80. [How do you optimize loops?](#q80) <span class="intermediate">Intermediate</span>
+81. [What is the purpose of `tick` in tests?](#q81) <span class="advanced">Advanced</span>
+82. [How do you test Svelte components?](#q82) <span class="intermediate">Intermediate</span>
+83. [What is `vite` in Svelte context?](#q83) <span class="beginner">Beginner</span>
+84. [How do you deploy a Svelte app?](#q84) <span class="beginner">Beginner</span>
+85. [What is `svelte-check`?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you use TypeScript with Svelte?](#q86) <span class="beginner">Beginner</span>
+87. [What is `$$slots`?](#q87) <span class="advanced">Advanced</span>
+88. [How do you debounce an input?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is `await` block `catch`?](#q89) <span class="beginner">Beginner</span>
+90. [How do you use `placeholder` attribute on inputs?](#q90) <span class="beginner">Beginner</span>
+91. [Can you have multiple script tags?](#q91) <span class="advanced">Advanced</span>
+92. [What is `immutable` option?](#q92) <span class="advanced">Advanced</span>
+93. [How do you access `window` safely in SSR?](#q93) <span class="intermediate">Intermediate</span>
+94. [What is `svelte/motion`?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is `svelte/easing`?](#q95) <span class="beginner">Beginner</span>
+96. [How do you pass data to layout?](#q96) <span class="intermediate">Intermediate</span>
+97. [What is `page` store in SvelteKit?](#q97) <span class="intermediate">Intermediate</span>
+98. [How do you use `navigating` store?](#q98) <span class="intermediate">Intermediate</span>
+99. [What is `updated` store?](#q99) <span class="advanced">Advanced</span>
+100. [How do you handle 404s?](#q100) <span class="beginner">Beginner</span>
+101. [What is `data-sveltekit-reload`?](#q101) <span class="intermediate">Intermediate</span>
+102. [How do you reset a store?](#q102) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -128,8 +128,6 @@ Svelte has `onMount`, `onDestroy`, `beforeUpdate`, and `afterUpdate`.
 onMount(() => { console.log('Mounted'); });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -144,8 +142,6 @@ Understanding reactive declarations is fundamental to Svelte because they define
 ```javascript
 $: doubled = count * 2;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -162,8 +158,6 @@ Use Svelte `stores` (writable, readable, derived).
 export const count = writable(0);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
@@ -178,8 +172,6 @@ Custom events are the primary mechanism for child-to-parent communication in Sve
 ```javascript
 const dispatch = createEventDispatcher(); dispatch('msg', 'hello');
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -196,8 +188,6 @@ Slots are Svelte's composition mechanism, allowing parent components to inject c
 <div><slot>Default</slot></div>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -212,8 +202,6 @@ Keyed each blocks are important for performance when rendering dynamic lists bec
 ```javascript
 {#each items as item (item.id)}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -230,8 +218,6 @@ Two-way binding on form inputs is one of Svelte's most convenient features, dras
 <input bind:value={name}>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -246,8 +232,6 @@ Actions are functions called when an element is created.
 ```javascript
 function tooltip(node, params) { ... } <div use:tooltip>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -264,8 +248,6 @@ Transitions are a key differentiator for Svelte because they are built into the 
 <div transition:fade>...</div>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -280,8 +262,6 @@ Returns a promise that resolves after pending state changes are applied to DOM.
 ```javascript
 await tick();
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -298,8 +278,6 @@ Svelte is a compiler that converts components to imperative code at build time. 
 // Svelte: No virtual DOM overhead
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -314,8 +292,6 @@ The `<svelte:head>` element is essential for SEO and meta-tag management because
 ```javascript
 <svelte:head><title>My Page</title></svelte:head>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -332,8 +308,6 @@ Stores whose values are based on one or more other stores.
 const doubled = derived(count, $count => $count * 2);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
@@ -348,8 +322,6 @@ Use `setContext` and `getContext`. Must be called during component initializatio
 ```javascript
 setContext('key', value); const value = getContext('key');
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -366,8 +338,6 @@ To render a component dynamically based on a variable.
 <svelte:component this={selectedComponent} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
@@ -382,8 +352,6 @@ Looping with an index is a basic but frequently needed skill when rendering list
 ```javascript
 {#each items as item, index}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -400,8 +368,6 @@ To get a reference to a DOM element or component instance.
 <div bind:this={element}>...</div>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -416,8 +382,6 @@ Use event modifiers like `on:click|stopPropagation`.
 ```javascript
 <button on:click|stopPropagation={handler}>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -434,8 +398,6 @@ The official application framework for Svelte, handling routing, SSR, SSG, etc.
 // Similar to Next.js for React
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
@@ -450,8 +412,6 @@ The `await` block is a powerful Svelte feature that lets you handle promises dec
 ```javascript
 {#await promise}Loading...{:then value}{value}{:catch error}{error}{/await}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -468,8 +428,6 @@ Custom stores demonstrate advanced Svelte patterns by wrapping writable store in
 function createCount() { const { subscribe } = writable(0); return { subscribe }; }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
@@ -484,8 +442,6 @@ Styles in `<style>` blocks are scoped to the component by default.
 ```javascript
 <style> p { color: red; } </style>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -502,8 +458,6 @@ The `{@html}` tag is essential when you need to render raw HTML strings in your 
 {@html post.content}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -518,8 +472,6 @@ Modifiers change event behavior. `once` removes the handler after first trigger.
 ```javascript
 <button on:click|once={handler}>Click me once</button>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -536,8 +488,6 @@ Event forwarding is crucial for building wrapper components that transparently p
 <button on:click>Forwarded</button>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -552,8 +502,6 @@ The `class:` directive is Svelte's concise way to conditionally apply CSS classe
 ```javascript
 <div class:active={isActive}>...</div>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -570,8 +518,6 @@ The `<svelte:window>` element is important for declaratively binding to window e
 <svelte:window on:keydown={handleKeydown} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
@@ -587,8 +533,6 @@ The `<svelte:body>` element lets you attach event listeners to the document body
 <svelte:body on:mouseenter={handleEnter} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -603,8 +547,6 @@ The `<svelte:body>` element lets you attach event listeners to the document body
 ```javascript
 <svelte:head><title>Page</title></svelte:head>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -623,8 +565,6 @@ Scripts that run once per module, not per instance.
 </script>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
@@ -639,8 +579,6 @@ Fallback content in slots provides sensible defaults for reusable components whe
 ```javascript
 <slot>Default Content</slot>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -657,8 +595,6 @@ An object containing all props passed to the component. Not recommended for gene
 console.log($$props);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -673,8 +609,6 @@ console.log($$props);
 ```javascript
 <div {...$$restProps}></div>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -691,8 +625,6 @@ Debugging reactivity is a common challenge in Svelte interviews because reactive
 {@debug count}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -707,8 +639,6 @@ The `{#key}` block forces Svelte to destroy and recreate its contents whenever t
 ```javascript
 {#key id}<Component />{/key}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -725,8 +655,6 @@ Props are the foundational mechanism for passing data into child components, and
 export let name = 'World';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
@@ -741,8 +669,6 @@ export let name = 'World';
 ```javascript
 const dispatch = createEventDispatcher();
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -759,8 +685,6 @@ Actions are a powerful but underutilized Svelte feature that lets you directly i
 <div use:action={params} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
@@ -775,8 +699,6 @@ Understanding action return values is essential for writing production-quality a
 ```javascript
 return { destroy() { ... } }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -793,8 +715,6 @@ The `bind:this` directive gives you a direct reference to a DOM element or compo
 <div bind:this={element}></div>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
@@ -809,8 +729,6 @@ Binding component props with `bind:` on a child component enables two-way data f
 ```javascript
 <Child bind:value={parentValue} />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -827,8 +745,6 @@ The store contract is the foundation of Svelte's reactivity system for cross-com
 const store = { subscribe: (cb) => { ... } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
@@ -843,8 +759,6 @@ Auto-subscription with the `$` prefix is Svelte's most ergonomic store feature, 
 ```javascript
 <h1>{$count}</h1>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -861,8 +775,6 @@ Gets the current value of a store synchronously (not reactive).
 const value = get(store);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
@@ -877,8 +789,6 @@ Making stores read-only is important for enforcing unidirectional data flow and 
 ```javascript
 const read = readonly(write);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -895,8 +805,6 @@ Derived stores are the Svelte equivalent of computed properties at the applicati
 const double = derived(count, $c => $c * 2);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
@@ -911,8 +819,6 @@ The `style:` directive provides a clean way to set inline styles reactively, avo
 ```javascript
 <div style:color={color}>text</div>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -929,8 +835,6 @@ Compiler options for the component (immutable, accessors).
 <svelte:options immutable={true} />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
@@ -945,8 +849,6 @@ Use `browser` from `$app/environment` (SvelteKit) or check `typeof window`.
 ```javascript
 if (browser) { ... }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -963,8 +865,6 @@ Hydration is a critical concept in SSR applications because it bridges server-re
 // Svelte handles this automatically
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
@@ -979,8 +879,6 @@ Custom transitions let you create bespoke animation effects beyond the built-in 
 ```javascript
 function fade(node, { duration }) { ... }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -997,8 +895,6 @@ Creates a pair of transitions for moving elements.
 const [send, receive] = crossfade(...) 
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -1013,8 +909,6 @@ The `animate:flip` directive creates smooth position-change animations when list
 ```javascript
 <li animate:flip>{item}</li>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1031,8 +925,6 @@ A container for slots that doesn't render a DOM element.
 <svelte:fragment slot="header">...</svelte:fragment>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
@@ -1047,8 +939,6 @@ Use dynamic imports in `await` block or SvelteKit's features.
 ```javascript
 {#await import('./Comp.svelte') then {default: Comp}} <Comp /> {/await}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1065,8 +955,6 @@ Understanding these two binding mechanisms is important for building forms corre
 <input type=radio bind:group={flavour} value=scoop>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -1081,8 +969,6 @@ Managing multiple conditional classes is a day-to-day task in component developm
 ```javascript
 class="btn {active ? 'active' : ''}"
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1099,8 +985,6 @@ The `svelte-ignore` comment directive lets you suppress specific compiler warnin
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
@@ -1115,8 +999,6 @@ Accessing a component instance via `bind:this` is necessary when you need to cal
 ```javascript
 <Component bind:this={instance} />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1133,8 +1015,6 @@ Accessing a component instance via `bind:this` is necessary when you need to cal
 beforeUpdate(() => { ... })
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
@@ -1149,8 +1029,6 @@ beforeUpdate(() => { ... })
 ```javascript
 afterUpdate(() => { ... })
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1167,8 +1045,6 @@ Return an object with subscribe and other methods.
 function createCount() { ... }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
@@ -1183,8 +1059,6 @@ function createCount() { ... }
 ```javascript
 const coords = spring({ x: 0, y: 0 });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1201,8 +1075,6 @@ const coords = spring({ x: 0, y: 0 });
 const progress = tweened(0);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
@@ -1217,8 +1089,6 @@ const progress = tweened(0);
 ```javascript
 <svelte:self {children} />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1235,8 +1105,6 @@ The `src/routes` folder is the backbone of SvelteKit's file-based routing system
 // +page.svelte
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
@@ -1251,8 +1119,6 @@ The `src/routes` folder is the backbone of SvelteKit's file-based routing system
 ```javascript
 <h1>Hello</h1>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1269,8 +1135,6 @@ The `src/routes` folder is the backbone of SvelteKit's file-based routing system
 export function load() { ... }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
@@ -1285,8 +1149,6 @@ Layout components wrap all pages within their route subtree, making them essenti
 ```javascript
 <slot />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1303,8 +1165,6 @@ Form actions are SvelteKit's built-in solution for handling form submissions on 
 export const actions = { default: async ({ request }) => { ... } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
@@ -1319,8 +1179,6 @@ The `use:enhance` directive progressively enhances standard HTML forms to use Sv
 ```javascript
 <form use:enhance>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1337,8 +1195,6 @@ Environment variables in SvelteKit are split into public (`$env/static/public`) 
 import { API_KEY } from '$env/static/private';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
@@ -1353,8 +1209,6 @@ Plugins to deploy apps to different platforms (Node, Vercel, Static).
 ```javascript
 import adapter from '@sveltejs/adapter-auto';
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1371,8 +1225,6 @@ Error handling in SvelteKit uses a layered approach with `+error.svelte` pages a
 throw error(404, 'Not found');
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
@@ -1387,8 +1239,6 @@ throw error(404, 'Not found');
 ```javascript
 export async function handle({ event, resolve }) { ... }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1405,8 +1255,6 @@ Prefetching dramatically improves perceived performance by loading route data an
 <a href="/blog" data-sveltekit-preload-data>Blog</a>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
@@ -1421,8 +1269,6 @@ Prefetching dramatically improves perceived performance by loading route data an
 ```javascript
 // load runs before render
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1439,8 +1285,6 @@ Understanding global versus scoped styles is essential because Svelte scopes all
 :global(body) { margin: 0; }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1455,8 +1299,6 @@ Svelte's built-in accessibility warnings are a standout feature that catches com
 ```javascript
 // e.g., <img> missing alt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1473,8 +1315,6 @@ Optimizing loops is crucial for rendering large lists efficiently in Svelte, and
 {#each items as item (item.id)}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
@@ -1489,8 +1329,6 @@ Optimizing loops is crucial for rendering large lists efficiently in Svelte, and
 ```javascript
 await tick(); expect(...)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1507,8 +1345,6 @@ Testing components effectively is crucial for maintaining confidence in your UI 
 render(Component);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
@@ -1523,8 +1359,6 @@ Vite is the build tool that powers SvelteKit, replacing older bundlers like Roll
 ```javascript
 // Fast HMR
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1541,8 +1375,6 @@ Deployment is the final step in delivering a Svelte application, and the approac
 npm run build
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
@@ -1557,8 +1389,6 @@ npm run build
 ```javascript
 svelte-check --watch
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1575,8 +1405,6 @@ TypeScript integration is a key skill since modern Svelte projects default to Ty
 <script lang="ts">
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
@@ -1591,8 +1419,6 @@ TypeScript integration is a key skill since modern Svelte projects default to Ty
 ```javascript
 if ($$slots.header) { ... }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1609,8 +1435,6 @@ Debouncing is essential for performance when handling rapid-fire input events li
 let timer; const handle = () => { clearTimeout(timer); timer = setTimeout(...) }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
@@ -1625,8 +1449,6 @@ The `{:catch}` branch of the `await` block handles promise rejections declarativ
 ```javascript
 {:catch error} {error.message}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1643,8 +1465,6 @@ The placeholder attribute is a basic but important UX feature for form inputs, p
 <input placeholder="Type here" />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
@@ -1659,8 +1479,6 @@ Svelte supports exactly two script tags per component: one with `context="module
 ```javascript
 <script context="module">...</script><script>...</script>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1677,8 +1495,6 @@ The `immutable` compiler option is a performance optimization that tells Svelte 
 <svelte:options immutable />
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
@@ -1693,8 +1509,6 @@ Accessing `window` safely is critical in SvelteKit applications because server-s
 ```javascript
 onMount(() => window.scrollTo(0,0))
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1711,8 +1525,6 @@ The `svelte/motion` module provides `spring` and `tweened` stores that animate n
 import { spring } from 'svelte/motion';
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
@@ -1727,8 +1539,6 @@ The `svelte/easing` module provides a comprehensive library of easing functions 
 ```javascript
 import { bounceOut } from 'svelte/easing';
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1745,8 +1555,6 @@ Return data from `load` function in layout.server.js.
 return { user: ... }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
@@ -1761,8 +1569,6 @@ The `page` store is a central SvelteKit store that provides reactive access to t
 ```javascript
 import { page } from '$app/stores';
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1779,8 +1585,6 @@ The `navigating` store provides a reactive way to detect when client-side naviga
 if ($navigating) Loading...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
@@ -1795,8 +1599,6 @@ The `updated` store is a SvelteKit feature for handling service worker updates, 
 ```javascript
 if ($updated) location.reload()
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1813,8 +1615,6 @@ Handling 404s properly is important for user experience and SEO, and SvelteKit p
 <h1>Error {$page.status}</h1>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q101"></a>
@@ -1829,8 +1629,6 @@ The `data-sveltekit-reload` attribute forces a full page reload instead of Svelt
 ```javascript
 <a href="/" data-sveltekit-reload>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1847,4 +1645,4 @@ Resetting a store to its initial state is a common requirement in form workflows
 store.set(initial);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---

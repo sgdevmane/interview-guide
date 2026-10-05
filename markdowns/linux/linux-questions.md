@@ -115,7 +115,8 @@
 
 <a id="q1"></a>
 ### Q1: How do you check disk space usage?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 Disk space management is crucial for server health.
@@ -134,15 +135,12 @@ du -sh .
 du -h --max-depth=1 | sort -hr | head -n 5
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q2"></a>
 ### Q2: How do you manage file permissions (chmod)?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 Linux permissions control who can Read (r=4), Write (w=2), and Execute (x=1) a file.
@@ -162,15 +160,12 @@ chmod +x script.sh
 chmod go-w file.txt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q3"></a>
 ### Q3: How do you find a file by name or content?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 *   **`find`:** Search for files in a directory hierarchy based on name, size, time, etc.
@@ -192,15 +187,12 @@ find . -mtime -1
 grep -r "error" .
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q4"></a>
 ### Q4: What is Grep and how do you use it?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 `grep` (Global Regular Expression Print) is a powerful command-line tool used for searching plain-text data sets for lines that match a regular expression. It is essential for log analysis.
@@ -220,15 +212,12 @@ grep -r "config" /etc/nginx/
 grep -v "200 OK" access.log
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q5"></a>
 ### Q5: How do you check and kill running processes?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 *   **`ps`:** Snapshot of current processes.
@@ -254,15 +243,12 @@ kill -9 1234
 pkill node
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q6"></a>
 ### Q6: What is the difference between Soft Link and Hard Link?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 *   **Soft Link (Symbolic Link):** A shortcut. It points to the *path* of the original file. If the original is deleted, the link breaks (dangling). Can link across filesystems.
@@ -277,15 +263,12 @@ ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 ln file.txt file_backup.txt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q7"></a>
 ### Q7: How do you check listening ports?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 Identifying which application is using a port is common for debugging connectivity issues.
@@ -305,15 +288,12 @@ sudo ss -tulpn
 sudo lsof -i :80
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q8"></a>
 ### Q8: What is the difference between Cron and Crontab?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 *   **Cron:** The system daemon (service) that runs in the background and executes scheduled tasks.
@@ -332,15 +312,12 @@ crontab -l
 30 03 * * * /home/user/backup.sh
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q9"></a>
 ### Q9: Process vs Thread in Linux?
-**Difficulty**: <span class="advanced">Advanced</span>  
+
+**Difficulty**: Advanced
 
 **Strategy**:
 *   **Process:** An instance of a running program. Has its own isolated memory space, PID, and file descriptors. Heavyweight context switch.
@@ -356,15 +333,12 @@ ps -T -p <PID>
 ls /proc/<PID>/task | wc -l
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q10"></a>
 ### Q10: How do you check memory usage?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 *   **`free`:** Displays total, used, and free memory/swap.
@@ -380,15 +354,12 @@ free -h
 vmstat 2
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q11"></a>
 ### Q11: What is SSH and how does it work?
-**Difficulty**: <span class="advanced">Advanced</span>  
+
+**Difficulty**: Advanced
 
 **Strategy**:
 **SSH (Secure Shell)** is a protocol for securely accessing network services over an unsecured network. It replaces insecure Telnet/FTP.
@@ -408,15 +379,12 @@ ssh-keygen -t rsa -b 4096
 ssh-copy-id user@192.168.1.10
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q12"></a>
 ### Q12: Explain Standard Streams (Stdin, Stdout, Stderr)?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 In Linux, Everything is a file. Processes have 3 default file descriptors:
@@ -443,15 +411,12 @@ command > output.log 2>&1
 command > /dev/null 2>&1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q13"></a>
 ### Q13: How do you monitor log files in real-time?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 *   **`tail -f`:** Follows the file as it grows.
@@ -467,15 +432,12 @@ tail -f /var/log/syslog
 tail -f app.log | grep "error"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q14"></a>
 ### Q14: What is a Daemon?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 A **Daemon** is a background process that runs without direct user interaction. They usually handle system services (web server, database, printing).
@@ -491,15 +453,12 @@ systemctl status sshd
 sudo systemctl restart nginx
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q15"></a>
 ### Q15: How do you change file ownership (chown)?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 `chown` changes the user and/or group ownership of a file.
@@ -515,15 +474,12 @@ sudo chown ubuntu file.txt
 sudo chown -R www-data:www-data /var/www/html
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q16"></a>
 ### Q16: What is the /proc filesystem?
-**Difficulty**: <span class="advanced">Advanced</span>  
+
+**Difficulty**: Advanced
 
 **Strategy**:
 `/proc` is a **pseudo-filesystem**. It doesn't exist on disk; it's created in memory by the kernel at boot.
@@ -540,15 +496,12 @@ cat /proc/cpuinfo
 echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q17"></a>
 ### Q17: How do you archive and compress files (tar)?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 `tar` (Tape Archive) is the standard tool. It bundles files. Compression (gzip) is usually added.
@@ -570,15 +523,12 @@ tar -xzvf archive.tar.gz
 tar -tf archive.tar.gz
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q18"></a>
 ### Q18: What is systemd?
-**Difficulty**: <span class="advanced">Advanced</span>  
+
+**Difficulty**: Advanced
 
 **Strategy**:
 **Systemd** is the modern init system (PID 1) for most Linux distributions (Ubuntu, CentOS, RHEL).
@@ -595,15 +545,12 @@ systemctl list-units --type=service
 journalctl -p 3 -xb
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q19"></a>
 ### Q19: How do you check the Linux Kernel version?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 Knowing the kernel version is important for compatibility and security patching.
@@ -620,15 +567,12 @@ uname -a
 cat /proc/version
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q20"></a>
 ### Q20: What is the difference between TCP and UDP?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 *   **TCP (Transmission Control Protocol):** Connection-oriented, Reliable, Ordered, Error-checking. Heavyweight. Used for Web (HTTP), Email (SMTP), SSH.
@@ -643,15 +587,12 @@ ss -t
 ss -u
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q21"></a>
 ### Q21: How do you set environment variables?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 Variables that affect the behavior of processes on the system (e.g., `PATH`, `EDITOR`).
@@ -671,15 +612,12 @@ echo 'export APP_ENV=production' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q22"></a>
 ### Q22: What is the `top` vs `htop` command?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 Both monitor system resources (CPU/RAM) and processes.
@@ -693,15 +631,12 @@ sudo apt install htop
 htop
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q23"></a>
 ### Q23: How do you use `sed` for text replacement?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
+
+**Difficulty**: Intermediate
 
 **Strategy**:
 `sed` (Stream Editor) allows filtering and transforming text. Most common use: Find and Replace.
@@ -719,15 +654,12 @@ echo "foo bar foo" | sed 's/foo/bar/g'
 sed -i 's/localhost/127.0.0.1/g' config.conf
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q24"></a>
 ### Q24: What is `awk` used for?
-**Difficulty**: <span class="advanced">Advanced</span>  
+
+**Difficulty**: Advanced
 
 **Strategy**:
 `awk` is a complete programming language designed for text processing and data extraction. It processes data row by row and splits it into columns (fields).
@@ -746,15 +678,12 @@ awk '$2 > 50 {print $0}' data.txt
 awk '{sum += $1} END {print sum}' numbers.txt
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q25"></a>
 ### Q25: How do you check network connectivity (ping/curl)?
-**Difficulty**: <span class="beginner">Beginner</span>  
+
+**Difficulty**: Beginner
 
 **Strategy**:
 *   **`ping`:** Check reachability (ICMP).
@@ -773,846 +702,715 @@ curl -I https://google.com
 curl -O https://example.com/file.zip
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
 ### Q26: How do you combine files (concatenate)?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use the `cat` command. It reads data from files and outputs them to stdout.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 cat file1.txt file2.txt > combined.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q27"></a>
 ### Q27: What is `xargs`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 It builds and executes commands from standard input. Useful when you want to pass the output of one command as arguments to another command that doesn't support piping directly.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ls *.log | xargs rm
 # Deletes all files listed by ls
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q28"></a>
 ### Q28: How do you monitor disk I/O usage?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `iotop` or `iostat`. `iotop` shows I/O usage by process, similar to `top`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo iotop
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q29"></a>
 ### Q29: What is the `PATH` environment variable?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 A colon-separated list of directories where the shell looks for executable commands. If a command is not in PATH, you must provide the full path to run it.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 echo $PATH
 export PATH=$PATH:/opt/new/bin
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q30"></a>
 ### Q30: How do you check the size of a directory?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `du -sh`. `-s` for summary (total), `-h` for human-readable.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 du -sh /var/log
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q31"></a>
 ### Q31: What is `cut` command used for?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 It removes sections from each line of files. Useful for extracting columns from CSV or delimited data.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 # Extract 1st column (delimiter :)
 cut -d: -f1 /etc/passwd
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q32"></a>
 ### Q32: How do you create a symbolic link?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `ln -s target link_name`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled/
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q33"></a>
 ### Q33: What is `netstat`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 A network utility that displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. Deprecated in favor of `ss`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 netstat -tuln
 # TCP, UDP, Listening, Numeric
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q34"></a>
 ### Q34: How do you watch a command output periodically?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use the `watch` command. It runs a command repeatedly and displays the output.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 watch -n 1 "cat /proc/meminfo"
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q35"></a>
 ### Q35: How do you terminate a shell session?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `exit` or press `Ctrl + D`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 exit
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q36"></a>
 ### Q36: What is the difference between `who` and `whoami`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 *   `who`: Shows who is logged on (all users).
 *   `whoami`: Shows the current effective username.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 who
 whoami
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q37"></a>
 ### Q37: How do you zip and unzip files using `zip`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `zip` to compress and `unzip` to extract.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 zip -r archive.zip folder/
 unzip archive.zip
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q38"></a>
 ### Q38: How do you debug a shell script?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Run the script with `bash -x`. It prints each command before executing it.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 bash -x script.sh
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q39"></a>
 ### Q39: What is `chroot`?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy:**
+**Difficulty**: Advanced
+
+**Strategy**:
+**
 Changes the root directory for the current running process and its children. Used for isolation (jails) and recovery.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 chroot /mnt/rescue /bin/bash
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q40"></a>
 ### Q40: How do you find the location of a command?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `which` or `whereis`. `which` searches PATH. `whereis` searches binary, source, and manual page files.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 which python
 whereis python
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q41"></a>
 ### Q41: What is `tee` command?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Reads from standard input and writes to standard output AND files. Useful for viewing output while logging it.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ls -l | tee file_list.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q42"></a>
 ### Q42: How do you check OS release info?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Check `/etc/os-release` or use `lsb_release -a`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 cat /etc/os-release
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q43"></a>
 ### Q43: What is `tcpdump`?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy:**
+**Difficulty**: Advanced
+
+**Strategy**:
+**
 A command-line packet analyzer. Used for capturing and analyzing network traffic.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 tcpdump -i eth0 port 80
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q44"></a>
 ### Q44: How do you get the last lines of a file?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `tail`. `tail -n 10` gets last 10 lines. `tail -f` follows the file (real-time).
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 tail -n 20 log.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q45"></a>
 ### Q45: How do you get the first lines of a file?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `head`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 head -n 10 log.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q46"></a>
 ### Q46: What is `alias`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 A command that allows you to define shortcuts for longer commands. Persistent aliases go in `~/.bashrc` or `~/.zshrc`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 alias ll='ls -la'
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q47"></a>
 ### Q47: How do you perform math in bash?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `expr`, `bc`, or double parentheses `(( ))`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 echo $(( 10 + 5 ))
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q48"></a>
 ### Q48: How do you check user groups?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `groups [user]` or `id`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 groups ubuntu
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q49"></a>
 ### Q49: What is `/etc/passwd`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Stores user account information (username, UID, GID, home dir, shell). Passwords are usually stored encrypted in `/etc/shadow`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 cat /etc/passwd
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q50"></a>
 ### Q50: How do you download a file from the web?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `wget` or `curl -O`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 wget http://example.com/file.zip
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q51"></a>
 ### Q51: What is `ssh-copy-id`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 A script that installs your public key in a remote machine's `authorized_keys`. It allows passwordless login.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ssh-copy-id user@remote
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q52"></a>
 ### Q52: What is the difference between `/bin` and `/usr/bin`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 *   `/bin`: Essential user binaries (available in single-user mode).
 *   `/usr/bin`: Non-essential user binaries (for normal system operation).
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ls /bin
 ls /usr/bin
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q53"></a>
 ### Q53: How do you rename a file?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use the `mv` (move) command.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 mv old.txt new.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q54"></a>
 ### Q54: What is `/var/log`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 The directory where log files are stored. Important files: `syslog`, `auth.log`, `kern.log`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ls /var/log
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q55"></a>
 ### Q55: How do you check CPU info?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `lscpu` or `cat /proc/cpuinfo`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 lscpu
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q56"></a>
 ### Q56: How do you create a new user?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `useradd` (low level) or `adduser` (interactive, preferred on Debian/Ubuntu).
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo adduser newuser
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q57"></a>
 ### Q57: What is `env` command?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 It displays the current environment variables or runs a command in a modified environment.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 env
 env VAR=value ./script.sh
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q58"></a>
 ### Q58: How do you delete a user?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `userdel`. Add `-r` to remove the home directory.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo userdel -r olduser
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q59"></a>
 ### Q59: What is the `root` user?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 The superuser account with UID 0. It has unrestricted access to all commands and files.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 whoami
 # root
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q60"></a>
 ### Q60: How do you check the kernel ring buffer (boot messages)?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `dmesg`. It prints the message buffer of the kernel. Useful for debugging hardware or driver issues.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 dmesg | grep usb
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q61"></a>
 ### Q61: What is `mount`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Attaches a filesystem found on some device to the big file tree. `umount` detaches it.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 mount /dev/sdb1 /mnt/usb
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q62"></a>
 ### Q62: What is `/etc/fstab`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 File System Table. Configuration file that contains information about static filesystems. It defines how disks/partitions are mounted at boot.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 cat /etc/fstab
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q63"></a>
 ### Q63: How do you reload systemd configuration?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `systemctl daemon-reload`. Required after changing a unit file.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo systemctl daemon-reload
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q64"></a>
 ### Q64: How do you enable a service to start at boot?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `systemctl enable <service>`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo systemctl enable nginx
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q65"></a>
 ### Q65: What is `journalctl`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 A command to query and display logs from `systemd-journald`. It centralizes logs from all services managed by systemd.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 journalctl -u nginx -f
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q66"></a>
 ### Q66: How do you create a hard link?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `ln target link_name` (without `-s`). Hard links point to the same inode.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ln file.txt hardlink.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q67"></a>
 ### Q67: What is `/tmp`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 A directory for temporary files. Files are often deleted upon reboot or by periodic jobs.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 cd /tmp
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q68"></a>
 ### Q68: How do you change your password?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use the `passwd` command.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 passwd
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q69"></a>
 ### Q69: What is `systemd` and how do you create and manage a custom Linux service unit file?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Category**: Service Management & Init Systems  
+**Difficulty**: Advanced
 
-**Strategy**: Explain systemd init system, unit file syntax in /etc/systemd/system/, and systemctl daemon management.
+**Strategy**:
+Explain systemd init system, unit file syntax in /etc/systemd/system/, and systemctl daemon management.
 
 `systemd` is the standard Linux init system and service manager. Services are defined in `.service` unit files specifying startup commands, restart policies, user permissions, and dependency ordering.
 
@@ -1637,548 +1435,482 @@ WantedBy=multi-user.target
 
 ---
 
----
-
 <a id="q70"></a>
 ### Q70: How do you view hidden files?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `ls -a`. Hidden files start with a dot (`.`).
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 ls -a
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q71"></a>
 ### Q71: What is `file` command?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Determines file type.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 file image.jpg
 # image.jpg: JPEG image data...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q72"></a>
 ### Q72: How do you shutdown the system?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 Use `shutdown now` or `poweroff`.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 sudo shutdown now
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q73"></a>
 ### Q73: What is `nc` (Netcat)?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy:**
+**Difficulty**: Advanced
+
+**Strategy**:
+**
 A networking utility for reading from and writing to network connections using TCP or UDP. "Swiss army knife" of networking.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 nc -zv localhost 80
 # Check if port 80 is open
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q74"></a>
 ### Q74: How do you trace the path to a network host?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy:**
+**Difficulty**: Intermediate
+
+**Strategy**:
+**
 Use `traceroute` (or `tracepath`). It shows the hops (routers) a packet takes.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 traceroute google.com
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q75"></a>
 ### Q75: What is the difference between `apt` and `apt-get`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy:**
+**Difficulty**: Beginner
+
+**Strategy**:
+**
 `apt` is a newer, more user-friendly command line interface for package management. `apt-get` is lower-level and more stable for scripts.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 apt install git
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q76"></a>
 ### Q76: How do you create a systemd service?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: Create a `.service` file in `/etc/systemd/system/`. Define `[Unit]`, `[Service]`, and `[Install]` sections. Then `systemctl enable` and `start` it.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+Create a `.service` file in `/etc/systemd/system/`. Define `[Unit]`, `[Service]`, and `[Install]` sections. Then `systemctl enable` and `start` it.
+
+**Code Example**:
 ```bash
 [Service]
 ExecStart=/usr/bin/python3 /opt/script.py
 Restart=always
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q77"></a>
 ### Q77: How do you filter journal logs by service?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `journalctl -u <service_name>`. You can add `-f` to follow live logs.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `journalctl -u <service_name>`. You can add `-f` to follow live logs.
+
+**Code Example**:
 ```bash
 journalctl -u nginx -f
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q78"></a>
 ### Q78: What is `strace` used for?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: It traces system calls and signals. Useful for debugging why a program is failing (e.g., file not found, permission denied) by seeing exactly what kernel requests it makes.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+It traces system calls and signals. Useful for debugging why a program is failing (e.g., file not found, permission denied) by seeing exactly what kernel requests it makes.
+
+**Code Example**:
 ```bash
 strace -p <PID>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q79"></a>
 ### Q79: How do you find which process is using a port?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `lsof -i :<port>` or `netstat -tulnp | grep <port>`.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `lsof -i :<port>` or `netstat -tulnp | grep <port>`.
+
+**Code Example**:
 ```bash
 lsof -i :8080
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q80"></a>
 ### Q80: How do you capture network traffic with `tcpdump`?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: `tcpdump` captures packets. Use `-i` for interface, `-w` to write to file.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+`tcpdump` captures packets. Use `-i` for interface, `-w` to write to file.
+
+**Code Example**:
 ```bash
 tcpdump -i eth0 port 80
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q81"></a>
 ### Q81: Difference between `netstat` and `ss`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: `ss` (Socket Statistics) is the modern replacement for `netstat`. It is faster and shows more information.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+`ss` (Socket Statistics) is the modern replacement for `netstat`. It is faster and shows more information.
+
+**Code Example**:
 ```bash
 ss -tuln
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q82"></a>
 ### Q82: How do you schedule a task with Systemd Timers?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: Create a matching `.timer` file for your `.service`. Timers are more flexible than cron (can depend on boot time, handle missed runs).
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+Create a matching `.timer` file for your `.service`. Timers are more flexible than cron (can depend on boot time, handle missed runs).
+
+**Code Example**:
 ```bash
 [Timer]
 OnCalendar=*-*-* 00:00:00
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ---
 
 <a id="q83"></a>
 ### Q83: How do you print the 2nd column of a file with awk?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `awk '{print $2}'`.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `awk '{print $2}'`.
+
+**Code Example**:
 ```bash
 ls -l | awk '{print $2}'
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q84"></a>
 ### Q84: How do you replace text in a file with sed?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `sed -i 's/old/new/g' filename`.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `sed -i 's/old/new/g' filename`.
+
+**Code Example**:
 ```bash
 sed -i 's/foo/bar/g' config.txt
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q85"></a>
 ### Q85: How do you delete files found by `find`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use the `-exec` option or delete flag.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use the `-exec` option or delete flag.
+
+**Code Example**:
 ```bash
 find . -name "*.tmp" -delete
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q86"></a>
 ### Q86: What does `xargs` do?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: It builds and executes command lines from standard input. Useful when the list of arguments is too long for a single command.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+It builds and executes command lines from standard input. Useful when the list of arguments is too long for a single command.
+
+**Code Example**:
 ```bash
 find . -name "*.log" | xargs rm
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q87"></a>
 ### Q87: How do you change process priority?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `nice` when starting a process or `renice` for a running process. Values range from -20 (highest priority) to 19 (lowest).
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `nice` when starting a process or `renice` for a running process. Values range from -20 (highest priority) to 19 (lowest).
+
+**Code Example**:
 ```bash
 renice -n 10 -p 1234
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q88"></a>
 ### Q88: How do you keep a process running after logout?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy**: Use `nohup`, `disown`, or a terminal multiplexer like `screen` or `tmux`.
+**Difficulty**: Beginner
 
-**Code Example**: 
+**Strategy**:
+Use `nohup`, `disown`, or a terminal multiplexer like `screen` or `tmux`.
+
+**Code Example**:
 ```bash
 nohup python script.py &
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q89"></a>
 ### Q89: How do you create an SSH tunnel (Local Forwarding)?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: Use `ssh -L local_port:destination_host:destination_port user@ssh_server`. This forwards traffic from a local port to a destination via the SSH server.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+Use `ssh -L local_port:destination_host:destination_port user@ssh_server`. This forwards traffic from a local port to a destination via the SSH server.
+
+**Code Example**:
 ```bash
 ssh -L 3000:localhost:5432 user@db-server
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q90"></a>
 ### Q90: Difference between `scp` and `rsync`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: **scp**: Simple copy. 
+**Difficulty**: Intermediate
+
+**Strategy**:
+**scp**: Simple copy. 
 **rsync**: Delta transfer algorithm (only sends changes), supports resume, preserves permissions better. Preferred for backups.
 
-**Code Example**: 
+**Code Example**:
 ```bash
 rsync -avz source/ user@host:/dest/
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q91"></a>
 ### Q91: How do you extract a `.tar.gz` file?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy**: Use `tar -xzvf`. x=extract, z=gzip, v=verbose, f=file.
+**Difficulty**: Beginner
 
-**Code Example**: 
+**Strategy**:
+Use `tar -xzvf`. x=extract, z=gzip, v=verbose, f=file.
+
+**Code Example**:
 ```bash
 tar -xzvf archive.tar.gz
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q92"></a>
 ### Q92: What is the Sticky Bit?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: When set on a directory (like `/tmp`), only the file owner (or root) can delete or rename files within it, even if others have write permission on the directory.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+When set on a directory (like `/tmp`), only the file owner (or root) can delete or rename files within it, even if others have write permission on the directory.
+
+**Code Example**:
 ```bash
 chmod +t /tmp
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q93"></a>
 ### Q93: How do you check open file limits?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: Use `ulimit -n` for the current shell, or check `/etc/security/limits.conf`.
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+Use `ulimit -n` for the current shell, or check `/etc/security/limits.conf`.
+
+**Code Example**:
 ```bash
 ulimit -n
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q94"></a>
 ### Q94: How do you check kernel ring buffer logs?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: Use `dmesg`. Useful for debugging hardware or driver issues at boot.
+**Difficulty**: Intermediate
 
-**Code Example**: 
+**Strategy**:
+Use `dmesg`. Useful for debugging hardware or driver issues at boot.
+
+**Code Example**:
 ```bash
 dmesg | grep usb
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q95"></a>
 ### Q95: How do you check memory usage details?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy**: Use `free -h` (human readable). `vmstat` provides virtual memory statistics.
+**Difficulty**: Beginner
 
-**Code Example**: 
+**Strategy**:
+Use `free -h` (human readable). `vmstat` provides virtual memory statistics.
+
+**Code Example**:
 ```bash
 free -h
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q96"></a>
 ### Q96: How do you check Disk I/O stats?
-**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Strategy**: Use `iostat` (part of sysstat package).
+**Difficulty**: Advanced
 
-**Code Example**: 
+**Strategy**:
+Use `iostat` (part of sysstat package).
+
+**Code Example**:
 ```bash
 iostat -x 1
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q97"></a>
 ### Q97: Difference between `top` and `htop`?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy**: **top**: Standard, installed everywhere. 
+**Difficulty**: Beginner
+
+**Strategy**:
+**top**: Standard, installed everywhere. 
 **htop**: Interactive, colorful, supports scrolling and mouse, visualizes CPU bars.
 
-**Code Example**: 
+**Code Example**:
 ```bash
 htop
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q98"></a>
 ### Q98: Difference between SIGTERM and SIGKILL?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: **SIGTERM (15)**: Polite request to stop. Process can catch it and cleanup. 
+**Difficulty**: Intermediate
+
+**Strategy**:
+**SIGTERM (15)**: Polite request to stop. Process can catch it and cleanup. 
 **SIGKILL (9)**: Immediate termination by kernel. Process cannot catch it. Potential data corruption.
 
-**Code Example**: 
+**Code Example**:
 ```bash
 kill -9 <PID>
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q99"></a>
 ### Q99: Difference between `curl` and `wget`?
-**Difficulty**: <span class="intermediate">Intermediate</span>  
 
-**Strategy**: **curl**: Powered by libcurl, supports many protocols, outputs to stdout by default. Great for APIs. 
+**Difficulty**: Intermediate
+
+**Strategy**:
+**curl**: Powered by libcurl, supports many protocols, outputs to stdout by default. Great for APIs. 
 **wget**: Great for downloading files recursively, robust against unstable networks.
 
-**Code Example**: 
+**Code Example**:
 ```bash
 curl -I https://google.com
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
 
 ---
 
 <a id="q100"></a>
 ### Q100: How do you make an environment variable persistent?
-**Difficulty**: <span class="beginner">Beginner</span>  
 
-**Strategy**: Add `export VAR=value` to `~/.bashrc` (for user) or `/etc/environment` (for system).
+**Difficulty**: Beginner
 
-**Code Example**: 
+**Strategy**:
+Add `export VAR=value` to `~/.bashrc` (for user) or `/etc/environment` (for system).
+
+**Code Example**:
 ```bash
 echo 'export PATH=$PATH:/opt/bin' >> ~/.bashrc
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---

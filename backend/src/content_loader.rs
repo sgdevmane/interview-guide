@@ -1,6 +1,6 @@
 use crate::models::{Category, Question, SearchResult};
 use regex::Regex;
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fs;
 use std::path::Path;
 use std::sync::Arc;
@@ -16,9 +16,11 @@ pub type SharedStore = Arc<RwLock<ContentStore>>;
 
 pub fn load_content_from_markdowns(base_path: &Path) -> ContentStore {
     let mut store = ContentStore::default();
-    let q_regex = Regex::new(r#"(?s)<a id="q(\d+)"></a>\s*\n### Q\d+:\s*(.*?)\n\*\*Difficulty\*\*:\s*<span class=".*?">(.*?)</span>\s*(.*?)(?:---|<a id="q\d+">|$)"#).unwrap();
-    let strat_regex = Regex::new(r#"\*\*Strategy\*\*:\s*(.*?)(?:\n\n|\n\*\*Code Example\*\*)"#).unwrap();
-    let code_regex = Regex::new(r#"(?s)\*\*Code Example\*\*:\s*```(?:\w+)?\n(.*?)```"#).unwrap();
+
+    let q_header_regex = Regex::new(r"(?m)^###\s+(?:Q\s*)?(\d+)[:.]\s*(.+)$").unwrap();
+    let diff_regex = Regex::new(r"(?i)\*\*Difficulty(?:\*\*)?[:\s]*(?:<span[^>]*>)?([A-Za-z]+)(?:</span>)?").unwrap();
+    let strat_regex = Regex::new(r"(?is)\*\*(?:Strategy|Answer)(?:\*\*)?[:\s]*(.*?)(?:\n\n\*\*|\n\*\*Code Example|\n\*\*Code|$)").unwrap();
+    let code_regex = Regex::new(r"(?s)```(?:\w+)?\n(.*?)```").unwrap();
 
     let category_dirs = vec![
         ("javascript", "JavaScript", "Core JS, ES6+, Closures, Event Loop, Memory, Promises", "html-css-js-icon.svg"),
@@ -80,23 +82,49 @@ pub fn load_content_from_markdowns(base_path: &Path) -> ContentStore {
 
     for (cat_id, name, desc, icon) in category_dirs {
         let mut questions_vec = Vec::new();
-        // Look for file in base_path/cat_id/
+        let mut seen_qnums = HashSet::new();
+
         let cat_folder = base_path.join(cat_id);
         if cat_folder.exists() {
             if let Ok(entries) = fs::read_dir(&cat_folder) {
-                for entry in entries.flatten() {
-                    let path = entry.path();
-                    if path.extension().and_then(|s| s.to_str()) == Some("md") {
-                        if let Ok(content) = fs::read_to_string(&path) {
-                            for cap in q_regex.captures_iter(&content) {
-                                let q_num = cap.get(1).and_then(|m| m.as_str().parse::<i32>().ok()).unwrap_or(1);
-                                let title = cap.get(2).map(|m| m.as_str().trim().to_string()).unwrap_or_default();
-                                let diff = cap.get(3).map(|m| m.as_str().trim().to_string()).unwrap_or_else(|| "Intermediate".to_string());
-                                let body = cap.get(4).map(|m| m.as_str().trim()).unwrap_or_default();
+                let mut md_paths: Vec<_> = entries
+                    .flatten()
+                    .map(|e| e.path())
+                    .filter(|p| p.extension().and_then(|s| s.to_str()) == Some("md"))
+                    .collect();
+                md_paths.sort();
 
-                                let strategy = strat_regex.captures(body).map(|m| m.get(1).unwrap().as_str().trim().to_string());
-                                let code_example = code_regex.captures(body).map(|m| m.get(1).unwrap().as_str().trim().to_string());
+                for path in md_paths {
+                    if let Ok(content) = fs::read_to_string(&path) {
+                        let matches: Vec<_> = q_header_regex.captures_iter(&content).collect();
+                        for (i, cap) in matches.iter().enumerate() {
+                            let q_num = cap.get(1).and_then(|m| m.as_str().parse::<i32>().ok()).unwrap_or((i + 1) as i32);
+                            let title = cap.get(2).map(|m| m.as_str().trim().to_string()).unwrap_or_default();
 
+                            let start_pos = cap.get(0).unwrap().end();
+                            let end_pos = if i + 1 < matches.len() {
+                                matches[i + 1].get(0).unwrap().start()
+                            } else {
+                                content.len()
+                            };
+
+                            let body = content[start_pos..end_pos].trim().to_string();
+
+                            let diff = diff_regex.captures(&body)
+                                .and_then(|c| c.get(1))
+                                .map(|m| m.as_str().trim().to_string())
+                                .unwrap_or_else(|| "Intermediate".to_string());
+
+                            let strategy = strat_regex.captures(&body)
+                                .and_then(|c| c.get(1))
+                                .map(|m| m.as_str().trim().to_string());
+
+                            let code_example = code_regex.captures(&body)
+                                .and_then(|c| c.get(1))
+                                .map(|m| m.as_str().trim().to_string());
+
+                            if !seen_qnums.contains(&q_num) {
+                                seen_qnums.insert(q_num);
                                 questions_vec.push(Question {
                                     id: format!("{}-{}", cat_id, q_num),
                                     category_id: cat_id.to_string(),
@@ -104,7 +132,7 @@ pub fn load_content_from_markdowns(base_path: &Path) -> ContentStore {
                                     title,
                                     difficulty: diff,
                                     strategy,
-                                    answer_markdown: body.to_string(),
+                                    answer_markdown: body,
                                     code_example,
                                 });
                             }
@@ -114,7 +142,9 @@ pub fn load_content_from_markdowns(base_path: &Path) -> ContentStore {
             }
         }
 
+        questions_vec.sort_by_key(|q| q.question_number);
         let total_q = questions_vec.len() as i32;
+
         store.categories.push(Category {
             id: cat_id.to_string(),
             name: name.to_string(),
@@ -135,7 +165,7 @@ pub fn search_questions(store: &ContentStore, query: &str) -> Vec<SearchResult> 
     }
 
     let mut results = Vec::new();
-    for (_, q_list) in &store.questions {
+    for q_list in store.questions.values() {
         for q in q_list {
             let title_lower = q.title.to_lowercase();
             let body_lower = q.answer_markdown.to_lowercase();

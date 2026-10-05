@@ -108,7 +108,7 @@
 96. [What is `Function.prototype.bind()`?](#q96) <span class="intermediate">Intermediate</span>
 97. [What are Generators?](#q97) <span class="advanced">Advanced</span>
 98. [What is the `Proxy` object?](#q98) <span class="advanced">Advanced</span>
-99. [What is the Temporal Dead Zone (TDZ)?](#q99) <span class="intermediate">Intermediate</span>
+99. [What are `WeakRef` and `FinalizationRegistry` in ES2021?](#q99) <span class="advanced">Advanced</span>
 100. [What is Coercion?](#q100) <span class="beginner">Beginner</span>
 
 ---
@@ -142,8 +142,6 @@ try {
 }
 let b = 10;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -179,8 +177,6 @@ obj.name = 'Bob'; // Allowed (Mutation)
 // obj = {}; // Error (Reassignment)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
@@ -212,8 +208,6 @@ console.log(counter.increment()); // 1
 console.log(counter.increment()); // 2
 // console.log(counter.count); // undefined (inaccessible)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -248,8 +242,6 @@ console.log('4: End');
 // 2: Timeout
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -276,8 +268,6 @@ const obj = {
 obj.regular(); // "Alice"
 obj.arrow();   // undefined (inherits from window/global)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -307,8 +297,6 @@ const boundGreet = greet.bind(user, 'Hey');
 boundGreet('?');                       // "Hey, Bob?"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
@@ -335,8 +323,6 @@ Object.setPrototypeOf(rabbit, animal);
 console.log(rabbit.jumps); // true (Own)
 console.log(rabbit.eats);  // true (Inherited)
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -368,8 +354,6 @@ fetchData
   .catch(err => console.error(err))
   .finally(() => console.log('Done'));
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -405,8 +389,6 @@ async function getDataAsync() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -433,8 +415,6 @@ btn.addEventListener('click', (e) => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
@@ -456,8 +436,6 @@ document.getElementById('list').addEventListener('click', (e) => {
   }
 });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -487,8 +465,6 @@ deep.b.c = 500;
 console.log(original.b.c); // 99 (Unaffected)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -508,8 +484,6 @@ console.log(5 === '5'); // false (Number vs String)
 console.log(null == undefined); // true
 console.log(null === undefined); // false
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -538,8 +512,6 @@ const double = multiplier(2);
 console.log(double(5)); // 10
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -562,8 +534,6 @@ const curriedAdd = a => b => a + b;
 const addFive = curriedAdd(5); // Partial application
 console.log(addFive(10)); // 15
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -594,8 +564,6 @@ const slowSquare = n => { /* loop */ return n * n; };
 const fastSquare = memoize(slowSquare);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -623,8 +591,6 @@ console.log(gen.next().value); // 0
 console.log(gen.next().value); // 1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -646,8 +612,6 @@ The TDZ is the period between the start of a scope and the actual declaration of
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -668,8 +632,6 @@ weakMap.set(obj, 'metadata');
 
 obj = null; // The entry in WeakMap is now eligible for GC
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -695,8 +657,6 @@ const [x, y] = coords;
 const { name: userName } = user;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -720,8 +680,6 @@ function sum(...numbers) {
   return numbers.reduce((a, b) => a + b);
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -747,8 +705,6 @@ const addToTotal = (n) => total += n;
 const add = (a, b) => a + b;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
@@ -772,8 +728,6 @@ const square = x => x * x;
 const random = () => Math.random();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -793,8 +747,6 @@ console.log(1 + "2"); // "12"
 console.log(1 - "2"); // -1 (String coerced to Number)
 console.log(Boolean("hello")); // true
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -821,18 +773,18 @@ console.log(proxy.message); // "hello"
 console.log(proxy.age);     // "Not found"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-<a id="q26"></a>
+---
 
+<a id="q26"></a>
 ### Q26: What is the difference between `null` and `undefined`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `undefined` means a variable has been declared but not yet assigned a value. `null` is an assignment value that represents "no value" or "empty". `typeof undefined` is `'undefined'`, while `typeof null` is `'object'` (a historical bug).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 let x;
 console.log(x); // undefined
@@ -844,21 +796,18 @@ console.log(x == y); // true (coercion)
 console.log(x === y); // false
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
-
 ### Q27: How does `Array.prototype.reduce()` work?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `reduce()` executes a reducer function on each element of the array, passing in the return value from the calculation on the preceding element. The final result is a single value.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const nums = [1, 2, 3, 4];
 const sum = nums.reduce((acc, curr) => acc + curr, 0);
@@ -873,21 +822,18 @@ const grouped = people.reduce((acc, person) => {
 // { '20': 2, '25': 1 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
-
 ### Q28: What are ES6 Modules (Import/Export)?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 ES6 Modules allow sharing code between files. `export` exposes variables/functions, and `import` consumes them. Modules automatically run in strict mode and `this` is undefined at the top level.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // lib.js
 export const PI = 3.14;
@@ -900,21 +846,18 @@ import add, { PI } from "./lib.js";
 console.log(add(2, PI));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
-
 ### Q29: What is the difference between `Object.freeze()` and `Object.seal()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `Object.freeze()` makes an object immutable: no adding, removing, or changing properties. `Object.seal()` prevents adding/removing properties but allows modifying existing property values.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { val: 10 };
 Object.freeze(obj);
@@ -927,21 +870,18 @@ sealed.val = 20; // Allowed
 delete sealed.val; // Fails
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
-
 ### Q30: What is an IIFE (Immediately Invoked Function Expression)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 An IIFE is a function that runs as soon as it is defined. It is used to create a private scope and avoid polluting the global namespace.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 (function () {
   const secret = "I am hidden";
@@ -951,21 +891,18 @@ An IIFE is a function that runs as soon as it is defined. It is used to create a
 // console.log(secret); // ReferenceError
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q31"></a>
-
 ### Q31: What is the difference between `map()` and `forEach()`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `map()` returns a **new array** with the results of calling a function on every element. `forEach()` executes a function for each array element but returns `undefined` (it mutates or performs side effects).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const arr = [1, 2, 3];
 const doubled = arr.map((x) => x * 2); // [2, 4, 6]
@@ -973,21 +910,18 @@ const doubled = arr.map((x) => x * 2); // [2, 4, 6]
 arr.forEach((x) => console.log(x)); // Logs 1, 2, 3
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
-
 ### Q32: What is `Strict Mode` in JavaScript?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `"use strict";` enables strict mode. It catches common coding bloopers (like undeclared variables), prevents usage of unsafe features (like `with`), and makes `this` undefined in global functions.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 "use strict";
 x = 3.14; // ReferenceError: x is not defined
@@ -998,21 +932,18 @@ function strictFunc() {
 console.log(strictFunc()); // undefined
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
-
 ### Q33: How does `NaN` behave and how to check for it?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `NaN` stands for "Not-a-Number". It is the only value in JS that is not equal to itself (`NaN !== NaN`). Use `Number.isNaN()` to check strictly for `NaN`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 console.log(NaN === NaN); // false
 console.log(Number.isNaN(NaN)); // true
@@ -1022,21 +953,18 @@ console.log(Number.isNaN("hello")); // false
 console.log(isNaN("hello")); // true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q34"></a>
-
 ### Q34: What are `Set` and `WeakSet`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `Set` is a collection of unique values (any type). `WeakSet` is a collection of objects only, where references are "weak" (if no other references exist, the object can be garbage collected). `WeakSet` is not iterable.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const set = new Set([1, 1, 2]);
 console.log(set.size); // 2
@@ -1046,21 +974,18 @@ const weakSet = new WeakSet([obj]);
 obj = null; // Object is now eligible for GC, removed from WeakSet
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
-
 ### Q35: What is the `Symbol` data type?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `Symbol` is a primitive type used to create unique identifiers. They are often used as object keys to create "hidden" properties that don't show up in standard loops.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const sym1 = Symbol("id");
 const sym2 = Symbol("id");
@@ -1073,21 +998,18 @@ console.log(Object.keys(user)); // []
 console.log(user[sym1]); // 123
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q36"></a>
-
 ### Q36: How does `requestAnimationFrame` work?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It tells the browser that you wish to perform an animation and requests that the browser call a specified function before the next repaint. It's more efficient than `setTimeout` or `setInterval` for animations.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 function animate() {
   // update animation state
@@ -1097,45 +1019,39 @@ function animate() {
 requestAnimationFrame(animate);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
-
 ### Q37: What is the difference between `localStorage`, `sessionStorage`, and Cookies?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 
 - **localStorage**: Persists until cleared manually (5-10MB).
 - **sessionStorage**: Persists for the session (tab close clears it).
 - **Cookies**: Sent with every HTTP request, small size (4KB), can have expiry.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 localStorage.setItem("theme", "dark");
 sessionStorage.setItem("isLoggedIn", "true");
 document.cookie = "user=Alice; expires=Thu, 18 Dec 2025 12:00:00 UTC";
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
-
 ### Q38: How does the `fetch` API work?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `fetch` provides a modern interface for making network requests. It returns a Promise that resolves to the `Response` object. Unlike XHR, it doesn't reject on HTTP errors (like 404 or 500).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 fetch("https://api.example.com/data")
   .then((response) => {
@@ -1146,24 +1062,21 @@ fetch("https://api.example.com/data")
   .catch((error) => console.error("Error:", error));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
-
 ### Q39: What is the difference between `async` and `defer` attributes in script tags?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 
 - **Normal**: Parses HTML, pauses to download/execute script, resumes HTML.
 - **async**: Downloads script in parallel, pauses HTML to execute immediately when downloaded. Order not guaranteed.
 - **defer**: Downloads in parallel, executes **after** HTML parsing is complete. Preserves order.
 
-**Code Example:**
-
+**Code Example**:
 ```html
 <script src="app.js" defer></script>
 <!-- Best for dependencies -->
@@ -1171,21 +1084,18 @@ fetch("https://api.example.com/data")
 <!-- Best for independent scripts -->
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
-
 ### Q40: What is the History API?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It allows manipulation of the browser session history (back/forward buttons) without reloading the page. Core to Single Page Applications (SPAs). Methods: `pushState`, `replaceState`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Add entry to history stack
 history.pushState({ page: 1 }, "title 1", "?page=1");
@@ -1198,45 +1108,39 @@ window.onpopstate = function (event) {
 };
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
-
 ### Q41: What is `innerHTML` vs `textContent`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 
 - **`innerHTML`**: Parses content as HTML. Can be slow and unsafe (XSS risk).
 - **`textContent`**: Sets raw text. Safer and faster.
 - **`innerText`**: Similar to `textContent` but respects CSS styling (e.g., won't return text of hidden elements).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const div = document.createElement("div");
 div.innerHTML = "<strong>Hello</strong>"; // Bold Hello
 div.textContent = "<strong>Hello</strong>"; // Literal string <strong>Hello</strong>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
-
 ### Q42: How do you handle errors with `try...catch...finally`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Code that might throw an error goes in `try`. Error handling goes in `catch`. Cleanup code (always runs) goes in `finally`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 try {
   throw new Error("Something went wrong");
@@ -1247,44 +1151,38 @@ try {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
-
 ### Q43: What is `JSON.parse` and `JSON.stringify`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `JSON.stringify` converts a JavaScript object/value to a JSON string. `JSON.parse` parses a JSON string into a JavaScript object. Note: `stringify` ignores functions and `undefined`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { name: "Alice", age: 25 };
 const json = JSON.stringify(obj); // '{"name":"Alice","age":25}'
 const parsed = JSON.parse(json); // { name: "Alice", age: 25 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
-
 ### Q44: What is the difference between `typeof` and `instanceof`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 
 - **`typeof`**: Returns a string indicating the primitive type (or 'object'/'function').
 - **`instanceof`**: Checks if an object is an instance of a class/constructor (checks prototype chain).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 console.log(typeof "hello"); // "string"
 console.log(typeof []); // "object"
@@ -1293,21 +1191,18 @@ console.log([] instanceof Array); // true
 console.log([] instanceof Object); // true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
-
 ### Q45: What are Template Literals?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Enclosed by backticks (`` ` ``), they allow embedded expressions `${var}`, multi-line strings, and string interpolation.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const name = "World";
 const greeting = `Hello,
@@ -1315,21 +1210,18 @@ ${name}!`;
 console.log(greeting);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
-
 ### Q46: What is `Object.entries()`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It returns an array of a given object's own enumerable string-keyed property `[key, value]` pairs. Useful for iterating over objects.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { a: 1, b: 2 };
 for (const [key, value] of Object.entries(obj)) {
@@ -1337,21 +1229,18 @@ for (const [key, value] of Object.entries(obj)) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
-
 ### Q47: What is the purpose of `Array.from()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It creates a new, shallow-copied Array instance from an array-like (e.g., `arguments`, `NodeList`) or iterable object (e.g., `Set`, `Map`). It also takes a map function as a second argument.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const set = new Set([1, 2, 3]);
 const arr = Array.from(set, (x) => x * 2); // [2, 4, 6]
@@ -1360,46 +1249,40 @@ const arr = Array.from(set, (x) => x * 2); // [2, 4, 6]
 const range = Array.from({ length: 3 }, (_, i) => i); // [0, 1, 2]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
-
 ### Q48: How do you detect if a property exists in an object?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 
 1.  `in` operator (checks prototype chain too).
 2.  `hasOwnProperty()` (checks own properties only).
 3.  `Object.hasOwn()` (modern replacement for `hasOwnProperty`).
 4.  Accessing property `obj.prop !== undefined` (fails if value is actually `undefined`).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { a: 1 };
 console.log("a" in obj); // true
 console.log(Object.hasOwn(obj, "a")); // true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
-
 ### Q49: What is the `arguments` object?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It is an array-like object accessible inside functions (non-arrow) that contains the values of the arguments passed to that function. Modern JS prefers Rest parameters (`...args`).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 function sum() {
   let total = 0;
@@ -1411,23 +1294,20 @@ function sum() {
 console.log(sum(1, 2, 3)); // 6
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
-
 ### Q50: What is the difference between `slice()` and `splice()`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 
 - **`slice(start, end)`**: Returns a **new** array containing a portion of the array. Does **not** modify original.
 - **`splice(start, count, ...items)`**: **Modifies** the original array by removing/replacing/adding elements. Returns removed elements.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const arr = [1, 2, 3, 4];
 
@@ -1438,21 +1318,18 @@ const spliced = arr.splice(1, 2); // [2, 3]
 console.log(arr); // [1, 4]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
-
 ### Q51: What are Service Workers?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Service Workers are scripts that run in the background, separate from a web page. They enable features like offline support (caching assets), push notifications, and background sync. They act as a proxy between the web app and the network.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Registering a Service Worker
 if ('serviceWorker' in navigator) {
@@ -1462,21 +1339,18 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q52"></a>
-
 ### Q52: What is a Web Worker?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Web Workers allow running scripts in background threads. They can perform expensive calculations without blocking the UI thread (main thread). They communicate with the main thread via messages.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // main.js
 const worker = new Worker('worker.js');
@@ -1490,21 +1364,18 @@ onmessage = (e) => {
 };
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
-
 ### Q53: What is the `Intl` API?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The `Intl` object provides language-sensitive string comparison, number formatting, and date/time formatting. It is the standard way to handle i18n in JS.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const date = new Date();
 const formatter = new Intl.DateTimeFormat('en-US', { month: 'long' });
@@ -1514,21 +1385,18 @@ const currency = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: '
 console.log(currency.format(1000)); // ￥1,000
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
-
 ### Q54: What is `ResizeObserver`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It observes changes to the dimensions of an Element's content box or border box. Useful for responsive components that need to react to their own size changes, not just the window size.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const observer = new ResizeObserver(entries => {
   for (let entry of entries) {
@@ -1538,21 +1406,18 @@ const observer = new ResizeObserver(entries => {
 observer.observe(document.querySelector('.box'));
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q55"></a>
-
 ### Q55: What is `MutationObserver`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It provides the ability to watch for changes being made to the DOM tree (attributes, child list, subtree). It replaces the old Mutation Events.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const observer = new MutationObserver(mutations => {
   console.log("DOM changed!");
@@ -1560,21 +1425,18 @@ const observer = new MutationObserver(mutations => {
 observer.observe(document.body, { childList: true, subtree: true });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
-
 ### Q56: What is `navigator.sendBeacon`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It allows asynchronously sending a small amount of data to a web server (usually analytics) when the user is navigating away from the page (unload/visibilitychange). Unlike XHR/fetch, it guarantees the request is sent even if the page closes.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 window.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'hidden') {
@@ -1583,83 +1445,71 @@ window.addEventListener('visibilitychange', () => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
-
 ### Q57: What is `BigInt`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `BigInt` is a primitive type used to represent integers larger than `2^53 - 1` (MAX_SAFE_INTEGER). Created by appending `n` to an integer or calling `BigInt()`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const huge = 9007199254740991n;
 const big = BigInt(9007199254740991);
 console.log(huge + 1n); // 9007199254740992n
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
-
 ### Q58: What is the Nullish Coalescing Operator (`??`)?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It returns the right-hand side operand when the left-hand side operand is `null` or `undefined`. Unlike `||`, it does not fall back for falsy values like `0`, `""`, or `false`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const count = 0;
 console.log(count || 10); // 10 (0 is falsy)
 console.log(count ?? 10); // 0 (0 is not null/undefined)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q59"></a>
-
 ### Q59: What is Optional Chaining (`?.`)?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It permits reading the value of a property located deep within a chain of connected objects without explicitly checking that each reference in the chain is valid. Short-circuits to `undefined` if a reference is nullish.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const user = {};
 console.log(user.address?.street); // undefined (no error)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
-
 ### Q60: What are Logical Assignment Operators?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 They combine logical operations with assignment: `||=` (assign if falsy), `&&=` (assign if truthy), `??=` (assign if nullish).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 let a = null;
 a ??= 10; // a becomes 10
@@ -1668,22 +1518,19 @@ let b = 5;
 b &&= 2; // b becomes 2 (because 5 is truthy)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q61"></a>
-
 ### Q61: Explain `Promise.all` vs `Promise.allSettled`.
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 *   **`Promise.all`**: Waits for all promises to resolve. Rejects immediately if **any** promise rejects (fail-fast).
 *   **`Promise.allSettled`**: Waits for all promises to finish (resolve or reject). Returns an array of status objects.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const p1 = Promise.resolve(1);
 const p2 = Promise.reject('error');
@@ -1693,87 +1540,75 @@ Promise.allSettled([p1, p2]).then(console.log);
 // [{status: 'fulfilled', value: 1}, {status: 'rejected', reason: 'error'}]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q62"></a>
-
 ### Q62: What is `globalThis`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 A standard global property that contains the global `this` value across environments (window in browser, global in Node.js, self in workers).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 console.log(globalThis === window); // true (in browser)
 console.log(globalThis === global); // true (in Node)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
-
 ### Q63: How does Garbage Collection work in JS?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 JS engines (like V8) use "Mark-and-Sweep". They start from roots (global objects, stack) and mark all reachable objects. Any object not marked is unreachable and swept (memory reclaimed).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 let obj = { a: 1 }; // Referenced by 'obj'
 obj = null; // { a: 1 } is now unreachable -> GC will clean it
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q64"></a>
-
 ### Q64: What causes Memory Leaks in JS?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Common causes:
 1.  Unintentional Global Variables.
 2.  Forgotten Timers/Intervals.
 3.  Closures holding references.
 4.  Detached DOM elements (JS holds ref, but element removed from document).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Detached DOM
 let detached = document.createElement('div'); // Created but not appended
 // If 'detached' is never nulled, it stays in memory.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
-
 ### Q65: Debounce vs Throttle?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 *   **Debounce**: Delays execution until a certain time has passed since the *last* event (e.g., wait for typing to stop).
 *   **Throttle**: Ensures execution happens at most once every specified interval (e.g., scroll handler runs every 100ms).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Debounce concept
 function debounce(func, delay) {
@@ -1785,21 +1620,18 @@ function debounce(func, delay) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
-
 ### Q66: What is a Polyfill?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 A piece of code (usually JS) used to provide modern functionality on older browsers that do not natively support it (e.g., adding `Array.prototype.includes` to IE11).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 if (!String.prototype.startsWith) {
   String.prototype.startsWith = function(search, pos) {
@@ -1808,21 +1640,18 @@ if (!String.prototype.startsWith) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
-
 ### Q67: What is Tree Shaking?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 A term used in bundlers (Webpack, Rollup) to remove "dead code" (unused exports) from the final bundle. It relies on ES6 static module structure (`import`/`export`).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // utils.js
 export const a = 1;
@@ -1833,83 +1662,71 @@ import { a } from './utils';
 // 'b' is not used, so Tree Shaking removes it from bundle.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
-
 ### Q68: What is the `delete` operator?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It removes a property from an object. It returns `true` if successful. Note: It does not free memory immediately (GC handles that) and can affect optimization (makes objects "slow" in V8).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { a: 1 };
 delete obj.a;
 console.log(obj.a); // undefined
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
-
 ### Q69: What is `void 0`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `void` operator evaluates an expression and returns `undefined`. `void 0` is a safe way to get `undefined` because `undefined` could technically be shadowed (though strict mode prevents this).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // <a href="javascript:void(0)">Click me</a>
 // Prevents navigation
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
-
 ### Q70: How do you create a Custom Event?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `CustomEvent` constructor. You can pass a name and a `detail` object with data. Dispatch it using `dispatchEvent`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const event = new CustomEvent('hello', { detail: { name: 'World' } });
 window.addEventListener('hello', e => console.log(e.detail.name));
 window.dispatchEvent(event);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
-
 ### Q71: What is `Object.create()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It creates a new object, using an existing object as the prototype of the newly created object. It's a direct way to implement inheritance without constructor functions or classes.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const proto = { greet() { return "Hello"; } };
 const obj = Object.create(proto);
@@ -1917,21 +1734,18 @@ console.log(obj.greet()); // Hello
 console.log(Object.getPrototypeOf(obj) === proto); // true
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
-
 ### Q72: What are Private Class Fields?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Declared with a `#` prefix. They are only accessible within the class body and cannot be accessed or modified from outside (true privacy).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 class Counter {
   #count = 0;
@@ -1942,42 +1756,36 @@ const c = new Counter();
 // c.#count // SyntaxError
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
-
 ### Q73: What is the `Reflect` API?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It provides methods for intercepting JavaScript operations. It works closely with Proxies. It has methods corresponding to Proxy traps (`Reflect.get`, `Reflect.set`, etc.).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const obj = { a: 1 };
 Reflect.set(obj, 'a', 2);
 console.log(Reflect.get(obj, 'a')); // 2
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
-
 ### Q74: What is the Singleton Pattern in JS?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 A design pattern that ensures a class has only one instance and provides a global point of access to it. In JS, object literals are singletons by default, but modules are the modern way.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Module Singleton
 let instance;
@@ -1990,21 +1798,18 @@ class DB {
 export default new DB();
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
-
 ### Q75: What is Functional Programming?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 A paradigm where programs are constructed by applying and composing functions. Key concepts: Pure functions, Immutability, Higher-order functions, and avoiding side effects.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 // Imperative
 let sum = 0;
@@ -2014,21 +1819,18 @@ for (let i = 0; i < arr.length; i++) sum += arr[i];
 const sum = arr.reduce((a, b) => a + b, 0);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q76"></a>
-
 ### Q76: What is the Observer Pattern?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 A design pattern where an object (Subject) maintains a list of dependents (Observers) and notifies them of state changes. The basis of event listeners and RxJS.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 class Subject {
   constructor() { this.observers = []; }
@@ -2041,21 +1843,18 @@ subj.subscribe(data => console.log(data));
 subj.notify("Event fired!");
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
-
 ### Q77: What is a Factory Pattern?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 A pattern to create objects without specifying the exact class of object that will be created. It separates object creation logic from usage.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 function createUser(role) {
   if (role === 'admin') return new Admin();
@@ -2063,42 +1862,36 @@ function createUser(role) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q78"></a>
-
 ### Q78: What is Currying (Advanced)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Transforming a function with multiple arguments into a sequence of functions each taking a single argument. Useful for composition and partial application.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const multiply = a => b => a * b;
 const double = multiply(2); // Partial application
 console.log(double(5)); // 10
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
-
 ### Q79: What are Typed Arrays?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Array-like objects that provide a mechanism for reading and writing raw binary data in memory buffers. E.g., `Uint8Array`, `Float32Array`. Used in WebGL, Canvas, and File APIs.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const buffer = new ArrayBuffer(16);
 const int32View = new Int32Array(buffer);
@@ -2106,41 +1899,35 @@ int32View[0] = 42;
 console.log(int32View[0]); // 42
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q80"></a>
-
 ### Q80: What is `ArrayBuffer`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It represents a generic, fixed-length raw binary data buffer. You cannot manipulate it directly; you need a "view" (like `DataView` or Typed Array) to read/write.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const buffer = new ArrayBuffer(8); // 8 bytes
 console.log(buffer.byteLength); // 8
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
-
 ### Q81: What is `DataView`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 A low-level interface for reading and writing multiple number types in an `ArrayBuffer`, regardless of the platform's endianness.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const buffer = new ArrayBuffer(4);
 const view = new DataView(buffer);
@@ -2148,42 +1935,36 @@ view.setInt8(0, 127);
 console.log(view.getInt8(0)); // 127
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
-
 ### Q82: What is a `Blob`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Binary Large Object. It represents data that isn't necessarily in a JavaScript-native format. File objects are a specific kind of Blob. Used for file uploads or creating object URLs.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const blob = new Blob(["Hello, world!"], { type: "text/plain" });
 const url = URL.createObjectURL(blob);
 // url can be used in <a href="..."> or <img>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
-
 ### Q83: How does `FileReader` work?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using `File` or `Blob` objects.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const reader = new FileReader();
 reader.onload = function(e) {
@@ -2192,21 +1973,18 @@ reader.onload = function(e) {
 // reader.readAsText(fileInput.files[0]);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
-
 ### Q84: What is `URL` and `URLSearchParams`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `URL` interface represents an object providing static methods used for creating object URLs. `URLSearchParams` defines utility methods to work with the query string of a URL.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const url = new URL('https://example.com?foo=1&bar=2');
 const params = new URLSearchParams(url.search);
@@ -2215,21 +1993,18 @@ params.set('baz', '3');
 console.log(params.toString()); // "foo=1&bar=2&baz=3"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
-
 ### Q85: What are Web Components?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 A suite of technologies (Custom Elements, Shadow DOM, HTML Templates) allowing you to create reusable custom elements with their own functionality and isolated styles.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 class MyElement extends HTMLElement {
   connectedCallback() {
@@ -2240,44 +2015,38 @@ customElements.define('my-element', MyElement);
 // <my-element></my-element>
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
-
 ### Q86: What is Shadow DOM?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It allows you to attach a hidden DOM tree to an element. The shadow DOM is encapsulated, meaning styles inside don't leak out and global styles don't leak in.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const host = document.querySelector('#host');
 const shadow = host.attachShadow({ mode: 'open' });
 shadow.innerHTML = `<style>p { color: red; }</style><p>I am red!</p>`;
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
-
 ### Q87: What is the difference between `Map` and Object?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 *   **Keys**: Object keys are Strings/Symbols. Map keys can be **any** value (objects, functions).
 *   **Order**: Map preserves insertion order. Object keys are not guaranteed (though mostly predictable now).
 *   **Size**: `map.size` is O(1). Object size needs manual calculation.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const map = new Map();
 const keyObj = {};
@@ -2285,21 +2054,18 @@ map.set(keyObj, 'value');
 console.log(map.get(keyObj)); // 'value'
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
-
 ### Q88: What is `Promise.race()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It returns a promise that fulfills or rejects as soon as one of the promises in the iterable fulfills or rejects, with the value or reason from that promise.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const p1 = new Promise(r => setTimeout(r, 500, 'one'));
 const p2 = new Promise(r => setTimeout(r, 100, 'two'));
@@ -2307,63 +2073,54 @@ const p2 = new Promise(r => setTimeout(r, 100, 'two'));
 Promise.race([p1, p2]).then(console.log); // "two"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
-
 ### Q89: What is `Promise.any()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It takes an iterable of Promise objects and, as soon as one of the promises fulfills, returns a single promise that resolves with the value from that promise. If no promises fulfill, it rejects with an `AggregateError`.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const p1 = Promise.reject('error');
 const p2 = Promise.resolve('success');
 Promise.any([p1, p2]).then(console.log); // "success"
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
-
 ### Q90: What is the `in` operator?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `in` operator returns `true` if the specified property is in the specified object or its prototype chain.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const car = { make: 'Honda', model: 'Accord' };
 console.log('make' in car); // true
 console.log('toString' in car); // true (from Object.prototype)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
-
 ### Q91: What is the `static` keyword in Classes?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Static methods or properties are defined on the class itself, not on instances of the class. They are often used for utility functions.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 class MathUtil {
   static add(a, b) { return a + b; }
@@ -2372,21 +2129,18 @@ console.log(MathUtil.add(1, 2)); // 3
 // const m = new MathUtil(); m.add(1, 2); // Error
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
-
 ### Q92: What is `super` keyword?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It is used to access and call functions on an object's parent. In classes, `super()` calls the parent constructor, and `super.method()` calls a parent method.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 class Animal {
   constructor(name) { this.name = name; }
@@ -2399,84 +2153,72 @@ class Dog extends Animal {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
-
 ### Q93: How do you flatten an array?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `Array.prototype.flat(depth)`. The depth specifies how deep a nested array structure should be flattened. Default is 1. Use `Infinity` for deep flattening.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const arr = [1, [2, [3, [4]]]];
 console.log(arr.flat(2)); // [1, 2, 3, [4]]
 console.log(arr.flat(Infinity)); // [1, 2, 3, 4]
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
-
 ### Q94: What is `Function.prototype.call()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It calls a function with a given `this` value and arguments provided individually.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 function greet() { console.log(this.name); }
 const person = { name: 'Alice' };
 greet.call(person); // Alice
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
-
 ### Q95: What is `Function.prototype.apply()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Similar to `call()`, but arguments are provided as an array (or array-like object).
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const nums = [1, 2, 3];
 console.log(Math.max.apply(null, nums)); // 3
 // Modern equivalent: Math.max(...nums)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
-
 ### Q96: What is `Function.prototype.bind()`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 It creates a **new function** that, when called, has its `this` keyword set to the provided value. It does not execute immediately.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const module = {
   x: 42,
@@ -2489,21 +2231,18 @@ const bound = unbound.bind(module);
 console.log(bound()); // 42
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
-
 ### Q97: What are Generators?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Functions that can be exited and later re-entered. Their context (variable bindings) remains saved across re-entrances. Defined with `function*`. Use `yield` to return values.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 function* idMaker() {
   let index = 0;
@@ -2514,21 +2253,18 @@ console.log(gen.next().value); // 0
 console.log(gen.next().value); // 1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
-
 ### Q98: What is the `Proxy` object?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It allows you to create an object that can be used in place of the original object, but which may redefine fundamental Object operations like getting, setting, and defining properties.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const target = {};
 const proxy = new Proxy(target, {
@@ -2537,16 +2273,15 @@ const proxy = new Proxy(target, {
 console.log(proxy.a); // 37
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
 ### Q99: What are `WeakRef` and `FinalizationRegistry` in ES2021?
-**Difficulty**: <span class="advanced">Advanced</span>  
-**Category**: Memory & Garbage Collection  
 
-**Strategy**: Explain how WeakRef creates non-retaining object references and FinalizationRegistry executes cleanup callbacks after garbage collection.
+**Difficulty**: Advanced
+
+**Strategy**:
+Explain how WeakRef creates non-retaining object references and FinalizationRegistry executes cleanup callbacks after garbage collection.
 
 `WeakRef` lets you hold a weak reference to an object without preventing it from being garbage-collected. `FinalizationRegistry` lets you register a callback that runs after an object is garbage-collected.
 
@@ -2572,19 +2307,18 @@ if (cachedObj) {
 ---
 
 <a id="q100"></a>
-
 ### Q100: What is Coercion?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The automatic or implicit conversion of values from one data type to another (e.g., strings to numbers). "Type casting" is explicit.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
 const val = 1 + "2"; // "12" (number coerced to string)
 const bool = !!"text"; // true (string coerced to boolean)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---

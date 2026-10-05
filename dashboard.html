@@ -10,9 +10,11 @@
     <meta name="theme-color" content="#e53935" />
     <title>Tech Interview Guide</title>
 
-    <!-- PWA Support -->
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.svg" />
+    <!-- PWA Support & Icons -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/css/splash.css" />
 
     <!-- Prism.js for syntax highlighting -->
     <link
@@ -444,6 +446,18 @@
             >
               Webpack, Babel & Vite <span class="badge">100+</span>
             </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/performance/performance-questions.md"
+            >
+              Web Performance <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/microfrontend/microfrontend-questions.md"
+            >
+              Micro-frontends <span class="badge">100+</span>
+            </button>
           </div>
 
           <div class="nav-section">
@@ -562,6 +576,12 @@
             >
               Angular 14 Integration <span class="badge">100+</span>
             </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/integration/integration-questions.md"
+            >
+              APIs & Integration Architecture <span class="badge">100+</span>
+            </button>
           </div>
 
           <div class="nav-section">
@@ -596,6 +616,12 @@
               data-file="markdowns/system-design/system-design-questions.md"
             >
               System Design <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/design-patterns/design-patterns-questions.md"
+            >
+              Design Patterns <span class="badge">100+</span>
             </button>
           </div>
 
@@ -966,7 +992,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
-    <!-- Main Application Script -->
+    <!-- Main Application Script & Confetti -->
+    <script src="assets/js/confetti.js"></script>
     <script src="assets/js/app-main.js"></script>
     <script src="assets/js/platform-features.js"></script>
 

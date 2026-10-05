@@ -1,37 +1,135 @@
 version: '3.8'
 
+# ==============================================================================
+# Production Docker Compose - High Availability Cluster Architecture
+# Nginx Load Balancer fronting 2 Web Instances and 2 Rust Backend Instances
+# Avoids common host ports (uses 9443 for public web/API, 9191 for Prometheus, 9292 for Grafana)
+# Retrieves remote PostgreSQL configuration from .env.production
+# ==============================================================================
+
 services:
-  app:
+  # Production Nginx Reverse Proxy & Load Balancer
+  nginx-lb:
+    image: nginx:alpine
+    container_name: interview-guide-nginx-lb-prod
+    restart: always
+    ports:
+      - "${PROD_PORT:-9443}:80"
+    volumes:
+      - ./docker/nginx-prod-lb.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web-1
+      - web-2
+      - backend-1
+      - backend-2
+    networks:
+      - production-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Web Frontend Instance 1
+  web-1:
     build:
       context: .
-      dockerfile: backend/Dockerfile
-    container_name: interview-guide-production
+      dockerfile: docker/Dockerfile.web
+    container_name: interview-guide-web-prod-1
     restart: always
-    env_file:
-      - .env.production
-    environment:
-      - NODE_ENV=production
-      - DATABASE_URL=${DATABASE_URL}
-      - PORT=${PORT:-3000}
-    ports:
-      - "3000:3000"
     networks:
       - production-network
     deploy:
       resources:
         limits:
-          cpus: '2.0'
-          memory: 2048M
-        reservations:
-          cpus: '0.5'
+          cpus: '1.0'
           memory: 512M
     healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/ || exit 1"]
+      test: ["CMD-SHELL", "wget -q --spider http://localhost/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # Web Frontend Instance 2
+  web-2:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    container_name: interview-guide-web-prod-2
+    restart: always
+    networks:
+      - production-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+  # Rust High-Performance Backend Instance 1
+  backend-1:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: interview-guide-backend-prod-1
+    restart: always
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - DATABASE_URL=${DATABASE_URL}
+      - MARKDOWNS_DIR=/app/markdowns
+    networks:
+      - production-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 1024M
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/health || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 3
       start_period: 15s
 
+  # Rust High-Performance Backend Instance 2
+  backend-2:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: interview-guide-backend-prod-2
+    restart: always
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - DATABASE_URL=${DATABASE_URL}
+      - MARKDOWNS_DIR=/app/markdowns
+    networks:
+      - production-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 1024M
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # Observability - Prometheus
   prometheus:
     image: prom/prometheus:v2.50.1
     container_name: interview-guide-prometheus-prod
@@ -44,10 +142,11 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.retention.time=30d'
     ports:
-      - "9090:9090"
+      - "${PROMETHEUS_PORT:-9191}:9090"
     networks:
       - production-network
 
+  # Observability - Grafana Dashboard
   grafana:
     image: grafana/grafana:10.3.3
     container_name: interview-guide-grafana-prod
@@ -61,7 +160,7 @@ services:
       - ./docker/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
       - grafana_prod_data:/var/lib/grafana
     ports:
-      - "3001:3000"
+      - "${GRAFANA_PORT:-9292}:3000"
     depends_on:
       - prometheus
     networks:

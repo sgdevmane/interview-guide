@@ -33,12 +33,12 @@
 21. [How do you use `errgroup` to manage parallel tasks with error propagation?](#q21) <span class="intermediate">Intermediate</span>
 22. [How do you implement atomic counters using `sync/atomic`?](#q22) <span class="intermediate">Intermediate</span>
 23. [How do you benchmark code using `testing.B`?](#q23) <span class="intermediate">Intermediate</span>
-24. [How do you optimize memory layout by reordering struct fields?](#q24) <span class="advanced">Expert</span>
+24. [How do you optimize memory layout by reordering struct fields?](#q24) <span class="expert">Expert</span>
 25. [How do you use `context.WithValue` to pass request-scoped data?](#q25) <span class="intermediate">Intermediate</span>
 26. [How do you implement a simple Fan-Out/Fan-In pattern?](#q26) <span class="intermediate">Intermediate</span>
 27. [How do you use `defer` effectively for cleanup (and avoid common traps)?](#q27) <span class="intermediate">Intermediate</span>
-28. [How do you implement a custom HTTP RoundTripper?](#q28) <span class="advanced">Expert</span>
-29. [How do you use `reflect` to iterate over struct fields?](#q29) <span class="advanced">Expert</span>
+28. [How do you implement a custom HTTP RoundTripper?](#q28) <span class="expert">Expert</span>
+29. [How do you use `reflect` to iterate over struct fields?](#q29) <span class="expert">Expert</span>
 30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30) <span class="intermediate">Intermediate</span>
 31. [How do you use the new `slices` package (Go 1.21+) for common operations?](#q31) <span class="beginner">Beginner</span>
 32. [How do you iterate over an integer range using `range` in Go 1.22+?](#q32) <span class="beginner">Beginner</span>
@@ -60,19 +60,19 @@
 48. [How do you use httptest to test HTTP handlers?](#q48) <span class="intermediate">Intermediate</span>
 49. [How do you use json.RawMessage to delay parsing?](#q49) <span class="intermediate">Intermediate</span>
 50. [How do you use pprof to profile CPU usage?](#q50) <span class="advanced">Advanced</span>
-51. [How do you use runtime/trace to analyze latency?](#q51) <span class="advanced">Expert</span>
+51. [How do you use runtime/trace to analyze latency?](#q51) <span class="expert">Expert</span>
 52. [How do you use Go Workspaces (Go 1.18+) for multi-module development?](#q52) <span class="intermediate">Intermediate</span>
 53. [How do you implement a custom Scanner using bufio?](#q53) <span class="intermediate">Intermediate</span>
 54. [How do you use text/template for generating dynamic content?](#q54) <span class="intermediate">Intermediate</span>
 55. [How do you use Singleflight to prevent cache stampedes?](#q55) <span class="advanced">Advanced</span>
-56. [How do you use sync.Cond for complex synchronization?](#q56) <span class="advanced">Expert</span>
+56. [How do you use sync.Cond for complex synchronization?](#q56) <span class="expert">Expert</span>
 57. [How do you use the os/exec package to run external commands safely?](#q57) <span class="intermediate">Intermediate</span>
-58. [How do you use the plugin package to load code at runtime?](#q58) <span class="advanced">Expert</span>
+58. [How do you use the plugin package to load code at runtime?](#q58) <span class="expert">Expert</span>
 59. [How do you use testing/quick for property-based testing?](#q59) <span class="advanced">Advanced</span>
 60. [How do you use context.AfterFunc (Go 1.21+) for cleanup?](#q60) <span class="intermediate">Intermediate</span>
 61. [How do you use the new min/max built-ins (Go 1.21+)?](#q61) <span class="beginner">Beginner</span>
 62. [How do you reduce GC pressure using `sync.Pool`?](#q62) <span class="advanced">Advanced</span>
-63. [How does Go's `runtime.Gosched()` yield execution to other goroutines?](#q63) <span class="advanced">Expert</span>
+63. [How does Go's `runtime.Gosched()` yield execution to other goroutines?](#q63) <span class="advanced">Advanced</span>
 64. [How do you perform lock-free operations using `atomic`?](#q64) <span class="advanced">Advanced</span>
 65. [How do you manage groups of goroutines with `errgroup`?](#q65) <span class="intermediate">Intermediate</span>
 66. [What is Escape Analysis?](#q66) <span class="advanced">Advanced</span>
@@ -94,7 +94,7 @@
 82. [How do you customize JSON marshaling?](#q82) <span class="intermediate">Intermediate</span>
 83. [What is the difference between `time.Ticker` and `time.Timer`?](#q83) <span class="intermediate">Intermediate</span>
 84. [How do you inspect types at runtime using `reflect`?](#q84) <span class="advanced">Advanced</span>
-85. [How do you bypass type safety with `unsafe`?](#q85) <span class="advanced">Expert</span>
+85. [How do you bypass type safety with `unsafe`?](#q85) <span class="expert">Expert</span>
 86. [How do you use Build Tags?](#q86) <span class="intermediate">Intermediate</span>
 87. [What are the caveats of the `init()` function?](#q87) <span class="intermediate">Intermediate</span>
 88. [How do you load Go plugins at runtime?](#q88) <span class="advanced">Advanced</span>
@@ -118,7 +118,8 @@
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 To prevent memory leaks with Goroutines, you must ensure they have a defined exit condition. This is typically achieved using `context.Context` for cancellation or a `done` channel.
 
 
@@ -126,7 +127,7 @@ To prevent memory leaks with Goroutines, you must ensure they have a defined exi
 2. Use a `select` statement to listen for the cancellation signal.
 3. Clean up resources before returning.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -164,8 +165,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q2"></a>
@@ -173,7 +172,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 A Worker Pool limits the number of concurrent tasks to prevent resource exhaustion. It uses a buffered channel to queue jobs and a fixed number of Goroutines to process them.
 
 
@@ -183,7 +183,7 @@ A Worker Pool limits the number of concurrent tasks to prevent resource exhausti
 4. Close the `jobs` channel when all jobs are sent.
 5. Collect results.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -236,8 +236,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q3"></a>
@@ -245,7 +243,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 In Go, errors are values. Custom error types allow adding context, and `fmt.Errorf` with `%w` allows wrapping errors to preserve the original cause for `errors.Is` and `errors.As` checks.
 
 
@@ -253,7 +252,7 @@ In Go, errors are values. Custom error types allow adding context, and `fmt.Erro
 2. Use `fmt.Errorf("context: %w", err)` to wrap lower-level errors.
 3. Use `errors.Is` to check for specific sentinels and `errors.As` to extract custom types.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -301,8 +300,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q4"></a>
@@ -310,7 +307,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The `sync.Once` primitive ensures that a piece of code is executed only once, making it perfect for initializing Singletons lazily and safely in a concurrent environment.
 
 
@@ -318,7 +316,7 @@ The `sync.Once` primitive ensures that a piece of code is executed only once, ma
 2. Declare a `sync.Once` variable.
 3. In the accessor function, use `once.Do(func() { ... })` to initialize the instance.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -360,8 +358,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q5"></a>
@@ -369,7 +365,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The Functional Options pattern provides a clean, extensible API for configuring structs with many optional parameters, avoiding massive constructors or nil checks.
 
 
@@ -377,7 +374,7 @@ The Functional Options pattern provides a clean, extensible API for configuring 
 2. Create functions that return this `Option` type, modifying the struct.
 3. Create a constructor that accepts a variadic slice of `Option`.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -435,8 +432,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q6"></a>
@@ -444,7 +439,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Graceful shutdown ensures that the server stops accepting new requests but finishes processing active requests before exiting. This is crucial for data integrity and user experience.
 
 
@@ -452,7 +448,7 @@ Graceful shutdown ensures that the server stops accepting new requests but finis
 2. Listen for OS signals (`SIGINT`, `SIGTERM`) using `signal.Notify`.
 3. Call `server.Shutdown(ctx)` when a signal is received.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -493,8 +489,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q7"></a>
@@ -502,7 +496,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Table-driven tests allow you to define test cases as data (structs) and iterate over them, making it easy to add new scenarios and keeping the test logic DRY (Don't Repeat Yourself).
 
 
@@ -510,7 +505,7 @@ Table-driven tests allow you to define test cases as data (structs) and iterate 
 2. Create a slice of these structs with various test cases.
 3. Iterate over the slice using `t.Run` to execute subtests.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -543,8 +538,6 @@ func TestAdd(t *testing.T) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q8"></a>
@@ -552,7 +545,8 @@ func TestAdd(t *testing.T) {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Go Generics (introduced in Go 1.18) allow you to write data structures that work with any type that satisfies a constraint (e.g., `comparable`).
 
 
@@ -560,7 +554,7 @@ Go Generics (introduced in Go 1.18) allow you to write data structures that work
 2. Use a `map[T]struct{}` for underlying storage (efficient O(1) lookups).
 3. Implement methods like `Add`, `Remove`, and `Contains`.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -602,8 +596,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q9"></a>
@@ -611,7 +603,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `sync.WaitGroup` is used to wait for a collection of Goroutines to finish execution. It maintains a counter that is incremented when a Goroutine starts and decremented when it finishes.
 
 
@@ -620,7 +613,7 @@ func main() {
 3. Call `wg.Done()` inside the Goroutine (usually deferred).
 4. Call `wg.Wait()` in the main thread to block until the counter is zero.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -651,8 +644,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q10"></a>
@@ -660,7 +651,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Middleware allows you to wrap an `http.Handler` to execute logic before or after the main handler, such as logging, authentication, or panic recovery.
 
 
@@ -669,7 +661,7 @@ Middleware allows you to wrap an `http.Handler` to execute logic before or after
 3. Call `next.ServeHTTP(w, r)` to pass control.
 4. Perform post-processing if needed.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -708,8 +700,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q11"></a>
@@ -717,7 +707,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Dependency Injection (DI) via interfaces allows you to decouple components and swap real implementations with mocks during testing.
 
 
@@ -725,7 +716,7 @@ Dependency Injection (DI) via interfaces allows you to decouple components and s
 2. Have the consumer struct accept the interface, not the concrete type.
 3. In production, pass the real implementation; in tests, pass a mock.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -771,8 +762,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q12"></a>
@@ -780,7 +769,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The `select` statement lets a Goroutine wait on multiple communication operations. By including a case for `time.After`, you can enforce a timeout on channel operations.
 
 
@@ -788,7 +778,7 @@ The `select` statement lets a Goroutine wait on multiple communication operation
 2. Add a case for the expected channel operation (receive or send).
 3. Add a case for `<-time.After(duration)` to handle the timeout.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -816,8 +806,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q13"></a>
@@ -825,7 +813,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Go's `io` interfaces allow you to stream data without loading it all into memory. `io.Copy` is a powerful utility that connects a reader to a writer efficiently.
 
 
@@ -833,7 +822,7 @@ Go's `io` interfaces allow you to stream data without loading it all into memory
 2. Use `os.Create` or `http.ResponseWriter` as the destination (Writer).
 3. Use `io.Copy(dst, src)` to transfer data in chunks.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -866,8 +855,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q14"></a>
@@ -875,7 +862,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Race conditions occur when multiple Goroutines access shared memory concurrently without synchronization. `sync.Mutex` provides a locking mechanism to ensure exclusive access.
 
 
@@ -883,7 +871,7 @@ Race conditions occur when multiple Goroutines access shared memory concurrently
 2. Call `mu.Lock()` before accessing the data.
 3. Call `mu.Unlock()` (usually deferred) after accessing.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -926,8 +914,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q15"></a>
@@ -935,7 +921,8 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `sync.Pool` caches allocated but unused objects for later reuse, reducing the pressure on the Garbage Collector (GC). It is ideal for frequently allocated, short-lived objects like buffers.
 
 
@@ -944,7 +931,7 @@ func main() {
 3. Reset the object state.
 4. Use `pool.Put()` to return the object to the pool.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -981,8 +968,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q16"></a>
@@ -990,10 +975,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 To customize JSON encoding, implement the `json.Marshaler` interface. This is useful for masking sensitive data (PII, passwords) or changing the output format without altering the struct definition.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1030,8 +1016,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q17"></a>
@@ -1039,10 +1023,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `sync.Once` is perfect for lazy initialization of global resources (like singletons or config loading) in a thread-safe manner. It guarantees that the `Do` function is called only once, even if invoked concurrently.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1086,8 +1071,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q18"></a>
@@ -1095,10 +1078,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The `golang.org/x/time/rate` package provides a robust token bucket rate limiter. You can use `Wait`, `Allow`, or `Reserve` to control event frequency.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1127,8 +1111,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q19"></a>
@@ -1136,10 +1118,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Prior to Go 1.22, loop variables were reused across iterations. Capturing them in a closure (Goroutine) would often lead to processing the last value for all iterations. The fix was to pass the variable as an argument or redeclare it inside the loop.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1169,8 +1152,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q20"></a>
@@ -1178,10 +1159,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 The `embed` package (Go 1.16+) allows you to include static files (HTML, SQL, configs) directly into the binary. This simplifies deployment by producing a single executable.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1211,8 +1193,6 @@ func main() {
 */
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q21"></a>
@@ -1220,10 +1200,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `errgroup` (from `golang.org/x/sync/errgroup`) is superior to `WaitGroup` when you need to propagate errors or cancel all tasks if one fails.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1267,8 +1248,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q22"></a>
@@ -1276,10 +1255,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 For simple counters, `sync/atomic` is much faster and lighter than `sync.Mutex`. It provides low-level atomic memory primitives.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1308,8 +1288,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q23"></a>
@@ -1317,10 +1295,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Go has a built-in benchmarking tool. Functions starting with `Benchmark` in `_test.go` files take `*testing.B` and run the code `b.N` times to measure performance.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1349,8 +1328,6 @@ func BenchmarkJoinStrings(b *testing.B) {
 // Run with: go test -bench=. -benchmem
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q24"></a>
@@ -1358,10 +1335,11 @@ func BenchmarkJoinStrings(b *testing.B) {
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Struct fields are aligned in memory based on their size. Ordering fields from largest to smallest (pointers/int64 -> int32 -> bool) can minimize padding and reduce memory usage.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1395,8 +1373,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q25"></a>
@@ -1404,10 +1380,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `context.WithValue` creates a child context carrying a key-value pair. It's commonly used in middleware to pass user info, trace IDs, or logger instances down the call chain. Use custom types for keys to avoid collisions.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1442,8 +1419,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q26"></a>
@@ -1451,10 +1426,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Fan-Out starts multiple Goroutines to process work in parallel. Fan-In combines their results into a single channel.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1522,8 +1498,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
@@ -1531,10 +1505,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `defer` schedules a function call to run when the surrounding function returns. It's vital for closing files/connections. Note that deferred calls arguments are evaluated immediately, but execution happens later.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1570,8 +1545,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q28"></a>
@@ -1579,10 +1552,11 @@ func main() {
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 A custom `http.RoundTripper` allows you to intercept and modify requests/responses globally for an `http.Client`. Useful for logging, caching, or adding auth headers.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1623,8 +1597,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -1632,10 +1604,11 @@ func main() {
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Reflection (`reflect` package) allows runtime inspection of types. It's powerful but slow and unsafe. Use it for serialization, ORMs, or generic tools.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1669,8 +1642,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
@@ -1678,10 +1649,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Go 1.21 introduced the `slices` package for generic slice operations like sorting, searching, and modifying, replacing the need for custom utility functions.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1712,11 +1684,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-
 ---
 
 <a id="q31"></a>
@@ -1724,10 +1691,11 @@ func main() {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 The `slices` package provides generic functions for common slice operations like sorting, searching, and reversing. It is more efficient and type-safe than the older `sort` package.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1757,8 +1725,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
@@ -1766,10 +1732,11 @@ func main() {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Go 1.22 introduced iterating over integers directly in `range` loops, replacing the traditional `for i := 0; i < n; i++` syntax.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1789,8 +1756,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q33"></a>
@@ -1798,10 +1763,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `cmp.Or` returns the first argument that is not the zero value for its type. It's useful for setting default values or falling back to secondary configurations.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1826,8 +1792,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q34"></a>
@@ -1835,10 +1799,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `log/slog` provides structured, leveled logging. It supports key-value pairs and different output formats (Text, JSON) natively.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1866,8 +1831,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -1875,10 +1838,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `sync.OnceValue` returns a function that invokes the initializer only once and returns the value. Subsequent calls return the same value without re-executing the initializer.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1902,8 +1866,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q36"></a>
@@ -1911,10 +1873,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the built-in race detector by adding the `-race` flag when running tests or the application: `go run -race main.go` or `go test -race`.
 
-**Code Example:**
+**Code Example**:
 ```go
 // Run with: go run -race main.go
 package main
@@ -1941,8 +1904,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q37"></a>
@@ -1950,10 +1911,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Wrap the parent context with a timeout. Pass the context to the operation. The operation should listen to `ctx.Done()`.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -1981,8 +1943,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
@@ -1990,10 +1950,11 @@ func main() {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the `//go:embed` directive to include files or directories at compile time. Access them via `string`, `[]byte`, or `embed.FS`.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2016,8 +1977,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
@@ -2025,10 +1984,11 @@ func main() {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use the `sync/atomic` package for low-level atomic memory primitives. This is faster than Mutex for simple counters or boolean flags.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2055,8 +2015,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q40"></a>
@@ -2064,10 +2022,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Create a test file ending in `_test.go` and functions starting with `Benchmark`. Use `b.N` to loop the operation. Run with `go test -bench=.`.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2088,8 +2047,6 @@ func BenchmarkCalculate(b *testing.B) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q41"></a>
@@ -2097,10 +2054,11 @@ func BenchmarkCalculate(b *testing.B) {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use struct tags like `json:"name"` to rename fields and `json:"-"` to ignore them. `omitempty` omits the field if it has a zero value.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2125,8 +2083,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
@@ -2134,10 +2090,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Middleware is a function that takes an `http.Handler` and returns an `http.Handler`. It wraps the inner handler to execute logic before or after it.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2167,8 +2124,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
@@ -2176,10 +2131,11 @@ func main() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `recover()` inside a `defer` function. This must be done within the goroutine where the panic might occur, as panics do not propagate across goroutine boundaries.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2204,8 +2160,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
@@ -2213,10 +2167,11 @@ func main() {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `io.Pipe` creates a synchronous in-memory pipe. Data written to the `PipeWriter` is available to be read from the `PipeReader`. Useful for connecting streams without buffering everything in memory.
 
-**Code Example:**
+**Code Example**:
 ```go
 package main
 
@@ -2240,8 +2195,6 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q45"></a>
@@ -2249,10 +2202,11 @@ func main() {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Go Fuzzing automatically generates random inputs to test your code for edge cases and crashes. Use `FuzzXxx` functions in test files.
 
-**Code Example:**
+**Code Example**:
 ```go
 func FuzzReverse(f *testing.F) {
     f.Add("hello") // Seed corpus
@@ -2266,8 +2220,6 @@ func FuzzReverse(f *testing.F) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
@@ -2275,10 +2227,11 @@ func FuzzReverse(f *testing.F) {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `sync.Map` is a thread-safe map implementation optimized for cases where keys are only written once but read many times, or when disjoint sets of keys are used by different goroutines.
 
-**Code Example:**
+**Code Example**:
 ```go
 var m sync.Map
 
@@ -2295,8 +2248,6 @@ actual, loaded := m.LoadOrStore("key", "newValue")
 fmt.Println(actual, loaded)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q47"></a>
@@ -2304,10 +2255,11 @@ fmt.Println(actual, loaded)
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `atomic.Pointer[T]` provides type-safe atomic operations on pointers, avoiding the need for `unsafe.Pointer` or `atomic.Value`.
 
-**Code Example:**
+**Code Example**:
 ```go
 import "sync/atomic"
 
@@ -2326,8 +2278,6 @@ func GetConfig() *Config {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
@@ -2335,10 +2285,11 @@ func GetConfig() *Config {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `httptest` provides utilities to test HTTP handlers without starting a real server. Use `NewRecorder` to capture the response.
 
-**Code Example:**
+**Code Example**:
 ```go
 func TestHandler(t *testing.T) {
     req := httptest.NewRequest("GET", "/", nil)
@@ -2353,8 +2304,6 @@ func TestHandler(t *testing.T) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q49"></a>
@@ -2362,10 +2311,11 @@ func TestHandler(t *testing.T) {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `json.RawMessage` allows you to store a part of the JSON as raw bytes and decode it later based on other fields (e.g., a `type` field).
 
-**Code Example:**
+**Code Example**:
 ```go
 type Event struct {
     Type string          `json:"type"`
@@ -2380,8 +2330,6 @@ func parse(e Event) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -2389,10 +2337,11 @@ func parse(e Event) {
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Import `net/http/pprof` and start an HTTP server. Then use the `go tool pprof` command to analyze CPU profiles.
 
-**Code Example:**
+**Code Example**:
 ```go
 import _ "net/http/pprof"
 
@@ -2406,8 +2355,6 @@ func main() {
 // go tool pprof http://localhost:6060/debug/pprof/profile?seconds=30
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q51"></a>
@@ -2415,10 +2362,11 @@ func main() {
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Use `runtime/trace` to capture execution traces, including goroutine scheduling, GC pauses, and blocking syscalls. View with `go tool trace`.
 
-**Code Example:**
+**Code Example**:
 ```go
 f, _ := os.Create("trace.out")
 defer f.Close()
@@ -2428,8 +2376,6 @@ defer trace.Stop()
 // Run workload...
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q52"></a>
@@ -2437,10 +2383,11 @@ defer trace.Stop()
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Workspaces allow you to work on multiple modules simultaneously without publishing them. Create a `go.work` file using `go work init`.
 
-**Code Example:**
+**Code Example**:
 ```bash
 # go.work
 go 1.21
@@ -2451,8 +2398,6 @@ use (
 )
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -2460,10 +2405,11 @@ use (
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `bufio.Scanner` with a custom `SplitFunc` to parse data streams based on custom delimiters or protocols.
 
-**Code Example:**
+**Code Example**:
 ```go
 scanner := bufio.NewScanner(reader)
 scanner.Split(func(data []byte, atEOF bool) (int, []byte, error) {
@@ -2476,8 +2422,6 @@ for scanner.Scan() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
@@ -2485,17 +2429,16 @@ for scanner.Scan() {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `text/template` implements data-driven templates. It allows logic like loops and conditions within the template string.
 
-**Code Example:**
+**Code Example**:
 ```go
 tmpl, _ := template.New("test").Parse("Hello {{.Name}}!")
 tmpl.Execute(os.Stdout, map[string]string{"Name": "World"})
 // Output: Hello World!
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2504,10 +2447,11 @@ tmpl.Execute(os.Stdout, map[string]string{"Name": "World"})
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `golang.org/x/sync/singleflight` to suppress duplicate function calls. If multiple goroutines ask for the same key, only one execution happens.
 
-**Code Example:**
+**Code Example**:
 ```go
 var g singleflight.Group
 
@@ -2519,8 +2463,6 @@ func getData(key string) (interface{}, error) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q56"></a>
@@ -2528,10 +2470,11 @@ func getData(key string) (interface{}, error) {
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 `sync.Cond` implements a condition variable, allowing goroutines to wait for or signal an event (like a queue becoming non-empty).
 
-**Code Example:**
+**Code Example**:
 ```go
 c := sync.NewCond(&sync.Mutex{})
 
@@ -2550,8 +2493,6 @@ c.Signal() // Wake one
 c.L.Unlock()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -2559,10 +2500,11 @@ c.L.Unlock()
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `exec.Command` and `CommandContext` to run external processes. Ensure inputs are validated to prevent command injection.
 
-**Code Example:**
+**Code Example**:
 ```go
 cmd := exec.Command("ls", "-l")
 output, err := cmd.CombinedOutput()
@@ -2572,8 +2514,6 @@ if err != nil {
 fmt.Println(string(output))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -2581,18 +2521,17 @@ fmt.Println(string(output))
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 Go plugins allow loading shared libraries (`.so` files) at runtime. Use `plugin.Open` and `Lookup` to access symbols.
 
-**Code Example:**
+**Code Example**:
 ```go
 p, _ := plugin.Open("myplugin.so")
 sym, _ := p.Lookup("MyFunction")
 myFunc := sym.(func())
 myFunc()
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2601,10 +2540,11 @@ myFunc()
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `testing/quick` performs black-box testing by generating random input values to verify properties of a function.
 
-**Code Example:**
+**Code Example**:
 ```go
 func TestOdd(t *testing.T) {
     f := func(x int) bool {
@@ -2619,8 +2559,6 @@ func TestOdd(t *testing.T) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
@@ -2628,18 +2566,17 @@ func TestOdd(t *testing.T) {
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `context.AfterFunc` registers a function to be called when the context is done. It's useful for cleaning up resources associated with a context asynchronously.
 
-**Code Example:**
+**Code Example**:
 ```go
 stop := context.AfterFunc(ctx, func() {
     fmt.Println("Context done, cleaning up...")
 })
 // stop() can be called to unregister if needed
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2648,32 +2585,29 @@ stop := context.AfterFunc(ctx, func() {
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Go 1.21 introduced built-in `min` and `max` functions for ordered types, simplifying basic comparisons.
 
-**Code Example:**
+**Code Example**:
 ```go
 a, b := 10, 20
 m := max(a, b)
 fmt.Println(m) // 20
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
-
 ---
 
 <a id="q62"></a>
-
 ### Q62: How do you reduce GC pressure using `sync.Pool`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `sync.Pool` caches allocated but unused objects for later reuse, relieving pressure on the garbage collector. Ideal for frequently allocated objects like buffers.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2696,16 +2630,15 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q63"></a>
 ### Q63: How does Go's `runtime.Gosched()` yield execution to other goroutines?
-**Difficulty**: <span class="advanced">Advanced</span>  
-**Category**: Concurrency & Runtime  
 
-**Strategy**: Explain cooperative scheduling in the Go runtime scheduler.
+**Difficulty**: Advanced
+
+**Strategy**:
+Explain cooperative scheduling in the Go runtime scheduler.
 
 `runtime.Gosched()` yields the processor, allowing other goroutines to run. It does not suspend the current goroutine, so execution resumes automatically when the scheduler picks it up again.
 
@@ -2736,16 +2669,15 @@ func main() {
 ---
 
 <a id="q64"></a>
-
 ### Q64: How do you perform lock-free operations using `atomic`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 The `sync/atomic` package provides low-level atomic memory primitives useful for implementing synchronization algorithms.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2766,21 +2698,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
-
 ### Q65: How do you manage groups of goroutines with `errgroup`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `golang.org/x/sync/errgroup` provides synchronization, error propagation, and context cancellation for groups of goroutines working on a subtask.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2807,21 +2736,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
-
 ### Q66: What is Escape Analysis?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 It's a compiler phase that determines whether variables can be allocated on the stack (fast) or must "escape" to the heap (slower, GC managed). Inspect with `go build -gcflags="-m"`.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2835,21 +2761,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q67"></a>
-
 ### Q67: How do you tune the Garbage Collector with `GOGC`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `GOGC` sets the percentage of new heap growth before a GC run. Default is 100 (wait until heap doubles). `GOGC=off` disables GC.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 # Run with aggressive GC (50% growth)
 GOGC=50 go run main.go
@@ -2858,21 +2781,18 @@ GOGC=50 go run main.go
 GOGC=off go run main.go
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
-
 ### Q68: How do you write Fuzz Tests in Go (1.18+)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `FuzzXxx` functions in `_test.go`. Fuzzing feeds random data to your test to find edge cases and crashes.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2892,21 +2812,18 @@ func FuzzReverse(f *testing.F) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q69"></a>
-
 ### Q69: How do you test HTTP handlers with `httptest`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `httptest.NewRecorder` to record the response of an HTTP handler without spinning up a real server.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2932,21 +2849,18 @@ func TestHandler(t *testing.T) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
-
 ### Q70: How do you benchmark code?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `BenchmarkXxx` functions in `_test.go`. Run with `go test -bench=.`. Use `b.ResetTimer()` to ignore setup time.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2959,21 +2873,18 @@ func BenchmarkAppend(b *testing.B) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q71"></a>
-
 ### Q71: How do you profile a Go application?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `net/http/pprof` for web apps or `runtime/pprof` for CLI. Inspect profiles using `go tool pprof`. It shows CPU usage, memory allocation, and blocking goroutines.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -2988,21 +2899,18 @@ func main() {
 // go tool pprof http://localhost:6060/debug/pprof/profile
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
-
 ### Q72: How do you use Go Workspaces (`go.work`)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Workspaces allow you to work on multiple modules simultaneously without publishing them. Create a `go.work` file referencing local module paths.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 // go.work
 go 1.21
@@ -3013,21 +2921,18 @@ use (
 )
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
-
 ### Q73: How do you embed files into the binary?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use the `//go:embed` directive (Go 1.16+) to include static files (HTML, SQL, Config) in the compiled binary.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3047,21 +2952,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q74"></a>
-
 ### Q74: How do you handle Context timeouts?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `context.WithTimeout` to ensure operations don't hang forever. Always `defer cancel()` to release resources.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3084,21 +2986,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q75"></a>
-
 ### Q75: How do you implement Graceful Shutdown?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Listen for OS signals (`SIGINT`, `SIGTERM`) and shutdown the server using `server.Shutdown(ctx)`. This allows active requests to complete.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3124,21 +3023,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q76"></a>
-
 ### Q76: How do you implement a Worker Pool?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Create a fixed number of worker goroutines that consume tasks from a buffered channel. This limits concurrency and resource usage.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3170,21 +3066,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q77"></a>
-
 ### Q77: How do you use `iota` for enumerations?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 `iota` is a predeclared identifier representing the untyped integer ordinal number of the current const specification. It simplifies creating auto-incrementing constants.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3203,21 +3096,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q78"></a>
-
 ### Q78: What is Variable Shadowing and how to avoid it?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 It occurs when a variable in an inner scope has the same name as a variable in an outer scope, hiding the outer one. Use `go vet` or linters to detect it.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 func main() {
 	x := 10
@@ -3229,21 +3119,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
-
 ### Q79: What does a Slice Header look like internally?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 A slice is a struct with three fields: a pointer to the underlying array, a length, and a capacity. Understanding this helps avoid memory leaks and performance issues.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3261,21 +3148,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q80"></a>
-
 ### Q80: How do you recover from a panic?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `recover()` function inside a deferred function. It stops the panicking sequence and returns the error value passed to `panic()`.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
@@ -3296,21 +3180,18 @@ func main() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
-
 ### Q81: How do you implement the Middleware pattern in Go?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Middleware wraps an `http.Handler` to perform pre- or post-processing (logging, auth) before calling the next handler.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 func loggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -3320,21 +3201,18 @@ func loggingMiddleware(next http.Handler) http.Handler {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q82"></a>
-
 ### Q82: How do you customize JSON marshaling?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Implement the `json.Marshaler` interface (`MarshalJSON()`) or `json.Unmarshaler` interface (`UnmarshalJSON()`) on your type.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 type User struct {
 	Name string
@@ -3345,21 +3223,18 @@ func (u User) MarshalJSON() ([]byte, error) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
-
 ### Q83: What is the difference between `time.Ticker` and `time.Timer`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `Ticker` fires repeatedly at an interval (for periodic tasks). `Timer` fires once after a delay (for timeouts). Both must be stopped to release resources.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 ticker := time.NewTicker(1 * time.Second)
 defer ticker.Stop()
@@ -3375,21 +3250,18 @@ case <-timer.C:
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q84"></a>
-
 ### Q84: How do you inspect types at runtime using `reflect`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 The `reflect` package allows inspecting the type and value of objects at runtime. It's powerful but slow and unsafe; use sparingly.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 import "reflect"
 
@@ -3400,21 +3272,18 @@ func printType(i interface{}) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q85"></a>
-
 ### Q85: How do you bypass type safety with `unsafe`?
 
 **Difficulty**: Expert
 
-**Strategy:**
+**Strategy**:
+**
 The `unsafe` package allows operations that bypass Go's type safety, like converting a pointer of one type to another. Essential for low-level optimizations but dangerous.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 import "unsafe"
 
@@ -3423,21 +3292,18 @@ func float64bits(f float64) uint64 {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
-
 ### Q86: How do you use Build Tags?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Build tags (constraints) control which files are included in the build. Add `//go:build tagname` at the top of the file.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 //go:build linux
 package main
@@ -3447,21 +3313,18 @@ func init() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
-
 ### Q87: What are the caveats of the `init()` function?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 `init()` runs before `main()`. It's hard to test, errors can't be handled gracefully (must panic), and order depends on import order. Avoid complex logic in `init()`.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 var db map[string]string
 
@@ -3471,21 +3334,18 @@ func init() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q88"></a>
-
 ### Q88: How do you load Go plugins at runtime?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use the `plugin` package to load shared libraries (`.so` files) built with `go build -buildmode=plugin`. Only works on Linux/macOS.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 p, _ := plugin.Open("myplugin.so")
 sym, _ := p.Lookup("MyFunction")
@@ -3493,41 +3353,35 @@ myFunc := sym.(func())
 myFunc()
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
-
 ### Q89: How do you detect data races?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Run your tests or application with the `-race` flag. It instruments memory accesses to detect unsynchronized concurrent access.
 
-**Code Example:**
-
+**Code Example**:
 ```bash
 go test -race ./...
 go run -race main.go
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q90"></a>
-
 ### Q90: How can re-slicing cause memory leaks?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 If you slice a small part of a large array and keep it, the entire underlying array stays in memory. Copy the data to a new slice to release the large array.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 var small []byte
 
@@ -3541,21 +3395,18 @@ func process(large []byte) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q91"></a>
-
 ### Q91: When should you use `sync.Map`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 Use `sync.Map` only for specific cases: cache implementations (stable keys) or disjoint sets of keys. For general use, a `map` with a `RWMutex` is faster and type-safe.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 var m sync.Map
 
@@ -3565,21 +3416,18 @@ if v, ok := m.Load("key"); ok {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
-
 ### Q92: How do you suppress duplicate function calls with `singleflight`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
+**Strategy**:
+**
 `golang.org/x/sync/singleflight` ensures that only one execution of a function happens for a given key at a time, sharing the result with all callers. Prevents cache stampedes.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 import "golang.org/x/sync/singleflight"
 
@@ -3593,21 +3441,18 @@ func getData(key string) (string, error) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q93"></a>
-
 ### Q93: When should you use `crypto/rand` vs `math/rand`?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `math/rand` for simulations (fast, deterministic if seeded). Use `crypto/rand` for security (slow, cryptographically secure, OS entropy).
 
-**Code Example:**
-
+**Code Example**:
 ```go
 import (
 	cRand "crypto/rand"
@@ -3622,21 +3467,18 @@ cRand.Read(b)
 n := mRand.Intn(100)
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
-
 ### Q94: How do you handle NULL values in SQL databases?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `sql.NullString`, `sql.NullInt64`, etc., or use pointers (`*string`) when scanning database rows.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 var name sql.NullString
 row.Scan(&name)
@@ -3647,21 +3489,18 @@ if name.Valid {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q95"></a>
-
 ### Q95: How do you use Structured Logging (Go 1.21+)?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use the `log/slog` package. It provides high-performance, structured logging (JSON, Text) with levels and attributes.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 import "log/slog"
 
@@ -3671,42 +3510,36 @@ func main() {
 // Output: time=... level=INFO msg="User logged in" user_id=42 ip=127.0.0.1
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q96"></a>
-
 ### Q96: Why are `io.Reader` and `io.Writer` important?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 They are the fundamental abstractions for I/O in Go. By implementing them, your types can work with files, network connections, buffers, and compressors seamlessly.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 func Stream(r io.Reader, w io.Writer) {
 	io.Copy(w, r)
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
-
 ### Q97: How do you read a file line by line?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Use `bufio.Scanner`. It's efficient and handles buffering automatically.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 f, _ := os.Open("file.txt")
 defer f.Close()
@@ -3717,42 +3550,36 @@ for scanner.Scan() {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q98"></a>
-
 ### Q98: How do you run external commands safely?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `os/exec`. Avoid passing raw strings to shell; pass arguments as a slice to prevent injection.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 cmd := exec.Command("grep", "hello", "file.txt")
 out, _ := cmd.Output()
 fmt.Println(string(out))
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
-
 ### Q99: How do you traverse a directory tree?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
+**Strategy**:
+**
 Use `filepath.WalkDir` (more efficient than `Walk`). It streams directory entries.
 
-**Code Example:**
-
+**Code Example**:
 ```go
 filepath.WalkDir(".", func(path string, d fs.DirEntry, err error) error {
 	if !d.IsDir() {
@@ -3762,25 +3589,22 @@ filepath.WalkDir(".", func(path string, d fs.DirEntry, err error) error {
 })
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q100"></a>
-
 ### Q100: What are Go Proverbs?
 
 **Difficulty**: Beginner
 
-**Strategy:**
+**Strategy**:
+**
 Rob Pike's proverbs capture the essence of Go design. Examples: "Don't communicate by sharing memory, share memory by communicating.", "Concurrency is not parallelism."
 
-**Code Example:**
-
+**Code Example**:
 ```go
 // Just a concept
 fmt.Println("Errors are values.")
 fmt.Println("A little copying is better than a little dependency.")
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---

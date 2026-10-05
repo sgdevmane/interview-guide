@@ -35,81 +35,81 @@
 23. [How do recursive types work in TypeScript for JSON structures?](#q23) <span class="advanced">Advanced</span>
 24. [What is the purpose of `ThisType<T>` utility type?](#q24) <span class="advanced">Advanced</span>
 25. [How do you configure Project References and Composite Projects for large TypeScript monorepos?](#q25) <span class="advanced">Advanced</span>
-26. [TypeScript Advanced Type System Topic 26](#q26) <span class="intermediate">Intermediate</span>
-27. [TypeScript Advanced Type System Topic 27](#q27) <span class="advanced">Advanced</span>
-28. [TypeScript Advanced Type System Topic 28](#q28) <span class="intermediate">Intermediate</span>
-29. [TypeScript Advanced Type System Topic 29](#q29) <span class="advanced">Advanced</span>
-30. [TypeScript Advanced Type System Topic 30](#q30) <span class="intermediate">Intermediate</span>
-31. [TypeScript Advanced Type System Topic 31](#q31) <span class="advanced">Advanced</span>
-32. [TypeScript Advanced Type System Topic 32](#q32) <span class="intermediate">Intermediate</span>
-33. [TypeScript Advanced Type System Topic 33](#q33) <span class="advanced">Advanced</span>
-34. [TypeScript Advanced Type System Topic 34](#q34) <span class="intermediate">Intermediate</span>
-35. [TypeScript Advanced Type System Topic 35](#q35) <span class="advanced">Advanced</span>
-36. [TypeScript Advanced Type System Topic 36](#q36) <span class="intermediate">Intermediate</span>
-37. [TypeScript Advanced Type System Topic 37](#q37) <span class="advanced">Advanced</span>
-38. [TypeScript Advanced Type System Topic 38](#q38) <span class="intermediate">Intermediate</span>
-39. [TypeScript Advanced Type System Topic 39](#q39) <span class="advanced">Advanced</span>
-40. [TypeScript Advanced Type System Topic 40](#q40) <span class="intermediate">Intermediate</span>
-41. [TypeScript Advanced Type System Topic 41](#q41) <span class="advanced">Advanced</span>
-42. [TypeScript Advanced Type System Topic 42](#q42) <span class="intermediate">Intermediate</span>
-43. [TypeScript Advanced Type System Topic 43](#q43) <span class="advanced">Advanced</span>
-44. [TypeScript Advanced Type System Topic 44](#q44) <span class="intermediate">Intermediate</span>
-45. [TypeScript Advanced Type System Topic 45](#q45) <span class="advanced">Advanced</span>
-46. [TypeScript Advanced Type System Topic 46](#q46) <span class="intermediate">Intermediate</span>
-47. [TypeScript Advanced Type System Topic 47](#q47) <span class="advanced">Advanced</span>
-48. [TypeScript Advanced Type System Topic 48](#q48) <span class="intermediate">Intermediate</span>
-49. [TypeScript Advanced Type System Topic 49](#q49) <span class="advanced">Advanced</span>
-50. [TypeScript Advanced Type System Topic 50](#q50) <span class="intermediate">Intermediate</span>
-51. [TypeScript Advanced Type System Topic 51](#q51) <span class="advanced">Advanced</span>
-52. [TypeScript Advanced Type System Topic 52](#q52) <span class="intermediate">Intermediate</span>
-53. [TypeScript Advanced Type System Topic 53](#q53) <span class="advanced">Advanced</span>
-54. [TypeScript Advanced Type System Topic 54](#q54) <span class="intermediate">Intermediate</span>
-55. [TypeScript Advanced Type System Topic 55](#q55) <span class="advanced">Advanced</span>
-56. [TypeScript Advanced Type System Topic 56](#q56) <span class="intermediate">Intermediate</span>
-57. [TypeScript Advanced Type System Topic 57](#q57) <span class="advanced">Advanced</span>
-58. [TypeScript Advanced Type System Topic 58](#q58) <span class="intermediate">Intermediate</span>
-59. [TypeScript Advanced Type System Topic 59](#q59) <span class="advanced">Advanced</span>
-60. [TypeScript Advanced Type System Topic 60](#q60) <span class="intermediate">Intermediate</span>
-61. [TypeScript Advanced Type System Topic 61](#q61) <span class="advanced">Advanced</span>
-62. [TypeScript Advanced Type System Topic 62](#q62) <span class="intermediate">Intermediate</span>
-63. [TypeScript Advanced Type System Topic 63](#q63) <span class="advanced">Advanced</span>
-64. [TypeScript Advanced Type System Topic 64](#q64) <span class="intermediate">Intermediate</span>
-65. [TypeScript Advanced Type System Topic 65](#q65) <span class="advanced">Advanced</span>
-66. [TypeScript Advanced Type System Topic 66](#q66) <span class="intermediate">Intermediate</span>
-67. [TypeScript Advanced Type System Topic 67](#q67) <span class="advanced">Advanced</span>
-68. [TypeScript Advanced Type System Topic 68](#q68) <span class="intermediate">Intermediate</span>
-69. [TypeScript Advanced Type System Topic 69](#q69) <span class="advanced">Advanced</span>
-70. [TypeScript Advanced Type System Topic 70](#q70) <span class="intermediate">Intermediate</span>
-71. [TypeScript Advanced Type System Topic 71](#q71) <span class="advanced">Advanced</span>
-72. [TypeScript Advanced Type System Topic 72](#q72) <span class="intermediate">Intermediate</span>
-73. [TypeScript Advanced Type System Topic 73](#q73) <span class="advanced">Advanced</span>
-74. [TypeScript Advanced Type System Topic 74](#q74) <span class="intermediate">Intermediate</span>
-75. [TypeScript Advanced Type System Topic 75](#q75) <span class="advanced">Advanced</span>
-76. [TypeScript Advanced Type System Topic 76](#q76) <span class="intermediate">Intermediate</span>
-77. [TypeScript Advanced Type System Topic 77](#q77) <span class="advanced">Advanced</span>
-78. [TypeScript Advanced Type System Topic 78](#q78) <span class="intermediate">Intermediate</span>
-79. [TypeScript Advanced Type System Topic 79](#q79) <span class="advanced">Advanced</span>
-80. [TypeScript Advanced Type System Topic 80](#q80) <span class="intermediate">Intermediate</span>
-81. [TypeScript Advanced Type System Topic 81](#q81) <span class="advanced">Advanced</span>
-82. [TypeScript Advanced Type System Topic 82](#q82) <span class="intermediate">Intermediate</span>
-83. [TypeScript Advanced Type System Topic 83](#q83) <span class="advanced">Advanced</span>
-84. [TypeScript Advanced Type System Topic 84](#q84) <span class="intermediate">Intermediate</span>
-85. [TypeScript Advanced Type System Topic 85](#q85) <span class="advanced">Advanced</span>
-86. [TypeScript Advanced Type System Topic 86](#q86) <span class="intermediate">Intermediate</span>
-87. [TypeScript Advanced Type System Topic 87](#q87) <span class="advanced">Advanced</span>
-88. [TypeScript Advanced Type System Topic 88](#q88) <span class="intermediate">Intermediate</span>
-89. [TypeScript Advanced Type System Topic 89](#q89) <span class="advanced">Advanced</span>
-90. [TypeScript Advanced Type System Topic 90](#q90) <span class="intermediate">Intermediate</span>
-91. [TypeScript Advanced Type System Topic 91](#q91) <span class="advanced">Advanced</span>
-92. [TypeScript Advanced Type System Topic 92](#q92) <span class="intermediate">Intermediate</span>
-93. [TypeScript Advanced Type System Topic 93](#q93) <span class="advanced">Advanced</span>
-94. [TypeScript Advanced Type System Topic 94](#q94) <span class="intermediate">Intermediate</span>
-95. [TypeScript Advanced Type System Topic 95](#q95) <span class="advanced">Advanced</span>
-96. [TypeScript Advanced Type System Topic 96](#q96) <span class="intermediate">Intermediate</span>
-97. [TypeScript Advanced Type System Topic 97](#q97) <span class="advanced">Advanced</span>
-98. [TypeScript Advanced Type System Topic 98](#q98) <span class="intermediate">Intermediate</span>
-99. [TypeScript Advanced Type System Topic 99](#q99) <span class="advanced">Advanced</span>
-100. [TypeScript Advanced Type System Topic 100](#q100) <span class="intermediate">Intermediate</span>
+26. [What are Template Literal Types and how do they enable advanced string manipulation at the type level?](#q26) <span class="advanced">Advanced</span>
+27. [How do Conditional Types distribute over unions, and how do you prevent distribution?](#q27) <span class="advanced">Advanced</span>
+28. [How does `infer` work inside conditional types?](#q28) <span class="advanced">Advanced</span>
+29. [What are Mapped Types and Key Remapping via `as`?](#q29) <span class="intermediate">Intermediate</span>
+30. [Explain `keyof`, index access types, and the `KeyofTrait` for exhaustive Records?](#q30) <span class="intermediate">Intermediate</span>
+31. [What is `satisfies` (TS 4.9) and how does it differ from a type annotation?](#q31) <span class="intermediate">Intermediate</span>
+32. [What are `const` Type Parameters (TS 5.0) and when do you reach for them?](#q32) <span class="advanced">Advanced</span>
+33. [What problem does `NoInfer<T>` (TS 5.4) solve?](#q33) <span class="advanced">Advanced</span>
+34. [How do ECMAScript Stage-3 Decorators (TS 5.0) differ from legacy `experimentalDecorators`?](#q34) <span class="advanced">Advanced</span>
+35. [Why are `enum`s controversial, and what are the alternatives?](#q35) <span class="intermediate">Intermediate</span>
+36. [What does `unknown` enforce that `any` does not?](#q36) <span class="beginner">Beginner</span>
+37. [How do you use `never` for exhaustiveness checking?](#q37) <span class="intermediate">Intermediate</span>
+38. [What are Discriminated Unions and why are they TS's best modeling tool?](#q38) <span class="intermediate">Intermediate</span>
+39. [Explain variance: covariance, contravariance, and bivariance in TypeScript?](#q39) <span class="expert">Expert</span>
+40. [What are Branded (Nominal) types and why does structural typing need them?](#q40) <span class="advanced">Advanced</span>
+41. [How do Variadic Tuple Types work?](#q41) <span class="advanced">Advanced</span>
+42. [What is declaration merging, and which declarations merge?](#q42) <span class="intermediate">Intermediate</span>
+43. [interface vs type alias — when does the choice matter?](#q43) <span class="beginner">Beginner</span>
+44. [How do `readonly`, `Readonly<T>`, `ReadonlyArray<T>`, and `as const` differ?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do User-Defined Type Guards and Assertion Functions differ in control-flow effects?](#q45) <span class="intermediate">Intermediate</span>
+46. [How do you type generics with defaults and multiple constraints?](#q46) <span class="intermediate">Intermediate</span>
+47. [What are the strict-family flags a production tsconfig should enable?](#q47) <span class="intermediate">Intermediate</span>
+48. [What does `noUncheckedIndexedAccess` change and how do you code around it?](#q48) <span class="intermediate">Intermediate</span>
+49. [How does module resolution differ between `node16`, `bundler`, and classic `node` modes?](#q49) <span class="advanced">Advanced</span>
+50. [What does `verbatimModuleSyntax` enforce vs `isolatedModules`?](#q50) <span class="advanced">Advanced</span>
+51. [How do `export =` and `esModuleInterop` interact for CJS interop?](#q51) <span class="advanced">Advanced</span>
+52. [How do you write recursive and deeply-applied utility types (DeepPartial, DeepReadonly)?](#q52) <span class="advanced">Advanced</span>
+53. [How would you implement built-in utilities `Pick`, `Omit`, `Partial`, and `ReturnType` yourself?](#q53) <span class="intermediate">Intermediate</span>
+54. [How do function overloads compare with union-parameter signatures?](#q54) <span class="intermediate">Intermediate</span>
+55. [What are abstract classes vs interfaces for shared contracts, and when is each right?](#q55) <span class="beginner">Beginner</span>
+56. [How do Mixins work in TypeScript without classes-inheriting-classes?](#q56) <span class="advanced">Advanced</span>
+57. [How do `private`, `#private`, and `protected` differ?](#q57) <span class="intermediate">Intermediate</span>
+58. [What is type widening and how do literal types escape it?](#q58) <span class="intermediate">Intermediate</span>
+59. [How does Control Flow Analysis narrow, and where does it fail?](#q59) <span class="intermediate">Intermediate</span>
+60. [What are the pitfalls of non-null assertion (`!`) and better alternatives?](#q60) <span class="beginner">Beginner</span>
+61. [How do you type `this` and polymorphic `this` for fluent APIs?](#q61) <span class="advanced">Advanced</span>
+62. [How do Generators and AsyncGenerators interact with typing?](#q62) <span class="advanced">Advanced</span>
+63. [What is Module Augmentation for third-party libraries?](#q63) <span class="advanced">Advanced</span>
+64. [How do you type environment variables and external config safely?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do runtime validators (zod) bridge to compile-time types?](#q65) <span class="intermediate">Intermediate</span>
+66. [What typing does `Awaited<T>` provide and how do you unwrap nested Promises?](#q66) <span class="intermediate">Intermediate</span>
+67. [How do you model Result/Either-style error handling to avoid exceptions?](#q67) <span class="advanced">Advanced</span>
+68. [How do you keep barrel files (`index.ts`) from hurting build performance?](#q68) <span class="intermediate">Intermediate</span>
+69. [How does `skipLibCheck` trade safety for speed, and what does it skip exactly?](#q69) <span class="beginner">Beginner</span>
+70. [How do Project References and `tsc --build` speed up monorepos?](#q70) <span class="advanced">Advanced</span>
+71. [What are `incremental`, `.tsbuildinfo`, and `assumeChangesOnlyAffectDirectDependencies` for CI caching?](#q71) <span class="advanced">Advanced</span>
+72. [How do path aliases work, and how do you keep bundler + tsc + jest in sync?](#q72) <span class="intermediate">Intermediate</span>
+73. [How do you migrate a large JavaScript codebase to TypeScript incrementally?](#q73) <span class="advanced">Advanced</span>
+74. [When is `@ts-ignore` acceptable versus `@ts-expect-error`?](#q74) <span class="beginner">Beginner</span>
+75. [How do you unit-test types themselves?](#q75) <span class="advanced">Advanced</span>
+76. [How does TypeScript's structural typing leak soundness with mutable properties?](#q76) <span class="expert">Expert</span>
+77. [What are `unique symbol` and `symbol` registry patterns?](#q77) <span class="advanced">Advanced</span>
+78. [How do you type React-generic components and forwardRef correctly in modern TS?](#q78) <span class="advanced">Advanced</span>
+79. [How do you type event handlers and native events without `any`?](#q79) <span class="beginner">Beginner</span>
+80. [How do you type fetch wrappers so errors and payloads are precise?](#q80) <span class="intermediate">Intermediate</span>
+81. [What is the difference between `type` imports and regular imports for bundlers?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do `namespace`s survive today, and should new code use them?](#q82) <span class="intermediate">Intermediate</span>
+83. [What are index signatures vs `Record` vs a fixed set of known keys?](#q83) <span class="beginner">Beginner</span>
+84. [How do optional properties differ under `exactOptionalPropertyTypes`?](#q84) <span class="advanced">Advanced</span>
+85. [How do you type curried functions and point-free composition?](#q85) <span class="expert">Expert</span>
+86. [What are the typing rules for optional and rest parameters in implementations?](#q86) <span class="beginner">Beginner</span>
+87. [How do conditional `infer` patterns extract array element, promise value, and function param types together?](#q87) <span class="advanced">Advanced</span>
+88. [How do you write type-safe reducers for state machines?](#q88) <span class="advanced">Advanced</span>
+89. [What are assertion-free strategies for typing JSON Schema / API contracts (OpenAPI codegen)?](#q89) <span class="intermediate">Intermediate</span>
+90. [How do you avoid `any` when dealing with genuinely dynamic objects (records of callbacks, registries)?](#q90) <span class="intermediate">Intermediate</span>
+91. [What is the `in` operator narrowing, and how does it interact with optional/private properties?](#q91) <span class="intermediate">Intermediate</span>
+92. [How do you keep `Promise.all`-style combinators precisely typed with heterogeneous tuples?](#q92) <span class="intermediate">Intermediate</span>
+93. [What are the typing subtleties of class static blocks and static members with generics?](#q93) <span class="advanced">Advanced</span>
+94. [How do `ConstructorParameters`, `InstanceType`, and `AbstractConstructor` utilities work?](#q94) <span class="intermediate">Intermediate</span>
+95. [How does `useDefineForClassFields` change class emit and interop with decorators?](#q95) <span class="expert">Expert</span>
+96. [What typing strategies keep tRPC-like end-to-end inference working, and how would you build a minimal router?](#q96) <span class="expert">Expert</span>
+97. [How do you encode "exactly one of" and "at least one of" constraints at the type level?](#q97) <span class="expert">Expert</span>
+98. [What are the rules for typing getters/setters and readonly-only arrays in classes?](#q98) <span class="intermediate">Intermediate</span>
+99. [How do you diagnose and fix TS performance problems (deep instantiation, large unions)?](#q99) <span class="expert">Expert</span>
+100. [How do you structure a production-grade tsconfig for a Node.js + library + test matrix?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
@@ -658,8 +658,6 @@ Project references split a monorepo into `composite` sub-projects with declared 
 { "moduleResolution": "NodeNext", "module": "NodeNext" }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q27"></a>
@@ -678,8 +676,6 @@ type NonDistributed<T> = [T] extends [string] ? "s" : "n";  // "n" for string|nu
 type ToArrayDist<T> = T extends unknown ? T[] : never;
 type R1 = ToArrayDist<string | number>; // string[] | number[]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -700,8 +696,6 @@ type UnwrapPromise<T> = T extends Promise<infer V> ? UnwrapPromise<V> : T;
 type R2 = UnwrapPromise<Promise<Promise<number>>>; // number
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q29"></a>
@@ -721,8 +715,6 @@ type PersonGetters = Getters<Person>; // { getName: () => string; getAge: () => 
 type OmitByType<T, V> = { [K in keyof T as T[K] extends V ? never : K]: T[K] };
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q30"></a>
@@ -741,8 +733,6 @@ type ConfigDefault = Record<keyof Config, boolean>;
 const defaults: ConfigDefault = { host: true, port: true }; // missing key = compile error
 type PortType = Config["port"]; // number
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -766,8 +756,6 @@ config.admin.map(r => r.length); // OK: inferred as string[] thanks to satisfies
 // With `: Routes` this errors: string | string[] has no .map
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q32"></a>
@@ -784,8 +772,6 @@ function defineRoutes<const T extends readonly string[]>(routes: T): T { return 
 const r = defineRoutes(["/home", "/about"]);
 // r: readonly ["/home", "/about"] — literal tuple preserved, no `as const` needed
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -804,8 +790,6 @@ function createSocket<const Name extends string>(name: Name, defaultName: NoInfe
 }
 const s = createSocket("db"); // Name inferred only from first arg; default checked against it
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -830,8 +814,6 @@ class Service {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q35"></a>
@@ -851,8 +833,6 @@ type LogLevel = (typeof LogLevel)[keyof typeof LogLevel]; // "debug" | "info"
 function log(level: LogLevel) {}
 log(LogLevel.Debug);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -875,8 +855,6 @@ if (typeof data === "object" && data !== null && "id" in data) {
   console.log(data.id); // narrowed
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -902,8 +880,6 @@ function area(shape: Shape): number {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q38"></a>
@@ -927,8 +903,6 @@ function render(state: FetchState) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q39"></a>
@@ -947,8 +921,6 @@ interface Consumer<in T> { put(x: T): void } // contravariant
 let p: Producer<Cat> = {} as Producer<Animal>; // Animal producer is a Cat producer? no — reversed
 let c: Consumer<Animal> = {} as Consumer<Cat>; // contravariance allows this direction
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -970,8 +942,6 @@ function getUser(id: UserId) {}
 getUser("abc");          // Error
 getUser(toUserId("abc")); // OK
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -995,8 +965,6 @@ function partialCall<T extends unknown[], U extends unknown[], R>(
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q42"></a>
@@ -1017,8 +985,6 @@ interface Box { weight: number }
 const b: Box = { size: 1, weight: 2 }; // merged members required
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q43"></a>
@@ -1038,8 +1004,6 @@ type ReadonlyPoint = Readonly<Point>;           // mapped — type only
 interface Extended extends Point { z: number }  // both work
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q44"></a>
@@ -1058,8 +1022,6 @@ const cfg = { retries: 3, hosts: ["a"] } as const;
 function freeze<T>(x: readonly T[]): readonly T[] { return x; }
 freeze([1, 2, 3]).push(4); // Error: property 'push' does not exist
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1083,8 +1045,6 @@ assertDefined(e); // from here e is non-undefined
 if (isError(e)) console.log(e.message);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q46"></a>
@@ -1105,8 +1065,6 @@ const all = pluck({ id: 1 });       // K defaults to "id"
 
 function merge<A extends object, B extends object>(a: A, b: B): A & B { return { ...a, ...b }; }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1131,8 +1089,6 @@ Beyond `strict: true`, mature codebases add `noUncheckedIndexedAccess` (indexing
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q48"></a>
@@ -1153,8 +1109,6 @@ const val = scores.at(2) ?? 0;      // explicit default
 const dict: Record<string, number> = {};
 const x = dict["missing"] ?? 0;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1178,8 +1132,6 @@ const x = dict["missing"] ?? 0;
 // tsconfig: "moduleResolution": "node16" respects the map; "bundler" also allows extensionless imports
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q50"></a>
@@ -1198,8 +1150,6 @@ import { loadConfig } from "./config";   // emitted as-is
 export type { Config };                  // type-only export must be marked
 // import { Config } from "./config" as value would now be a compile error
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1221,8 +1171,6 @@ export = legacy;
 import legacy from "./legacy-cjs-module";
 legacy.run();
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1246,8 +1194,6 @@ type Nested = { a: { b: { c: number } }; list: { x: string }[] };
 type Frozen = DeepReadonly<Nested>; // everything readonly at every depth
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q53"></a>
@@ -1269,8 +1215,6 @@ type T1 = MyPick<{ a: 1; b: 2 }, "a">; // { a: 1 }
 type T2 = MyReturnType<() => string>;  // string
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q54"></a>
@@ -1290,8 +1234,6 @@ function parse(input: string | number): string | number {
 }
 const n = parse("abc"); // number — correlated, no cast needed
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1314,8 +1256,6 @@ abstract class Repository<T> {
   protected async set(id: string, v: T) { this.cache.set(id, v); return v; }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1340,8 +1280,6 @@ const TimedEntity = Timestamped(Entity);
 const e = new TimedEntity(); // Entity fields + timestamp
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q57"></a>
@@ -1363,8 +1301,6 @@ class Wallet {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q58"></a>
@@ -1384,8 +1320,6 @@ function handle(event: "click" | "hover") {}
 handle(a);              // Error: string not assignable
 handle(b);              // OK
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1410,8 +1344,6 @@ function f(x: string | number) {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q60"></a>
@@ -1430,8 +1362,6 @@ const value = el?.value ?? "";           // safe default
 function requireEl<T>(x: T | null): T { if (!x) throw new Error("missing"); return x; }
 requireEl(el).value;    // centralized, loud failure
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1454,8 +1384,6 @@ class UserQuery extends QueryBuilder<"users"> {
 }
 const q = new UserQuery().activeOnly().where("id = 1"); // still UserQuery
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1485,8 +1413,6 @@ async function* pages(): AsyncGenerator<number[]> {
 }
 for await (const p of pages()) console.log(p);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1518,8 +1444,6 @@ const app = express();
 app.use((req: Request) => req.currentUser?.id);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q64"></a>
@@ -1544,8 +1468,6 @@ const env = EnvSchema.parse(process.env); // typed, validated, throws fast
 export const config = Object.freeze(env);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q65"></a>
@@ -1568,8 +1490,6 @@ async function getUser(url: string): Promise<User> {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q66"></a>
@@ -1590,8 +1510,6 @@ type C = Awaited<ReturnType<typeof fetch>>;  // Response
 async function load(): Promise<{ id: number }> { return { id: 1 }; }
 type Loaded = Awaited<ReturnType<typeof load>>; // { id: number }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1620,8 +1538,6 @@ const r = await tryCatch(fetch("/api"));
 if (!r.ok) console.error(r.error.message);
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q68"></a>
@@ -1640,8 +1556,6 @@ export type { InputProps } from "./input";
 // runtime imports bypass the barrel in hot paths:
 import { Button } from "./ui/button"; // direct
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1666,8 +1580,6 @@ import { Button } from "./ui/button"; // direct
 // only intra-.d.ts consistency is skipped.
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q70"></a>
@@ -1686,8 +1598,6 @@ Project references split a repo into independently buildable programs with `comp
 // tsconfig.json (solution style)
 { "files": [], "references": [{ "path": "./packages/core" }, { "path": "./packages/app" }] }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1709,8 +1619,6 @@ Project references split a repo into independently buildable programs with `comp
 - run: npx tsc --noEmit --incremental --tsBuildInfoFile .tsbuildinfo
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q72"></a>
@@ -1731,8 +1639,6 @@ Project references split a repo into independently buildable programs with `comp
 resolve: { alias: { "@": path.resolve(__dirname, "src") } }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q73"></a>
@@ -1749,8 +1655,6 @@ Enable `allowJs` + `checkJs` with JSDoc first, rename files opportunistically, a
 /** @param {string} id @returns {Promise<import('./types').User>} */
 export async function getUser(id) { return fetch(`/users/${id}`).then(r => r.json()); }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1770,8 +1674,6 @@ legacyConnect(options);
 // CI fails once lib is fixed — the comment must be removed,
 // unlike @ts-ignore which hides forever.
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1794,8 +1696,6 @@ test("DeepReadonly freezes nesting", () => {
 });
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q76"></a>
@@ -1816,8 +1716,6 @@ const arr: Point[] = [withExtra];
 function scale(points: { x: number }[]) { points.forEach(pt => pt.x *= 2); }
 scale(arr); // y untouched — but nothing stops shapes drifting through aliases
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1840,8 +1738,6 @@ container.set(LogToken, console.log);
 function inject<T>(t: unique symbol): T { return container.get(t) as T; }
 const log = inject<typeof console.log>(LogToken);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1868,8 +1764,6 @@ function Select<T extends string>({ value, options, onChange }: SelectProps<T>) 
 // React 19: function Input(props: Props & { ref?: Ref<HTMLInputElement> })
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q79"></a>
@@ -1890,8 +1784,6 @@ function Form() {
   return <input onChange={onChange} /><button onClick={onClick} />;
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1914,8 +1806,6 @@ class ApiError extends Error { constructor(public status: number, body: string) 
 const user = await api("/me", UserSchema); // typed or ApiError
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q81"></a>
@@ -1934,8 +1824,6 @@ import { load } from "./config";        // runtime import
 // conditional type-only usage needs the type form even mid-file:
 let x: import("./types").User;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1960,8 +1848,6 @@ export const version = "2.0";
 export function ajax(url: string) { return fetch(url); }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q83"></a>
@@ -1980,8 +1866,6 @@ const urls: Record<Env, string> = { dev: "localhost", staging: "stg", prod: "api
 const cache: { [key: string]: number } = {}; // open dictionary
 const hit = cache["x"] ?? 0;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2003,8 +1887,6 @@ apply({ title: undefined });       // allowed
 apply({ title: undefined });       // Error: undefined not assignable to string|absent
 apply({});                          // OK — the only way to express "absent"
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2031,8 +1913,6 @@ function pipe<T extends unknown[], R>(
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q86"></a>
@@ -2052,8 +1932,6 @@ function forward<F extends (...a: any[]) => any>(fn: F, ...args: Parameters<F>):
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q87"></a>
@@ -2072,8 +1950,6 @@ type Params<T> = T extends (...a: infer A) => any ? A : never;
 
 type Demo = ElementOf<AwaitedVal<Promise<Promise<string[]>>>>; // string
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2106,8 +1982,6 @@ function reducer(s: State, a: Action): State {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q89"></a>
@@ -2123,14 +1997,6 @@ Generate types from the contract source: `openapi-typescript` emits `.d.ts` from
 npx openapi-typescript ./api-spec.yaml -o ./src/api/schema.d.ts
 npx prisma generate
 ```
-
-```typescript
-import type { components } from "./api/schema";
-type User = components["schemas"]["User"];
-type CreateUserRequest = components["schemas"]["CreateUserRequest"];
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2153,8 +2019,6 @@ function on<E extends Event>(event: E, h: (e: unknown) => void) {
 const raw: unknown = JSON.parse("{}");
 if (typeof raw === "object" && raw !== null && "type" in raw) { /* narrowed */ }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2179,8 +2043,6 @@ declare const a: A;
 if ("kind" in a && a.kind === "a") a.x?.toFixed(2); // optional still needs inner checks
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q92"></a>
@@ -2201,8 +2063,6 @@ const [user, settings, flag] = await Promise.all([
 
 type All<T extends readonly unknown[]> = { [K in keyof T]: Awaited<T[K]> };
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2226,8 +2086,6 @@ class Registry<T> {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q94"></a>
@@ -2249,8 +2107,6 @@ function instantiate<C extends AnyCtor<unknown>>(C: C, ...args: ConstructorParam
   return new C(...args);
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2276,8 +2132,6 @@ class Careful extends Base {
   constructor() { super(); this.name = "set-in-ctor"; }
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2307,8 +2161,6 @@ const client = createClient(router);
 const u = client("getUser", "1");        // typed { id: string; name: string }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q97"></a>
@@ -2330,8 +2182,6 @@ find({});                    // Error — must provide at least one
 find({ name: "a" });         // OK
 find({ name: "a", email: "b" }); // OK
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2358,8 +2208,6 @@ class Timeline {
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
 <a id="q99"></a>
@@ -2375,15 +2223,6 @@ Use `tsc --extendedDiagnostics` and `--generateTrace` to find hot spots. Common 
 npx tsc --noEmit --extendedDiagnostics
 npx tsc --noEmit --generateTrace traces/
 ```
-
-```typescript
-// Anti-pattern: instantiating on every access
-type DeepFlatten<T> = T extends object ? { [K in keyof T]: DeepFlatten<T[K]> } : T;
-// Fix: cut recursion at known leaves
-type Flatten<T> = T extends Date | Function | primitive ? T : { [K in keyof T]: Flatten<T[K]> };
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -2409,7 +2248,5 @@ Use a solution-style root with project references: a `base` config with strictne
 { "extends": "./tsconfig.base.json", "references": [{ "path": "./tsconfig.src.json" }],
   "compilerOptions": { "noEmit": true, "types": ["vitest/globals"] }, "include": ["tests"] }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---

@@ -1,17 +1,32 @@
 {
   "short_name": "InterviewGuide",
   "name": "Interview Guide & Technical Knowledge Platform",
-  "description": "Comprehensive interview preparation across 46 technical categories with 4,600+ questions.",
+  "description": "Comprehensive engineering interview preparation across 55 technical categories with 5,600+ questions.",
   "icons": [
     {
-      "src": "assets/images/html-css-js-icon.svg",
+      "src": "assets/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "assets/icons/interview_guide_logo.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "assets/icons/html-css-js-icon.svg",
       "type": "image/svg+xml",
-      "sizes": "192x192 512x512"
+      "sizes": "any"
     }
   ],
-  "start_url": "./dashboard.html",
-  "background_color": "#121212",
-  "theme_color": "#e53935",
+  "start_url": "./index.html",
+  "background_color": "#0a0c10",
+  "theme_color": "#06b6d4",
   "display": "standalone",
   "orientation": "portrait"
 }

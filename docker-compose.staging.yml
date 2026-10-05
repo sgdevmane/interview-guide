@@ -1,5 +1,11 @@
 version: '3.8'
 
+# ==============================================================================
+# Staging Docker Compose - Production-Parity Staging Environment
+# Retrieves remote PostgreSQL configuration from .env.staging
+# Non-standard host ports avoiding common 3000, 8000, 8080
+# ==============================================================================
+
 services:
   app:
     build:
@@ -12,17 +18,18 @@ services:
     environment:
       - NODE_ENV=staging
       - DATABASE_URL=${DATABASE_URL}
-      - PORT=${PORT:-3000}
+      - PORT=8080
+      - MARKDOWNS_DIR=/app/markdowns
     ports:
-      - "3000:3000"
+      - "${STAGING_PORT:-9442}:8080"
     networks:
       - staging-network
     healthcheck:
-      test: ["CMD-SHELL", "wget -q --spider http://localhost:3000/ || exit 1"]
+      test: ["CMD-SHELL", "wget -q --spider http://localhost:8080/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 15s
 
   prometheus:
     image: prom/prometheus:v2.50.1
@@ -34,10 +41,8 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
-      - "9090:9090"
+      - "${PROMETHEUS_PORT:-9190}:9090"
     networks:
       - staging-network
 
@@ -54,7 +59,7 @@ services:
       - ./docker/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
       - grafana_staging_data:/var/lib/grafana
     ports:
-      - "3001:3000"
+      - "${GRAFANA_PORT:-9291}:3000"
     depends_on:
       - prometheus
     networks:
