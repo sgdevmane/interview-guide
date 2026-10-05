@@ -145,6 +145,362 @@
       ]
     },
     {
+      "name": "Gamification",
+      "item": [
+        {
+          "name": "Record SM-18 Review",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": \"rust\",\n  \"question_number\": 1,\n  \"grade\": 4\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/sm18/review",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "sm18", "review"]
+            }
+          }
+        },
+        {
+          "name": "Get Daily Challenge",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gamification/daily-challenge",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "daily-challenge"]
+            }
+          }
+        },
+        {
+          "name": "Get Company Tracks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gamification/company-tracks",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "company-tracks"]
+            }
+          }
+        },
+        {
+          "name": "Get Global Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gamification/leaderboard",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "leaderboard"]
+            }
+          }
+        },
+        {
+          "name": "Update Leaderboard Entry",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"alex_engineer\",\n  \"score\": 1840,\n  \"streak_days\": 14,\n  \"tier\": \"Grandmaster\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/leaderboard/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "leaderboard", "update"]
+            }
+          }
+        },
+        {
+          "name": "Create Coding Battle",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"player1_username\": \"alex_engineer\",\n  \"category_id\": \"rust\",\n  \"question_number\": 3,\n  \"time_limit_sec\": 600\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/battles/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "battles", "create"]
+            }
+          }
+        },
+        {
+          "name": "Join Coding Battle",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"battle_id\": \"b0000000-0000-0000-0000-000000000001\",\n  \"player2_username\": \"elena_dist\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/battles/join",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "battles", "join"]
+            }
+          }
+        },
+        {
+          "name": "Create Custom Deck",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Distributed Consensus & Raft Mastery\",\n  \"description\": \"Comprehensive deck focusing on Raft leader election, log replication, and safety\",\n  \"category_id\": \"system-design\",\n  \"question_ids\": [\"sys-q1\", \"sys-q2\", \"sys-q3\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/decks",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "decks"]
+            }
+          }
+        },
+        {
+          "name": "Apply Streak Freeze",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"alex_engineer\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gamification/streak/freeze",
+              "host": ["{{baseUrl}}"],
+              "path": ["gamification", "streak", "freeze"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enterprise Screening",
+      "item": [
+        {
+          "name": "Create Recruiter Assessment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recruiter_email\": \"recruiter@enterprise.com\",\n  \"candidate_email\": \"candidate@gmail.com\",\n  \"role_title\": \"Staff Backend Engineer\",\n  \"category_ids\": [\"rust\", \"system-design\", \"networking-protocols\"],\n  \"time_limit_minutes\": 60\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/assessments/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "assessments", "create"]
+            }
+          }
+        },
+        {
+          "name": "Get Assessment by Token",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/assessments/eval_demo123",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "assessments", "eval_demo123"]
+            }
+          }
+        },
+        {
+          "name": "Submit Assessment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"eval_demo123\",\n  \"answers\": [\n    {\n      \"question_id\": \"rust-q1\",\n      \"candidate_answer\": \"Ownership is enforced via affine type system and borrow checker at compile time.\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/assessments/submit",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "assessments", "submit"]
+            }
+          }
+        },
+        {
+          "name": "Log Proctor Audit Event",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"eval_demo123\",\n  \"event_type\": \"tab_blur\",\n  \"details\": \"Candidate switched window to secondary monitor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/audit/log",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "audit", "log"]
+            }
+          }
+        },
+        {
+          "name": "Issue Candidate Certificate",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidate_name\": \"Alex Morgan\",\n  \"candidate_email\": \"alex@domain.com\",\n  \"track_title\": \"Distributed Systems Specialist\",\n  \"score_percentage\": 94.5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/certificates/issue",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "certificates", "issue"]
+            }
+          }
+        },
+        {
+          "name": "Verify Candidate Certificate",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/certificates/verify/CERT-2026-RUST-001",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "certificates", "verify", "CERT-2026-RUST-001"]
+            }
+          }
+        },
+        {
+          "name": "Analyze Keystroke Dynamics",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidate_token\": \"eval_demo123\",\n  \"sample_text\": \"fn main() { println!(\\\"Hello, World!\\\"); }\",\n  \"key_intervals_ms\": [120, 85, 95, 110, 140, 90, 80],\n  \"backspace_count\": 1,\n  \"flight_times_ms\": [35, 42, 28, 50, 31, 29]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/assessments/keystrokes",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "assessments", "keystrokes"]
+            }
+          }
+        },
+        {
+          "name": "Issue W3C Verifiable Credential",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidate_name\": \"Alex Morgan\",\n  \"candidate_did\": \"did:key:z6MkhaXgBZDvotDkL5257faiz4898XnpGuvZSD6EDLk81tKA\",\n  \"skill_track\": \"Staff Distributed Systems Engineer\",\n  \"grade_percent\": 95.5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/credentials/issue",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "credentials", "issue"]
+            }
+          }
+        },
+        {
+          "name": "Verify W3C Verifiable Credential",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/credentials/verify/urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "credentials", "verify", "urn:uuid:f47ac10b-58cc-4372-a567-0e02b2c3d479"]
+            }
+          }
+        },
+        {
+          "name": "Trigger ATS Webhook",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"candidate_email\": \"alex@domain.com\",\n  \"assessment_token\": \"eval_demo123\",\n  \"ats_provider\": \"greenhouse\",\n  \"score_percentage\": 94.5,\n  \"hire_recommendation\": \"STRONG_HIRE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/enterprise/ats/webhook",
+              "host": ["{{baseUrl}}"],
+              "path": ["enterprise", "ats", "webhook"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bookmarks",
+      "item": [
+        {
+          "name": "Get Saved Bookmarks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bookmarks",
+              "host": ["{{baseUrl}}"],
+              "path": ["bookmarks"]
+            }
+          }
+        },
+        {
+          "name": "Toggle Bookmark",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": \"rust\",\n  \"question_number\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/bookmarks",
+              "host": ["{{baseUrl}}"],
+              "path": ["bookmarks"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notes",
+      "item": [
+        {
+          "name": "Get Candidate Notes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notes",
+              "host": ["{{baseUrl}}"],
+              "path": ["notes"]
+            }
+          }
+        },
+        {
+          "name": "Save Candidate Note",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": \"rust\",\n  \"question_number\": 1,\n  \"content\": \"Key takeaway: Pin<P> prevents moving underlying data when implementing Futures with self-referential pointers.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notes",
+              "host": ["{{baseUrl}}"],
+              "path": ["notes"]
+            }
+          }
+        }
+      ]
+    },
+    {
       "name": "Observability",
       "item": [
         {

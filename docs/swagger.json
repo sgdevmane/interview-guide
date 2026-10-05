@@ -2,40 +2,61 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Interview Guide Platform API",
-    "description": "High-performance Rust Axum RESTful API providing category navigation, questions querying, full-text search, mock interview quiz generation, SM-2 spaced repetition, and bookmarks.",
-    "version": "2.0.0",
+    "description": "High-performance Rust Axum API for Interview Guide & Technical Knowledge Platform",
     "contact": {
       "name": "Platform Engineering",
-      "url": "https://github.com/sgdevmane/interview-guide"
-    }
+      "email": "eng@interviewguide.internal"
+    },
+    "license": {
+      "name": ""
+    },
+    "version": "2.0.0"
   },
-  "servers": [
-    {
-      "url": "http://localhost:9443/api",
-      "description": "Production Nginx Multi-Instance Cluster (Load Balanced)"
-    },
-    {
-      "url": "http://localhost:9442/api",
-      "description": "Staging Single-Container Environment"
-    },
-    {
-      "url": "http://localhost:8080/api",
-      "description": "Local Rust Backend (Direct Container/Binary)"
-    }
-  ],
   "paths": {
-    "/categories": {
+    "/api/bookmarks": {
       "get": {
-        "summary": "List all 55 interview categories",
-        "tags": ["Categories"],
+        "tags": [
+          "Bookmarks"
+        ],
+        "operationId": "get_bookmarks",
         "responses": {
           "200": {
-            "description": "Array of 55 categories with question counts and descriptions",
+            "description": "List all user bookmarks",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Category" }
+                  "items": {
+                    "$ref": "#/components/schemas/BookmarkItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bookmarks"
+        ],
+        "operationId": "toggle_bookmark",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookmarkRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Bookmark created or toggled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookmarkItem"
                 }
               }
             }
@@ -43,40 +64,224 @@
         }
       }
     },
-    "/categories/{categoryId}": {
+    "/api/categories": {
       "get": {
-        "summary": "Get category metadata",
-        "tags": ["Categories"],
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "get_all_categories",
+        "responses": {
+          "200": {
+            "description": "List all 46 interview categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/categories/{category_id}/questions": {
+      "get": {
+        "tags": [
+          "Questions"
+        ],
+        "operationId": "get_questions_by_category",
         "parameters": [
-          { "name": "categoryId", "in": "path", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "Category ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "description": "Filter by difficulty: Beginner, Intermediate, Advanced",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of questions to return (default: 100)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Pagination offset",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of questions for the specified category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Category not found"
+          }
+        }
+      }
+    },
+    "/api/categories/{category_id}/questions/{q_num}": {
+      "get": {
+        "tags": [
+          "Questions"
+        ],
+        "operationId": "get_single_question",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "Category ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "q_num",
+            "in": "path",
+            "description": "Question number (1-100)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Single question details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Question"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Question not found"
+          }
+        }
+      }
+    },
+    "/api/categories/{id}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "get_category_by_id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Category ID (e.g. javascript, react, rust)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
             "description": "Category details",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Category" } }
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Category"
+                }
+              }
             }
+          },
+          "404": {
+            "description": "Category not found"
           }
         }
       }
     },
-    "/categories/{categoryId}/questions": {
+    "/api/enterprise/assessments/:token": {
       "get": {
-        "summary": "Get questions for a category",
-        "tags": ["Questions"],
-        "parameters": [
-          { "name": "categoryId", "in": "path", "required": true, "schema": { "type": "string" } },
-          { "name": "difficulty", "in": "query", "required": false, "schema": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] } },
-          { "name": "limit", "in": "query", "required": false, "schema": { "type": "integer", "default": 100 } }
+        "tags": [
+          "Enterprise"
         ],
+        "summary": "Get Assessment By Token",
+        "operationId": "get_assessment_by_token",
         "responses": {
           "200": {
-            "description": "List of questions",
+            "description": "Assessment metadata for candidate session",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/Question" }
+                  "$ref": "#/components/schemas/RecruiterAssessment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Assessment token not found"
+          }
+        }
+      }
+    },
+    "/api/enterprise/assessments/create": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Create Recruiter Assessment Link",
+        "operationId": "create_recruiter_assessment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecruiterAssessmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Generated assessment link with unique token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecruiterAssessment"
                 }
               }
             }
@@ -84,12 +289,650 @@
         }
       }
     },
-    "/search": {
+    "/api/enterprise/assessments/keystrokes": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Analyze Keystroke Dynamics Biometrics",
+        "operationId": "analyze_keystroke_dynamics",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KeystrokeAnalysisRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Biometric typing consistency analysis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeystrokeAnalysisResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/assessments/submit": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Submit Assessment with Anti-Cheating Telemetry",
+        "operationId": "submit_assessment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecruiterSubmissionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Candidate submission result with anti-cheat audit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecruiterSubmissionResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/ats/webhook": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "ATS Integration Webhook Dispatcher",
+        "operationId": "ats_webhook_sync",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtsWebhookPayload"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "ATS webhook dispatched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/audit/log": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Log Anti-Cheating Audit Event",
+        "operationId": "log_audit_event",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssessmentAuditLogRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Audit event logged successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/certificates/issue": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Issue Cryptographically Signed Candidate Certificate",
+        "operationId": "issue_candidate_certificate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CandidateCertificateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Generated SHA-256 signed certificate",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateCertificate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/certificates/verify/:cert_number": {
       "get": {
-        "summary": "Global cross-category full-text search",
-        "tags": ["Search"],
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Verify Candidate Certificate",
+        "operationId": "verify_candidate_certificate",
+        "responses": {
+          "200": {
+            "description": "Certificate verification status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateVerificationResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/credentials/issue": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Issue W3C-Compatible Verifiable Credential",
+        "operationId": "issue_verifiable_credential",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IssueVerifiableCredentialRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Cryptographically signed verifiable credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifiableCredentialResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/enterprise/credentials/verify/:id": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "Verify W3C Credential By ID",
+        "operationId": "verify_verifiable_credential",
+        "responses": {
+          "200": {
+            "description": "Verification result for W3C credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/battles/create": {
+      "post": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Create Real-Time P2P Coding Battle Match",
+        "operationId": "create_coding_battle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBattleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Created coding battle session token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodingBattle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/battles/join": {
+      "post": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Join Active Coding Battle",
+        "operationId": "join_coding_battle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JoinBattleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Joined coding battle",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodingBattle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/company-tracks": {
+      "get": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Get Curated Target Company Interview Tracks",
+        "operationId": "get_company_tracks",
+        "responses": {
+          "200": {
+            "description": "Curated company interview tracks (FAANG & HFT)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyTrackItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/daily-challenge": {
+      "get": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Get Daily Technical Challenge",
+        "operationId": "get_daily_challenge",
+        "responses": {
+          "200": {
+            "description": "Daily technical challenge question with streak data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DailyChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/decks": {
+      "post": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Create Custom Curated Deck",
+        "operationId": "create_custom_deck",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCustomDeckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Custom flashcard deck created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomDeck"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/leaderboard": {
+      "get": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Get Global Leaderboard",
+        "operationId": "get_leaderboard",
+        "responses": {
+          "200": {
+            "description": "Global candidate competency ranking",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/LeaderboardEntry"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/leaderboard/update": {
+      "post": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Update Candidate Elo & Leaderboard",
+        "operationId": "update_leaderboard",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLeaderboardRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Leaderboard score updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeaderboardEntry"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/sm18/review": {
+      "post": {
+        "tags": [
+          "Spaced Repetition"
+        ],
+        "summary": "Record SM-18 Spaced Repetition Review",
+        "description": "Uses the SuperMemo SM-18 Stability & Retrievability formulation",
+        "operationId": "record_sm18_review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sm18ReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated SM-18 spaced repetition memory state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sm18Item"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/gamification/streak/freeze": {
+      "post": {
+        "tags": [
+          "Gamification"
+        ],
+        "summary": "Apply Daily Streak Freeze",
+        "operationId": "apply_streak_freeze",
+        "responses": {
+          "200": {
+            "description": "Streak freeze applied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StreakFreezeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notes": {
+      "get": {
+        "tags": [
+          "Notes"
+        ],
+        "operationId": "get_notes",
+        "responses": {
+          "200": {
+            "description": "List all user notes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NoteItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Notes"
+        ],
+        "operationId": "save_note",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NoteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Note saved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoteItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/progress/review": {
+      "post": {
+        "tags": [
+          "Spaced Repetition"
+        ],
+        "operationId": "record_review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpacedRepetitionReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Updated SM-2 spaced repetition state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpacedRepetitionItem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/quiz/generate": {
+      "get": {
+        "tags": [
+          "Quiz"
+        ],
+        "operationId": "generate_quiz",
         "parameters": [
-          { "name": "q", "in": "query", "required": true, "schema": { "type": "string" } }
+          {
+            "name": "category_id",
+            "in": "query",
+            "description": "Optional category filter",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "Number of questions (default: 10, max: 30)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "nullable": true,
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated timed quiz session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizSession"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/quiz/submit": {
+      "post": {
+        "tags": [
+          "Quiz"
+        ],
+        "operationId": "submit_quiz",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QuizSubmission"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Evaluated quiz result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuizResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/search": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "operationId": "search_handler",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search query keyword",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -98,291 +941,1286 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/SearchResult" }
+                  "items": {
+                    "$ref": "#/components/schemas/SearchResult"
+                  }
                 }
               }
             }
           }
-        }
-      }
-    },
-    "/quiz/generate": {
-      "get": {
-        "summary": "Generate timed mock interview quiz",
-        "tags": ["Quiz"],
-        "parameters": [
-          { "name": "category_id", "in": "query", "required": false, "schema": { "type": "string" } },
-          { "name": "count", "in": "query", "required": false, "schema": { "type": "integer", "default": 10 } }
-        ],
-        "responses": {
-          "200": {
-            "description": "Quiz session with questions and options",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/QuizSession" } }
-            }
-          }
-        }
-      }
-    },
-    "/quiz/submit": {
-      "post": {
-        "summary": "Submit quiz evaluation",
-        "tags": ["Quiz"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/QuizSubmission" } }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Quiz score and evaluation",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/QuizResult" } }
-            }
-          }
-        }
-      }
-    },
-    "/progress/review": {
-      "post": {
-        "summary": "Record SM-2 spaced repetition review",
-        "tags": ["Spaced Repetition"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/SpacedRepetitionReviewRequest" } }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Calculated next review interval",
-            "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/SpacedRepetitionItem" } }
-            }
-          }
-        }
-      }
-    },
-    "/bookmarks": {
-      "get": {
-        "summary": "List all saved bookmarks",
-        "tags": ["Bookmarks"],
-        "responses": {
-          "200": {
-            "description": "Array of bookmarks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/BookmarkItem" }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Toggle bookmark on question",
-        "tags": ["Bookmarks"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/BookmarkRequest" } }
-          }
-        },
-        "responses": {
-          "200": { "description": "Bookmark removed" },
-          "201": { "description": "Bookmark added" }
-        }
-      }
-    },
-    "/notes": {
-      "get": {
-        "summary": "List all candidate notes",
-        "tags": ["Notes"],
-        "responses": {
-          "200": {
-            "description": "Array of notes",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/NoteItem" }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Save or update question note",
-        "tags": ["Notes"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/NoteRequest" } }
-          }
-        },
-        "responses": {
-          "200": { "description": "Note updated" },
-          "201": { "description": "Note created" }
-        }
-      }
-    },
-    "/metrics": {
-      "get": {
-        "summary": "Prometheus text metrics",
-        "tags": ["Observability"],
-        "responses": {
-          "200": { "description": "Prometheus scrape endpoint", "content": { "text/plain": {} } }
-        }
-      }
-    },
-    "/health": {
-      "get": {
-        "summary": "Health check",
-        "tags": ["Observability"],
-        "responses": {
-          "200": { "description": "Service is healthy" }
         }
       }
     }
   },
   "components": {
     "schemas": {
+      "AssessmentAuditLogRequest": {
+        "type": "object",
+        "required": [
+          "token",
+          "candidate_email",
+          "event_type",
+          "payload"
+        ],
+        "properties": {
+          "candidate_email": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "payload": {},
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "AtsWebhookPayload": {
+        "type": "object",
+        "required": [
+          "provider",
+          "candidate_email",
+          "candidate_name",
+          "score_percentage",
+          "assessment_title"
+        ],
+        "properties": {
+          "assessment_title": {
+            "type": "string"
+          },
+          "candidate_email": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "certificate_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "job_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "provider": {
+            "type": "string"
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "BookmarkItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "category_id",
+          "question_number",
+          "created_at"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "id": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "BookmarkRequest": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CandidateCertificate": {
+        "type": "object",
+        "required": [
+          "certificate_number",
+          "candidate_name",
+          "candidate_email",
+          "score_percentage",
+          "domains_mastered",
+          "signature_sha256",
+          "issued_at"
+        ],
+        "properties": {
+          "candidate_email": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "certificate_number": {
+            "type": "string"
+          },
+          "domains_mastered": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          },
+          "signature_sha256": {
+            "type": "string"
+          }
+        }
+      },
+      "CandidateCertificateRequest": {
+        "type": "object",
+        "required": [
+          "candidate_name",
+          "candidate_email",
+          "score_percentage",
+          "domains_mastered"
+        ],
+        "properties": {
+          "candidate_email": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "domains_mastered": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
       "Category": {
         "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "icon_path",
+          "total_questions"
+        ],
         "properties": {
-          "id": { "type": "string", "example": "javascript" },
-          "name": { "type": "string", "example": "JavaScript" },
-          "description": { "type": "string" },
-          "icon_path": { "type": "string" },
-          "total_questions": { "type": "integer", "example": 100 }
+          "description": {
+            "type": "string"
+          },
+          "icon_path": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "total_questions": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CertificateVerificationResult": {
+        "type": "object",
+        "required": [
+          "is_valid",
+          "message"
+        ],
+        "properties": {
+          "certificate": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CandidateCertificate"
+              }
+            ],
+            "nullable": true
+          },
+          "is_valid": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "CodingBattle": {
+        "type": "object",
+        "required": [
+          "battle_token",
+          "category_id",
+          "question_number",
+          "host_username",
+          "status",
+          "created_at"
+        ],
+        "properties": {
+          "battle_token": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "host_username": {
+            "type": "string"
+          },
+          "peer_username": {
+            "type": "string",
+            "nullable": true
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          },
+          "winner_username": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CompanyTrackItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "company_name",
+          "description",
+          "difficulty",
+          "target_roles",
+          "total_questions",
+          "questions"
+        ],
+        "properties": {
+          "company_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Question"
+            }
+          },
+          "target_roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "total_questions": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "CreateBattleRequest": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "host_username"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "host_username": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CreateCustomDeckRequest": {
+        "type": "object",
+        "required": [
+          "user_id",
+          "title",
+          "tags",
+          "question_ids",
+          "is_public"
+        ],
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_public": {
+            "type": "boolean"
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomDeck": {
+        "type": "object",
+        "required": [
+          "id",
+          "user_id",
+          "title",
+          "tags",
+          "total_questions",
+          "is_public",
+          "created_at"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "is_public": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "total_questions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "user_id": {
+            "type": "string"
+          }
+        }
+      },
+      "DailyChallengeResponse": {
+        "type": "object",
+        "required": [
+          "date",
+          "question",
+          "streak_count",
+          "multiplier",
+          "elo_rating"
+        ],
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "elo_rating": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "multiplier": {
+            "type": "number",
+            "format": "float"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "streak_count": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "IssueVerifiableCredentialRequest": {
+        "type": "object",
+        "required": [
+          "candidate_did",
+          "candidate_name",
+          "certificate_number",
+          "track_title",
+          "score_percentage"
+        ],
+        "properties": {
+          "candidate_did": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "certificate_number": {
+            "type": "string"
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          },
+          "track_title": {
+            "type": "string"
+          }
+        }
+      },
+      "JoinBattleRequest": {
+        "type": "object",
+        "required": [
+          "battle_token",
+          "peer_username"
+        ],
+        "properties": {
+          "battle_token": {
+            "type": "string"
+          },
+          "peer_username": {
+            "type": "string"
+          }
+        }
+      },
+      "KeystrokeAnalysisRequest": {
+        "type": "object",
+        "required": [
+          "submission_id",
+          "flight_time_avg_ms",
+          "dwell_time_avg_ms",
+          "entropy_score"
+        ],
+        "properties": {
+          "dwell_time_avg_ms": {
+            "type": "number",
+            "format": "float"
+          },
+          "entropy_score": {
+            "type": "number",
+            "format": "float"
+          },
+          "flight_time_avg_ms": {
+            "type": "number",
+            "format": "float"
+          },
+          "submission_id": {
+            "type": "string"
+          }
+        }
+      },
+      "KeystrokeAnalysisResponse": {
+        "type": "object",
+        "required": [
+          "submission_id",
+          "is_biometrically_consistent",
+          "entropy_score"
+        ],
+        "properties": {
+          "anomaly_flag": {
+            "type": "string",
+            "nullable": true
+          },
+          "entropy_score": {
+            "type": "number",
+            "format": "float"
+          },
+          "is_biometrically_consistent": {
+            "type": "boolean"
+          },
+          "submission_id": {
+            "type": "string"
+          }
+        }
+      },
+      "LeaderboardEntry": {
+        "type": "object",
+        "required": [
+          "username",
+          "elo_rating",
+          "tier",
+          "battles_won",
+          "battles_lost",
+          "questions_solved",
+          "updated_at"
+        ],
+        "properties": {
+          "battles_lost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "battles_won": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elo_rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "questions_solved": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tier": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      },
+      "NoteItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "category_id",
+          "question_number",
+          "note_content",
+          "updated_at"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "note_content": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NoteRequest": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "note_content"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "note_content": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          }
         }
       },
       "Question": {
         "type": "object",
+        "required": [
+          "id",
+          "category_id",
+          "question_number",
+          "title",
+          "difficulty",
+          "answer_markdown"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "title": { "type": "string" },
-          "difficulty": { "type": "string" },
-          "strategy": { "type": "string" },
-          "answer_markdown": { "type": "string" },
-          "code_example": { "type": "string" }
-        }
-      },
-      "SearchResult": {
-        "type": "object",
-        "properties": {
-          "question": { "$ref": "#/components/schemas/Question" },
-          "match_field": { "type": "string" },
-          "score": { "type": "number" }
-        }
-      },
-      "QuizSession": {
-        "type": "object",
-        "properties": {
-          "session_id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "duration_minutes": { "type": "integer" },
-          "total_questions": { "type": "integer" },
-          "questions": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/QuizQuestion" }
+          "answer_markdown": {
+            "type": "string"
+          },
+          "category_id": {
+            "type": "string"
+          },
+          "code_example": {
+            "type": "string",
+            "nullable": true
+          },
+          "difficulty": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "strategy": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
       "QuizQuestion": {
         "type": "object",
+        "required": [
+          "id",
+          "category_id",
+          "question_number",
+          "prompt",
+          "options",
+          "correct_option_index",
+          "explanation"
+        ],
         "properties": {
-          "id": { "type": "integer" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "prompt": { "type": "string" },
-          "options": { "type": "array", "items": { "type": "string" } },
-          "correct_option_index": { "type": "integer" },
-          "explanation": { "type": "string" }
-        }
-      },
-      "QuizSubmission": {
-        "type": "object",
-        "properties": {
-          "session_id": { "type": "string" },
-          "answers": { "type": "array", "items": { "type": "integer" } }
+          "category_id": {
+            "type": "string"
+          },
+          "correct_option_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          }
         }
       },
       "QuizResult": {
         "type": "object",
+        "required": [
+          "session_id",
+          "total_questions",
+          "correct_answers",
+          "score_percentage",
+          "passed"
+        ],
         "properties": {
-          "session_id": { "type": "string" },
-          "total_questions": { "type": "integer" },
-          "correct_answers": { "type": "integer" },
-          "score_percentage": { "type": "number" },
-          "passed": { "type": "boolean" }
+          "correct_answers": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "total_questions": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "QuizSession": {
+        "type": "object",
+        "required": [
+          "session_id",
+          "duration_minutes",
+          "total_questions",
+          "questions"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuizQuestion"
+            }
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "total_questions": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "QuizSubmission": {
+        "type": "object",
+        "required": [
+          "session_id",
+          "answers"
+        ],
+        "properties": {
+          "answers": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "User answers indexed by question id"
+          },
+          "session_id": {
+            "type": "string"
+          }
+        }
+      },
+      "RecruiterAssessment": {
+        "type": "object",
+        "required": [
+          "id",
+          "token",
+          "recruiter_email",
+          "title",
+          "target_role",
+          "duration_minutes",
+          "categories",
+          "question_count",
+          "is_active",
+          "created_at"
+        ],
+        "properties": {
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "id": {
+            "type": "string"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "question_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recruiter_email": {
+            "type": "string"
+          },
+          "target_role": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "RecruiterAssessmentRequest": {
+        "type": "object",
+        "required": [
+          "recruiter_email",
+          "title",
+          "target_role",
+          "duration_minutes",
+          "categories",
+          "question_count"
+        ],
+        "properties": {
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "question_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "recruiter_email": {
+            "type": "string"
+          },
+          "target_role": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "RecruiterSubmissionRequest": {
+        "type": "object",
+        "required": [
+          "token",
+          "candidate_name",
+          "candidate_email",
+          "answers",
+          "tab_blur_count",
+          "full_screen_exit_count",
+          "duration_seconds"
+        ],
+        "properties": {
+          "answers": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "candidate_email": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "duration_seconds": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "full_screen_exit_count": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "tab_blur_count": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "RecruiterSubmissionResult": {
+        "type": "object",
+        "required": [
+          "submission_id",
+          "candidate_name",
+          "candidate_email",
+          "score_percentage",
+          "passed",
+          "tab_blur_count",
+          "anti_cheat_status"
+        ],
+        "properties": {
+          "anti_cheat_status": {
+            "type": "string"
+          },
+          "candidate_email": {
+            "type": "string"
+          },
+          "candidate_name": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "score_percentage": {
+            "type": "number",
+            "format": "float"
+          },
+          "submission_id": {
+            "type": "string"
+          },
+          "tab_blur_count": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "SearchResult": {
+        "type": "object",
+        "required": [
+          "question",
+          "match_field",
+          "score"
+        ],
+        "properties": {
+          "match_field": {
+            "type": "string"
+          },
+          "question": {
+            "$ref": "#/components/schemas/Question"
+          },
+          "score": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "SimpleStatusResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Sm18Item": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "stability",
+          "retrievability",
+          "difficulty",
+          "repetitions",
+          "interval_days",
+          "next_review",
+          "status"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "number",
+            "format": "float"
+          },
+          "interval_days": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "next_review": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repetitions": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "retrievability": {
+            "type": "number",
+            "format": "float"
+          },
+          "stability": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      },
+      "Sm18ReviewRequest": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "grade"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "difficulty_factor": {
+            "type": "number",
+            "format": "float",
+            "description": "Estimated difficulty from candidate (1 to 10)",
+            "nullable": true
+          },
+          "grade": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Recall grade: 0 (blackout) to 5 (flawless)",
+            "minimum": 0
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "SpacedRepetitionItem": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "interval_days",
+          "repetitions",
+          "ease_factor",
+          "next_review",
+          "status"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "ease_factor": {
+            "type": "number",
+            "format": "float"
+          },
+          "interval_days": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "next_review": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repetitions": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "status": {
+            "type": "string"
+          }
         }
       },
       "SpacedRepetitionReviewRequest": {
         "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "rating"
+        ],
         "properties": {
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "rating": { "type": "integer", "description": "1=Again, 2=Hard, 3=Good, 4=Easy" }
-        },
-        "required": ["category_id", "question_number", "rating"]
-      },
-      "SpacedRepetitionItem": {
-        "type": "object",
-        "properties": {
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "interval_days": { "type": "integer" },
-          "repetitions": { "type": "integer" },
-          "ease_factor": { "type": "number" },
-          "next_review": { "type": "string", "format": "date-time" },
-          "status": { "type": "string" }
+          "category_id": {
+            "type": "string"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Rating: 1 = Again, 2 = Hard, 3 = Good, 4 = Easy",
+            "minimum": 0
+          }
         }
       },
-      "BookmarkRequest": {
+      "StreakFreezeResponse": {
         "type": "object",
+        "required": [
+          "user_id",
+          "available_freezes",
+          "used_freezes",
+          "success",
+          "message"
+        ],
         "properties": {
-          "user_id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" }
-        },
-        "required": ["category_id", "question_number"]
-      },
-      "BookmarkItem": {
-        "type": "object",
-        "properties": {
-          "id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "created_at": { "type": "string", "format": "date-time" }
+          "available_freezes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_freeze_applied_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "used_freezes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "string"
+          }
         }
       },
-      "NoteRequest": {
+      "UpdateLeaderboardRequest": {
         "type": "object",
+        "required": [
+          "username",
+          "elo_delta",
+          "won"
+        ],
         "properties": {
-          "user_id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "note_content": { "type": "string" }
-        },
-        "required": ["category_id", "question_number", "note_content"]
+          "elo_delta": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string"
+          },
+          "won": {
+            "type": "boolean"
+          }
+        }
       },
-      "NoteItem": {
+      "VerifiableCredentialResponse": {
         "type": "object",
+        "required": [
+          "credential_id",
+          "candidate_did",
+          "issuer_did",
+          "certificate_number",
+          "proof_signature",
+          "claim_data",
+          "issued_at"
+        ],
         "properties": {
-          "id": { "type": "string" },
-          "category_id": { "type": "string" },
-          "question_number": { "type": "integer" },
-          "note_content": { "type": "string" },
-          "updated_at": { "type": "string", "format": "date-time" }
+          "candidate_did": {
+            "type": "string"
+          },
+          "certificate_number": {
+            "type": "string"
+          },
+          "claim_data": {},
+          "credential_id": {
+            "type": "string"
+          },
+          "issued_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "issuer_did": {
+            "type": "string"
+          },
+          "proof_signature": {
+            "type": "string"
+          }
         }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Categories",
+      "description": "Interview question categories"
+    },
+    {
+      "name": "Questions",
+      "description": "Interview questions and answers"
+    },
+    {
+      "name": "Search",
+      "description": "Instant full-text search"
+    },
+    {
+      "name": "Quiz",
+      "description": "Mock interview quizzes"
+    },
+    {
+      "name": "Spaced Repetition",
+      "description": "SM-2 and SM-18 spaced-repetition intervals"
+    },
+    {
+      "name": "Gamification",
+      "description": "Daily challenge and company target tracks"
+    },
+    {
+      "name": "Enterprise",
+      "description": "Recruiter screening assessments, certificates & ATS sync"
+    },
+    {
+      "name": "Bookmarks",
+      "description": "Saved questions management"
+    },
+    {
+      "name": "Notes",
+      "description": "Custom candidate study notes"
+    }
+  ]
 }

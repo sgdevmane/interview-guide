@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Verify All 46 Categories Have >= 100 Qs and 0 Dupes
+      - name: Verify All 55 Categories Have >= 100 Qs and 0 Dupes
         run: python3 scripts/analyze_markdowns.py
 
   backend-check:

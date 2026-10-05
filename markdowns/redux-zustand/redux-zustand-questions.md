@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Redux Toolkit & Zustand Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Redux Toolkit & Zustand Logo" width="100" height="100">
   </a>
   <h1>Redux Toolkit & Zustand Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering RTK Query, Immer, Zustand Slices, and State Optimization</b></p>

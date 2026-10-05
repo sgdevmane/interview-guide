@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt=".NET 8 & C# 12 Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt=".NET 8 & C# 12 Logo" width="100" height="100">
   </a>
   <h1>.NET 8 & C# 12 Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering CLR GC, Span<T>, Async State Machines, and ASP.NET Core</b></p>

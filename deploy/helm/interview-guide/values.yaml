@@ -1,0 +1,89 @@
+# Global values
+global:
+  environment: production
+  domain: interviewguide.internal
+
+# Web Frontend Configuration
+web:
+  replicaCount: 2
+  image:
+    repository: interview-guide-web
+    pullPolicy: IfNotPresent
+    tag: "2.0.0"
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPUUtilizationPercentage: 75
+
+# Rust Axum Backend Configuration
+backend:
+  replicaCount: 2
+  image:
+    repository: interview-guide-backend
+    pullPolicy: IfNotPresent
+    tag: "2.0.0"
+  service:
+    type: ClusterIP
+    port: 8080
+  env:
+    port: 8080
+    markdownsDir: "/app/markdowns"
+    databaseUrlSecretName: "interview-guide-db-credentials"
+    databaseUrlSecretKey: "DATABASE_URL"
+  resources:
+    limits:
+      cpu: 1500m
+      memory: 1024Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 70
+    targetMemoryUtilizationPercentage: 80
+
+# Ingress Configuration
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+  hosts:
+    - host: platform.interviewguide.internal
+      paths:
+        - path: /api
+          pathType: Prefix
+          service: backend
+        - path: /
+          pathType: Prefix
+          service: web
+  tls:
+    - secretName: interview-guide-tls
+      hosts:
+        - platform.interviewguide.internal
+
+# Observability
+monitoring:
+  prometheusRule:
+    enabled: true
+  serviceMonitor:
+    enabled: true
+    interval: 15s
+    path: /metrics

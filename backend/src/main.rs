@@ -19,6 +19,17 @@ use handlers::{
     questions::{get_questions_by_category, get_single_question},
     quiz::{generate_quiz, submit_quiz},
     search::search_handler,
+    gamification::{
+        apply_streak_freeze, create_coding_battle, create_custom_deck, get_company_tracks,
+        get_daily_challenge, get_leaderboard, join_coding_battle, record_sm18_review,
+        update_leaderboard,
+    },
+    enterprise::{
+        analyze_keystroke_dynamics, ats_webhook_sync, create_recruiter_assessment,
+        get_assessment_by_token, issue_candidate_certificate, issue_verifiable_credential,
+        log_audit_event, submit_assessment, verify_candidate_certificate,
+        verify_verifiable_credential,
+    },
 };
 use metrics_exporter_prometheus::PrometheusBuilder;
 use std::{
@@ -89,6 +100,25 @@ async fn token_bucket_rate_limiter(
         handlers::bookmarks::toggle_bookmark,
         handlers::notes::get_notes,
         handlers::notes::save_note,
+        handlers::gamification::record_sm18_review,
+        handlers::gamification::get_daily_challenge,
+        handlers::gamification::get_company_tracks,
+        handlers::gamification::get_leaderboard,
+        handlers::gamification::update_leaderboard,
+        handlers::gamification::create_coding_battle,
+        handlers::gamification::join_coding_battle,
+        handlers::gamification::create_custom_deck,
+        handlers::gamification::apply_streak_freeze,
+        handlers::enterprise::create_recruiter_assessment,
+        handlers::enterprise::get_assessment_by_token,
+        handlers::enterprise::submit_assessment,
+        handlers::enterprise::log_audit_event,
+        handlers::enterprise::issue_candidate_certificate,
+        handlers::enterprise::verify_candidate_certificate,
+        handlers::enterprise::ats_webhook_sync,
+        handlers::enterprise::analyze_keystroke_dynamics,
+        handlers::enterprise::issue_verifiable_credential,
+        handlers::enterprise::verify_verifiable_credential,
     ),
     components(
         schemas(
@@ -101,11 +131,36 @@ async fn token_bucket_rate_limiter(
             models::QuizResult,
             models::SpacedRepetitionItem,
             models::SpacedRepetitionReviewRequest,
+            models::Sm18Item,
+            models::Sm18ReviewRequest,
+            models::DailyChallengeResponse,
+            models::CompanyTrackItem,
+            models::RecruiterAssessment,
+            models::RecruiterAssessmentRequest,
+            models::RecruiterSubmissionRequest,
+            models::RecruiterSubmissionResult,
+            models::AssessmentAuditLogRequest,
+            models::CandidateCertificate,
+            models::CandidateCertificateRequest,
+            models::CertificateVerificationResult,
+            models::AtsWebhookPayload,
             models::BookmarkItem,
             models::BookmarkRequest,
             models::NoteItem,
             models::NoteRequest,
             models::SimpleStatusResponse,
+            models::LeaderboardEntry,
+            models::UpdateLeaderboardRequest,
+            models::CodingBattle,
+            models::CreateBattleRequest,
+            models::JoinBattleRequest,
+            models::CustomDeck,
+            models::CreateCustomDeckRequest,
+            models::KeystrokeAnalysisRequest,
+            models::KeystrokeAnalysisResponse,
+            models::IssueVerifiableCredentialRequest,
+            models::VerifiableCredentialResponse,
+            models::StreakFreezeResponse,
         )
     ),
     tags(
@@ -113,7 +168,9 @@ async fn token_bucket_rate_limiter(
         (name = "Questions", description = "Interview questions and answers"),
         (name = "Search", description = "Instant full-text search"),
         (name = "Quiz", description = "Mock interview quizzes"),
-        (name = "Spaced Repetition", description = "SM-2 Leitner spaced-repetition intervals"),
+        (name = "Spaced Repetition", description = "SM-2 and SM-18 spaced-repetition intervals"),
+        (name = "Gamification", description = "Daily challenge and company target tracks"),
+        (name = "Enterprise", description = "Recruiter screening assessments, certificates & ATS sync"),
         (name = "Bookmarks", description = "Saved questions management"),
         (name = "Notes", description = "Custom candidate study notes")
     ),
@@ -127,6 +184,12 @@ struct ApiDoc;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args: Vec<String> = env::args().collect();
+    if args.len() > 1 && args[1] == "--export-openapi" {
+        println!("{}", ApiDoc::openapi().to_pretty_json()?);
+        return Ok(());
+    }
+
     tracing_subscriber::registry()
         .with(tracing_subscriber::EnvFilter::try_from_default_env().unwrap_or_else(|_| "info".into()))
         .with(tracing_subscriber::fmt::layer())
@@ -158,8 +221,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .allow_headers(Any);
 
     // API Routes
-    let api_routes = Router::new()
-        .route("/health", get(|| std::future::ready("OK")))
+    let shared_store_routes = Router::new()
         .route("/categories", get(get_all_categories))
         .route("/categories/:id", get(get_category_by_id))
         .route("/categories/:category_id/questions", get(get_questions_by_category))
@@ -167,12 +229,44 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route("/search", get(search_handler))
         .route("/quiz/generate", get(generate_quiz))
         .route("/quiz/submit", post(submit_quiz))
-        .with_state(shared_store)
+        .route("/gamification/daily-challenge", get(get_daily_challenge))
+        .route("/gamification/company-tracks", get(get_company_tracks))
+        .with_state(shared_store);
+
+    let stateless_routes = Router::new()
+        .route("/health", get(|| std::future::ready("OK")))
         .route("/progress/review", post(record_review))
+        .route("/gamification/sm18/review", post(record_sm18_review))
+        .route("/gamification/leaderboard", get(get_leaderboard))
+        .route("/gamification/leaderboard/update", post(update_leaderboard))
+        .route("/gamification/battles/create", post(create_coding_battle))
+        .route("/gamification/battles/join", post(join_coding_battle))
+        .route("/gamification/decks", post(create_custom_deck))
+        .route("/gamification/streak/freeze", post(apply_streak_freeze))
+        .route("/enterprise/assessments/create", post(create_recruiter_assessment))
+        .route("/enterprise/assessments/:token", get(get_assessment_by_token))
+        .route("/enterprise/assessments/submit", post(submit_assessment))
+        .route("/enterprise/assessments/keystrokes", post(analyze_keystroke_dynamics))
+        .route("/enterprise/audit/log", post(log_audit_event))
+        .route("/enterprise/certificates/issue", post(issue_candidate_certificate))
+        .route("/enterprise/certificates/verify/:cert_number", get(verify_candidate_certificate))
+        .route("/enterprise/credentials/issue", post(issue_verifiable_credential))
+        .route("/enterprise/credentials/verify/:id", get(verify_verifiable_credential))
+        .route("/enterprise/ats/webhook", post(ats_webhook_sync));
+
+    let bookmark_routes = Router::new()
         .route("/bookmarks", get(get_bookmarks).post(toggle_bookmark))
-        .with_state(bookmark_store)
+        .with_state(bookmark_store);
+
+    let note_routes = Router::new()
         .route("/notes", get(get_notes).post(save_note))
-        .with_state(note_store)
+        .with_state(note_store);
+
+    let api_routes = Router::new()
+        .merge(shared_store_routes)
+        .merge(stateless_routes)
+        .merge(bookmark_routes)
+        .merge(note_routes)
         .layer(middleware::from_fn_with_state(rate_limiter, token_bucket_rate_limiter));
 
     let recorder_for_metrics = recorder_handle.clone();

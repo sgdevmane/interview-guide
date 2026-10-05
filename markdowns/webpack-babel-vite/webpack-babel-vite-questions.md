@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Webpack, Babel & Vite Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Webpack, Babel & Vite Logo" width="100" height="100">
   </a>
   <h1>Webpack, Babel & Vite Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering Module Federation, Vite ESM, AST Plugins, and HMR</b></p>

@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Next.js Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Next.js Logo" width="100" height="100">
   </a>
   <h1>Next.js Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering Next.js 14/15 App Router, Server Actions, and RSC</b></p>

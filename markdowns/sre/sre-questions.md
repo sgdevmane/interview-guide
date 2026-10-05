@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Site Reliability Engineering (SRE) Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Site Reliability Engineering (SRE) Logo" width="100" height="100">
   </a>
   <h1>Site Reliability Engineering (SRE) Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering SLIs, SLOs, Error Budgets, OpenTelemetry, Incident Response, and Chaos Engineering</b></p>

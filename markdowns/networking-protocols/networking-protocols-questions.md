@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Modern Networking Protocols (HTTP/3, QUIC, gRPC) Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Modern Networking Protocols (HTTP/3, QUIC, gRPC) Logo" width="100" height="100">
   </a>
   <h1>Modern Networking Protocols (HTTP/3, QUIC, gRPC) Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering HTTP/3, QUIC 0-RTT, Head-of-Line Blocking, Protobuf Varints, and BBR</b></p>

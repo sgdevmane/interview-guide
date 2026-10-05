@@ -92,26 +92,48 @@ To prevent port collisions with standard system services (such as default 3000, 
 
 ---
 
-## ⚡ Interactive Platform Features
+## ⚡ Interactive Platform Features & Visualizers
 
 1. **🔍 Instant Client-Side Fuzzy Search**: Sub-millisecond global search (`Cmd+K` / `Ctrl+K` / `/`) querying questions and answers across all 55 categories.
 2. **⚡ Multi-Engine Code & SQL Sandbox**: In-browser execution for JavaScript/TypeScript and **Relational SQL queries** on mock database tables (`employees`, `departments`) with instant tabular output.
 3. **🚢 Raft Consensus Protocol Simulation**: Interactive 3-node distributed consensus simulation with heartbeats, election timeouts, leader crash triggers, and term increments.
-4. **⚡ Algorithm Benchmark Comparator**: Side-by-side performance runner measuring operations per second (Ops/sec) and latency percentiles using high-resolution timers (`performance.now()`).
-5. **🎯 Candidate Readiness Score Radar**: HTML5 Canvas drawing a 5-axis competency radar chart (Algorithms, Systems, Architecture, Security, Web).
-6. **⏱️ Deep Focus Pomodoro Timer**: 25-minute focus countdown timer with sound alerts and streak logging.
-7. **⌨️ Vim Keybindings Navigation Mode**: Toggle Vim mode (`j`/`k` scroll questions, `G`/`g` top/bottom, `/` search).
-8. **📦 LSM-Tree Storage Engine & Compaction Simulator**: Live HTML5 Canvas animating MemTable in-memory writes, flush to Level 0 SSTables, and background multi-way merge sort compaction into Level 1.
-9. **⭕ Consistent Hashing 360° Ring Simulator**: Interactive distributed hashing ring with virtual nodes, demonstrating minimal key migration when server nodes fail or revive without full keyspace reshuffling.
-10. **🎉 Confetti Celebration Engine**: Canvas particle physics celebration on question completion and mastery.
-11. **📱 Animated Mobile Splashscreen**: High-framerate CSS-driven PWA launch splashscreen with circular glow spinner and automatic dismissal.
-12. **🪟 3D Parallax Tilt Effects**: Card tilt interaction responding dynamically to cursor hovering across all category cards.
-13. **🔬 Memory Model Visualizer**: Interactive HTML5 Canvas animating stack frames, pointers, and dynamic heap memory blocks.
-14. **📹 WebRTC Peer-to-Peer Mock Interview Room**: Direct browser-to-browser peer video calling and synchronized coding without server relay costs.
-15. **🧠 Spaced Repetition Flashcards (SM-2)**: 3D flip-card study mode with SuperMemo SM-2 interval calculations (`Again`, `Hard`, `Good`, `Easy`).
-16. **🔒 Client-Side E2E Encrypted Notes**: AES-256-GCM encryption with PBKDF2 user passphrase key derivation for confidential candidate notes.
-17. **🌐 Space-Grade Landing Page & Instant Search**: Ambient radial glow, instant hero search with live keyboard shortcuts (`Cmd+K` / `/`), category domain filter tabs, and real-time interactive 3D flashcard flip demo.
-18. **🎛️ Fluid Sidebar Controls Center**: Smooth cubic-bezier expanding accordion with inset controls, symmetrical font sizing and tools grids, custom translucent scrollbars, and zero horizontal layout distortion.
+4. **📦 LSM-Tree Storage Engine & Compaction Simulator**: Live HTML5 Canvas animating MemTable in-memory writes, flush to Level 0 SSTables, and background multi-way merge sort compaction into Level 1.
+5. **⭕ Consistent Hashing 360° Ring Simulator**: Interactive distributed hashing ring with virtual nodes, demonstrating minimal key migration when server nodes fail or revive without full keyspace reshuffling.
+6. **🌐 TCP 3-Way Handshake & TLS 1.3 Exchange**: Interactive packet exchange diagram with SYN, SYN-ACK, ACK, ClientHello (Curve25519 KeyShare), ServerHello, and simulated retransmission timeout (RTO).
+7. **🌳 B-Tree Index Split & Merge Simulator**: Dynamic insertion of database index keys into order M=4 B-Tree, visualizing node splitting, median promotion, and balanced tree growth.
+8. **🧹 Garbage Collector Mark-and-Sweep Simulator**: Tri-color (White, Grey, Black) graph traversal demonstrating root scanning, reachable object marking, dead object sweeping, and memory compaction.
+9. **💻 CPU Cache Line & False Sharing Simulator**: Visualizes 2 CPU cores accessing adjacent variables in a 64-byte line with MESI cache coherence protocol states and bus invalidation stall overhead.
+10. **📊 SQL Execution Plan Visualizer (`EXPLAIN ANALYZE`)**: Tree breakdown parser visualizing sequential scans, index scans, nested loops, hash joins, cost estimates, and actual execution times.
+11. **🔤 Regex DFA Automaton Visualizer**: Visual state machine diagram parsing regular expressions into states, transitions, and interactive string step-through.
+12. **🔒 Deadlock Visualizer (Resource Allocation Graph)**: Thread vs Mutex Lock allocation graph with Tarjan's cycle detection and hierarchical lock ordering prevention.
+13. **⚡ Linux Epoll vs Select I/O Multiplexing**: Event loop visualizer showing O(N) linear scanning of 10,000 file descriptors in `select()` vs O(1) ready-list event notification in Linux `epoll`.
+14. **🧩 Binary Buddy Memory Allocator**: Visualizer showing recursive power-of-two block allocation, splitting, freeing, and buddy merging without external fragmentation.
+15. **⚖️ CAP Theorem & SLA Latency Dials**: Dynamic sliders adjusting consistency, availability, replication factor, and write ratios with real-time P99 latency predictions.
+16. **🎙️ WebAudio Pitch, Pace & Filler Word Analyzer**: Live microphone stream computing Words Per Minute (WPM), cadence rating, speech pauses, and filler word counter ("um", "like", "actually").
+17. **📝 Audio-Driven STAR Behavioral Transcriber**: Live speech transcription splitting responses into Situation, Task, Action, and Result with FAANG benchmark sample answers.
+18. **🤖 AI Interviewer Persona Simulator**: Real-time simulated audio interviewers with selectable personalities (FAANG Staff Bar Raiser, Early Startup CTO, Academic Computer Scientist) with speech synthesis questions and critique.
+19. **🎧 Commute / Eyes-Free Audio Flashcard Player**: Hands-free audio player reading questions, pausing for candidate contemplation, and speaking model answers at 1.0x, 1.25x, and 1.5x speeds.
+20. **👁️ Video Camera Eye-Contact & Focus Tracker**: Webcam gaze and facial orientation monitor computing real-time eye-contact confidence percentages.
+21. **🟩 Candidate Weak-Spot Activity Heatmap**: GitHub-style 52-week review velocity grid tracking topic mastery and review consistency across 364 days.
+22. **⚡ 60-Second Blitz Speed Round**: Rapid-fire flashcard challenge with combo multipliers, score tracking, and celebratory confetti.
+23. **🔥 Daily Technical Challenge & Milestone Badges**: Daily fresh question generator with streak tracking, automatic streak freezes, and unlocked milestone badges.
+24. **🎯 Dynamic Elo Rating Engine (1200 - 2800)**: Candidate skill rating calibrated against Junior, Mid, Senior, Staff, and Fellow tiers with win/loss rating deltas.
+25. **🐛 Blind Code Debugging Hunt**: Interactive bug-hunting challenges spotting concurrency races, goroutine leaks, and memory issues across Rust and Go.
+26. **📜 Cryptographically Signed Candidate Certificate**: SVG/Canvas certificate with candidate name, verified Elo rating, and tamper-proof SHA-256 hash fingerprint.
+27. **👔 B2B Recruiter Screening & Anti-Cheat Hub**: Recruiter screening link generator with tokenized test configs, anti-cheating window blur/tab switch detector, and ATS webhooks (Greenhouse, Lever, Ashby).
+28. **🔄 CRDT Multi-Tab Synchronization**: Local-first synchronization via `BroadcastChannel` synchronizing Elo, notes, and progress across browser tabs without server roundtrips.
+29. **📳 Native Haptic Vibration Feedback**: Tactile haptic feedback (`navigator.vibrate`) for correct/incorrect answers, streak milestones, and blitz timers on mobile.
+30. **📖 Multi-Language Technical Lexicon**: Multi-lingual glossary providing translations and explanations for core technical terms across EN, ES, ZH, and DE.
+31. **⚡ Algorithm Benchmark Comparator**: Side-by-side performance runner measuring operations per second (Ops/sec) and latency percentiles using high-resolution timers (`performance.now()`).
+32. **🎯 Candidate Readiness Score Radar**: HTML5 Canvas drawing a 5-axis competency radar chart (Algorithms, Systems, Architecture, Security, Web).
+33. **⏱️ Deep Focus Pomodoro Timer**: 25-minute focus countdown timer with sound alerts and streak logging.
+34. **⌨️ Vim Keybindings Navigation Mode**: Toggle Vim mode (`j`/`k` scroll questions, `G`/`g` top/bottom, `/` search).
+35. **🔬 Memory Model Visualizer**: Interactive HTML5 Canvas animating stack frames, pointers, and dynamic heap memory blocks.
+36. **📹 WebRTC Peer-to-Peer Mock Interview Room**: Direct browser-to-browser peer video calling and synchronized coding without server relay costs.
+37. **🧠 Spaced Repetition Flashcards (SM-2 & SM-18)**: 3D flip-card study mode with SuperMemo interval calculations (`Again`, `Hard`, `Good`, `Easy`).
+38. **🔒 Client-Side E2E Encrypted Notes**: AES-256-GCM encryption with PBKDF2 user passphrase key derivation for confidential candidate notes.
+39. **🌐 Space-Grade Landing Page & Instant Search**: Ambient radial glow, instant hero search with live keyboard shortcuts (`Cmd+K` / `/`), category domain filter tabs, and real-time interactive 3D flashcard flip demo.
+40. **🎛️ Fluid Sidebar Controls Center**: Smooth cubic-bezier expanding accordion with inset controls, symmetrical font sizing and tools grids, custom translucent scrollbars, and zero horizontal layout distortion.
 
 ---
 
@@ -179,31 +201,49 @@ We utilize a **remote PostgreSQL server** via the `DATABASE_URL` parameter in `.
 psql $DATABASE_URL -f init.sql
 ```
 
-Relational structures created by `init.sql`:
-- `categories`: Metadata and total question counters for all 55 categories.
-- `questions`: Question numbers, categories, difficulty levels, strategies, and code examples.
-- `mock_quizzes`: User assessment sessions, scores, and timestamps.
-- `code_playground_submissions`: Sandboxed code execution history.
-- `user_bookmarks`: Bookmarked questions per user.
-- `user_question_notes`: User-specific study notes on questions.
-- `user_study_progress`: Leitner spaced-repetition progress (`unseen`, `learning`, `mastered`, `needs_review`).
+Relational structures created and maintained by `init.sql` (23 Tables in total):
+1. `users`: Platform authentication, RBAC roles (`candidate`, `interviewer`, `admin`), email verification.
+2. `categories`: Metadata and total question counters for all 55 categories.
+3. `questions`: Question numbers, categories, difficulty levels, strategies, and code examples.
+4. `user_bookmarks`: Bookmarked questions per user.
+5. `user_question_notes`: User-specific study notes on questions.
+6. `user_study_progress`: Leitner spaced-repetition progress (`unseen`, `learning`, `mastered`, `needs_review`).
+7. `spaced_repetition_sm2`: SuperMemo SM-2 interval parameters (repetition count, ease factor, interval days).
+8. `mock_quizzes`: User assessment sessions, scores, and timestamps.
+9. `code_playground_submissions`: Sandboxed code execution history.
+10. `user_streaks`: Daily challenge streaks, longest streak record, and Elo skill ratings.
+11. `user_badges`: Unlocked achievement badges and milestone awards.
+12. `company_tracks`: Curated target company interview roadmaps (FAANG, HFT, Startups).
+13. `candidate_certificates`: Cryptographically signed candidate competency certificates with SHA-256 signatures.
+14. `recruiter_assessments`: B2B recruiter candidate screening assessment links, timers, and question subsets.
+15. `recruiter_submissions`: Candidate assessment results, duration, and anti-cheat blur telemetry.
+16. `assessment_audit_logs`: Proctoring audit trail (tab switches, full-screen exits, devtools telemetry).
+17. `ats_integrations`: Outbound webhooks to ATS platforms (Greenhouse, Lever, Ashby).
+18. `leaderboard_entries`: Global competency leaderboard, tiers, Elo ratings, and match statistics.
+19. `coding_battles`: Real-time 1v1 P2P peer coding battle states and outcome records.
+20. `custom_decks`: User-curated custom flashcard decks with JSONB question sets.
+21. `keystroke_fingerprints`: Biometric keystroke dynamics (dwell time, flight time, typing entropy).
+22. `verifiable_credentials`: W3C-compatible decentralized identifier (DID) signed credentials.
+23. `streak_freezes`: Daily streak freeze bank and protection ledger.
 
 ---
 
-## 📊 Observability (Prometheus & Grafana)
+## 📊 Observability & Logging (Prometheus, Grafana, Loki & Promtail)
 
-Prometheus and Grafana configurations are pre-wired in `docker-compose.staging.yml` and `docker-compose.production.yml`:
-- **Prometheus Scrapes & Alert Rules**: `docker/prometheus/prometheus.yml` and `docker/prometheus/alerts.yml`.
-- **Grafana Dashboard JSON**: Pre-provisioned telemetry dashboard in `docker/grafana/provisioning/dashboards/platform_dashboard.json`.
+Pre-wired telemetry and log aggregation configs in `docker/`:
+- **Prometheus Scrapes & Alerts**: `docker/prometheus/prometheus.yml` and `docker/prometheus/alerts.yml`.
+- **Grafana Dashboards**: Pre-provisioned dashboards in `docker/grafana/provisioning/`.
+- **Loki & Promtail**: Log aggregation in `docker/loki/loki-config.yml` and `docker/loki/promtail-config.yml`.
 - **Production Prometheus UI**: `http://localhost:9191`.
-- **Production Grafana UI**: `http://localhost:9292` (credentials: `admin` / `admin`).
+- **Production Grafana UI**: `http://localhost:9292` (credentials: `admin` / `prod_secure_grafana_pass`).
 
 ---
 
 ## 📑 API Documentation (Swagger & Postman)
 
-- **Swagger UI**: Accessible at `/swagger-ui` on the running instance or inspectable via [docs/swagger.json](file:///Users/santoshdevmane/github/interview-guide/docs/swagger.json).
-- **Postman Collection**: Fully importable collection located at [docs/postman_collection.json](file:///Users/santoshdevmane/github/interview-guide/docs/postman_collection.json) with pre-configured requests for all endpoints and environment variable `baseUrl` set to `http://localhost:9443/api`.
+- **Live Swagger UI**: Accessible at `/swagger-ui` on the running instance or inspectable via [docs/swagger.json](file:///Users/santoshdevmane/github/interview-guide/docs/swagger.json).
+- **Export OpenAPI Specification**: `npm run docs:export-openapi`.
+- **Postman Collection**: 33 pre-configured requests across all 10 API folders located at [docs/postman_collection.json](file:///Users/santoshdevmane/github/interview-guide/docs/postman_collection.json) with environment variable `baseUrl` set to `http://localhost:9443/api`.
 
 ---
 
@@ -231,18 +271,30 @@ npm test
 
 ---
 
-## 🐳 Docker Compose Deployment
+## 🐳 Deployment & Orchestration
 
 ### Production Multi-Instance Cluster (Nginx Load Balancer on Port 9443)
 ```bash
 # Start cluster (2 web + 2 backend + Nginx LB + Prometheus + Grafana)
 npm run deploy:prod
 
+# Zero-downtime rolling update (Blue/Green graceful backend/web restart)
+npm run deploy:prod:rolling
+
 # View cluster logs
 npm run deploy:prod:logs
 
 # Teardown cluster
 npm run deploy:prod:down
+```
+
+### Kubernetes Helm Deployment
+A production-ready Helm chart is provided in `deploy/helm/interview-guide`:
+```bash
+# Deploy to Kubernetes cluster
+helm upgrade --install interview-guide ./deploy/helm/interview-guide \
+  --namespace production --create-namespace \
+  --set global.domain=interviewguide.internal
 ```
 
 ### Staging Single-Instance Environment (Port 9442)

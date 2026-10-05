@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Computer Graphics & WebGPU Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Computer Graphics & WebGPU Logo" width="100" height="100">
   </a>
   <h1>Computer Graphics & WebGPU Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering WebGPU Compute Pipelines, WGSL, Memory Coalescing, PSOs, and Workgroups</b></p>

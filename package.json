@@ -8,11 +8,13 @@
     "test": "cargo test --manifest-path backend/Cargo.toml",
     "build": "mkdir -p dist && cp -r *.html assets markdowns favicon.ico manifest.json sw.js dist/",
     "deploy:prod": "docker compose -f docker-compose.production.yml --env-file .env.production up -d --build",
+    "deploy:prod:rolling": "./scripts/blue_green_deploy.sh",
     "deploy:prod:down": "docker compose -f docker-compose.production.yml down",
     "deploy:prod:logs": "docker compose -f docker-compose.production.yml logs -f",
     "deploy:staging": "docker compose -f docker-compose.staging.yml --env-file .env.staging up -d --build",
     "deploy:staging:down": "docker compose -f docker-compose.staging.yml down",
     "deploy:staging:logs": "docker compose -f docker-compose.staging.yml logs -f",
+    "docs:export-openapi": "cargo run --manifest-path backend/Cargo.toml -- --export-openapi > docs/swagger.json",
     "lint:check": "cargo clippy --manifest-path backend/Cargo.toml -- -D warnings"
   },
   "keywords": [

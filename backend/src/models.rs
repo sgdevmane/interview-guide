@@ -122,3 +122,283 @@ pub struct SimpleStatusResponse {
     pub success: bool,
     pub message: String,
 }
+
+// ==============================================================================
+// SM-18 Spaced Repetition Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct Sm18ReviewRequest {
+    pub category_id: String,
+    pub question_number: i32,
+    /// Recall grade: 0 (blackout) to 5 (flawless)
+    pub grade: u8,
+    /// Estimated difficulty from candidate (1 to 10)
+    pub difficulty_factor: Option<f32>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct Sm18Item {
+    pub category_id: String,
+    pub question_number: i32,
+    pub stability: f32,
+    pub retrievability: f32,
+    pub difficulty: f32,
+    pub repetitions: u32,
+    pub interval_days: u32,
+    pub next_review: DateTime<Utc>,
+    pub status: String,
+}
+
+// ==============================================================================
+// Daily Challenge & Company Tracks
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct DailyChallengeResponse {
+    pub date: String,
+    pub question: Question,
+    pub streak_count: u32,
+    pub multiplier: f32,
+    pub elo_rating: u32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CompanyTrackItem {
+    pub id: String,
+    pub company_name: String,
+    pub description: String,
+    pub difficulty: String,
+    pub target_roles: Vec<String>,
+    pub total_questions: usize,
+    pub questions: Vec<Question>,
+}
+
+// ==============================================================================
+// B2B Recruiter Assessments & Candidate Verification
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct RecruiterAssessmentRequest {
+    pub recruiter_email: String,
+    pub title: String,
+    pub target_role: String,
+    pub duration_minutes: u32,
+    pub categories: Vec<String>,
+    pub question_count: usize,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct RecruiterAssessment {
+    pub id: String,
+    pub token: String,
+    pub recruiter_email: String,
+    pub title: String,
+    pub target_role: String,
+    pub duration_minutes: u32,
+    pub categories: Vec<String>,
+    pub question_count: usize,
+    pub is_active: bool,
+    pub created_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct RecruiterSubmissionRequest {
+    pub token: String,
+    pub candidate_name: String,
+    pub candidate_email: String,
+    pub answers: Vec<usize>,
+    pub tab_blur_count: u32,
+    pub full_screen_exit_count: u32,
+    pub duration_seconds: u32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct RecruiterSubmissionResult {
+    pub submission_id: String,
+    pub candidate_name: String,
+    pub candidate_email: String,
+    pub score_percentage: f32,
+    pub passed: bool,
+    pub tab_blur_count: u32,
+    pub anti_cheat_status: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct AssessmentAuditLogRequest {
+    pub token: String,
+    pub candidate_email: String,
+    pub event_type: String,
+    pub payload: serde_json::Value,
+}
+
+// ==============================================================================
+// Candidate Certificates (Cryptographically Signed)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CandidateCertificateRequest {
+    pub candidate_name: String,
+    pub candidate_email: String,
+    pub score_percentage: f32,
+    pub domains_mastered: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CandidateCertificate {
+    pub certificate_number: String,
+    pub candidate_name: String,
+    pub candidate_email: String,
+    pub score_percentage: f32,
+    pub domains_mastered: Vec<String>,
+    pub signature_sha256: String,
+    pub issued_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CertificateVerificationResult {
+    pub is_valid: bool,
+    pub certificate: Option<CandidateCertificate>,
+    pub message: String,
+}
+
+// ==============================================================================
+// ATS Integrations (Greenhouse, Lever, Ashby)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct AtsWebhookPayload {
+    pub provider: String,
+    pub candidate_email: String,
+    pub candidate_name: String,
+    pub job_id: Option<String>,
+    pub score_percentage: f32,
+    pub assessment_title: String,
+    pub certificate_url: Option<String>,
+}
+
+// ==============================================================================
+// Global Leaderboard & Competitive Elo Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct LeaderboardEntry {
+    pub username: String,
+    pub elo_rating: i32,
+    pub tier: String,
+    pub battles_won: i32,
+    pub battles_lost: i32,
+    pub questions_solved: i32,
+    pub updated_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct UpdateLeaderboardRequest {
+    pub username: String,
+    pub elo_delta: i32,
+    pub won: bool,
+}
+
+// ==============================================================================
+// Real-Time P2P Coding Battle Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateBattleRequest {
+    pub category_id: String,
+    pub question_number: i32,
+    pub host_username: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct JoinBattleRequest {
+    pub battle_token: String,
+    pub peer_username: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CodingBattle {
+    pub battle_token: String,
+    pub category_id: String,
+    pub question_number: i32,
+    pub host_username: String,
+    pub peer_username: Option<String>,
+    pub winner_username: Option<String>,
+    pub status: String,
+    pub created_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Custom Curated Decks Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateCustomDeckRequest {
+    pub user_id: String,
+    pub title: String,
+    pub description: Option<String>,
+    pub tags: Vec<String>,
+    pub question_ids: Vec<String>,
+    pub is_public: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CustomDeck {
+    pub id: String,
+    pub user_id: String,
+    pub title: String,
+    pub description: Option<String>,
+    pub tags: Vec<String>,
+    pub total_questions: usize,
+    pub is_public: bool,
+    pub created_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Keystroke Dynamics Biometric Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct KeystrokeAnalysisRequest {
+    pub submission_id: String,
+    pub flight_time_avg_ms: f32,
+    pub dwell_time_avg_ms: f32,
+    pub entropy_score: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct KeystrokeAnalysisResponse {
+    pub submission_id: String,
+    pub is_biometrically_consistent: bool,
+    pub entropy_score: f32,
+    pub anomaly_flag: Option<String>,
+}
+
+// ==============================================================================
+// W3C-Compatible Verifiable Credentials
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct IssueVerifiableCredentialRequest {
+    pub candidate_did: String,
+    pub candidate_name: String,
+    pub certificate_number: String,
+    pub track_title: String,
+    pub score_percentage: f32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct VerifiableCredentialResponse {
+    pub credential_id: String,
+    pub candidate_did: String,
+    pub issuer_did: String,
+    pub certificate_number: String,
+    pub proof_signature: String,
+    pub claim_data: serde_json::Value,
+    pub issued_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Daily Streak Freeze Models
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct StreakFreezeResponse {
+    pub user_id: String,
+    pub available_freezes: i32,
+    pub used_freezes: i32,
+    pub last_freeze_applied_at: Option<DateTime<Utc>>,
+    pub success: bool,
+    pub message: String,
+}
+
+

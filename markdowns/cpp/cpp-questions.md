@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Modern C++ (C++20 / C++23) Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Modern C++ (C++20 / C++23) Logo" width="100" height="100">
   </a>
   <h1>Modern C++ (C++20 / C++23) Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering Move Semantics, RAII, Memory Model, Concepts, and Concurrency</b></p>

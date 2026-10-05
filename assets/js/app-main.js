@@ -477,11 +477,27 @@ class InterviewGuideApp {
       });
 
       console.log("Parsing markdown content...");
+      // Normalize image paths so logos and assets resolve properly
+      let sanitizedContent = content
+        .replace(/https:\/\/raw\.githubusercontent\.com\/mctavish\/interview-guide\/main\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png')
+        .replace(/\.\.\/\.\.\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png')
+        .replace(/\.\.\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png');
+
       // Parse markdown
-      const html = marked.parse(content);
+      const html = marked.parse(sanitizedContent);
       console.log("Markdown parsed, HTML length:", html.length);
       contentArea.innerHTML = `<div class="markdown-content">${html}</div>`;
       console.log("Content inserted into DOM");
+
+      // Attach styling and robust fallback error handling to all images in markdown content
+      const renderedImages = contentArea.querySelectorAll('.markdown-content img');
+      renderedImages.forEach(img => {
+        img.classList.add('topic-header-logo');
+        img.onerror = function() {
+          this.onerror = null;
+          this.src = 'assets/icons/interview_guide_logo.png';
+        };
+      });
 
       // Re-run Prism highlighting
       console.log("Running Prism highlighting...");

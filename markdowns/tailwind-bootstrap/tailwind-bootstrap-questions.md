@@ -1,6 +1,6 @@
 <div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Tailwind & Bootstrap Logo" width="100" height="100">
+  <a href="#" target="_blank">
+    <img src="../../assets/icons/interview_guide_logo.png" alt="Tailwind & Bootstrap Logo" width="100" height="100">
   </a>
   <h1>Tailwind & Bootstrap Interview Questions & Answers</h1>
   <p><b>Comprehensive interview questions covering Tailwind JIT, Design Tokens, CSS Grid, and Utility API</b></p>

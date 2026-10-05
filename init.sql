@@ -186,3 +186,178 @@ CREATE TABLE IF NOT EXISTS code_playground_submissions (
 CREATE INDEX IF NOT EXISTS idx_quizzes_user ON mock_quizzes(user_id);
 CREATE INDEX IF NOT EXISTS idx_playground_user ON code_playground_submissions(user_id);
 
+-- 10. User Daily Streaks & Elo Ratings
+CREATE TABLE IF NOT EXISTS user_streaks (
+    user_id UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+    current_streak INT DEFAULT 0,
+    longest_streak INT DEFAULT 0,
+    elo_rating INT DEFAULT 1500,
+    last_activity_date DATE DEFAULT CURRENT_DATE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 11. Gamification Achievement Badges
+CREATE TABLE IF NOT EXISTS user_badges (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    badge_id VARCHAR(64) NOT NULL,
+    badge_name VARCHAR(128) NOT NULL,
+    badge_description TEXT,
+    icon VARCHAR(64),
+    unlocked_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_user_badge UNIQUE (user_id, badge_id)
+);
+
+-- 12. Company Specific Interview Tracks
+CREATE TABLE IF NOT EXISTS company_tracks (
+    id VARCHAR(64) PRIMARY KEY,
+    company_name VARCHAR(128) NOT NULL,
+    description TEXT,
+    difficulty VARCHAR(32) DEFAULT 'Advanced',
+    target_roles TEXT[],
+    total_questions INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 13. Candidate Readiness Index Certificates
+CREATE TABLE IF NOT EXISTS candidate_certificates (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    certificate_number VARCHAR(64) UNIQUE NOT NULL,
+    candidate_name VARCHAR(128) NOT NULL,
+    candidate_email VARCHAR(255) NOT NULL,
+    score_percentage NUMERIC(5, 2) NOT NULL,
+    domains_mastered TEXT[] NOT NULL,
+    signature_sha256 VARCHAR(64) NOT NULL,
+    issued_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 14. B2B Recruiter Assessments
+CREATE TABLE IF NOT EXISTS recruiter_assessments (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    token VARCHAR(64) UNIQUE NOT NULL,
+    recruiter_email VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    target_role VARCHAR(128) NOT NULL,
+    duration_minutes INT DEFAULT 60,
+    categories TEXT[] NOT NULL,
+    question_count INT DEFAULT 15,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 15. Candidate Assessment Submissions & Anti-Cheating Telemetry
+CREATE TABLE IF NOT EXISTS recruiter_submissions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    assessment_id UUID NOT NULL REFERENCES recruiter_assessments(id) ON DELETE CASCADE,
+    candidate_name VARCHAR(128) NOT NULL,
+    candidate_email VARCHAR(255) NOT NULL,
+    score_percentage NUMERIC(5, 2) NOT NULL,
+    tab_blur_count INT DEFAULT 0,
+    full_screen_exit_count INT DEFAULT 0,
+    duration_seconds INT NOT NULL,
+    submitted_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 16. Assessment Audit Logs (Anti-Cheating Trail)
+CREATE TABLE IF NOT EXISTS assessment_audit_logs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    submission_id UUID REFERENCES recruiter_submissions(id) ON DELETE CASCADE,
+    event_type VARCHAR(64) NOT NULL, -- 'window_blur', 'window_focus', 'copy_paste', 'devtools_open'
+    event_payload JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 17. ATS Integration Hooks (Greenhouse, Lever, Ashby)
+CREATE TABLE IF NOT EXISTS ats_integrations (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    provider VARCHAR(64) NOT NULL, -- 'greenhouse', 'lever', 'ashby'
+    webhook_url VARCHAR(512) NOT NULL,
+    api_key_hash VARCHAR(255) NOT NULL,
+    is_enabled BOOLEAN DEFAULT TRUE,
+    last_synced_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_badges_user ON user_badges(user_id);
+CREATE INDEX IF NOT EXISTS idx_cert_number ON candidate_certificates(certificate_number);
+CREATE INDEX IF NOT EXISTS idx_assessment_token ON recruiter_assessments(token);
+CREATE INDEX IF NOT EXISTS idx_submissions_assessment ON recruiter_submissions(assessment_id);
+CREATE INDEX IF NOT EXISTS idx_audit_submission ON assessment_audit_logs(submission_id);
+
+-- 18. Global Competency Leaderboard
+CREATE TABLE IF NOT EXISTS leaderboard_entries (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    username VARCHAR(64) NOT NULL,
+    elo_rating INT DEFAULT 1200,
+    tier VARCHAR(32) DEFAULT 'Junior',
+    battles_won INT DEFAULT 0,
+    battles_lost INT DEFAULT 0,
+    questions_solved INT DEFAULT 0,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 19. Real-Time P2P Coding Battles
+CREATE TABLE IF NOT EXISTS coding_battles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    battle_token VARCHAR(64) UNIQUE NOT NULL,
+    category_id VARCHAR(64) NOT NULL,
+    question_number INT NOT NULL,
+    host_username VARCHAR(64) NOT NULL,
+    peer_username VARCHAR(64),
+    winner_username VARCHAR(64),
+    status VARCHAR(32) DEFAULT 'WAITING', -- 'WAITING', 'ACTIVE', 'COMPLETED', 'ABORTED'
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 20. Candidate Custom Curated Decks
+CREATE TABLE IF NOT EXISTS custom_decks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id VARCHAR(64) NOT NULL,
+    title VARCHAR(128) NOT NULL,
+    description TEXT,
+    tags TEXT[],
+    questions JSONB NOT NULL DEFAULT '[]'::jsonb,
+    is_public BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 21. Keystroke Dynamics Biometric Fingerprints
+CREATE TABLE IF NOT EXISTS keystroke_fingerprints (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    submission_id UUID REFERENCES recruiter_submissions(id) ON DELETE CASCADE,
+    flight_time_avg_ms NUMERIC(6, 2) NOT NULL,
+    dwell_time_avg_ms NUMERIC(6, 2) NOT NULL,
+    entropy_score NUMERIC(5, 2) NOT NULL,
+    anomaly_detected BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 22. W3C-Compatible Verifiable Credentials
+CREATE TABLE IF NOT EXISTS verifiable_credentials (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    credential_id VARCHAR(128) UNIQUE NOT NULL,
+    candidate_did VARCHAR(128) NOT NULL,
+    issuer_did VARCHAR(128) NOT NULL,
+    certificate_number VARCHAR(64) REFERENCES candidate_certificates(certificate_number) ON DELETE CASCADE,
+    proof_signature VARCHAR(256) NOT NULL,
+    claim_data JSONB NOT NULL,
+    issued_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 23. Daily Streak Freeze Bank
+CREATE TABLE IF NOT EXISTS streak_freezes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id VARCHAR(64) UNIQUE NOT NULL,
+    available_freezes INT DEFAULT 2,
+    used_freezes INT DEFAULT 0,
+    last_freeze_applied_at TIMESTAMP WITH TIME ZONE,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_leaderboard_elo ON leaderboard_entries(elo_rating DESC);
+CREATE INDEX IF NOT EXISTS idx_battle_token ON coding_battles(battle_token);
+CREATE INDEX IF NOT EXISTS idx_custom_decks_user ON custom_decks(user_id);
+CREATE INDEX IF NOT EXISTS idx_credentials_id ON verifiable_credentials(credential_id);
+
+
