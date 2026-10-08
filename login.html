@@ -442,6 +442,13 @@
             <button type="submit" class="login-button" id="loginButton">
                 Sign In
             </button>
+            <button type="button" class="login-button passkey-button" id="passkeyLoginButton" style="background: linear-gradient(135deg, #0284c7, #0369a1); margin-top: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; border: none; cursor: pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                Sign in with Passkey / Face ID
+            </button>
         </form>
         
         <div class="divider">
@@ -506,39 +513,127 @@
             hideMessages();
             
             const formData = new FormData(loginForm);
-            const email = formData.get('email');
-            const password = formData.get('password');
+            const email = (formData.get('email') || '').trim();
+            const password = formData.get('password') || '';
             
-            // Basic validation
+            // Validation
             if (!email || !password) {
-                showMessage(errorMessage, 'Please fill in all fields.');
+                showMessage(errorMessage, 'Please enter your email and password.');
                 return;
             }
             
-            // Simulate login process
             loginButton.textContent = 'Signing In...';
             loginButton.disabled = true;
             
             try {
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // For demo purposes, accept any email/password combination
-                if (email && password.length >= 6) {
-                    showMessage(successMessage, 'Login successful! Redirecting...');
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.error || 'Sign-in failed. Please verify your email and password.');
+                }
+
+                if (data.access_token) {
+                    localStorage.setItem('ig_token', data.access_token);
+                    if (data.user) {
+                        localStorage.setItem('ig_user', JSON.stringify(data.user));
+                    }
+                    showMessage(successMessage, `Welcome back, ${data.user?.full_name || 'Engineer'}! Redirecting...`);
                     setTimeout(() => {
                         window.location.href = 'dashboard.html';
-                    }, 1500);
+                    }, 800);
                 } else {
-                    throw new Error('Password must be at least 6 characters long.');
+                    throw new Error('No access token received from server.');
                 }
             } catch (error) {
-                showMessage(errorMessage, error.message || 'Login failed. Please try again.');
+                showMessage(errorMessage, error.message || 'Sign-in failed. Please try again.');
             } finally {
                 loginButton.textContent = 'Sign In';
                 loginButton.disabled = false;
             }
         });
+
+        // Passkey WebAuthn Login Handler (Item #39)
+        const passkeyLoginButton = document.getElementById('passkeyLoginButton');
+        if (passkeyLoginButton) {
+            passkeyLoginButton.addEventListener('click', async () => {
+                hideMessages();
+                if (!window.PublicKeyCredential) {
+                    showMessage(errorMessage, 'WebAuthn Passkeys are not supported in this browser.');
+                    return;
+                }
+
+                passkeyLoginButton.disabled = true;
+                passkeyLoginButton.textContent = 'Verifying Passkey...';
+
+                try {
+                    const email = (document.getElementById('email').value || '').trim();
+                    const startRes = await fetch('/api/auth/webauthn/login/start', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email || null })
+                    });
+
+                    const startData = await startRes.json();
+                    if (!startRes.ok) throw new Error(startData.error || 'Failed to start Passkey login');
+
+                    const opts = startData.public_key_credential_request_options;
+                    opts.challenge = Uint8Array.from(atob(opts.challenge.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+                    if (opts.allowCredentials && Array.isArray(opts.allowCredentials)) {
+                        opts.allowCredentials = opts.allowCredentials.map(c => ({
+                            ...c,
+                            id: Uint8Array.from(atob(c.id.replace(/-/g, '+').replace(/_/g, '/')), ch => ch.charCodeAt(0))
+                        }));
+                    }
+
+                    const assertion = await navigator.credentials.get({ publicKey: opts });
+
+                    const finishPayload = {
+                        challenge_id: startData.challenge_id,
+                        credential: {
+                            id: assertion.id,
+                            rawId: btoa(String.fromCharCode(...new Uint8Array(assertion.rawId))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+                            type: assertion.type,
+                            response: {
+                                authenticatorData: btoa(String.fromCharCode(...new Uint8Array(assertion.response.authenticatorData))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+                                clientDataJSON: btoa(String.fromCharCode(...new Uint8Array(assertion.response.clientDataJSON))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+                                signature: btoa(String.fromCharCode(...new Uint8Array(assertion.response.signature))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+                                userHandle: assertion.response.userHandle ? btoa(String.fromCharCode(...new Uint8Array(assertion.response.userHandle))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '') : null
+                            }
+                        }
+                    };
+
+                    const finishRes = await fetch('/api/auth/webauthn/login/finish', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(finishPayload)
+                    });
+
+                    const finishData = await finishRes.json();
+                    if (!finishRes.ok) throw new Error(finishData.error || 'Passkey verification failed');
+
+                    if (finishData.access_token) {
+                        localStorage.setItem('ig_token', finishData.access_token);
+                        if (finishData.user) {
+                            localStorage.setItem('ig_user', JSON.stringify(finishData.user));
+                        }
+                        showMessage(successMessage, `Passkey verified! Welcome back, ${finishData.user?.full_name || 'Engineer'}! Redirecting...`);
+                        setTimeout(() => {
+                            window.location.href = 'dashboard.html';
+                        }, 800);
+                    }
+                } catch (err) {
+                    showMessage(errorMessage, err.message || 'Passkey login cancelled or failed.');
+                } finally {
+                    passkeyLoginButton.disabled = false;
+                    passkeyLoginButton.textContent = 'Sign in with Passkey / Face ID';
+                }
+            });
+        }
         
         // Social login handlers
         document.querySelectorAll('.social-button').forEach(button => {

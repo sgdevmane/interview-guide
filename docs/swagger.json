@@ -13,6 +13,369 @@
     "version": "2.0.0"
   },
   "paths": {
+    "/api/audit/events": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "GET /api/audit/events",
+        "operationId": "list_events",
+        "responses": {
+          "200": {
+            "description": "List recent platform audit ledger events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditEventItem"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden: Admin access required"
+          }
+        }
+      }
+    },
+    "/api/audit/verify": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "GET /api/audit/verify",
+        "operationId": "verify_chain",
+        "responses": {
+          "200": {
+            "description": "Audit ledger cryptographic chain verification result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditVerificationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Sign in with email and password.",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Signed in; refresh cookie set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Account disabled",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many failed attempts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Revoke the current refresh token and clear the cookie.",
+        "operationId": "logout",
+        "responses": {
+          "204": {
+            "description": "Signed out"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Current signed-in user's profile.",
+        "operationId": "me",
+        "responses": {
+          "200": {
+            "description": "Current user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not signed in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Exchange the HTTP-only refresh cookie for a new access token (rotates the refresh token).",
+        "operationId": "refresh",
+        "responses": {
+          "200": {
+            "description": "New access token; refresh cookie rotated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, expired or revoked refresh token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Create an account and start a session.",
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Account created; refresh cookie set",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Email already registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/crate.error.ErrorBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/webauthn/login/finish": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "POST /api/auth/webauthn/login/finish",
+        "operationId": "login_finish",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasskeyLoginFinishRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Passkey authentication successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication failed"
+          }
+        }
+      }
+    },
+    "/api/auth/webauthn/login/start": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "POST /api/auth/webauthn/login/start",
+        "operationId": "login_start",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasskeyLoginStartRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Passkey login challenge generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasskeyLoginStartResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/webauthn/register/finish": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "POST /api/auth/webauthn/register/finish",
+        "operationId": "register_finish",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasskeyRegisterFinishRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Passkey credential registered successfully"
+          },
+          "400": {
+            "description": "Verification failed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/auth/webauthn/register/start": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "POST /api/auth/webauthn/register/start",
+        "operationId": "register_start",
+        "responses": {
+          "200": {
+            "description": "Passkey registration challenge generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PasskeyRegisterStartResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
     "/api/bookmarks": {
       "get": {
         "tags": [
@@ -33,7 +396,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -51,8 +419,18 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "Bookmark removed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookmarkItem"
+                }
+              }
+            }
+          },
           "201": {
-            "description": "Bookmark created or toggled",
+            "description": "Bookmark created",
             "content": {
               "application/json": {
                 "schema": {
@@ -61,7 +439,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       }
     },
     "/api/categories": {
@@ -230,6 +613,204 @@
           },
           "404": {
             "description": "Category not found"
+          }
+        }
+      }
+    },
+    "/api/contests": {
+      "get": {
+        "tags": [
+          "Competitive"
+        ],
+        "summary": "GET /api/contests",
+        "operationId": "list_contests",
+        "responses": {
+          "200": {
+            "description": "List all timed contests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TimedContestItem"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/contests/join": {
+      "post": {
+        "tags": [
+          "Competitive"
+        ],
+        "summary": "POST /api/contests/join",
+        "operationId": "join_contest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JoinContestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Joined contest successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContestParticipantResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Contest not found"
+          }
+        }
+      }
+    },
+    "/api/contests/submit": {
+      "post": {
+        "tags": [
+          "Competitive"
+        ],
+        "summary": "POST /api/contests/submit",
+        "operationId": "submit_contest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitContestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Contest submission recorded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContestParticipantResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Contest not found"
+          }
+        }
+      }
+    },
+    "/api/contests/{contest_code}/leaderboard": {
+      "get": {
+        "tags": [
+          "Competitive"
+        ],
+        "summary": "GET /api/contests/:contest_code/leaderboard",
+        "operationId": "contest_leaderboard",
+        "parameters": [
+          {
+            "name": "contest_code",
+            "in": "path",
+            "description": "Contest code e.g. WEEKLY-CONTEST-101",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contest leaderboard ranked by score and time",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Contest not found"
+          }
+        }
+      }
+    },
+    "/api/decks/share": {
+      "post": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "POST /api/decks/share",
+        "description": "Creates a shareable custom deck with public share code (Item #14)",
+        "operationId": "share_deck",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShareDeckRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Custom deck published and share link generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareDeckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/decks/shared/{share_code}": {
+      "get": {
+        "tags": [
+          "Enterprise"
+        ],
+        "summary": "GET /api/decks/shared/:share_code",
+        "operationId": "get_shared_deck",
+        "parameters": [
+          {
+            "name": "share_code",
+            "in": "path",
+            "description": "8-character hex share code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Shared deck details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareDeckResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Shared deck not found"
           }
         }
       }
@@ -783,7 +1364,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -802,7 +1388,7 @@
         },
         "responses": {
           "200": {
-            "description": "Note saved",
+            "description": "Note updated",
             "content": {
               "application/json": {
                 "schema": {
@@ -810,6 +1396,92 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "Note created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoteItem"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer_auth": []
+          }
+        ]
+      }
+    },
+    "/api/notifications/subscribe": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "POST /api/notifications/subscribe",
+        "operationId": "subscribe_push",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushSubscriptionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Push subscription saved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushSubscriptionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request payload"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/notifications/test": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "POST /api/notifications/test",
+        "operationId": "test_push_notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PushNotificationTestRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Notification dispatched",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushNotificationTestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -950,6 +1622,158 @@
           }
         }
       }
+    },
+    "/api/study/adaptive-next": {
+      "get": {
+        "tags": [
+          "Progress"
+        ],
+        "summary": "GET /api/study/adaptive-next",
+        "description": "Selects next question using Item Response Theory (IRT) (Item #37)",
+        "operationId": "get_adaptive_next_question",
+        "responses": {
+          "200": {
+            "description": "Next recommended question via IRT 2PL model",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IrtAdaptiveQuestionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Category questions not found"
+          }
+        }
+      }
+    },
+    "/api/study/sm18/review": {
+      "post": {
+        "tags": [
+          "Spaced Repetition"
+        ],
+        "summary": "POST /api/study/sm18/review",
+        "description": "Records spaced repetition review using SM-18 algorithm (Item #11)",
+        "operationId": "persist_sm18_review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sm18ReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "SM-18 spaced repetition review recorded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sm18ReviewResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid rating"
+          }
+        }
+      }
+    },
+    "/api/webhooks": {
+      "get": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "GET /api/webhooks",
+        "operationId": "list_webhooks",
+        "responses": {
+          "200": {
+            "description": "List registered webhooks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebhookItemResponse"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "POST /api/webhooks",
+        "operationId": "create_webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Webhook registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookItemResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid webhook URL"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/webhooks/test": {
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "POST /api/webhooks/test",
+        "operationId": "test_webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestWebhookRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook test event dispatched"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Webhook not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1011,6 +1835,95 @@
           }
         }
       },
+      "AuditEventItem": {
+        "type": "object",
+        "required": [
+          "sequence_id",
+          "event_type",
+          "payload_json",
+          "prev_hash",
+          "curr_hash",
+          "created_at"
+        ],
+        "properties": {
+          "actor_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "curr_hash": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "payload_json": {},
+          "prev_hash": {
+            "type": "string"
+          },
+          "sequence_id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "target_id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AuditVerificationResponse": {
+        "type": "object",
+        "required": [
+          "is_valid",
+          "total_records",
+          "message"
+        ],
+        "properties": {
+          "broken_sequence_id": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "is_valid": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          },
+          "total_records": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "AuthResponse": {
+        "type": "object",
+        "required": [
+          "access_token",
+          "token_type",
+          "expires_in",
+          "user"
+        ],
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "expires_in": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Access token lifetime in seconds. Refresh via `POST /api/auth/refresh` (HTTP-only cookie)."
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        }
+      },
       "BookmarkItem": {
         "type": "object",
         "required": [
@@ -1049,10 +1962,6 @@
           "question_number": {
             "type": "integer",
             "format": "int32"
-          },
-          "user_id": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
@@ -1257,6 +2166,44 @@
           }
         }
       },
+      "ContestParticipantResponse": {
+        "type": "object",
+        "required": [
+          "contest_id",
+          "contest_code",
+          "user_id",
+          "score",
+          "time_taken_seconds",
+          "rank",
+          "finished"
+        ],
+        "properties": {
+          "contest_code": {
+            "type": "string"
+          },
+          "contest_id": {
+            "type": "string"
+          },
+          "finished": {
+            "type": "boolean"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "time_taken_seconds": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "string"
+          }
+        }
+      },
       "CreateBattleRequest": {
         "type": "object",
         "required": [
@@ -1310,6 +2257,28 @@
             "type": "string"
           },
           "user_id": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateWebhookRequest": {
+        "type": "object",
+        "required": [
+          "service_name",
+          "webhook_url"
+        ],
+        "properties": {
+          "events_subscribed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "service_name": {
+            "type": "string"
+          },
+          "webhook_url": {
             "type": "string"
           }
         }
@@ -1390,6 +2359,57 @@
           }
         }
       },
+      "ErrorBody": {
+        "type": "object",
+        "description": "Uniform JSON error body returned by every endpoint.",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "IrtAdaptiveQuestionResponse": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "user_theta_ability",
+          "question_difficulty_beta",
+          "discrimination_alpha",
+          "title",
+          "target_competency"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "discrimination_alpha": {
+            "type": "number",
+            "format": "float"
+          },
+          "question_difficulty_beta": {
+            "type": "number",
+            "format": "float"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "target_competency": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "user_theta_ability": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
       "IssueVerifiableCredentialRequest": {
         "type": "object",
         "required": [
@@ -1429,6 +2449,17 @@
             "type": "string"
           },
           "peer_username": {
+            "type": "string"
+          }
+        }
+      },
+      "JoinContestRequest": {
+        "type": "object",
+        "required": [
+          "contest_code"
+        ],
+        "properties": {
+          "contest_code": {
             "type": "string"
           }
         }
@@ -1523,6 +2554,21 @@
           }
         }
       },
+      "LoginRequest": {
+        "type": "object",
+        "required": [
+          "email",
+          "password"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "NoteItem": {
         "type": "object",
         "required": [
@@ -1569,10 +2615,151 @@
           "question_number": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "PasskeyLoginFinishRequest": {
+        "type": "object",
+        "required": [
+          "challenge_id",
+          "credential"
+        ],
+        "properties": {
+          "challenge_id": {
+            "type": "string"
           },
-          "user_id": {
+          "credential": {}
+        }
+      },
+      "PasskeyLoginStartRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "PasskeyLoginStartResponse": {
+        "type": "object",
+        "required": [
+          "challenge_id",
+          "public_key_credential_request_options"
+        ],
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "public_key_credential_request_options": {}
+        }
+      },
+      "PasskeyRegisterFinishRequest": {
+        "type": "object",
+        "required": [
+          "challenge_id",
+          "credential"
+        ],
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "credential": {},
+          "nickname": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PasskeyRegisterStartResponse": {
+        "type": "object",
+        "required": [
+          "challenge_id",
+          "public_key_credential_creation_options"
+        ],
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "public_key_credential_creation_options": {}
+        }
+      },
+      "PushNotificationTestRequest": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PushNotificationTestResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "dispatched_count",
+          "message"
+        ],
+        "properties": {
+          "dispatched_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "message": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PushSubscriptionRequest": {
+        "type": "object",
+        "required": [
+          "endpoint",
+          "p256dh",
+          "auth"
+        ],
+        "properties": {
+          "auth": {
+            "type": "string"
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "p256dh": {
+            "type": "string"
+          }
+        }
+      },
+      "PushSubscriptionResponse": {
+        "type": "object",
+        "required": [
+          "id",
+          "endpoint",
+          "created_at",
+          "message"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -1914,6 +3101,25 @@
           }
         }
       },
+      "RegisterRequest": {
+        "type": "object",
+        "required": [
+          "email",
+          "password",
+          "full_name"
+        ],
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "SearchResult": {
         "type": "object",
         "required": [
@@ -1931,6 +3137,69 @@
           "score": {
             "type": "number",
             "format": "float"
+          }
+        }
+      },
+      "ShareDeckRequest": {
+        "type": "object",
+        "required": [
+          "title",
+          "question_ids",
+          "is_public"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_public": {
+            "type": "boolean"
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "ShareDeckResponse": {
+        "type": "object",
+        "required": [
+          "deck_id",
+          "title",
+          "share_code",
+          "question_count",
+          "share_url",
+          "created_at"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deck_id": {
+            "type": "string"
+          },
+          "question_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "share_code": {
+            "type": "string"
+          },
+          "share_url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
@@ -2027,6 +3296,54 @@
           "question_number": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "Sm18ReviewResponse": {
+        "type": "object",
+        "required": [
+          "category_id",
+          "question_number",
+          "repetition",
+          "interval_days",
+          "stability",
+          "retrievability",
+          "difficulty",
+          "next_review_at"
+        ],
+        "properties": {
+          "category_id": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "number",
+            "format": "float"
+          },
+          "interval_days": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "next_review_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "question_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repetition": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "retrievability": {
+            "type": "number",
+            "format": "float"
+          },
+          "stability": {
+            "type": "number",
+            "format": "float"
           }
         }
       },
@@ -2129,6 +3446,84 @@
           }
         }
       },
+      "SubmitContestRequest": {
+        "type": "object",
+        "required": [
+          "contest_code",
+          "score",
+          "time_taken_seconds"
+        ],
+        "properties": {
+          "contest_code": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "time_taken_seconds": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "TestWebhookRequest": {
+        "type": "object",
+        "required": [
+          "webhook_id"
+        ],
+        "properties": {
+          "webhook_id": {
+            "type": "string"
+          }
+        }
+      },
+      "TimedContestItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "contest_code",
+          "title",
+          "difficulty",
+          "start_time",
+          "duration_minutes",
+          "participant_count"
+        ],
+        "properties": {
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "contest_code": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "difficulty": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "id": {
+            "type": "string"
+          },
+          "participant_count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "start_time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
       "UpdateLeaderboardRequest": {
         "type": "object",
         "required": [
@@ -2146,6 +3541,34 @@
           },
           "won": {
             "type": "boolean"
+          }
+        }
+      },
+      "UserProfile": {
+        "type": "object",
+        "required": [
+          "id",
+          "email",
+          "role",
+          "created_at"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
           }
         }
       },
@@ -2182,10 +3605,49 @@
             "type": "string"
           }
         }
+      },
+      "WebhookItemResponse": {
+        "type": "object",
+        "required": [
+          "id",
+          "service_name",
+          "webhook_url",
+          "events_subscribed",
+          "is_active",
+          "created_at"
+        ],
+        "properties": {
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "events_subscribed": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "service_name": {
+            "type": "string"
+          },
+          "webhook_url": {
+            "type": "string"
+          }
+        }
       }
     }
   },
   "tags": [
+    {
+      "name": "Authentication",
+      "description": "Authentication, JWT sessions & WebAuthn / Passkeys"
+    },
     {
       "name": "Categories",
       "description": "Interview question categories"
@@ -2207,12 +3669,16 @@
       "description": "SM-2 and SM-18 spaced-repetition intervals"
     },
     {
+      "name": "Progress",
+      "description": "User progress & Item Response Theory (IRT) adaptive recommendation"
+    },
+    {
       "name": "Gamification",
       "description": "Daily challenge and company target tracks"
     },
     {
       "name": "Enterprise",
-      "description": "Recruiter screening assessments, certificates & ATS sync"
+      "description": "Recruiter screening assessments, certificates, audit ledger & ATS sync"
     },
     {
       "name": "Bookmarks",
@@ -2221,6 +3687,18 @@
     {
       "name": "Notes",
       "description": "Custom candidate study notes"
+    },
+    {
+      "name": "Notifications",
+      "description": "Web Push notifications and daily streak review alerts"
+    },
+    {
+      "name": "Competitive",
+      "description": "Timed challenges, contests, and Elo ranked leaderboards"
+    },
+    {
+      "name": "Integrations",
+      "description": "Slack and Discord outbound webhooks"
     }
   ]
 }

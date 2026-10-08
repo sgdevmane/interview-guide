@@ -129,6 +129,51 @@ services:
       retries: 3
       start_period: 15s
 
+  # High-Performance Cache & Distributed Rate Limiting (Item #1 & #41)
+  redis:
+    image: redis:7.2-alpine
+    container_name: interview-guide-redis-prod
+    restart: always
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_prod_data:/data
+    ports:
+      - "${REDIS_PORT:-9379}:6379"
+    networks:
+      - production-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PgBouncer Connection Pooler Fronting Remote PostgreSQL (Item #2)
+  pgbouncer:
+    image: edoburu/pgbouncer:v1.22.1
+    container_name: interview-guide-pgbouncer-prod
+    restart: always
+    environment:
+      - DB_USER=${DB_USER:-sterlingpixel}
+      - DB_PASSWORD=${DB_PASSWORD:-XspSmTGPxBeRhG84}
+      - DB_HOST=${DB_HOST:-213.199.39.44}
+      - DB_PORT=${DB_PORT:-35432}
+      - DB_NAME=${DB_NAME:-interview_staging}
+      - POOL_MODE=transaction
+      - MAX_CLIENT_CONN=500
+      - DEFAULT_POOL_SIZE=25
+      - MIN_POOL_SIZE=5
+      - RESERVE_POOL_SIZE=5
+      - SERVER_RESET_QUERY=DISCARD ALL
+    ports:
+      - "${PGBOUNCER_PORT:-9432}:5432"
+    networks:
+      - production-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -p 5432 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
   # Observability - Prometheus
   prometheus:
     image: prom/prometheus:v2.50.1
@@ -173,3 +218,4 @@ networks:
 volumes:
   prometheus_prod_data:
   grafana_prod_data:
+  redis_prod_data:

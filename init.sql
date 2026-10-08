@@ -65,13 +65,18 @@ CREATE TABLE IF NOT EXISTS user_question_notes (
     CONSTRAINT uq_user_note UNIQUE (user_id, question_id)
 );
 
--- 6. User Study Progress & Mastery Tracking
+-- 6. User Study Progress & Mastery Tracking (SM-18 Spaced Repetition Item #11)
 CREATE TABLE IF NOT EXISTS user_study_progress (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     question_id UUID NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
     status VARCHAR(32) DEFAULT 'unseen' CHECK (status IN ('unseen', 'learning', 'mastered', 'needs_review')),
     review_count INT DEFAULT 0,
+    interval_days INT DEFAULT 1,
+    stability NUMERIC(6, 3) DEFAULT 2.5,
+    retrievability NUMERIC(5, 4) DEFAULT 1.0,
+    difficulty NUMERIC(5, 3) DEFAULT 0.3,
+    next_review_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     last_reviewed_at TIMESTAMP WITH TIME ZONE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
@@ -359,5 +364,147 @@ CREATE INDEX IF NOT EXISTS idx_leaderboard_elo ON leaderboard_entries(elo_rating
 CREATE INDEX IF NOT EXISTS idx_battle_token ON coding_battles(battle_token);
 CREATE INDEX IF NOT EXISTS idx_custom_decks_user ON custom_decks(user_id);
 CREATE INDEX IF NOT EXISTS idx_credentials_id ON verifiable_credentials(credential_id);
+
+-- 23b. Auth Refresh Tokens (only SHA-256 hashes are stored; rotated on every refresh)
+CREATE TABLE IF NOT EXISTS refresh_tokens (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    token_hash VARCHAR(64) UNIQUE NOT NULL,
+    user_agent VARCHAR(255),
+    expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
+    revoked_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user ON refresh_tokens(user_id);
+CREATE INDEX IF NOT EXISTS idx_refresh_tokens_expiry ON refresh_tokens(expires_at);
+
+-- 23c. Append-Only Tamper-Evident Audit Ledger (SHA-256 Hash Chained)
+CREATE TABLE IF NOT EXISTS platform_audit_ledger (
+    sequence_id BIGSERIAL PRIMARY KEY,
+    event_type VARCHAR(64) NOT NULL,
+    actor_id UUID REFERENCES users(id) ON DELETE SET NULL,
+    target_id VARCHAR(128),
+    payload_json JSONB NOT NULL DEFAULT '{}'::jsonb,
+    prev_hash VARCHAR(64) NOT NULL,
+    curr_hash VARCHAR(64) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_audit_actor ON platform_audit_ledger(actor_id);
+CREATE INDEX IF NOT EXISTS idx_audit_event ON platform_audit_ledger(event_type);
+
+-- 23d. WebAuthn / Passkey Registered Credentials
+CREATE TABLE IF NOT EXISTS webauthn_credentials (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    credential_id TEXT NOT NULL UNIQUE,
+    public_key BYTEA NOT NULL,
+    counter BIGINT NOT NULL DEFAULT 0,
+    aaguid UUID,
+    transports TEXT[],
+    nickname VARCHAR(100) NOT NULL DEFAULT 'Passkey',
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    last_used_at TIMESTAMP WITH TIME ZONE
+);
+CREATE INDEX IF NOT EXISTS idx_webauthn_user ON webauthn_credentials(user_id);
+
+-- 23e. WebAuthn Transient Challenges
+CREATE TABLE IF NOT EXISTS webauthn_challenges (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    challenge TEXT NOT NULL,
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    challenge_type VARCHAR(32) NOT NULL,
+    expires_at TIMESTAMP WITH TIME ZONE NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_webauthn_challenge_exp ON webauthn_challenges(expires_at);
+
+-- 23f. Web Push Subscriptions (Item #15)
+CREATE TABLE IF NOT EXISTS push_subscriptions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    endpoint TEXT NOT NULL UNIQUE,
+    p256dh TEXT NOT NULL,
+    auth TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_push_subs_user ON push_subscriptions(user_id);
+
+-- 23g. Timed Contests (Item #12)
+CREATE TABLE IF NOT EXISTS timed_contests (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    contest_code VARCHAR(64) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    difficulty VARCHAR(32) DEFAULT 'medium',
+    category VARCHAR(64),
+    start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+    duration_minutes INT DEFAULT 60,
+    created_by UUID REFERENCES users(id) ON DELETE SET NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 23h. Contest Participants (Item #12)
+CREATE TABLE IF NOT EXISTS contest_participants (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    contest_id UUID REFERENCES timed_contests(id) ON DELETE CASCADE,
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    score INT DEFAULT 0,
+    time_taken_seconds INT DEFAULT 0,
+    finished_at TIMESTAMP WITH TIME ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(contest_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_contest_part_contest ON contest_participants(contest_id);
+CREATE INDEX IF NOT EXISTS idx_contest_part_user ON contest_participants(user_id);
+
+-- 23i. Platform Webhooks (Item #13)
+CREATE TABLE IF NOT EXISTS platform_webhooks (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    service_name VARCHAR(50) NOT NULL,
+    webhook_url TEXT NOT NULL,
+    events_subscribed TEXT[] NOT NULL DEFAULT '{"contest_completed", "streak_milestone"}',
+    is_active BOOLEAN NOT NULL DEFAULT true,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_webhooks_user ON platform_webhooks(user_id);
+
+-- 24. Initial Seed Data: Users
+-- Passwords are random and unknown (locked accounts). Set a real password after setup:
+--   UPDATE users SET password_hash = crypt('<new-password>', gen_salt('bf')) WHERE email = 'admin@interviewguide.internal';
+INSERT INTO users (id, email, password_hash, full_name, role) VALUES
+('00000000-0000-0000-0000-000000000001', 'admin@interviewguide.internal', crypt(gen_random_uuid()::text, gen_salt('bf')), 'Platform Administrator', 'admin'),
+('00000000-0000-0000-0000-000000000002', 'demo@interviewguide.internal', crypt(gen_random_uuid()::text, gen_salt('bf')), 'Demo Candidate', 'user')
+ON CONFLICT (email) DO NOTHING;
+
+-- 25. Initial Seed Data: Company Tracks
+INSERT INTO company_tracks (id, company_name, description, difficulty, target_roles, total_questions) VALUES
+('google', 'Google L5/L6 Core Systems Track', 'Deep distributed systems, Paxos/Raft, high-throughput caching, and complex concurrent algorithms.', 'Expert', ARRAY['Staff Engineer', 'Senior Systems Architect'], 85),
+('meta', 'Meta Production Engineering Track', 'Linux kernel internals, eBPF telemetry, high-scale service architecture, and performance profiling.', 'Expert', ARRAY['Production Engineer', 'Senior Infrastructure Engineer'], 92),
+('amazon', 'Amazon Principal SDE Track', 'Distributed storage (Dynamo), cell-based architecture, multi-region active-active resilience, and leadership principles.', 'Advanced', ARRAY['Principal SDE', 'Senior Cloud Architect'], 78),
+('netflix', 'Netflix Reliability & Resilience Track', 'Chaos engineering, Envoy service mesh, zero-downtime deployments, and global low-latency streaming pipelines.', 'Advanced', ARRAY['Chaos Engineer', 'Senior Backend Engineer'], 64),
+('apple', 'Apple Core OS & Low-Latency Track', 'C/C++ runtime internals, memory barriers, RTOS primitives, and hardware-software co-design.', 'Expert', ARRAY['Embedded Software Engineer', 'CoreOS Engineer'], 70)
+ON CONFLICT (id) DO NOTHING;
+
+-- 26. Initial Seed Data: Global Leaderboard
+INSERT INTO leaderboard_entries (username, elo_rating, tier, battles_won, battles_lost, questions_solved) VALUES
+('alex_systems', 2150, 'Principal', 42, 3, 420),
+('maria_algo', 1980, 'Staff', 36, 6, 385),
+('chen_distributed', 1890, 'Staff', 31, 8, 350),
+('david_kernel', 1820, 'Senior', 27, 9, 310),
+('priya_frontend', 1760, 'Senior', 24, 11, 295)
+ON CONFLICT DO NOTHING;
+
+-- 27. Initial Seed Data: Streak Freeze Bank
+INSERT INTO streak_freezes (user_id, available_freezes, used_freezes) VALUES
+('00000000-0000-0000-0000-000000000002', 2, 0)
+ON CONFLICT (user_id) DO NOTHING;
+
+-- 28. Initial Seed Data: Timed Contests
+INSERT INTO timed_contests (contest_code, title, description, difficulty, category, start_time, duration_minutes) VALUES
+('WEEKLY-CONTEST-101', 'Distributed Consensus & Raft Challenge', 'Deep dive contest on Paxos, Raft leader election, log replication, and split-brain resolution under partition.', 'expert', 'distributed-storage', NOW() - INTERVAL '1 hour', 60),
+('WEEKLY-CONTEST-102', 'High-Throughput Linux Kernel & eBPF Sprint', 'Profiling XDP packet steering, ring buffers, memory maps, and kernel bypass zero-copy networking.', 'advanced', 'linux-kernel-ebpf', NOW() + INTERVAL '2 hours', 45),
+('WEEKLY-CONTEST-103', 'Algorithms: Graph & Dynamic Programming Sprint', 'Competitive algorithms contest covering Bellman-Ford, Tarjan SCC, bitmask DP, and max-flow min-cut.', 'intermediate', 'algorithms', NOW() + INTERVAL '1 day', 90)
+ON CONFLICT (contest_code) DO NOTHING;
+
 
 

@@ -31,6 +31,22 @@ services:
       retries: 3
       start_period: 15s
 
+  # In-Memory Cache & Distributed Limiter (Redis)
+  redis:
+    image: redis:7.2-alpine
+    container_name: interview-guide-redis-staging
+    restart: always
+    command: ["redis-server", "--appendonly", "no"]
+    ports:
+      - "${REDIS_PORT:-9378}:6379"
+    networks:
+      - staging-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
   prometheus:
     image: prom/prometheus:v2.50.1
     container_name: interview-guide-prometheus-staging

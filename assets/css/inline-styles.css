@@ -2539,4 +2539,18 @@ body.theme-light .search-result-title {
     color: #0284c7 !important;
     text-decoration: none !important;
   }
+
+  details {
+    display: block !important;
+  }
+
+  details > * {
+    display: block !important;
+  }
+
+  summary {
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+  }
 }
+

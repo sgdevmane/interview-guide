@@ -190,6 +190,14 @@ pub async fn get_company_tracks(
     tag = "Gamification"
 )]
 pub async fn get_leaderboard() -> impl IntoResponse {
+    if let Some(pool) = crate::db::get_global_pool() {
+        if let Ok(entries) = crate::db::fetch_leaderboard_db(pool).await {
+            if !entries.is_empty() {
+                return Json(entries);
+            }
+        }
+    }
+
     let now = Utc::now();
     let sample_board = vec![
         LeaderboardEntry {

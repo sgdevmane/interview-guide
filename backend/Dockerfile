@@ -23,10 +23,10 @@ COPY --from=builder /usr/src/app/target/release/interview-guide-backend /app/ser
 COPY markdowns /app/markdowns
 
 ENV MARKDOWNS_DIR=/app/markdowns
-ENV PORT=3000
-EXPOSE 3000
+ENV PORT=8080
+EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
-  CMD wget -q --spider http://localhost:3000/health || exit 1
+  CMD wget -q --spider http://localhost:8080/health || exit 1
 
 CMD ["/app/server"]

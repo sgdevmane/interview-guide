@@ -32,7 +32,6 @@ pub struct SearchResult {
 
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct BookmarkRequest {
-    pub user_id: Option<String>,
     pub category_id: String,
     pub question_number: i32,
 }
@@ -47,7 +46,6 @@ pub struct BookmarkItem {
 
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
 pub struct NoteRequest {
-    pub user_id: Option<String>,
     pub category_id: String,
     pub question_number: i32,
     pub note_content: String,
@@ -60,6 +58,40 @@ pub struct NoteItem {
     pub question_number: i32,
     pub note_content: String,
     pub updated_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Authentication
+// ==============================================================================
+#[derive(Debug, Clone, Deserialize, ToSchema)]
+pub struct RegisterRequest {
+    pub email: String,
+    pub password: String,
+    pub full_name: String,
+}
+
+#[derive(Debug, Clone, Deserialize, ToSchema)]
+pub struct LoginRequest {
+    pub email: String,
+    pub password: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct UserProfile {
+    pub id: String,
+    pub email: String,
+    pub full_name: Option<String>,
+    pub role: String,
+    pub created_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct AuthResponse {
+    pub access_token: String,
+    pub token_type: String,
+    /// Access token lifetime in seconds. Refresh via `POST /api/auth/refresh` (HTTP-only cookie).
+    pub expires_in: i64,
+    pub user: UserProfile,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
@@ -400,5 +432,210 @@ pub struct StreakFreezeResponse {
     pub success: bool,
     pub message: String,
 }
+
+// ==============================================================================
+// WebAuthn / Passkey Models (Item #39)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PasskeyRegisterStartResponse {
+    pub challenge_id: String,
+    pub public_key_credential_creation_options: serde_json::Value,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PasskeyRegisterFinishRequest {
+    pub challenge_id: String,
+    pub credential: serde_json::Value,
+    pub nickname: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PasskeyLoginStartRequest {
+    pub email: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PasskeyLoginStartResponse {
+    pub challenge_id: String,
+    pub public_key_credential_request_options: serde_json::Value,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PasskeyLoginFinishRequest {
+    pub challenge_id: String,
+    pub credential: serde_json::Value,
+}
+
+// ==============================================================================
+// Append-Only Tamper-Evident Audit Ledger Models (Item #44)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct AuditVerificationResponse {
+    pub is_valid: bool,
+    pub total_records: i64,
+    pub broken_sequence_id: Option<i64>,
+    pub message: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct AuditEventItem {
+    pub sequence_id: i64,
+    pub event_type: String,
+    pub actor_id: Option<String>,
+    pub target_id: Option<String>,
+    pub payload_json: serde_json::Value,
+    pub prev_hash: String,
+    pub curr_hash: String,
+    pub created_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// SM-18 Spaced Repetition Models (Item #11)
+// ==============================================================================
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct Sm18ReviewResponse {
+    pub category_id: String,
+    pub question_number: i32,
+    pub repetition: u32,
+    pub interval_days: u32,
+    pub stability: f32,
+    pub retrievability: f32,
+    pub difficulty: f32,
+    pub next_review_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Item Response Theory (IRT) Adaptive Difficulty Models (Item #37)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct IrtAdaptiveQuestionResponse {
+    pub category_id: String,
+    pub question_number: i32,
+    pub user_theta_ability: f32,
+    pub question_difficulty_beta: f32,
+    pub discrimination_alpha: f32,
+    pub title: String,
+    pub target_competency: String,
+}
+
+// ==============================================================================
+// Shareable Custom Decks Models (Item #14)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct ShareDeckRequest {
+    pub title: String,
+    pub description: Option<String>,
+    pub category_id: Option<String>,
+    pub question_ids: Vec<String>,
+    pub is_public: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct ShareDeckResponse {
+    pub deck_id: String,
+    pub title: String,
+    pub share_code: String,
+    pub question_count: usize,
+    pub share_url: String,
+    pub created_at: DateTime<Utc>,
+}
+
+// ==============================================================================
+// Web Push Subscription Models (Item #15)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PushSubscriptionRequest {
+    pub endpoint: String,
+    pub p256dh: String,
+    pub auth: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PushSubscriptionResponse {
+    pub id: String,
+    pub endpoint: String,
+    pub created_at: DateTime<Utc>,
+    pub message: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PushNotificationTestRequest {
+    pub title: Option<String>,
+    pub body: Option<String>,
+    pub url: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct PushNotificationTestResponse {
+    pub success: bool,
+    pub dispatched_count: usize,
+    pub message: String,
+}
+
+// ==============================================================================
+// Timed Contests Models (Item #12)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct TimedContestItem {
+    pub id: String,
+    pub contest_code: String,
+    pub title: String,
+    pub description: Option<String>,
+    pub difficulty: String,
+    pub category: Option<String>,
+    pub start_time: DateTime<Utc>,
+    pub duration_minutes: i32,
+    pub participant_count: i64,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct JoinContestRequest {
+    pub contest_code: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct SubmitContestRequest {
+    pub contest_code: String,
+    pub score: i32,
+    pub time_taken_seconds: i32,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct ContestParticipantResponse {
+    pub contest_id: String,
+    pub contest_code: String,
+    pub user_id: String,
+    pub score: i32,
+    pub time_taken_seconds: i32,
+    pub rank: i64,
+    pub finished: bool,
+}
+
+// ==============================================================================
+// Platform Webhook Models (Item #13)
+// ==============================================================================
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateWebhookRequest {
+    pub service_name: String,
+    pub webhook_url: String,
+    pub events_subscribed: Option<Vec<String>>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct WebhookItemResponse {
+    pub id: String,
+    pub service_name: String,
+    pub webhook_url: String,
+    pub events_subscribed: Vec<String>,
+    pub is_active: bool,
+    pub created_at: DateTime<Utc>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct TestWebhookRequest {
+    pub webhook_id: String,
+}
+
 
 

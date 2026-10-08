@@ -9,6 +9,7 @@
     />
     <meta name="theme-color" content="#e53935" />
     <title>Tech Interview Guide</title>
+    <base href="/" />
 
     <!-- PWA Support & Icons -->
     <link rel="manifest" href="manifest.json" />
@@ -114,7 +115,7 @@
       <article id="desktop-sidebar">
         <nav class="sidebar" id="sidebar">
           <a href="index.html" class="sidebar-brand" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.2); text-decoration: none; color: white;">
-            <img src="assets/icons/interview_guide_logo.png" style="width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);" alt="Logo" />
+            <img src="/assets/icons/interview_guide_logo.png" style="width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);" alt="Logo" />
             <h1 style="font-size: 1.35rem; margin: 0; padding: 0; border: none; font-weight: 800; letter-spacing: -0.02em;">Interview Guide</h1>
           </a>
 
@@ -825,6 +826,18 @@
           <button class="action-pill-btn" onclick="window.ThemeEngine.cycleTheme()">
             🎨 Theme: <span id="currentThemeIndicator">Dark</span>
           </button>
+          <button class="action-pill-btn" onclick="window.StarStoryBuilder.open()">
+            🌟 STAR Story Builder <span class="kbd-shortcut">s</span>
+          </button>
+          <button class="action-pill-btn" onclick="window.PushNotificationManager.subscribe()">
+            🔔 Daily Review Push Alerts
+          </button>
+          <button class="action-pill-btn" onclick="window.WebAuthnClient.registerPasskey(prompt('Enter a nickname for your Passkey:', 'MacBook Touch ID'))">
+            🔑 Register Passkey / Touch ID
+          </button>
+          <button class="action-pill-btn" onclick="window.ShortcutModal.toggle()">
+            ⌨️ Shortcuts <span class="kbd-shortcut">?</span>
+          </button>
         </div>
 
         <!-- Curated Quick Preset Filters -->
@@ -1020,6 +1033,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
     <!-- Main Application Script & Confetti -->
+    <script src="assets/js/auth-client.js"></script>
     <script src="assets/js/confetti.js"></script>
     <script src="assets/js/app-main.js"></script>
     <script src="assets/js/platform-features.js"></script>

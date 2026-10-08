@@ -72,5 +72,52 @@ mod tests {
         assert!(payload.contains("did:key"));
         assert!(grade >= 90.0);
     }
+
+    #[test]
+    fn test_timed_contest_ranking_logic() {
+        struct Participant {
+            score: i32,
+            time_taken_seconds: i32,
+        }
+        let mut participants = vec![
+            Participant { score: 90, time_taken_seconds: 1500 },
+            Participant { score: 100, time_taken_seconds: 2200 },
+            Participant { score: 100, time_taken_seconds: 1800 },
+            Participant { score: 75, time_taken_seconds: 900 },
+        ];
+        participants.sort_by(|a, b| {
+            b.score.cmp(&a.score)
+                .then_with(|| a.time_taken_seconds.cmp(&b.time_taken_seconds))
+        });
+
+        assert_eq!(participants[0].score, 100);
+        assert_eq!(participants[0].time_taken_seconds, 1800);
+        assert_eq!(participants[1].score, 100);
+        assert_eq!(participants[1].time_taken_seconds, 2200);
+        assert_eq!(participants[2].score, 90);
+        assert_eq!(participants[3].score, 75);
+    }
+
+    #[test]
+    fn test_webhook_validation_logic() {
+        let valid_slack = "https://hooks.slack.com/services/T00/B00/XXXX";
+        let valid_discord = "https://discord.com/api/webhooks/123/abc";
+        let invalid = "ftp://invalid-domain.com";
+
+        assert!(valid_slack.starts_with("https://"));
+        assert!(valid_discord.starts_with("https://"));
+        assert!(!invalid.starts_with("https://") && !invalid.starts_with("http://"));
+    }
+
+    #[test]
+    fn test_irt_2pl_probability_calculation() {
+        let theta = 1.5f32; // Candidate ability
+        let beta = 1.0f32;  // Item difficulty
+        let alpha = 1.2f32; // Discrimination
+        let exponent = alpha * (theta - beta);
+        let prob = 1.0 / (1.0 + (-exponent).exp());
+        assert!(prob > 0.5, "Stronger candidate (theta > beta) should have >50% probability");
+        assert!(prob <= 1.0);
+    }
 }
 

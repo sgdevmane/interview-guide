@@ -7,6 +7,154 @@
   },
   "item": [
     {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register New User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"candidate@interviewguide.internal\",\n  \"password\": \"SecurePass2026!\",\n  \"full_name\": \"Jane Doe\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"candidate@interviewguide.internal\",\n  \"password\": \"SecurePass2026!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Access Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/refresh",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "refresh"]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Logout Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "logout"]
+            }
+          }
+        },
+        {
+          "name": "Start Passkey Registration",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/webauthn/register/start",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "webauthn", "register", "start"]
+            }
+          }
+        },
+        {
+          "name": "Finish Passkey Registration",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"challenge_id\": \"{{challengeId}}\",\n  \"credential\": {},\n  \"nickname\": \"TouchID\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/webauthn/register/finish",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "webauthn", "register", "finish"]
+            }
+          }
+        },
+        {
+          "name": "Start Passkey Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"candidate@interviewguide.internal\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/webauthn/login/start",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "webauthn", "login", "start"]
+            }
+          }
+        },
+        {
+          "name": "Finish Passkey Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"challenge_id\": \"{{challengeId}}\",\n  \"credential\": {}\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/webauthn/login/finish",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "webauthn", "login", "finish"]
+            }
+          }
+        }
+      ]
+    },
+    {
       "name": "Categories",
       "item": [
         {
@@ -495,6 +643,256 @@
               "raw": "{{baseUrl}}/notes",
               "host": ["{{baseUrl}}"],
               "path": ["notes"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Audit Ledger",
+      "item": [
+        {
+          "name": "Verify Audit Ledger Cryptographic Hash Chain",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/audit/verify",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit", "verify"]
+            }
+          }
+        },
+        {
+          "name": "List Audit Ledger Events (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit/events?limit=50",
+              "host": ["{{baseUrl}}"],
+              "path": ["audit", "events"],
+              "query": [{ "key": "limit", "value": "50" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Learning Core & Adaptive",
+      "item": [
+        {
+          "name": "Submit SM-18 Spaced Review (Per User)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": \"database\",\n  \"question_number\": 1,\n  \"grade\": 4\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/study/sm18/review",
+              "host": ["{{baseUrl}}"],
+              "path": ["study", "sm18", "review"]
+            }
+          }
+        },
+        {
+          "name": "Get Next IRT Adaptive Recommended Question",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/study/adaptive-next?category_id=database",
+              "host": ["{{baseUrl}}"],
+              "path": ["study", "adaptive-next"],
+              "query": [{ "key": "category_id", "value": "database" }]
+            }
+          }
+        },
+        {
+          "name": "Share Custom Deck",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{jwtToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Principal Systems Architecture Deck\",\n  \"description\": \"Must-know distributed systems questions\",\n  \"category_id\": \"distributed-systems\",\n  \"question_ids\": [\"1\", \"5\", \"12\", \"25\"],\n  \"is_public\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/decks/share",
+              "host": ["{{baseUrl}}"],
+              "path": ["decks", "share"]
+            }
+          }
+        },
+        {
+          "name": "Get Shared Deck by Public Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/decks/shared/a1b2c3d4",
+              "host": ["{{baseUrl}}"],
+              "path": ["decks", "shared", "a1b2c3d4"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Web Push Notifications",
+      "item": [
+        {
+          "name": "Subscribe to Push Alerts",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"endpoint\": \"https://fcm.googleapis.com/fcm/send/sample-token\",\n  \"p256dh\": \"BNcRdreALRFXTkOOUHK18m21GtH10U5E3z8808h0i82...\",\n  \"auth\": \"tBHItTCqVAWNZ2GW1...\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notifications/subscribe",
+              "host": ["{{baseUrl}}"],
+              "path": ["notifications", "subscribe"]
+            }
+          }
+        },
+        {
+          "name": "Trigger Test Push Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Daily SM-18 Spaced Review\",\n  \"body\": \"5 questions are ready for review\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notifications/test",
+              "host": ["{{baseUrl}}"],
+              "path": ["notifications", "test"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Platform Webhooks",
+      "item": [
+        {
+          "name": "List Webhooks",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": ["{{baseUrl}}"],
+              "path": ["webhooks"]
+            }
+          }
+        },
+        {
+          "name": "Create Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"service_name\": \"slack\",\n  \"webhook_url\": \"https://hooks.slack.com/services/T00/B00/XXXX\",\n  \"events_subscribed\": [\"contest_completed\", \"streak_milestone\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": ["{{baseUrl}}"],
+              "path": ["webhooks"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Timed Contests",
+      "item": [
+        {
+          "name": "List All Contests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/contests",
+              "host": ["{{baseUrl}}"],
+              "path": ["contests"]
+            }
+          }
+        },
+        {
+          "name": "Join Contest",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contest_code\": \"WEEKLY-CONTEST-101\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contests/join",
+              "host": ["{{baseUrl}}"],
+              "path": ["contests", "join"]
+            }
+          }
+        },
+        {
+          "name": "Submit Contest Score",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contest_code\": \"WEEKLY-CONTEST-101\",\n  \"score\": 95,\n  \"time_taken_seconds\": 1840\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/contests/submit",
+              "host": ["{{baseUrl}}"],
+              "path": ["contests", "submit"]
+            }
+          }
+        },
+        {
+          "name": "Contest Leaderboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/contests/WEEKLY-CONTEST-101/leaderboard",
+              "host": ["{{baseUrl}}"],
+              "path": ["contests", "WEEKLY-CONTEST-101", "leaderboard"]
             }
           }
         }

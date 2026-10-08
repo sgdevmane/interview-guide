@@ -823,20 +823,44 @@
             
             if (!isValid) return;
             
-            // Simulate signup process
+            // Real registration API call
             signupButton.textContent = 'Creating Account...';
             signupButton.disabled = true;
             
             try {
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 2500));
-                
-                showMessage(successMessage, 'Account created successfully! Redirecting to login...');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 2000);
+                const fullName = `${data.firstName.trim()} ${data.lastName.trim()}`.trim();
+                const res = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: data.email.trim(),
+                        password: data.password,
+                        full_name: fullName
+                    })
+                });
+
+                const respData = await res.json();
+                if (!res.ok) {
+                    throw new Error(respData.error || 'Registration failed. Please check your details.');
+                }
+
+                if (respData.access_token) {
+                    localStorage.setItem('ig_token', respData.access_token);
+                    if (respData.user) {
+                        localStorage.setItem('ig_user', JSON.stringify(respData.user));
+                    }
+                    showMessage(successMessage, `Account created for ${respData.user?.full_name || fullName}! Redirecting...`);
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 800);
+                } else {
+                    showMessage(successMessage, 'Account created successfully! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 800);
+                }
             } catch (error) {
-                showMessage(errorMessage, 'Failed to create account. Please try again.');
+                showMessage(errorMessage, error.message || 'Failed to create account. Please try again.');
             } finally {
                 signupButton.textContent = 'Create Account';
                 signupButton.disabled = false;

@@ -7,4 +7,10 @@ pub mod bookmarks;
 pub mod notes;
 pub mod gamification;
 pub mod enterprise;
+pub mod auth;
+pub mod webauthn;
+pub mod audit;
+pub mod learning;
+pub mod notifications;
+pub mod contests;
 

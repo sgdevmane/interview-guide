@@ -186,6 +186,7 @@ A fast, interactive command-line tool for developers who prefer practicing direc
 
 Built with **Rust**, **Axum**, **Tokio**, and **SQLx**:
 - **Token-Bucket Rate Limiter**: Native middleware protecting all endpoints against request flooding.
+- **JWT & HTTP-Only Session Auth**: Production-ready bcrypt (cost 12), rotatable refresh tokens (`refresh_tokens` table), token reuse detection, brute-force lockout, and `AuthUser` extractor.
 - **Inverted Search Index**: Sub-millisecond search across 5,651 questions.
 - **Embedded Swagger UI**: Interactive API documentation at `http://localhost:9443/swagger-ui` (in prod) or `http://localhost:8080/swagger-ui` (direct).
 - **Prometheus Metrics**: High-throughput telemetry exported at `http://localhost:9443/metrics`.
@@ -193,38 +194,61 @@ Built with **Rust**, **Axum**, **Tokio**, and **SQLx**:
 
 ---
 
-## 🗄️ Database Schema (`init.sql`)
+## 🗄️ Database Schema & Configuration (`init.sql`)
 
-We utilize a **remote PostgreSQL server** via the `DATABASE_URL` parameter in `.env.production` and `.env.staging` (no local PostgreSQL container is provisioned). When setting up a fresh database, run `init.sql`:
+We utilize a **remote PostgreSQL server** via the `DATABASE_URL` parameter stored across `.env`, `.env.production`, `.env.staging`, and `.env.local` (no local PostgreSQL container is provisioned).
 
+### Database Credentials & Connection Configuration
+All Docker builds and backend processes read credentials from the **gitignored** `.env` / `.env.production` / `.env.staging` / `.env.local` files. Copy the template on a new server and fill in the real values (never commit them):
 ```bash
-psql $DATABASE_URL -f init.sql
+cp .env.example .env.production   # then edit DB_* and DATABASE_URL
+
+# Expected shape:
+DATABASE_URL=postgresql://<DB_USER>:<DB_PASSWORD>@<DB_HOST>:<DB_PORT>/<DB_NAME>?sslmode=<DB_SSLMODE>
 ```
 
-Relational structures created and maintained by `init.sql` (23 Tables in total):
-1. `users`: Platform authentication, RBAC roles (`candidate`, `interviewer`, `admin`), email verification.
+When setting up a fresh database on any new server, run:
+```bash
+# 1. Execute schema and initial seeds
+psql "$DATABASE_URL" -f init.sql
+
+# 2. Populate all 5,551 verified interview questions
+psql "$DATABASE_URL" -f scripts/populate_questions.sql
+```
+
+Relational structures created and maintained by `init.sql` (31 Tables in total):
+1. `users`: Platform authentication, RBAC roles (`user`, `admin`, `editor`), bcrypt password hashes.
 2. `categories`: Metadata and total question counters for all 55 categories.
-3. `questions`: Question numbers, categories, difficulty levels, strategies, and code examples.
-4. `user_bookmarks`: Bookmarked questions per user.
+3. `questions`: Question numbers, categories, difficulty levels, strategies, answers, and code examples.
+4. `user_bookmarks`: Bookmarked questions per user with relational integrity to `questions`.
 5. `user_question_notes`: User-specific study notes on questions.
-6. `user_study_progress`: Leitner spaced-repetition progress (`unseen`, `learning`, `mastered`, `needs_review`).
-7. `spaced_repetition_sm2`: SuperMemo SM-2 interval parameters (repetition count, ease factor, interval days).
+6. `user_study_progress`: SM-18 Spaced Repetition progress (`stability`, `retrievability`, `difficulty`, `next_review_at`, Leitner buckets).
+7. `search_telemetry`: Platform search query logs, execution durations, and hit counts.
 8. `mock_quizzes`: User assessment sessions, scores, and timestamps.
 9. `code_playground_submissions`: Sandboxed code execution history.
 10. `user_streaks`: Daily challenge streaks, longest streak record, and Elo skill ratings.
 11. `user_badges`: Unlocked achievement badges and milestone awards.
 12. `company_tracks`: Curated target company interview roadmaps (FAANG, HFT, Startups).
 13. `candidate_certificates`: Cryptographically signed candidate competency certificates with SHA-256 signatures.
-14. `recruiter_assessments`: B2B recruiter candidate screening assessment links, timers, and question subsets.
+14. `recruiter_assessments`: B2B recruiter candidate screening assessment links, tokens, and durations.
 15. `recruiter_submissions`: Candidate assessment results, duration, and anti-cheat blur telemetry.
 16. `assessment_audit_logs`: Proctoring audit trail (tab switches, full-screen exits, devtools telemetry).
 17. `ats_integrations`: Outbound webhooks to ATS platforms (Greenhouse, Lever, Ashby).
 18. `leaderboard_entries`: Global competency leaderboard, tiers, Elo ratings, and match statistics.
 19. `coding_battles`: Real-time 1v1 P2P peer coding battle states and outcome records.
-20. `custom_decks`: User-curated custom flashcard decks with JSONB question sets.
+20. `custom_decks`: User-curated custom flashcard decks with JSONB question sets and share codes.
 21. `keystroke_fingerprints`: Biometric keystroke dynamics (dwell time, flight time, typing entropy).
 22. `verifiable_credentials`: W3C-compatible decentralized identifier (DID) signed credentials.
 23. `streak_freezes`: Daily streak freeze bank and protection ledger.
+24. `refresh_tokens`: Hashed, rotatable refresh token ledger with token reuse protection.
+25. `platform_audit_ledger`: Cryptographic SHA-256 hash-chaining audit ledger with deterministic tampering detection.
+26. `webauthn_credentials`: FIDO2 / WebAuthn passkey hardware credentials (Touch ID, Face ID, YubiKey).
+27. `webauthn_challenges`: Transient WebAuthn challenge and session states with expiration TTL.
+28. `push_subscriptions`: Web Push notification endpoints for daily spaced repetition review alerts.
+29. `timed_contests`: Competitive scheduled challenges, duration, and difficulty ratings.
+30. `contest_participants`: Contest scoring, elapsed seconds, completion timestamps, and leaderboard ranks.
+31. `platform_webhooks`: Discord and Slack outbound webhook notifications for streak milestones and contests.
+
 
 ---
 

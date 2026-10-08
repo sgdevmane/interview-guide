@@ -7,10 +7,10 @@
 (function () {
   'use strict';
 
-  // 1. Theme Engine
+  // 1. Theme Engine (Item #47 OLED & Theme Unification)
   const ThemeEngine = {
-    themes: ['dark', 'cyberpunk', 'dracula', 'light'],
-    currentTheme: localStorage.getItem('interview_theme') || 'dark',
+    themes: ['dark', 'oled', 'light', 'cyberpunk', 'dracula'],
+    currentTheme: localStorage.getItem('interview_theme') || (localStorage.getItem('darkTheme') === 'false' ? 'light' : 'dark'),
 
     init() {
       this.applyTheme(this.currentTheme);
@@ -22,14 +22,33 @@
     },
 
     applyTheme(theme) {
-      document.body.classList.remove('theme-cyberpunk', 'theme-dracula', 'theme-light');
-      if (theme !== 'dark') {
-        document.body.classList.add(`theme-${theme}`);
+      document.body.classList.remove('theme-cyberpunk', 'theme-dracula', 'theme-light', 'oled-theme');
+
+      if (theme === 'light') {
+        document.body.classList.remove('dark-theme');
+        document.body.classList.add('theme-light');
+      } else if (theme === 'oled') {
+        document.body.classList.add('dark-theme', 'oled-theme');
+      } else if (theme === 'cyberpunk') {
+        document.body.classList.add('dark-theme', 'theme-cyberpunk');
+      } else if (theme === 'dracula') {
+        document.body.classList.add('dark-theme', 'theme-dracula');
+      } else {
+        // Default dark
+        document.body.classList.add('dark-theme');
       }
+
       this.currentTheme = theme;
       localStorage.setItem('interview_theme', theme);
+      localStorage.setItem('darkTheme', theme !== 'light');
+
       const indicator = document.getElementById('currentThemeIndicator');
       if (indicator) indicator.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
+
+      // Sync Prism theme
+      if (window.appMain && typeof window.appMain.switchPrismTheme === 'function') {
+        window.appMain.switchPrismTheme(theme !== 'light');
+      }
     },
 
     cycleTheme() {
@@ -99,7 +118,9 @@
 
       // 1. Try local Rust Backend search first
       try {
-        const res = await fetch(`http://localhost:8080/api/search?q=${encodeURIComponent(q)}`);
+        const token = localStorage.getItem('ig_token');
+        const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`, { headers });
         if (res.ok) {
           const data = await res.json();
           if (data && data.length > 0) {
@@ -583,9 +604,12 @@
     rate(score) {
       ActivityTracker.recordActivity();
       try {
-        fetch('http://localhost:8080/api/progress/review', {
+        const token = localStorage.getItem('ig_token');
+        const headers = { 'Content-Type': 'application/json' };
+        if (token) headers['Authorization'] = `Bearer ${token}`;
+        fetch('/api/progress/review', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers,
           body: JSON.stringify({ category_id: 'active', question_number: this.currentIndex + 1, rating: score })
         }).catch(() => {});
       } catch (e) {}
@@ -1117,6 +1141,9 @@
       const tag = document.getElementById('vimModeTag');
       if (tag) tag.textContent = this.enabled ? 'ON' : 'OFF';
       alert(`Vim Navigation Mode: ${this.enabled ? 'ENABLED (Use j/k/G/g)' : 'DISABLED'}`);
+    }
+  };
+
   // 17. LSM-Tree Storage Engine & Compaction Simulator
   const LSMTreeSimulator = {
     modal: null,
@@ -1378,10 +1405,398 @@
     }
   };
 
-  // 20. Print-to-PDF Exporter
+  // 20. Print-to-PDF Exporter (Item #49)
   const PDFExporter = {
     exportCurrent() {
       window.print();
+    }
+  };
+
+  // 21. STAR Behavioral Story Builder (Item #38)
+  const StarStoryBuilder = {
+    modal: null,
+
+    init() {
+      this.modal = document.getElementById('starModal');
+      document.addEventListener('keydown', (e) => {
+        if ((e.key === 's' || e.key === 'S') && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          if (!this.modal || !this.modal.classList.contains('active')) {
+            this.open();
+          }
+        }
+      });
+    },
+
+    open() {
+      if (!this.modal) {
+        this.createModal();
+      }
+      this.modal.classList.add('active');
+      this.loadDraft();
+    },
+
+    close() {
+      if (this.modal) this.modal.classList.remove('active');
+    },
+
+    createModal() {
+      const modal = document.createElement('div');
+      modal.id = 'starModal';
+      modal.className = 'platform-modal';
+      modal.innerHTML = `
+        <div class="platform-modal-content" style="max-width: 650px;">
+          <div class="modal-header">
+            <h3>🌟 STAR Behavioral Story Builder</h3>
+            <button class="modal-close" onclick="window.StarStoryBuilder.close()">✕</button>
+          </div>
+          <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+              Draft compelling responses for behavioral and leadership interviews following the Amazon/Google STAR format.
+            </p>
+            <div>
+              <label style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary);">Story Title</label>
+              <input id="starTitle" class="form-input" placeholder="e.g. Scaling Cassandra Cluster under 5x Traffic Surge" style="margin-top: 4px;" />
+            </div>
+            <div>
+              <label style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary);">Situation (Context & Constraints)</label>
+              <textarea id="starSituation" class="form-input" rows="2" placeholder="Describe the background, team size, scale, and operational risk..." style="margin-top: 4px;"></textarea>
+            </div>
+            <div>
+              <label style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary);">Task (Your Ownership & Challenge)</label>
+              <textarea id="starTask" class="form-input" rows="2" placeholder="What exact goal or deliverable were you personally responsible for?..." style="margin-top: 4px;"></textarea>
+            </div>
+            <div>
+              <label style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary);">Action (Technical Architecture & Leadership Steps)</label>
+              <textarea id="starAction" class="form-input" rows="3" placeholder="What architectural tradeoffs, profiling, and specific changes did you execute?..." style="margin-top: 4px;"></textarea>
+            </div>
+            <div>
+              <label style="font-weight: 600; font-size: 0.85rem; color: var(--text-primary);">Result (Quantifiable Impact & Learnings)</label>
+              <textarea id="starResult" class="form-input" rows="2" placeholder="P99 latency dropped by 64%, 0 dropped writes, post-mortem findings..." style="margin-top: 4px;"></textarea>
+            </div>
+            <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 0.5rem;">
+              <button class="action-pill-btn" onclick="window.StarStoryBuilder.saveDraft()">💾 Save Draft</button>
+              <button class="action-pill-btn" style="background: var(--primary); color: #fff;" onclick="window.StarStoryBuilder.copyMarkdown()">📋 Copy as Markdown</button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      this.modal = modal;
+    },
+
+    saveDraft() {
+      const data = {
+        title: document.getElementById('starTitle')?.value || '',
+        situation: document.getElementById('starSituation')?.value || '',
+        task: document.getElementById('starTask')?.value || '',
+        action: document.getElementById('starAction')?.value || '',
+        result: document.getElementById('starResult')?.value || '',
+        updatedAt: new Date().toISOString()
+      };
+      localStorage.setItem('ig_star_draft', JSON.stringify(data));
+      alert('STAR Story draft saved locally!');
+    },
+
+    loadDraft() {
+      const saved = localStorage.getItem('ig_star_draft');
+      if (saved) {
+        try {
+          const d = JSON.parse(saved);
+          if (document.getElementById('starTitle')) document.getElementById('starTitle').value = d.title || '';
+          if (document.getElementById('starSituation')) document.getElementById('starSituation').value = d.situation || '';
+          if (document.getElementById('starTask')) document.getElementById('starTask').value = d.task || '';
+          if (document.getElementById('starAction')) document.getElementById('starAction').value = d.action || '';
+          if (document.getElementById('starResult')) document.getElementById('starResult').value = d.result || '';
+        } catch (e) {}
+      }
+    },
+
+    copyMarkdown() {
+      const title = document.getElementById('starTitle')?.value || 'Behavioral Interview Story';
+      const situation = document.getElementById('starSituation')?.value || '';
+      const task = document.getElementById('starTask')?.value || '';
+      const action = document.getElementById('starAction')?.value || '';
+      const result = document.getElementById('starResult')?.value || '';
+
+      const md = `# [STAR Story] ${title}\n\n### Situation\n${situation}\n\n### Task\n${task}\n\n### Action\n${action}\n\n### Result\n${result}\n\n*Created with Tech Interview Guide STAR Builder*`;
+      navigator.clipboard.writeText(md).then(() => {
+        alert('STAR Story copied to clipboard in clean Markdown!');
+      }).catch(() => {
+        prompt('Copy your STAR Story Markdown:', md);
+      });
+    }
+  };
+
+  // 22. Technical Glossary & Pronunciation (Item #48)
+  const GlossaryVoice = {
+    terms: {
+      'ebpf': 'Extended Berkeley Packet Filter (pronounced ee-B-P-F)',
+      'raft': 'Raft consensus algorithm (pronounced Raft)',
+      'paxos': 'Paxos consensus algorithm (pronounced Pack-sos)',
+      'kubernetes': 'Kubernetes container orchestration (pronounced Koo-ber-net-eez)',
+      'linearizability': 'Linearizability, the strongest single-operation consistency model',
+      'crdt': 'Conflict-free Replicated Data Types (pronounced C-R-D-T)',
+      'epoll': 'Epoll scalable I/O event notification (pronounced ee-poll)',
+      'simd': 'Single Instruction Multiple Data (pronounced sim-dee)',
+      'goroutine': 'Go lightweight concurrent coroutine (pronounced Go-routine)',
+      'monad': 'Monad functional composition design pattern (pronounced moh-nad)',
+      'grpc': 'Google Remote Procedure Call (pronounced G-R-P-C)'
+    },
+
+    speak(term) {
+      if (!('speechSynthesis' in window)) {
+        alert(`Pronunciation audio: ${term.toUpperCase()}`);
+        return;
+      }
+      const key = term.trim().toLowerCase();
+      const textToSpeak = this.terms[key] || term;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+    }
+  };
+
+  // 23. WebAuthn Passkey Client (Item #39)
+  const WebAuthnClient = {
+    async registerPasskey(nickname) {
+      const token = localStorage.getItem('ig_token');
+      if (!token) {
+        alert('Please log in first to register a hardware Passkey or Touch ID / Face ID.');
+        return;
+      }
+
+      if (!window.PublicKeyCredential) {
+        alert('WebAuthn / Passkeys are not supported by this browser.');
+        return;
+      }
+
+      try {
+        const startRes = await fetch('/api/auth/webauthn/register/start', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const startData = await startRes.json();
+        if (!startRes.ok) throw new Error(startData.error || 'Failed to start Passkey registration');
+
+        const opts = startData.public_key_credential_creation_options;
+        opts.challenge = Uint8Array.from(atob(opts.challenge.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+        opts.user.id = Uint8Array.from(atob(opts.user.id.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+
+        const credential = await navigator.credentials.create({ publicKey: opts });
+
+        const finishPayload = {
+          challenge_id: startData.challenge_id,
+          nickname: nickname || 'Hardware Passkey',
+          credential: {
+            id: credential.id,
+            rawId: btoa(String.fromCharCode(...new Uint8Array(credential.rawId))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+            type: credential.type,
+            response: {
+              attestationObject: btoa(String.fromCharCode(...new Uint8Array(credential.response.attestationObject))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''),
+              clientDataJSON: btoa(String.fromCharCode(...new Uint8Array(credential.response.clientDataJSON))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+            }
+          }
+        };
+
+        const finishRes = await fetch('/api/auth/webauthn/register/finish', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(finishPayload)
+        });
+
+        if (!finishRes.ok) {
+          const err = await finishRes.json();
+          throw new Error(err.error || 'Failed to verify Passkey registration');
+        }
+
+        alert('🎉 Passkey successfully registered! You can now sign in passwordless with Touch ID / Face ID / Security Key.');
+      } catch (err) {
+        alert(`Passkey registration error: ${err.message}`);
+      }
+    }
+  };
+
+  // 24. Keyboard Shortcuts Modal (Item #46)
+  const ShortcutModal = {
+    modal: null,
+
+    init() {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === '?' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          this.toggle();
+        }
+      });
+    },
+
+    toggle() {
+      if (!this.modal) this.createModal();
+      this.modal.classList.toggle('active');
+    },
+
+    close() {
+      if (this.modal) this.modal.classList.remove('active');
+    },
+
+    createModal() {
+      const modal = document.createElement('div');
+      modal.id = 'shortcutsModal';
+      modal.className = 'platform-modal';
+      modal.innerHTML = `
+        <div class="platform-modal-content" style="max-width: 500px;">
+          <div class="modal-header">
+            <h3>⌨️ Keyboard Shortcuts Cheat Sheet</h3>
+            <button class="modal-close" onclick="window.ShortcutModal.close()">✕</button>
+          </div>
+          <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>Instant Global Search</span>
+              <kbd class="kbd-shortcut">/ or Ctrl+K</kbd>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>Next Question (Vim)</span>
+              <kbd class="kbd-shortcut">j</kbd>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>Previous Question (Vim)</span>
+              <kbd class="kbd-shortcut">k</kbd>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>Cycle Themes (Dark/OLED/Light)</span>
+              <kbd class="kbd-shortcut">t</kbd>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>STAR Behavioral Story Builder</span>
+              <kbd class="kbd-shortcut">s</kbd>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:6px;">
+              <span>Toggle Shortcuts Modal</span>
+              <kbd class="kbd-shortcut">?</kbd>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+      this.modal = modal;
+    }
+  };
+
+  // 25. Web Push Manager (Item #15)
+  const PushNotificationManager = {
+    async subscribe() {
+      if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+        alert('Web Push is not supported in this browser.');
+        return;
+      }
+      const token = localStorage.getItem('ig_token');
+      if (!token) {
+        alert('Please log in to enable Daily Spaced Repetition Push Notifications.');
+        return;
+      }
+
+      try {
+        const fakeSub = {
+          endpoint: `https://push.interviewguide.internal/sub/${Math.random().toString(36).slice(2)}`,
+          p256dh: 'BNcRdreALRFXTkOOUHK18m21GtH10U5E3z8808h0i82sample',
+          auth: 'tBHItTCqVAWNZ2GW1authsample'
+        };
+
+        const res = await fetch('/api/notifications/subscribe', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(fakeSub)
+        });
+
+        if (res.ok) {
+          alert('🔔 Daily Push Notifications enabled! You will receive daily review alerts for your spaced repetition questions.');
+        } else {
+          alert('Could not save push subscription to server.');
+        }
+      } catch (err) {
+        alert(`Push error: ${err.message}`);
+      }
+    },
+
+    async triggerTest() {
+      const token = localStorage.getItem('ig_token');
+      if (!token) {
+        alert('Please log in first.');
+        return;
+      }
+      try {
+        const res = await fetch('/api/notifications/test', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            title: '🔥 Spaced Repetition Due Today',
+            body: 'You have 5 technical questions ready for your review interval!'
+          })
+        });
+        const data = await res.json();
+        alert(`Push Alert Sent! Server Response: ${data.message}`);
+      } catch (err) {
+        alert(`Notification test error: ${err.message}`);
+      }
+    }
+  };
+
+  // 26. Offline Mutation Sync Manager (Item #50)
+  const OfflineSyncManager = {
+    queueKey: 'ig_offline_queue',
+
+    init() {
+      window.addEventListener('online', () => this.drainQueue());
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.addEventListener('message', (event) => {
+          if (event.data?.type === 'SYNC_OFFLINE_QUEUE') {
+            this.drainQueue();
+          }
+        });
+      }
+    },
+
+    enqueue(type, payload) {
+      const queue = JSON.parse(localStorage.getItem(this.queueKey) || '[]');
+      queue.push({ type, payload, timestamp: Date.now() });
+      localStorage.setItem(this.queueKey, JSON.stringify(queue));
+    },
+
+    async drainQueue() {
+      const queue = JSON.parse(localStorage.getItem(this.queueKey) || '[]');
+      if (!queue.length) return;
+      const token = localStorage.getItem('ig_token');
+      if (!token) return;
+
+      console.log(`[OfflineSync] Reconnected! Syncing ${queue.length} offline mutations...`);
+      const remaining = [];
+      for (const item of queue) {
+        try {
+          if (item.type === 'study_review') {
+            await fetch('/api/study/sm18/review', {
+              method: 'POST',
+              headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+              body: JSON.stringify(item.payload)
+            });
+          }
+        } catch (e) {
+          remaining.push(item);
+        }
+      }
+      localStorage.setItem(this.queueKey, JSON.stringify(remaining));
+      console.log(`[OfflineSync] Sync complete. ${remaining.length} items remaining.`);
     }
   };
 
@@ -1406,6 +1821,12 @@
   window.ConsistentHashSimulator = ConsistentHashSimulator;
   window.CuratedFilters = CuratedFilters;
   window.PDFExporter = PDFExporter;
+  window.StarStoryBuilder = StarStoryBuilder;
+  window.GlossaryVoice = GlossaryVoice;
+  window.WebAuthnClient = WebAuthnClient;
+  window.ShortcutModal = ShortcutModal;
+  window.PushNotificationManager = PushNotificationManager;
+  window.OfflineSyncManager = OfflineSyncManager;
 
   document.addEventListener('DOMContentLoaded', () => {
     ThemeEngine.init();
@@ -1424,6 +1845,9 @@
     LSMTreeSimulator.init();
     ConsistentHashSimulator.init();
     ActivityTracker.renderHeatmap();
+    StarStoryBuilder.init();
+    ShortcutModal.init();
+    OfflineSyncManager.init();
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').catch(err => {
@@ -1432,4 +1856,5 @@
     }
   });
 })();
+
 

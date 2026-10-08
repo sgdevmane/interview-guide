@@ -477,11 +477,12 @@ class InterviewGuideApp {
       });
 
       console.log("Parsing markdown content...");
-      // Normalize image paths so logos and assets resolve properly
+      // Normalize image paths so logos and assets resolve properly regardless of URL pathname
       let sanitizedContent = content
-        .replace(/https:\/\/raw\.githubusercontent\.com\/mctavish\/interview-guide\/main\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png')
-        .replace(/\.\.\/\.\.\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png')
-        .replace(/\.\.\/assets\/icons\/[^\s"')]+/g, 'assets/icons/interview_guide_logo.png');
+        .replace(/https:\/\/raw\.githubusercontent\.com\/mctavish\/interview-guide\/main\/assets\/icons\/[^\s"')]+/g, '/assets/icons/interview_guide_logo.png')
+        .replace(/\.\.\/\.\.\/assets\/icons\/[^\s"')]+/g, '/assets/icons/interview_guide_logo.png')
+        .replace(/\.\.\/assets\/icons\/[^\s"')]+/g, '/assets/icons/interview_guide_logo.png')
+        .replace(/(["'])\/?assets\/icons\/[^\s"')]+/g, '$1/assets/icons/interview_guide_logo.png');
 
       // Parse markdown
       const html = marked.parse(sanitizedContent);
@@ -495,7 +496,7 @@ class InterviewGuideApp {
         img.classList.add('topic-header-logo');
         img.onerror = function() {
           this.onerror = null;
-          this.src = 'assets/icons/interview_guide_logo.png';
+          this.src = '/assets/icons/interview_guide_logo.png';
         };
       });
 
@@ -1538,6 +1539,11 @@ class InterviewGuideApp {
   }
 
   toggleTheme() {
+    if (window.ThemeEngine) {
+      window.ThemeEngine.cycleTheme();
+      this.isDarkTheme = document.body.classList.contains("dark-theme");
+      return;
+    }
     document.body.classList.toggle("dark-theme");
     this.isDarkTheme = document.body.classList.contains("dark-theme");
     localStorage.setItem("darkTheme", this.isDarkTheme);
@@ -2032,153 +2038,4 @@ document.addEventListener("DOMContentLoaded", initializeApp);
 // Fallback initialization after a delay
 setTimeout(initializeApp, 1000);
 
-// Add dark theme styles
-const darkThemeStyles = `
-            .dark-theme {
-                --background-color: #0d1117;
-                --surface-color: #161b22;
-                --text-primary: #e6edf3;
-                --text-secondary: #8b949e;
-                --border-color: #30363d;
-                background-color: #0d1117 !important;
-                color: #e6edf3 !important;
-            }
-            
-            .dark-theme .sidebar {
-                background: linear-gradient(180deg, #161b22 0%, #0d1117 100%) !important;
-                border-right: 1px solid #30363d !important;
-            }
-            
-            .dark-theme .main-content {
-                background-color: #0d1117 !important;
-            }
-            
-            .dark-theme .content-area {
-                background-color: #0d1117 !important;
-            }
-            
-            .dark-theme .nav-item {
-                color: #e6edf3 !important;
-            }
-            
-            .dark-theme .nav-item:hover {
-                background-color: rgba(255, 255, 255, 0.1) !important;
-            }
-            
-            .dark-theme .nav-item.active {
-                background-color: rgba(88, 166, 255, 0.15) !important;
-                color: #58a6ff !important;
-            }
-            
-            .dark-theme .search-container input,
-            .dark-theme .search-input {
-                background-color: #21262d !important;
-                border: 1px solid #30363d !important;
-                color: #e6edf3 !important;
-            }
-            
-            .dark-theme .search-container input::placeholder {
-                color: #7d8590 !important;
-            }
-            
-            .dark-theme .search-clear {
-                color: #8b949e !important;
-            }
-            
-            .dark-theme .search-clear:hover {
-                color: #58a6ff !important;
-                background-color: rgba(255, 255, 255, 0.1) !important;
-            }
-            
-            .dark-theme .toolbar button,
-            .dark-theme .control-center-toggle,
-            .dark-theme .control-btn {
-                background-color: #21262d !important;
-                color: #e6edf3 !important;
-                border: 1px solid #30363d !important;
-            }
-            
-            .dark-theme .toolbar button:hover,
-            .dark-theme .control-center-toggle:hover,
-            .dark-theme .control-btn:hover {
-                background-color: #30363d !important;
-                border-color: #58a6ff !important;
-            }
-            
-            .dark-theme .control-center-content {
-                background-color: #161b22 !important;
-                border: 1px solid #30363d !important;
-            }
-            
-            .dark-theme .markdown-content {
-                background-color: #0d1117 !important;
-                color: #e6edf3 !important;
-            }
-            
-            .dark-theme .markdown-content h1,
-            .dark-theme .markdown-content h2,
-            .dark-theme .markdown-content h3,
-            .dark-theme .markdown-content h4,
-            .dark-theme .markdown-content h5,
-            .dark-theme .markdown-content h6 {
-                color: #f0f6fc !important;
-            }
-            
-            .dark-theme .markdown-content blockquote {
-                background-color: #161b22 !important;
-                border-left: 4px solid #30363d !important;
-                color: #8b949e !important;
-            }
-            
-            .dark-theme .toc {
-                background-color: #161b22 !important;
-                border-color: #30363d !important;
-            }
-            
-            .dark-theme .markdown-content table {
-                background-color: #161b22 !important;
-            }
-            
-            .dark-theme .markdown-content th {
-                background-color: #21262d !important;
-                color: #f0f6fc !important;
-            }
-            
-            .dark-theme .markdown-content td {
-                border-color: #30363d !important;
-            }
-            
-            .dark-theme .markdown-content p code {
-                background-color: #161b22 !important;
-                color: #ff7b72 !important;
-            }
-            
-            .dark-theme .color-modal {
-                background-color: rgba(13, 17, 23, 0.8) !important;
-            }
-            
-            .dark-theme .color-modal-content {
-                background-color: #161b22 !important;
-                border: 1px solid #30363d !important;
-            }
-            
-            .dark-theme .fab-button {
-                background-color: #21262d !important;
-                color: #e6edf3 !important;
-                border: 1px solid #30363d !important;
-            }
-            
-            .dark-theme .fab-button:hover {
-                background-color: #30363d !important;
-            }
-            
-            .dark-theme .sticky-question {
-                background-color: #161b22 !important;
-                color: #e6edf3 !important;
-                border-bottom: 1px solid #30363d !important;
-            }
-        `;
 
-const styleSheet = document.createElement("style");
-styleSheet.textContent = darkThemeStyles;
-document.head.appendChild(styleSheet);
